@@ -60,6 +60,9 @@ void init( void )
   uint32_t ul ;
 
   // Set Systick to 1ms interval, common to all Cortex-M variants
+
+  SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;
+
   if ( SysTick_Config( SystemCoreClock / 1000 ) )
   {
     // Capture error
@@ -82,10 +85,11 @@ void init( void )
   PM->APBCMASK.reg |= PM_APBCMASK_ADC | PM_APBCMASK_DAC ;
 
   // Setup all pins (digital and analog) in INPUT mode (default is nothing)
-  for ( ul = 0 ; ul < NUM_DIGITAL_PINS ; ul++ )
-  {
-	  pinMode( ul, INPUT ) ;
-  }
+ //Adds high power for the moment
+  // for ( ul = 0 ; ul < NUM_DIGITAL_PINS ; ul++ )
+ // {
+//	  pinMode( ul, INPUT ) ;
+//  }
 
   // Initialize Analog Controller
   // Setting clock
