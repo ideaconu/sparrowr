@@ -129,7 +129,7 @@ static const uint8_t ATN = PIN_ATN;
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 1
+#define SPI_INTERFACES_COUNT 2
 
 #define PIN_SPI_MISO         (22u)
 #define PIN_SPI_MOSI         (23u)
@@ -142,6 +142,32 @@ static const uint8_t SS	  = PIN_A2 ;	// SERCOM4 last PAD is present on A2 but HW
 static const uint8_t MOSI = PIN_SPI_MOSI ;
 static const uint8_t MISO = PIN_SPI_MISO ;
 static const uint8_t SCK  = PIN_SPI_SCK ;
+
+/*
+ * RF internal SPI
+ */
+#define PIN_SPI1_MISO         (44u)
+#define PIN_SPI1_MOSI         (45u)
+#define PIN_SPI1_SCK          (46u)
+#define PERIPH_SPI1           sercom4
+#define PAD_SPI1_TX           SPI_PAD_2_SCK_3
+#define PAD_SPI1_RX           SERCOM_RX_PAD_0
+
+/*
+ * RF Signal Pinout
+ */
+
+#define RF_IRQ         (47u)
+#define RF_RESET       (50u)
+#define RF_SLP_TR      (49u)
+#define RF_SEL         (48u)
+
+#define RF_DIG1        (53u)
+#define RF_DIG2        (54u)
+#define RF_DIG3        (51u)
+#define RF_DIG4        (52u)
+#define RF_CLKM        (55u)
+
 
 /*
  * Wire Interfaces
