@@ -203,9 +203,9 @@ void SystemInit( void )
    * There values are normally the one present after Reset.
    */
   PM->CPUSEL.reg  = PM_CPUSEL_CPUDIV_DIV1 ;
-  PM->APBASEL.reg = PM_APBASEL_APBADIV_DIV1_Val ;
-  PM->APBBSEL.reg = PM_APBBSEL_APBBDIV_DIV1_Val ;
-  PM->APBCSEL.reg = PM_APBCSEL_APBCDIV_DIV1_Val ;
+  PM->APBASEL.reg = PM_APBASEL_APBADIV_DIV4_Val ;
+  PM->APBBSEL.reg = PM_APBBSEL_APBBDIV_DIV4_Val ;
+  PM->APBCSEL.reg = PM_APBCSEL_APBCDIV_DIV4_Val ;
 
   SystemCoreClock=VARIANT_MCK ;
 

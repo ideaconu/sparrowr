@@ -90,7 +90,6 @@ void init( void )
  // {
 //	  pinMode( ul, INPUT ) ;
 //  }
-
   // Initialize Analog Controller
   // Setting clock
   while(GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY);
