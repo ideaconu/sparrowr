@@ -49,7 +49,14 @@ static void syncTCC(Tcc* TCCx) {
 void analogReadResolution( int res )
 {
   _readResolution = res ;
-  if (res > 10)
+  ADC->AVGCTRL.bit.SAMPLENUM = ADC_AVGCTRL_SAMPLENUM_1;
+  if (res > 12)
+  {
+    ADC->AVGCTRL.bit.SAMPLENUM = ADC_AVGCTRL_SAMPLENUM_256;
+    ADC->CTRLB.bit.RESSEL = ADC_CTRLB_RESSEL_16BIT_Val;
+    _ADCResolution = 16;
+  }
+  else if (res > 10)
   {
     ADC->CTRLB.bit.RESSEL = ADC_CTRLB_RESSEL_12BIT_Val;
     _ADCResolution = 12;
