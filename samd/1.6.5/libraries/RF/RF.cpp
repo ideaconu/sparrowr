@@ -61,13 +61,13 @@ int RF::init()
     /* setup GPIOs */
     pinMode(reset_pin, OUTPUT);
     pinMode(sleep_pin, OUTPUT);
-    pinMode(int_pin, INPUT);
+    pinMode(int_pin, INPUT_PULLDOWN);
     pinMode(cs_pin, OUTPUT);
-    //pinMode(RF_DIG1, INPUT);
-    //pinMode(RF_DIG2, INPUT);
-    //pinMode(RF_DIG3, INPUT);
-    //pinMode(RF_DIG4, INPUT);
-    //pinMode(RF_CLKM, INPUT);
+    //pinMode(RF_DIG1, INPUT_PULLDOWN);
+    //pinMode(RF_DIG2, INPUT_PULLDOWN);
+    //pinMode(RF_DIG3, INPUT_PULLDOWN);
+    //pinMode(RF_DIG4, INPUT_PULLDOWN);
+    //pinMode(RF_CLKM, INPUT_PULLDOWN);
 
     /* initialise SPI */
     //  Set up SPI
@@ -78,7 +78,7 @@ int RF::init()
     //SPI.setClockDivider(SPI_CLOCK_DIV8);
     //  Data is clocked on the rising edge and clock is low when inactive
     //SPI.setDataMode(SPI_MODE0);
-    SPI_TYPE.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));
+    SPI_TYPE.beginTransaction(SPISettings(7500000, MSBFIRST, SPI_MODE0));
 
     /*  wait for SPI to be ready  */
     delay(10);
@@ -87,7 +87,6 @@ int RF::init()
     digitalWrite(sleep_pin, LOW);
     digitalWrite(reset_pin, HIGH);
     digitalWrite(cs_pin, HIGH);
-    //digitalWrite(int_pin, LOW);
     attachInterrupt(digitalPinToInterrupt(int_pin), rf_irq_handler, RISING);
 
     /* make sure device is not sleeping, so we can query part number */
@@ -285,9 +284,5 @@ void RF::rx_read(uint8_t *data, size_t len, size_t offset)
      * The AT86RF231 does not return the PHR field and return
      * the first data byte at position 0.
      */
-#ifndef MODULE_AT86RF231
     sram_read(offset + 1, data, len);
-#else
-    sram_read(offset, data, len);
-#endif
 }

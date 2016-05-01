@@ -6,17 +6,20 @@ int received = 0;
 //RTCZero rtc; 
 
 void setup() { 
-  //USBDevice.detach();
-  //pmSetVoltage(1800);   
+  USBDevice.detach();
+  pmSetVoltage(1800);   
   sleepMode(SLEEP_STANDBY);
   //USBDevice.detach();
   //sleep();
   //SerialUSB.begin(9600);
   //SerialUSB.println("test"); 
-  //delay(10000); 
+  delay(100); 
   //rtc.begin();
+
+  
   RFDevice.init();
   sleep();
+  
   //RFDevice.set_chan(11); // set channel to 26
   //RFDevice.set_state(RF_STATE_SLEEP); 
   //RFDevice.set_state(RF_STATE_TRX_OFF);   

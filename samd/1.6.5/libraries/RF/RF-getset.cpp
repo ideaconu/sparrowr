@@ -23,53 +23,13 @@
 
 #include "RF.h"
 
-#ifdef MODULE_AT86RF212B
-/* See: Table 9-15. Recommended Mapping of TX Power, Frequency Band, and
- * PHY_TX_PWR (register 0x05), AT86RF212B data sheet. */
-static const uint8_t dbm_to_tx_pow_868[] = {0x1d, 0x1c, 0x1b, 0x1a, 0x19, 0x18,
-                                            0x17, 0x15, 0x14, 0x13, 0x12, 0x11,
-                                            0x10, 0x0f, 0x31, 0x30, 0x2f, 0x94,
-                                            0x93, 0x91, 0x90, 0x29, 0x49, 0x48,
-                                            0x47, 0xad, 0xcd, 0xcc, 0xcb, 0xea,
-                                            0xe9, 0xe8, 0xe7, 0xe6, 0xe4, 0x80,
-                                            0xa0};
-static const uint8_t dbm_to_tx_pow_915[] = {0x1d, 0x1c, 0x1b, 0x1a, 0x19, 0x17,
-                                            0x16, 0x15, 0x14, 0x13, 0x12, 0x11,
-                                            0x10, 0x0f, 0x0e, 0x0d, 0x0c, 0x0b,
-                                            0x09, 0x91, 0x08, 0x07, 0x05, 0x27,
-                                            0x04, 0x03, 0x02, 0x01, 0x00, 0x86,
-                                            0x40, 0x84, 0x83, 0x82, 0x80, 0xc1,
-                                            0xc0};
-int16_t tx_pow_to_dbm(rf_freq_t freq, uint8_t reg) {
-    for(int i = 0; i < 37; i++){
-        if(freq == RF_FREQ_868MHZ){
-            if (dbm_to_tx_pow_868[i] == reg) {
-                return i -25;
-            }
-        } else if (freq == RF_FREQ_915MHZ){
-            if (dbm_to_tx_pow_915[i] == reg) {
-                return i -25;
-            }
-        }
-    }
-    return 0;
-}
 
-#elif MODULE_AT86RF233
 static const int16_t tx_pow_to_dbm[] = {4, 4, 3, 3, 2, 2, 1,
                                         0, -1, -2, -3, -4, -6, -8, -12, -17};
 static const uint8_t dbm_to_tx_pow[] = {0x0f, 0x0f, 0x0f, 0x0e, 0x0e, 0x0e,
                                         0x0e, 0x0d, 0x0d, 0x0d, 0x0c, 0x0c,
                                         0x0b, 0x0b, 0x0a, 0x09, 0x08, 0x07,
                                         0x06, 0x05, 0x03,0x00};
-#else
-static const int16_t tx_pow_to_dbm[] = {3, 3, 2, 2, 1, 1, 0,
-                                        -1, -2, -3, -4, -5, -7, -9, -12, -17};
-static const uint8_t dbm_to_tx_pow[] = {0x0f, 0x0f, 0x0f, 0x0e, 0x0e, 0x0e,
-                                        0x0e, 0x0d, 0x0d, 0x0c, 0x0c, 0x0b,
-                                        0x0b, 0x0a, 0x09, 0x08, 0x07, 0x06,
-                                        0x05, 0x03, 0x00};
-#endif
 
 uint16_t RF::get_addr_short()
 {
@@ -124,49 +84,6 @@ void RF::set_chan(uint8_t channel)
     reg_write(RF_REG__PHY_CC_CCA, tmp);
 }
 
-#ifdef MODULE_AT86RF212B
-rf_freq_t RF::get_freq()
-{
-    return freq;
-}
-
-void RF::set_freq(rf_freq_t freq_)
-{
-    uint8_t trx_ctrl2 = 0, rf_ctrl0 = 0;
-    trx_ctrl2 = reg_read(RF_REG__TRX_CTRL_2);
-    trx_ctrl2 &= ~(RF_TRX_CTRL_2_MASK__FREQ_MODE);
-    rf_ctrl0 = reg_read(RF_REG__RF_CTRL_0);
-    /* Erase previous conf for GC_TX_OFFS */
-    rf_ctrl0 &= ~RF_RF_CTRL_0_MASK__GC_TX_OFFS;
-
-    trx_ctrl2 |= RF_TRX_CTRL_2_MASK__SUB_MODE;
-    rf_ctrl0 |= RF_RF_CTRL_0_GC_TX_OFFS__2DB;
-
-    switch(freq_) {
-        case RF_FREQ_915MHZ:
-            if (chan == 0) {
-                set_chan(RF_DEFAULT_CHANNEL);
-            } else {
-                set_chan(chan);
-            }
-            break;
-
-        case RF_FREQ_868MHZ:
-            /* Channel = 0 for 868MHz means 868.3MHz, only one available */
-            set_chan(0x00);
-            break;
-
-        default:
-            //DEBUG("at86rf2xx: Trying to set unknown frequency 0x%lx\n",
-            //    (unsigned long) freq);
-            return;
-    }
-    freq = freq_;
-    reg_write(RF_REG__TRX_CTRL_2, trx_ctrl2);
-    reg_write(RF_REG__RF_CTRL_0, rf_ctrl0);
-}
-#endif
-
 uint16_t RF::get_pan()
 {
     return pan;
@@ -182,52 +99,21 @@ void RF::set_pan(uint16_t pan_)
 
 int16_t RF::get_txpower()
 {
-#ifdef MODULE_AT86RF212B
-    uint8_t txpower = reg_read(RF_REG__PHY_TX_PWR);
-    //DEBUG("txpower value: %x\n", txpower);
-    return tx_pow_to_dbm(freq, txpower);
-#else
     uint8_t txpower = reg_read(RF_REG__PHY_TX_PWR) & RF_PHY_TX_PWR_MASK__TX_PWR;
     return tx_pow_to_dbm[txpower];
-#endif
 }
 
 void RF::set_txpower(int16_t txpower)
 {
-#ifdef MODULE_AT86RF212B
-    txpower += 25;
-#else
     txpower += 17;
-#endif
     if (txpower < 0) {
         txpower = 0;
-#ifdef MODULE_AT86RF212B
-    }
-    else if (txpower > 36) {
-        txpower = 36;
-#elif MODULE_AT86RF233
     }
     else if (txpower > 21) {
         txpower = 21;
-#else
     }
-    else if (txpower > 20) {
-        txpower = 20;
-#endif
-    }
-#ifdef MODULE_AT86RF212B
-    if (freq == RF_FREQ_915MHZ) {
-        reg_write(RF_REG__PHY_TX_PWR, dbm_to_tx_pow_915[txpower]);
-    }
-    else if (RFDevice.freq == RF_FREQ_868MHZ) {
-        reg_write(RF_REG__PHY_TX_PWR, dbm_to_tx_pow_868[txpower]);
-    }
-    else {
-        return;
-    }
-#else
+
     reg_write(RF_REG__PHY_TX_PWR, dbm_to_tx_pow[txpower]);
-#endif
 }
 
 uint8_t RF::get_max_retries()

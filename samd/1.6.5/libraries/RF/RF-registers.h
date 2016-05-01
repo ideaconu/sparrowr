@@ -39,19 +39,7 @@ extern "C" {
 #define AT86RF233_PARTNUM        (0x0b)
 /** @} */
 
-/**
- * @brief   Assign the part number for the device we are building the driver for
- * @{
- */
-#ifdef MODULE_AT86RF212B
-#define RF_PARTNUM           AT86RF212B_PARTNUM
-#elif MODULE_AT86RF232
-#define RF_PARTNUM           AT86RF232_PARTNUM
-#elif MODULE_AT86RF233
 #define RF_PARTNUM           AT86RF233_PARTNUM
-#else /* MODULE_AT86RF231 as default device */
-#define RF_PARTNUM           AT86RF231_PARTNUM
-#endif
 /** @} */
 
 /**
@@ -247,17 +235,7 @@ extern "C" {
  * @brief   Bitfield definitions for the PHY_TX_PWR register
  * @{
  */
-#ifdef MODULE_AT86RF212B
-#define RF_PHY_TX_PWR_MASK__PA_BOOST                     (0x80)
-#define RF_PHY_TX_PWR_MASK__GC_PA                        (0x60)
-#define RF_PHY_TX_PWR_MASK__TX_PWR                       (0x1F)
-#elif  MODULE_AT86RF231
-#define RF_PHY_TX_PWR_MASK__PA_BUF_LT                    (0xC0)
-#define RF_PHY_TX_PWR_MASK__PA_LT                        (0x30)
 #define RF_PHY_TX_PWR_MASK__TX_PWR                       (0x0F)
-#else
-#define RF_PHY_TX_PWR_MASK__TX_PWR                       (0x0F)
-#endif
 #define RF_PHY_TX_PWR_DEFAULT__PA_BUF_LT                 (0xC0)
 #define RF_PHY_TX_PWR_DEFAULT__PA_LT                     (0x00)
 #define RF_PHY_TX_PWR_DEFAULT__TX_PWR                    (0x00)
@@ -320,20 +298,6 @@ extern "C" {
 #define RF_CSMA_SEED_1__AACK_DIS_ACK                     (0x10)
 #define RF_CSMA_SEED_1__AACK_I_AM_COORD                  (0x08)
 #define RF_CSMA_SEED_1__CSMA_SEED_1                      (0x07)
-/** @} */
-
-/**
- * @brief   Bitfield definitions for the RF_CTRL_0 register
- * @{
- */
-#ifdef MODULE_AT86RF212B
-#define RF_RF_CTRL_0_MASK__PA_LT                         (0xC0)
-#define RF_RF_CTRL_0_MASK__GC_TX_OFFS                    (0x03)
-
-#define RF_RF_CTRL_0_GC_TX_OFFS__0DB                     (0x01)
-#define RF_RF_CTRL_0_GC_TX_OFFS__1DB                     (0x02)
-#define RF_RF_CTRL_0_GC_TX_OFFS__2DB                     (0x03)
-#endif
 /** @} */
 
 #ifdef __cplusplus
