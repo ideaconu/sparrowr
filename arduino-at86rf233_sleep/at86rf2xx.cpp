@@ -88,7 +88,7 @@ int AT86RF2XX::init(int cs_pin_, int int_pin_, int sleep_pin_, int reset_pin_)
     digitalWrite(sleep_pin, LOW);
     digitalWrite(reset_pin, HIGH);
     digitalWrite(cs_pin, HIGH);
-    digitalWrite(int_pin, LOW);
+    //digitalWrite(int_pin, LOW);
     attachInterrupt(digitalPinToInterrupt(int_pin), at86rf2xx_irq_handler, RISING);
 
     /* make sure device is not sleeping, so we can query part number */

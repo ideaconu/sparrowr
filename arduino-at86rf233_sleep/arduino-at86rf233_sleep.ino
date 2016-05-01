@@ -13,13 +13,14 @@ void setup() {
   //SerialUSB.begin(9600);
   //SerialUSB.println("test"); 
   //delay(10000);
-  delay(1);
+  delay(12);
   //rtc.begin();
   
   at86rf2xx.init(RF_SEL, RF_IRQ, RF_SLP_TR, RF_RESET);
   //at86rf2xx.set_chan(11); // set channel to 26
   at86rf2xx.set_state(AT86RF2XX_STATE_SLEEP); 
   //at86rf2xx.set_state(AT86RF2XX_STATE_TRX_OFF);   
+  //sleep();
 }
 
 
@@ -38,15 +39,16 @@ void loop() {
 }
 
 void sleep()
-{ 
-  USBDevice.detach();
+{  
+  //USBDevice.detach(); 
   //SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;
+  //NVMCTRL->CTRLB.bit.SLEEPPRM = 3;
   __DMB();
   __enable_irq();
   SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
   __DSB();
   __WFI();
-  USBDevice.attach();
+  //USBDevice.attach();
 }
 
 void at86rf2xx_eventHandler() {

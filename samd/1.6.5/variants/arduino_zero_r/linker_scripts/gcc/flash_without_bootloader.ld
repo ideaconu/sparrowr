@@ -65,7 +65,8 @@ ENTRY(Reset_Handler)
 SECTIONS
 {
 	.text :
-	{
+    {
+        __sfixed = .;
 		KEEP(*(.isr_vector))
 		*(.text*)
 

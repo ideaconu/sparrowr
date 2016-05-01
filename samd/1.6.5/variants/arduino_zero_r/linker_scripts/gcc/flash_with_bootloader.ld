@@ -65,6 +65,8 @@ SECTIONS
 {
 	.text :
 	{
+        . = ALIGN(4);
+        __sfixed = .;
 		KEEP(*(.isr_vector))
 		*(.text*)
 

@@ -73,6 +73,7 @@ void PTC_Handler      (void) __attribute__ ((weak, alias("Dummy_Handler")));
 void I2S_Handler      (void) __attribute__ ((weak, alias("Dummy_Handler")));
 
 /* Initialize segments */
+extern uint32_t __sfixed;
 extern uint32_t __etext;
 extern uint32_t __data_start__;
 extern uint32_t __data_end__;
@@ -155,6 +156,9 @@ void Reset_Handler(void)
     for (pDest = &__bss_start__; pDest < &__bss_end__; pDest++)
       *pDest = 0;
   }
+        /* Set the vector table base address */
+  pSrc = (uint32_t *) &__sfixed;
+  SCB->VTOR = ((uint32_t) pSrc & SCB_VTOR_TBLOFF_Msk);
 
   /* Initialize the C library */
   __libc_init_array();
@@ -163,8 +167,7 @@ void Reset_Handler(void)
 
   main();
 
-  while (1)
-    ;
+  while (1);
 }
 
 /* Default Arduino systick handler */
