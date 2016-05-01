@@ -13,24 +13,23 @@ void setup() {
   //sleep();
   //SerialUSB.begin(9600);
   //SerialUSB.println("test"); 
-  delay(100); 
+  //delay(10); 
   //rtc.begin();
 
   
   RFDevice.init();
-  sleep();
+  //sleep();
   
   //RFDevice.set_chan(11); // set channel to 26
   //RFDevice.set_state(RF_STATE_SLEEP); 
   //RFDevice.set_state(RF_STATE_TRX_OFF);   
-  //sleep();
+  sleep();
 }
 
 
 void loop() {
-  sleep();
-  //rtc.standbyMode(); 
-  
+  //sleep();
+  //rtc.standbyMode();  
   return;
   
   if (RFDevice.events)
