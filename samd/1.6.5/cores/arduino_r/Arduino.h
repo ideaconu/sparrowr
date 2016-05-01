@@ -86,6 +86,8 @@ void loop( void ) ;
 #include "wiring_analog.h"
 #include "wiring_shift.h"
 #include "WInterrupts.h"
+#include "pm.h"
+#include "sleep.h"
 
 // undefine stdlib's abs if encountered
 #ifdef abs

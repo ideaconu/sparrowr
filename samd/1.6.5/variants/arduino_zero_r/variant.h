@@ -169,6 +169,14 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 #define RF_CLKM        (55u)
 
 
+#define VOLTAGE_VSEL2  (58u)
+
+#define VOLTAGE_VSEL3  (56u)
+
+#define VOLTAGE_VSEL4  (59u)
+
+#define VOLTAGE_CTRL   (57u)
+
 /*
  * Wire Interfaces
  */

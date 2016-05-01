@@ -2,18 +2,20 @@
 #include "at86rf2xx.h"
 #include <RTCZero.h>
 
-
 int received = 0;
  
 RTCZero rtc; 
- 
-void setup() {
+
+void setup() { 
+  USBDevice.detach();
+  pmSetVoltage(2750);   
+  sleepMode(SLEEP_STANDBY);
   //USBDevice.detach();
   //sleep();
   //SerialUSB.begin(9600);
   //SerialUSB.println("test"); 
   //delay(10000);
-  delay(12);
+  delay(10);
   //rtc.begin();
   
   at86rf2xx.init(RF_SEL, RF_IRQ, RF_SLP_TR, RF_RESET);
@@ -25,7 +27,7 @@ void setup() {
 
 
 void loop() {
-  //sleep();
+  sleep();
   //rtc.standbyMode(); 
   
   return;
@@ -36,19 +38,6 @@ void loop() {
   uint8_t c[5] = {0,1,2,3,4};
   at86rf2xx.send(c,5);
   return;
-}
-
-void sleep()
-{  
-  //USBDevice.detach(); 
-  //SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk | SysTick_CTRL_ENABLE_Msk;
-  //NVMCTRL->CTRLB.bit.SLEEPPRM = 3;
-  __DMB();
-  __enable_irq();
-  SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
-  __DSB();
-  __WFI();
-  //USBDevice.attach();
 }
 
 void at86rf2xx_eventHandler() {

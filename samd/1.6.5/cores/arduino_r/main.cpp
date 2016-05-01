@@ -33,6 +33,8 @@ int main( void )
 
   initVariant();
 
+  pmInit();
+
   delay(1);
 #if defined(USBCON)
   USBDevice.init();

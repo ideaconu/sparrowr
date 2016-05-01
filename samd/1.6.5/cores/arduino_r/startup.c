@@ -46,7 +46,8 @@
 void SystemInit( void )
 {
   /* Set 1 Flash Wait State for 48MHz, cf tables 20.9 and 35.27 in SAMD21 Datasheet */
-  NVMCTRL->CTRLB.bit.RWS = NVMCTRL_CTRLB_RWS_HALF_Val ;
+  /* 3 wait states for 1v8 operation. */
+  NVMCTRL->CTRLB.bit.RWS = 3;
 
   /* Turn on the digital interface clock */
   PM->APBAMASK.reg |= PM_APBAMASK_GCLK ;
@@ -55,13 +56,17 @@ void SystemInit( void )
    * 1) Enable XOSC32K clock (External on-board 32.768Hz oscillator)
    */
   SYSCTRL->XOSC32K.reg = SYSCTRL_XOSC32K_STARTUP( 0x6u ) | /* cf table 15.10 of product datasheet in chapter 15.8.6 */
-                         SYSCTRL_XOSC32K_XTALEN | SYSCTRL_XOSC32K_EN32K ;
+                         SYSCTRL_XOSC32K_XTALEN | SYSCTRL_XOSC32K_EN32K  | SYSCTRL_XOSC32K_EN1K;
+  SYSCTRL->XOSC32K.bit.RUNSTDBY = 1;
+  SYSCTRL->XOSC32K.bit.ONDEMAND = 0;
   SYSCTRL->XOSC32K.bit.ENABLE = 1 ; /* separate call, as described in chapter 15.6.3 */
 
   while ( (SYSCTRL->PCLKSR.reg & SYSCTRL_PCLKSR_XOSC32KRDY) == 0 )
   {
     /* Wait for oscillator stabilization */
   }
+
+  SYSCTRL->XOSC32K.bit.ONDEMAND = 1;
 
   /* Software reset the module to ensure it is re-initialized correctly */
   /* Note: Due to synchronization, there is a delay from writing CTRL.SWRST until the reset is complete.
@@ -88,7 +93,8 @@ void SystemInit( void )
   GCLK->GENCTRL.reg = GCLK_GENCTRL_ID( GENERIC_CLOCK_GENERATOR_XOSC32K ) | // Generic Clock Generator 1
                       GCLK_GENCTRL_SRC_XOSC32K | // Selected source is External 32KHz Oscillator
 //                      GCLK_GENCTRL_OE | // Output clock to a pin for tests
-                      GCLK_GENCTRL_GENEN ;
+                      GCLK_GENCTRL_GENEN |
+                      GCLK_GENCTRL_RUNSTDBY;
 
   while ( GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY )
   {
@@ -176,28 +182,6 @@ void SystemInit( void )
     /* Wait for synchronization */
   }
 
-  /* ----------------------------------------------------------------------------------------------
-   * 6) Modify PRESCaler value of OSC8M to have 8MHz
-   */
-  SYSCTRL->OSC8M.bit.PRESC = SYSCTRL_OSC8M_PRESC_1_Val ;
-  SYSCTRL->OSC8M.bit.ONDEMAND = 0 ;
-
-  /* ----------------------------------------------------------------------------------------------
-   * 7) Put OSC8M as source for Generic Clock Generator 3
-   */
-  GCLK->GENDIV.reg = GCLK_GENDIV_ID( GENERIC_CLOCK_GENERATOR_OSC8M ) ; // Generic Clock Generator 3
-
-  /* Write Generic Clock Generator 3 configuration */
-  GCLK->GENCTRL.reg = GCLK_GENCTRL_ID( GENERIC_CLOCK_GENERATOR_OSC8M ) | // Generic Clock Generator 3
-                      GCLK_GENCTRL_SRC_OSC8M | // Selected source is RC OSC 8MHz (already enabled at reset)
-//                      GCLK_GENCTRL_OE | // Output clock to a pin for tests
-                      GCLK_GENCTRL_GENEN ;
-
-  while ( GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY )
-  {
-    /* Wait for synchronization */
-  }
-
   /*
    * Now that all system clocks are configured, we can set CPU and APBx BUS clocks.
    * There values are normally the one present after Reset.
@@ -228,4 +212,9 @@ void SystemInit( void )
    * 9) Disable automatic NVM write operations
    */
   NVMCTRL->CTRLB.bit.MANW = 1;
+
+  /*
+   * 10) Low power cache, saves 1-2%.
+   */
+  NVMCTRL->CTRLB.bit.READMODE = 1;
 }
