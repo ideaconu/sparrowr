@@ -25,14 +25,14 @@
  * @author      Mark Solters <msolters@gmail.com>
  */
 
-#ifndef AT86RF2XX_H_
-#define AT86RF2XX_H_
+#ifndef RF_H_
+#define RF_H_
 
 #include <Arduino.h>
 #include <stdint.h>
 #include "ieee802154.h"
-#include "at86rf2xx-registers.h"
-#include "at86rf2xx-defaults.h"
+#include "RF-registers.h"
+#include "RF-defaults.h"
 
 #include <SPI.h>
 
@@ -41,39 +41,34 @@
  * @brief   Transition time from SLEEP to TRX_OFF in us, refer figure 7-4, p.42.
  *          For different environments refer figure 13-13, p.201
  */
-#define AT86RF2XX_WAKEUP_DELAY          (300U)
+#define RF_WAKEUP_DELAY          (300U)
 
 /**
  * @brief   Minimum reset pulse width, refer p.190
  */
-#define AT86RF2XX_RESET_PULSE_WIDTH     (1U)
+#define RF_RESET_PULSE_WIDTH     (1U)
 
 /**
  * @brief   Transition time to TRX_OFF after reset pulse in us, refer
  *          figure 7-8, p. 44.
  */
-#define AT86RF2XX_RESET_DELAY           (26U)
+#define RF_RESET_DELAY           (26U)
 
-class AT86RF2XX
+class RF
 {
   public:
 
     volatile int events;                /**< # of pending interrupts from the radio */
 
-    AT86RF2XX();
+    RF();
 
     /**
-     * @brief   Initialize a given AT86RF2xx device
-     *
-     * @param[in] cs_pin        GPIO pin connected to chip select
-     * @param[in] int_pin       GPIO pin connected to the interrupt pin
-     * @param[in] sleep_pin     GPIO pin connected to the sleep pin
-     * @param[in] reset_pin     GPIO pin connected to the reset pin
+     * @brief   Initialize the RF device
      *
      * @return                  0 on success
      * @return                  <0 on error
      */
-    int init(int cs_pin, int int_pin, int sleep_pin, int reset_pin);
+    int init();
 
     /**
      * @brief   Trigger a hardware reset and configure radio with default values
@@ -404,8 +399,8 @@ class AT86RF2XX
     bool cca();
 };
 
-/*  Declare at86rf2xx device  */
-extern AT86RF2XX at86rf2xx;
+/*  Declare RF device  */
+extern RF RFDevice;
 
-#endif /* AT86RF2XX_H_ */
+#endif /* RF_H_ */
 /** @} */

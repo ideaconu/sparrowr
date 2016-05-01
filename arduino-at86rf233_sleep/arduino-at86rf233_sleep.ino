@@ -1,27 +1,25 @@
-#include <SPI.h>
-#include "at86rf2xx.h"
-#include <RTCZero.h>
+//#include <RTCZero.h>
 
+#include <RF.h>
 int received = 0;
  
-RTCZero rtc; 
+//RTCZero rtc; 
 
 void setup() { 
-  USBDevice.detach();
-  pmSetVoltage(2750);   
+  //USBDevice.detach();
+  //pmSetVoltage(1800);   
   sleepMode(SLEEP_STANDBY);
   //USBDevice.detach();
   //sleep();
   //SerialUSB.begin(9600);
   //SerialUSB.println("test"); 
-  //delay(10000);
-  delay(10);
+  //delay(10000); 
   //rtc.begin();
-  
-  at86rf2xx.init(RF_SEL, RF_IRQ, RF_SLP_TR, RF_RESET);
-  //at86rf2xx.set_chan(11); // set channel to 26
-  at86rf2xx.set_state(AT86RF2XX_STATE_SLEEP); 
-  //at86rf2xx.set_state(AT86RF2XX_STATE_TRX_OFF);   
+  RFDevice.init();
+  sleep();
+  //RFDevice.set_chan(11); // set channel to 26
+  //RFDevice.set_state(RF_STATE_SLEEP); 
+  //RFDevice.set_state(RF_STATE_TRX_OFF);   
   //sleep();
 }
 
@@ -32,37 +30,37 @@ void loop() {
   
   return;
   
-  if (at86rf2xx.events)
-    at86rf2xx_eventHandler();
+  if (RFDevice.events)
+    rf_eventHandler();
   delay(1000);
   uint8_t c[5] = {0,1,2,3,4};
-  at86rf2xx.send(c,5);
+  RFDevice.send(c,5);
   return;
 }
 
-void at86rf2xx_eventHandler() {
+void rf_eventHandler() {
   /* One less event to handle! */
-  at86rf2xx.events--;
+  RFDevice.events--;
 
   /* If transceiver is sleeping register access is impossible and frames are
    * lost anyway, so return immediately.
    */
-  byte state = at86rf2xx.get_status();
-  if(state == AT86RF2XX_STATE_SLEEP)
+  byte state = RFDevice.get_status();
+  if(state == RF_STATE_SLEEP)
     return;
 
   /* read (consume) device status */
-  byte irq_mask = at86rf2xx.reg_read(AT86RF2XX_REG__IRQ_STATUS);
+  byte irq_mask = RFDevice.reg_read(RF_REG__IRQ_STATUS);
 
   /*  Incoming radio frame! */
-  if (irq_mask & AT86RF2XX_IRQ_STATUS_MASK__RX_START)
+  if (irq_mask & RF_IRQ_STATUS_MASK__RX_START)
     SerialUSB.println("[at86rf2xx] EVT - RX_START");
 
   /*  Done receiving radio frame; call our receive_data function.
    */
-  if (irq_mask & AT86RF2XX_IRQ_STATUS_MASK__TRX_END)
+  if (irq_mask & RF_IRQ_STATUS_MASK__TRX_END)
   {
-    if(state == AT86RF2XX_STATE_RX_AACK_ON || state == AT86RF2XX_STATE_BUSY_RX_AACK) {
+    if(state == RF_STATE_RX_AACK_ON || state == RF_STATE_BUSY_RX_AACK) {
       SerialUSB.println("[at86rf2xx] EVT - RX_END");
       at86rf2xx_receive_data();
     }
@@ -73,7 +71,7 @@ void at86rf2xx_receive_data() {
   /*  print the length of the frame
    *  (including the header)
    */
-  size_t pkt_len = at86rf2xx.rx_len();
+  size_t pkt_len = RFDevice.rx_len();
   SerialUSB.print("Frame length: ");
   SerialUSB.print(pkt_len);
   SerialUSB.println(" bytes");
@@ -81,7 +79,7 @@ void at86rf2xx_receive_data() {
   /*  Print the frame, byte for byte  */
   SerialUSB.println("Frame dump (ASCII):");
   uint8_t data[pkt_len];
-  at86rf2xx.rx_read(data, pkt_len, 0);
+  RFDevice.rx_read(data, pkt_len, 0);
   for (int d=0; d<pkt_len; d++)
     SerialUSB.print((char)data[d]);
   SerialUSB.println();
