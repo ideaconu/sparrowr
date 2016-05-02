@@ -15,7 +15,7 @@ void pmInit()
     pinMode(VOLTAGE_VSEL4, OUTPUT);
     pinMode(VOLTAGE_CTRL, OUTPUT);
 
-    pmSetVoltage(3200);
+    pmSetVoltage(1800);
     pmPowerOffSensors();
 }
 

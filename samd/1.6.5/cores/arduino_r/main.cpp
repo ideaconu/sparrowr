@@ -29,17 +29,17 @@ void initVariant() { }
  */
 int main( void )
 {
+  pmInit();
+
+  SystemInit();
+
   init();
 
   initVariant();
 
-  pmInit();
-
   delay(1);
-#if defined(USBCON)
-  USBDevice.init();
-  USBDevice.attach();
-#endif
+
+  sleepMode(SLEEP_STANDBY);
 
   setup();
 

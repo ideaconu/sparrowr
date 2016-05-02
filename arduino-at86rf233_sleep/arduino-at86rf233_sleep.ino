@@ -2,36 +2,40 @@
 
 #include <RF.h>
 int received = 0;
- 
-//RTCZero rtc; 
 
-void setup() { 
-  USBDevice.detach();
-  pmSetVoltage(1800);   
-  sleepMode(SLEEP_STANDBY);
+//RTCZero rtc;
+
+void setup() {
+
+  //USBDevice.init();
+
+  //pmSetVoltage(3200);
+  //USBDevice.attach();
+
+  //USBDevice.detach(); 
   //USBDevice.detach();
   //sleep();
   //SerialUSB.begin(9600);
-  //SerialUSB.println("test"); 
-  //delay(10); 
+  //SerialUSB.println("test");
+  //delay(10);
   //rtc.begin();
 
-  
+
   RFDevice.init();
   //sleep();
-  
+
   //RFDevice.set_chan(11); // set channel to 26
-  //RFDevice.set_state(RF_STATE_SLEEP); 
-  //RFDevice.set_state(RF_STATE_TRX_OFF);   
+  //RFDevice.set_state(RF_STATE_SLEEP);
+  //RFDevice.set_state(RF_STATE_TRX_OFF);
   sleep();
 }
 
 
 void loop() {
   //sleep();
-  //rtc.standbyMode();  
+  //rtc.standbyMode();
   return;
-  
+
   if (RFDevice.events)
     rf_eventHandler();
   delay(1000);

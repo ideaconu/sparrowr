@@ -163,8 +163,6 @@ void Reset_Handler(void)
   /* Initialize the C library */
   __libc_init_array();
 
-  SystemInit();
-
   main();
 
   while (1);
