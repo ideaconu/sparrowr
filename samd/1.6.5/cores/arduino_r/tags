@@ -1,0 +1,1895 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ACMFunctionalDescriptor	USB/USBCore.h	/^} ACMFunctionalDescriptor;$/;"	t	typeref:struct:__anon34
+ADC_Channel0	WVariant.h	/^  ADC_Channel0=0,$/;"	e	enum:_EAnalogChannel
+ADC_Channel1	WVariant.h	/^  ADC_Channel1=1,$/;"	e	enum:_EAnalogChannel
+ADC_Channel10	WVariant.h	/^  ADC_Channel10=10,$/;"	e	enum:_EAnalogChannel
+ADC_Channel11	WVariant.h	/^  ADC_Channel11=11,$/;"	e	enum:_EAnalogChannel
+ADC_Channel12	WVariant.h	/^  ADC_Channel12=12,$/;"	e	enum:_EAnalogChannel
+ADC_Channel13	WVariant.h	/^  ADC_Channel13=13,$/;"	e	enum:_EAnalogChannel
+ADC_Channel14	WVariant.h	/^  ADC_Channel14=14,$/;"	e	enum:_EAnalogChannel
+ADC_Channel15	WVariant.h	/^  ADC_Channel15=15,$/;"	e	enum:_EAnalogChannel
+ADC_Channel16	WVariant.h	/^  ADC_Channel16=16,$/;"	e	enum:_EAnalogChannel
+ADC_Channel17	WVariant.h	/^  ADC_Channel17=17,$/;"	e	enum:_EAnalogChannel
+ADC_Channel18	WVariant.h	/^  ADC_Channel18=18,$/;"	e	enum:_EAnalogChannel
+ADC_Channel19	WVariant.h	/^  ADC_Channel19=19,$/;"	e	enum:_EAnalogChannel
+ADC_Channel2	WVariant.h	/^  ADC_Channel2=2,$/;"	e	enum:_EAnalogChannel
+ADC_Channel3	WVariant.h	/^  ADC_Channel3=3,$/;"	e	enum:_EAnalogChannel
+ADC_Channel4	WVariant.h	/^  ADC_Channel4=4,$/;"	e	enum:_EAnalogChannel
+ADC_Channel5	WVariant.h	/^  ADC_Channel5=5,$/;"	e	enum:_EAnalogChannel
+ADC_Channel6	WVariant.h	/^  ADC_Channel6=6,$/;"	e	enum:_EAnalogChannel
+ADC_Channel7	WVariant.h	/^  ADC_Channel7=7,$/;"	e	enum:_EAnalogChannel
+ADC_Channel8	WVariant.h	/^  ADC_Channel8=8,$/;"	e	enum:_EAnalogChannel
+ADC_Channel9	WVariant.h	/^  ADC_Channel9=9,$/;"	e	enum:_EAnalogChannel
+APP_START	Reset.cpp	27;"	d	file:
+ARDUINO_MAIN	main.cpp	19;"	d	file:
+AR_DEFAULT	wiring_analog.h	/^  AR_DEFAULT,$/;"	e	enum:_eAnalogReference
+AR_EXTERNAL	wiring_analog.h	/^  AR_EXTERNAL,$/;"	e	enum:_eAnalogReference
+AR_INTERNAL	wiring_analog.h	/^  AR_INTERNAL,$/;"	e	enum:_eAnalogReference
+AR_INTERNAL1V0	wiring_analog.h	/^  AR_INTERNAL1V0,$/;"	e	enum:_eAnalogReference
+AR_INTERNAL1V65	wiring_analog.h	/^  AR_INTERNAL1V65,$/;"	e	enum:_eAnalogReference
+AR_INTERNAL2V23	wiring_analog.h	/^  AR_INTERNAL2V23$/;"	e	enum:_eAnalogReference
+Arduino_h	Arduino.h	21;"	d
+B0	binary.h	23;"	d
+B00	binary.h	24;"	d
+B000	binary.h	25;"	d
+B0000	binary.h	26;"	d
+B00000	binary.h	27;"	d
+B000000	binary.h	28;"	d
+B0000000	binary.h	29;"	d
+B00000000	binary.h	30;"	d
+B00000001	binary.h	38;"	d
+B0000001	binary.h	37;"	d
+B00000010	binary.h	45;"	d
+B00000011	binary.h	52;"	d
+B000001	binary.h	36;"	d
+B0000010	binary.h	44;"	d
+B00000100	binary.h	58;"	d
+B00000101	binary.h	64;"	d
+B0000011	binary.h	51;"	d
+B00000110	binary.h	70;"	d
+B00000111	binary.h	76;"	d
+B00001	binary.h	35;"	d
+B000010	binary.h	43;"	d
+B0000100	binary.h	57;"	d
+B00001000	binary.h	81;"	d
+B00001001	binary.h	86;"	d
+B0000101	binary.h	63;"	d
+B00001010	binary.h	91;"	d
+B00001011	binary.h	96;"	d
+B000011	binary.h	50;"	d
+B0000110	binary.h	69;"	d
+B00001100	binary.h	101;"	d
+B00001101	binary.h	106;"	d
+B0000111	binary.h	75;"	d
+B00001110	binary.h	111;"	d
+B00001111	binary.h	116;"	d
+B0001	binary.h	34;"	d
+B00010	binary.h	42;"	d
+B000100	binary.h	56;"	d
+B0001000	binary.h	80;"	d
+B00010000	binary.h	120;"	d
+B00010001	binary.h	124;"	d
+B0001001	binary.h	85;"	d
+B00010010	binary.h	128;"	d
+B00010011	binary.h	132;"	d
+B000101	binary.h	62;"	d
+B0001010	binary.h	90;"	d
+B00010100	binary.h	136;"	d
+B00010101	binary.h	140;"	d
+B0001011	binary.h	95;"	d
+B00010110	binary.h	144;"	d
+B00010111	binary.h	148;"	d
+B00011	binary.h	49;"	d
+B000110	binary.h	68;"	d
+B0001100	binary.h	100;"	d
+B00011000	binary.h	152;"	d
+B00011001	binary.h	156;"	d
+B0001101	binary.h	105;"	d
+B00011010	binary.h	160;"	d
+B00011011	binary.h	164;"	d
+B000111	binary.h	74;"	d
+B0001110	binary.h	110;"	d
+B00011100	binary.h	168;"	d
+B00011101	binary.h	172;"	d
+B0001111	binary.h	115;"	d
+B00011110	binary.h	176;"	d
+B00011111	binary.h	180;"	d
+B001	binary.h	33;"	d
+B0010	binary.h	41;"	d
+B00100	binary.h	55;"	d
+B001000	binary.h	79;"	d
+B0010000	binary.h	119;"	d
+B00100000	binary.h	183;"	d
+B00100001	binary.h	186;"	d
+B0010001	binary.h	123;"	d
+B00100010	binary.h	189;"	d
+B00100011	binary.h	192;"	d
+B001001	binary.h	84;"	d
+B0010010	binary.h	127;"	d
+B00100100	binary.h	195;"	d
+B00100101	binary.h	198;"	d
+B0010011	binary.h	131;"	d
+B00100110	binary.h	201;"	d
+B00100111	binary.h	204;"	d
+B00101	binary.h	61;"	d
+B001010	binary.h	89;"	d
+B0010100	binary.h	135;"	d
+B00101000	binary.h	207;"	d
+B00101001	binary.h	210;"	d
+B0010101	binary.h	139;"	d
+B00101010	binary.h	213;"	d
+B00101011	binary.h	216;"	d
+B001011	binary.h	94;"	d
+B0010110	binary.h	143;"	d
+B00101100	binary.h	219;"	d
+B00101101	binary.h	222;"	d
+B0010111	binary.h	147;"	d
+B00101110	binary.h	225;"	d
+B00101111	binary.h	228;"	d
+B0011	binary.h	48;"	d
+B00110	binary.h	67;"	d
+B001100	binary.h	99;"	d
+B0011000	binary.h	151;"	d
+B00110000	binary.h	231;"	d
+B00110001	binary.h	234;"	d
+B0011001	binary.h	155;"	d
+B00110010	binary.h	237;"	d
+B00110011	binary.h	240;"	d
+B001101	binary.h	104;"	d
+B0011010	binary.h	159;"	d
+B00110100	binary.h	243;"	d
+B00110101	binary.h	246;"	d
+B0011011	binary.h	163;"	d
+B00110110	binary.h	249;"	d
+B00110111	binary.h	252;"	d
+B00111	binary.h	73;"	d
+B001110	binary.h	109;"	d
+B0011100	binary.h	167;"	d
+B00111000	binary.h	255;"	d
+B00111001	binary.h	258;"	d
+B0011101	binary.h	171;"	d
+B00111010	binary.h	261;"	d
+B00111011	binary.h	264;"	d
+B001111	binary.h	114;"	d
+B0011110	binary.h	175;"	d
+B00111100	binary.h	267;"	d
+B00111101	binary.h	270;"	d
+B0011111	binary.h	179;"	d
+B00111110	binary.h	273;"	d
+B00111111	binary.h	276;"	d
+B01	binary.h	32;"	d
+B010	binary.h	40;"	d
+B0100	binary.h	54;"	d
+B01000	binary.h	78;"	d
+B010000	binary.h	118;"	d
+B0100000	binary.h	182;"	d
+B01000000	binary.h	278;"	d
+B01000001	binary.h	280;"	d
+B0100001	binary.h	185;"	d
+B01000010	binary.h	282;"	d
+B01000011	binary.h	284;"	d
+B010001	binary.h	122;"	d
+B0100010	binary.h	188;"	d
+B01000100	binary.h	286;"	d
+B01000101	binary.h	288;"	d
+B0100011	binary.h	191;"	d
+B01000110	binary.h	290;"	d
+B01000111	binary.h	292;"	d
+B01001	binary.h	83;"	d
+B010010	binary.h	126;"	d
+B0100100	binary.h	194;"	d
+B01001000	binary.h	294;"	d
+B01001001	binary.h	296;"	d
+B0100101	binary.h	197;"	d
+B01001010	binary.h	298;"	d
+B01001011	binary.h	300;"	d
+B010011	binary.h	130;"	d
+B0100110	binary.h	200;"	d
+B01001100	binary.h	302;"	d
+B01001101	binary.h	304;"	d
+B0100111	binary.h	203;"	d
+B01001110	binary.h	306;"	d
+B01001111	binary.h	308;"	d
+B0101	binary.h	60;"	d
+B01010	binary.h	88;"	d
+B010100	binary.h	134;"	d
+B0101000	binary.h	206;"	d
+B01010000	binary.h	310;"	d
+B01010001	binary.h	312;"	d
+B0101001	binary.h	209;"	d
+B01010010	binary.h	314;"	d
+B01010011	binary.h	316;"	d
+B010101	binary.h	138;"	d
+B0101010	binary.h	212;"	d
+B01010100	binary.h	318;"	d
+B01010101	binary.h	320;"	d
+B0101011	binary.h	215;"	d
+B01010110	binary.h	322;"	d
+B01010111	binary.h	324;"	d
+B01011	binary.h	93;"	d
+B010110	binary.h	142;"	d
+B0101100	binary.h	218;"	d
+B01011000	binary.h	326;"	d
+B01011001	binary.h	328;"	d
+B0101101	binary.h	221;"	d
+B01011010	binary.h	330;"	d
+B01011011	binary.h	332;"	d
+B010111	binary.h	146;"	d
+B0101110	binary.h	224;"	d
+B01011100	binary.h	334;"	d
+B01011101	binary.h	336;"	d
+B0101111	binary.h	227;"	d
+B01011110	binary.h	338;"	d
+B01011111	binary.h	340;"	d
+B011	binary.h	47;"	d
+B0110	binary.h	66;"	d
+B01100	binary.h	98;"	d
+B011000	binary.h	150;"	d
+B0110000	binary.h	230;"	d
+B01100000	binary.h	342;"	d
+B01100001	binary.h	344;"	d
+B0110001	binary.h	233;"	d
+B01100010	binary.h	346;"	d
+B01100011	binary.h	348;"	d
+B011001	binary.h	154;"	d
+B0110010	binary.h	236;"	d
+B01100100	binary.h	350;"	d
+B01100101	binary.h	352;"	d
+B0110011	binary.h	239;"	d
+B01100110	binary.h	354;"	d
+B01100111	binary.h	356;"	d
+B01101	binary.h	103;"	d
+B011010	binary.h	158;"	d
+B0110100	binary.h	242;"	d
+B01101000	binary.h	358;"	d
+B01101001	binary.h	360;"	d
+B0110101	binary.h	245;"	d
+B01101010	binary.h	362;"	d
+B01101011	binary.h	364;"	d
+B011011	binary.h	162;"	d
+B0110110	binary.h	248;"	d
+B01101100	binary.h	366;"	d
+B01101101	binary.h	368;"	d
+B0110111	binary.h	251;"	d
+B01101110	binary.h	370;"	d
+B01101111	binary.h	372;"	d
+B0111	binary.h	72;"	d
+B01110	binary.h	108;"	d
+B011100	binary.h	166;"	d
+B0111000	binary.h	254;"	d
+B01110000	binary.h	374;"	d
+B01110001	binary.h	376;"	d
+B0111001	binary.h	257;"	d
+B01110010	binary.h	378;"	d
+B01110011	binary.h	380;"	d
+B011101	binary.h	170;"	d
+B0111010	binary.h	260;"	d
+B01110100	binary.h	382;"	d
+B01110101	binary.h	384;"	d
+B0111011	binary.h	263;"	d
+B01110110	binary.h	386;"	d
+B01110111	binary.h	388;"	d
+B01111	binary.h	113;"	d
+B011110	binary.h	174;"	d
+B0111100	binary.h	266;"	d
+B01111000	binary.h	390;"	d
+B01111001	binary.h	392;"	d
+B0111101	binary.h	269;"	d
+B01111010	binary.h	394;"	d
+B01111011	binary.h	396;"	d
+B011111	binary.h	178;"	d
+B0111110	binary.h	272;"	d
+B01111100	binary.h	398;"	d
+B01111101	binary.h	400;"	d
+B0111111	binary.h	275;"	d
+B01111110	binary.h	402;"	d
+B01111111	binary.h	404;"	d
+B1	binary.h	31;"	d
+B10	binary.h	39;"	d
+B100	binary.h	53;"	d
+B1000	binary.h	77;"	d
+B10000	binary.h	117;"	d
+B100000	binary.h	181;"	d
+B1000000	binary.h	277;"	d
+B10000000	binary.h	405;"	d
+B10000001	binary.h	406;"	d
+B1000001	binary.h	279;"	d
+B10000010	binary.h	407;"	d
+B10000011	binary.h	408;"	d
+B100001	binary.h	184;"	d
+B1000010	binary.h	281;"	d
+B10000100	binary.h	409;"	d
+B10000101	binary.h	410;"	d
+B1000011	binary.h	283;"	d
+B10000110	binary.h	411;"	d
+B10000111	binary.h	412;"	d
+B10001	binary.h	121;"	d
+B100010	binary.h	187;"	d
+B1000100	binary.h	285;"	d
+B10001000	binary.h	413;"	d
+B10001001	binary.h	414;"	d
+B1000101	binary.h	287;"	d
+B10001010	binary.h	415;"	d
+B10001011	binary.h	416;"	d
+B100011	binary.h	190;"	d
+B1000110	binary.h	289;"	d
+B10001100	binary.h	417;"	d
+B10001101	binary.h	418;"	d
+B1000111	binary.h	291;"	d
+B10001110	binary.h	419;"	d
+B10001111	binary.h	420;"	d
+B1001	binary.h	82;"	d
+B10010	binary.h	125;"	d
+B100100	binary.h	193;"	d
+B1001000	binary.h	293;"	d
+B10010000	binary.h	421;"	d
+B10010001	binary.h	422;"	d
+B1001001	binary.h	295;"	d
+B10010010	binary.h	423;"	d
+B10010011	binary.h	424;"	d
+B100101	binary.h	196;"	d
+B1001010	binary.h	297;"	d
+B10010100	binary.h	425;"	d
+B10010101	binary.h	426;"	d
+B1001011	binary.h	299;"	d
+B10010110	binary.h	427;"	d
+B10010111	binary.h	428;"	d
+B10011	binary.h	129;"	d
+B100110	binary.h	199;"	d
+B1001100	binary.h	301;"	d
+B10011000	binary.h	429;"	d
+B10011001	binary.h	430;"	d
+B1001101	binary.h	303;"	d
+B10011010	binary.h	431;"	d
+B10011011	binary.h	432;"	d
+B100111	binary.h	202;"	d
+B1001110	binary.h	305;"	d
+B10011100	binary.h	433;"	d
+B10011101	binary.h	434;"	d
+B1001111	binary.h	307;"	d
+B10011110	binary.h	435;"	d
+B10011111	binary.h	436;"	d
+B101	binary.h	59;"	d
+B1010	binary.h	87;"	d
+B10100	binary.h	133;"	d
+B101000	binary.h	205;"	d
+B1010000	binary.h	309;"	d
+B10100000	binary.h	437;"	d
+B10100001	binary.h	438;"	d
+B1010001	binary.h	311;"	d
+B10100010	binary.h	439;"	d
+B10100011	binary.h	440;"	d
+B101001	binary.h	208;"	d
+B1010010	binary.h	313;"	d
+B10100100	binary.h	441;"	d
+B10100101	binary.h	442;"	d
+B1010011	binary.h	315;"	d
+B10100110	binary.h	443;"	d
+B10100111	binary.h	444;"	d
+B10101	binary.h	137;"	d
+B101010	binary.h	211;"	d
+B1010100	binary.h	317;"	d
+B10101000	binary.h	445;"	d
+B10101001	binary.h	446;"	d
+B1010101	binary.h	319;"	d
+B10101010	binary.h	447;"	d
+B10101011	binary.h	448;"	d
+B101011	binary.h	214;"	d
+B1010110	binary.h	321;"	d
+B10101100	binary.h	449;"	d
+B10101101	binary.h	450;"	d
+B1010111	binary.h	323;"	d
+B10101110	binary.h	451;"	d
+B10101111	binary.h	452;"	d
+B1011	binary.h	92;"	d
+B10110	binary.h	141;"	d
+B101100	binary.h	217;"	d
+B1011000	binary.h	325;"	d
+B10110000	binary.h	453;"	d
+B10110001	binary.h	454;"	d
+B1011001	binary.h	327;"	d
+B10110010	binary.h	455;"	d
+B10110011	binary.h	456;"	d
+B101101	binary.h	220;"	d
+B1011010	binary.h	329;"	d
+B10110100	binary.h	457;"	d
+B10110101	binary.h	458;"	d
+B1011011	binary.h	331;"	d
+B10110110	binary.h	459;"	d
+B10110111	binary.h	460;"	d
+B10111	binary.h	145;"	d
+B101110	binary.h	223;"	d
+B1011100	binary.h	333;"	d
+B10111000	binary.h	461;"	d
+B10111001	binary.h	462;"	d
+B1011101	binary.h	335;"	d
+B10111010	binary.h	463;"	d
+B10111011	binary.h	464;"	d
+B101111	binary.h	226;"	d
+B1011110	binary.h	337;"	d
+B10111100	binary.h	465;"	d
+B10111101	binary.h	466;"	d
+B1011111	binary.h	339;"	d
+B10111110	binary.h	467;"	d
+B10111111	binary.h	468;"	d
+B11	binary.h	46;"	d
+B110	binary.h	65;"	d
+B1100	binary.h	97;"	d
+B11000	binary.h	149;"	d
+B110000	binary.h	229;"	d
+B1100000	binary.h	341;"	d
+B11000000	binary.h	469;"	d
+B11000001	binary.h	470;"	d
+B1100001	binary.h	343;"	d
+B11000010	binary.h	471;"	d
+B11000011	binary.h	472;"	d
+B110001	binary.h	232;"	d
+B1100010	binary.h	345;"	d
+B11000100	binary.h	473;"	d
+B11000101	binary.h	474;"	d
+B1100011	binary.h	347;"	d
+B11000110	binary.h	475;"	d
+B11000111	binary.h	476;"	d
+B11001	binary.h	153;"	d
+B110010	binary.h	235;"	d
+B1100100	binary.h	349;"	d
+B11001000	binary.h	477;"	d
+B11001001	binary.h	478;"	d
+B1100101	binary.h	351;"	d
+B11001010	binary.h	479;"	d
+B11001011	binary.h	480;"	d
+B110011	binary.h	238;"	d
+B1100110	binary.h	353;"	d
+B11001100	binary.h	481;"	d
+B11001101	binary.h	482;"	d
+B1100111	binary.h	355;"	d
+B11001110	binary.h	483;"	d
+B11001111	binary.h	484;"	d
+B1101	binary.h	102;"	d
+B11010	binary.h	157;"	d
+B110100	binary.h	241;"	d
+B1101000	binary.h	357;"	d
+B11010000	binary.h	485;"	d
+B11010001	binary.h	486;"	d
+B1101001	binary.h	359;"	d
+B11010010	binary.h	487;"	d
+B11010011	binary.h	488;"	d
+B110101	binary.h	244;"	d
+B1101010	binary.h	361;"	d
+B11010100	binary.h	489;"	d
+B11010101	binary.h	490;"	d
+B1101011	binary.h	363;"	d
+B11010110	binary.h	491;"	d
+B11010111	binary.h	492;"	d
+B11011	binary.h	161;"	d
+B110110	binary.h	247;"	d
+B1101100	binary.h	365;"	d
+B11011000	binary.h	493;"	d
+B11011001	binary.h	494;"	d
+B1101101	binary.h	367;"	d
+B11011010	binary.h	495;"	d
+B11011011	binary.h	496;"	d
+B110111	binary.h	250;"	d
+B1101110	binary.h	369;"	d
+B11011100	binary.h	497;"	d
+B11011101	binary.h	498;"	d
+B1101111	binary.h	371;"	d
+B11011110	binary.h	499;"	d
+B11011111	binary.h	500;"	d
+B111	binary.h	71;"	d
+B1110	binary.h	107;"	d
+B11100	binary.h	165;"	d
+B111000	binary.h	253;"	d
+B1110000	binary.h	373;"	d
+B11100000	binary.h	501;"	d
+B11100001	binary.h	502;"	d
+B1110001	binary.h	375;"	d
+B11100010	binary.h	503;"	d
+B11100011	binary.h	504;"	d
+B111001	binary.h	256;"	d
+B1110010	binary.h	377;"	d
+B11100100	binary.h	505;"	d
+B11100101	binary.h	506;"	d
+B1110011	binary.h	379;"	d
+B11100110	binary.h	507;"	d
+B11100111	binary.h	508;"	d
+B11101	binary.h	169;"	d
+B111010	binary.h	259;"	d
+B1110100	binary.h	381;"	d
+B11101000	binary.h	509;"	d
+B11101001	binary.h	510;"	d
+B1110101	binary.h	383;"	d
+B11101010	binary.h	511;"	d
+B11101011	binary.h	512;"	d
+B111011	binary.h	262;"	d
+B1110110	binary.h	385;"	d
+B11101100	binary.h	513;"	d
+B11101101	binary.h	514;"	d
+B1110111	binary.h	387;"	d
+B11101110	binary.h	515;"	d
+B11101111	binary.h	516;"	d
+B1111	binary.h	112;"	d
+B11110	binary.h	173;"	d
+B111100	binary.h	265;"	d
+B1111000	binary.h	389;"	d
+B11110000	binary.h	517;"	d
+B11110001	binary.h	518;"	d
+B1111001	binary.h	391;"	d
+B11110010	binary.h	519;"	d
+B11110011	binary.h	520;"	d
+B111101	binary.h	268;"	d
+B1111010	binary.h	393;"	d
+B11110100	binary.h	521;"	d
+B11110101	binary.h	522;"	d
+B1111011	binary.h	395;"	d
+B11110110	binary.h	523;"	d
+B11110111	binary.h	524;"	d
+B11111	binary.h	177;"	d
+B111110	binary.h	271;"	d
+B1111100	binary.h	397;"	d
+B11111000	binary.h	525;"	d
+B11111001	binary.h	526;"	d
+B1111101	binary.h	399;"	d
+B11111010	binary.h	527;"	d
+B11111011	binary.h	528;"	d
+B111111	binary.h	274;"	d
+B1111110	binary.h	401;"	d
+B11111100	binary.h	529;"	d
+B11111101	binary.h	530;"	d
+B1111111	binary.h	403;"	d
+B11111110	binary.h	531;"	d
+B11111111	binary.h	532;"	d
+BIN	Print.h	31;"	d
+Binary_h	binary.h	21;"	d
+BitOrder	wiring_constants.h	/^enum BitOrder {$/;"	g
+CDCCSInterfaceDescriptor	USB/USBCore.h	/^} CDCCSInterfaceDescriptor;$/;"	t	typeref:struct:__anon31
+CDCCSInterfaceDescriptor4	USB/USBCore.h	/^} CDCCSInterfaceDescriptor4;$/;"	t	typeref:struct:__anon32
+CDCDescriptor	USB/USBCore.h	/^} CDCDescriptor;$/;"	t	typeref:struct:__anon35
+CDC_ABSTRACT_CONTROL_MANAGEMENT	USB/USBCore.h	110;"	d
+CDC_ABSTRACT_CONTROL_MODEL	USB/USBCore.h	108;"	d
+CDC_ACM_INTERFACE	USB/USBDesc.h	32;"	d
+CDC_CALL_MANAGEMENT	USB/USBCore.h	107;"	d
+CDC_COMMUNICATION_INTERFACE_CLASS	USB/USBCore.h	105;"	d
+CDC_CS_ENDPOINT	USB/USBCore.h	113;"	d
+CDC_CS_INTERFACE	USB/USBCore.h	112;"	d
+CDC_DATA_INTERFACE	USB/USBDesc.h	33;"	d
+CDC_DATA_INTERFACE_CLASS	USB/USBCore.h	114;"	d
+CDC_ENABLED	USB/USBDesc.h	23;"	d
+CDC_ENDPOINT_ACM	USB/USBDesc.h	35;"	d
+CDC_ENDPOINT_IN	USB/USBDesc.h	37;"	d
+CDC_ENDPOINT_OUT	USB/USBDesc.h	36;"	d
+CDC_ENPOINT_COUNT	USB/USBDesc.h	28;"	d
+CDC_FIRST_ENDPOINT	USB/USBDesc.h	34;"	d
+CDC_GET_LINE_CODING	USB/USBCore.h	69;"	d
+CDC_GetInterface	USB/CDC.cpp	/^int CDC_GetInterface(uint8_t* interfaceNum)$/;"	f
+CDC_HEADER	USB/USBCore.h	109;"	d
+CDC_INTERFACE_COUNT	USB/USBDesc.h	27;"	d
+CDC_LINESTATE_DTR	USB/CDC.cpp	31;"	d	file:
+CDC_LINESTATE_READY	USB/CDC.cpp	34;"	d	file:
+CDC_LINESTATE_RTS	USB/CDC.cpp	32;"	d	file:
+CDC_RX	USB/USBDesc.h	40;"	d
+CDC_SEND_BREAK	USB/USBCore.h	71;"	d
+CDC_SERIAL_BUFFER_SIZE	USB/CDC.cpp	28;"	d	file:
+CDC_SET_CONTROL_LINE_STATE	USB/USBCore.h	70;"	d
+CDC_SET_LINE_CODING	USB/USBCore.h	68;"	d
+CDC_Setup	USB/CDC.cpp	/^bool CDC_Setup(USBSetup& setup)$/;"	f
+CDC_TX	USB/USBDesc.h	41;"	d
+CDC_UNION	USB/USBCore.h	111;"	d
+CDC_V1_10	USB/USBCore.h	104;"	d
+CHANGE	WInterrupts.h	30;"	d
+CLEAR_FEATURE	USB/USBCore.h	24;"	d
+CMFunctionalDescriptor	USB/USBCore.h	/^} CMFunctionalDescriptor;$/;"	t	typeref:struct:__anon33
+Character_h	WCharacter.h	20;"	d
+Client	Client.h	/^class Client : public Stream {$/;"	c
+ConfigDescriptor	USB/USBCore.h	/^} ConfigDescriptor;$/;"	t	typeref:struct:__anon27
+DEC	Print.h	28;"	d
+DEFAULT	WInterrupts.h	34;"	d
+DEG_TO_RAD	wiring_constants.h	37;"	d
+DISPLAY	wiring_constants.h	42;"	d
+D_CDCCS	USB/USBCore.h	283;"	d
+D_CDCCS4	USB/USBCore.h	284;"	d
+D_CONFIG	USB/USBCore.h	260;"	d
+D_DEVICE	USB/USBCore.h	254;"	d
+D_ENDPOINT	USB/USBCore.h	272;"	d
+D_IAD	USB/USBCore.h	277;"	d
+D_INTERFACE	USB/USBCore.h	266;"	d
+DeviceDescriptor	USB/USBCore.h	/^} DeviceDescriptor;$/;"	t	typeref:struct:__anon26
+Dummy_Handler	cortex_handlers.c	/^void Dummy_Handler(void)$/;"	f
+EAnalogChannel	WVariant.h	/^} EAnalogChannel ;$/;"	t	typeref:enum:_EAnalogChannel
+EExt_Interrupts	WVariant.h	/^} EExt_Interrupts ;$/;"	t	typeref:enum:__anon38
+EIC_Handler	WInterrupts.c	/^void EIC_Handler(void)$/;"	f
+EP	USB/SAMD21_USBDevice.h	/^	__attribute__((__aligned__(4)))	UsbDeviceDescriptor EP[USB_EPT_NUM];$/;"	m	class:USBDevice_SAMD21G18x
+EP0	USB/USBAPI.h	27;"	d
+EPWMChannel	WVariant.h	/^} EPWMChannel ;$/;"	t	typeref:enum:_EPWMChannel
+EPX_SIZE	USB/USBAPI.h	28;"	d
+EP_PCKSIZE_SIZE	USB/SAMD21_USBDevice.h	/^	inline uint8_t EP_PCKSIZE_SIZE(uint16_t size) {$/;"	f	class:USBDevice_SAMD21G18x
+EPioType	WVariant.h	/^} EPioType ;$/;"	t	typeref:enum:_EPioType
+EPortType	WVariant.h	/^} EPortType ;$/;"	t	typeref:enum:_EPortType
+ETCChannel	WVariant.h	/^} ETCChannel ;$/;"	t	typeref:enum:_ETCChannel
+EULER	wiring_constants.h	39;"	d
+EVEN_PARITY	USB/USBAPI.h	/^		EVEN_PARITY = 2,$/;"	e	enum:Serial_::__anon25
+EXTERNAL	WInterrupts.h	35;"	d
+EXTERNAL_INT_0	WVariant.h	/^  EXTERNAL_INT_0 = 0,$/;"	e	enum:__anon38
+EXTERNAL_INT_1	WVariant.h	/^  EXTERNAL_INT_1,$/;"	e	enum:__anon38
+EXTERNAL_INT_10	WVariant.h	/^  EXTERNAL_INT_10,$/;"	e	enum:__anon38
+EXTERNAL_INT_11	WVariant.h	/^  EXTERNAL_INT_11,$/;"	e	enum:__anon38
+EXTERNAL_INT_12	WVariant.h	/^  EXTERNAL_INT_12,$/;"	e	enum:__anon38
+EXTERNAL_INT_13	WVariant.h	/^  EXTERNAL_INT_13,$/;"	e	enum:__anon38
+EXTERNAL_INT_14	WVariant.h	/^  EXTERNAL_INT_14,$/;"	e	enum:__anon38
+EXTERNAL_INT_15	WVariant.h	/^  EXTERNAL_INT_15,$/;"	e	enum:__anon38
+EXTERNAL_INT_2	WVariant.h	/^  EXTERNAL_INT_2,$/;"	e	enum:__anon38
+EXTERNAL_INT_3	WVariant.h	/^  EXTERNAL_INT_3,$/;"	e	enum:__anon38
+EXTERNAL_INT_4	WVariant.h	/^  EXTERNAL_INT_4,$/;"	e	enum:__anon38
+EXTERNAL_INT_5	WVariant.h	/^  EXTERNAL_INT_5,$/;"	e	enum:__anon38
+EXTERNAL_INT_6	WVariant.h	/^  EXTERNAL_INT_6,$/;"	e	enum:__anon38
+EXTERNAL_INT_7	WVariant.h	/^  EXTERNAL_INT_7,$/;"	e	enum:__anon38
+EXTERNAL_INT_8	WVariant.h	/^  EXTERNAL_INT_8,$/;"	e	enum:__anon38
+EXTERNAL_INT_9	WVariant.h	/^  EXTERNAL_INT_9,$/;"	e	enum:__anon38
+EXTERNAL_INT_NMI	WVariant.h	/^  EXTERNAL_INT_NMI,$/;"	e	enum:__anon38
+EXTERNAL_INT_NONE	WVariant.h	/^  EXTERNAL_INT_NONE = NOT_AN_INTERRUPT,$/;"	e	enum:__anon38
+EXTERNAL_NUM_INTERRUPTS	WVariant.h	/^  EXTERNAL_NUM_INTERRUPTS,$/;"	e	enum:__anon38
+EndPoints	USB/USBCore.cpp	/^uint32_t EndPoints[] =$/;"	v
+EndpointDescriptor	USB/USBCore.h	/^} EndpointDescriptor;$/;"	t	typeref:struct:__anon29
+F	WString.h	38;"	d
+FALLING	WInterrupts.h	31;"	d
+GCM_AC_ANA	WVariant.h	232;"	d
+GCM_AC_DIG	WVariant.h	231;"	d
+GCM_ADC	WVariant.h	230;"	d
+GCM_DFLL48M_REF	WVariant.h	200;"	d
+GCM_EIC	WVariant.h	205;"	d
+GCM_EVSYS_CHANNEL_0	WVariant.h	207;"	d
+GCM_EVSYS_CHANNEL_1	WVariant.h	208;"	d
+GCM_EVSYS_CHANNEL_10	WVariant.h	217;"	d
+GCM_EVSYS_CHANNEL_11	WVariant.h	218;"	d
+GCM_EVSYS_CHANNEL_2	WVariant.h	209;"	d
+GCM_EVSYS_CHANNEL_3	WVariant.h	210;"	d
+GCM_EVSYS_CHANNEL_4	WVariant.h	211;"	d
+GCM_EVSYS_CHANNEL_5	WVariant.h	212;"	d
+GCM_EVSYS_CHANNEL_6	WVariant.h	213;"	d
+GCM_EVSYS_CHANNEL_7	WVariant.h	214;"	d
+GCM_EVSYS_CHANNEL_8	WVariant.h	215;"	d
+GCM_EVSYS_CHANNEL_9	WVariant.h	216;"	d
+GCM_FDPLL96M_32K	WVariant.h	202;"	d
+GCM_FDPLL96M_INPUT	WVariant.h	201;"	d
+GCM_I2S_0	WVariant.h	234;"	d
+GCM_I2S_1	WVariant.h	235;"	d
+GCM_PTC	WVariant.h	233;"	d
+GCM_RTC	WVariant.h	204;"	d
+GCM_SERCOM0_CORE	WVariant.h	220;"	d
+GCM_SERCOM1_CORE	WVariant.h	221;"	d
+GCM_SERCOM2_CORE	WVariant.h	222;"	d
+GCM_SERCOM3_CORE	WVariant.h	223;"	d
+GCM_SERCOM4_CORE	WVariant.h	224;"	d
+GCM_SERCOM5_CORE	WVariant.h	225;"	d
+GCM_SERCOMx_SLOW	WVariant.h	219;"	d
+GCM_TC4_TC5	WVariant.h	228;"	d
+GCM_TC6_TC7	WVariant.h	229;"	d
+GCM_TCC0_TCC1	WVariant.h	226;"	d
+GCM_TCC2_TC3	WVariant.h	227;"	d
+GCM_USB	WVariant.h	206;"	d
+GCM_WDT	WVariant.h	203;"	d
+GENERIC_CLOCK_GENERATOR_MAIN	startup.c	39;"	d	file:
+GENERIC_CLOCK_GENERATOR_OSC8M	startup.c	42;"	d	file:
+GENERIC_CLOCK_GENERATOR_OSCULP32K	startup.c	41;"	d	file:
+GENERIC_CLOCK_GENERATOR_XOSC32K	startup.c	40;"	d	file:
+GENERIC_CLOCK_MULTIPLEXER_DFLL48M	startup.c	44;"	d	file:
+GET_CONFIGURATION	USB/USBCore.h	29;"	d
+GET_DESCRIPTOR	USB/USBCore.h	27;"	d
+GET_INTERFACE	USB/USBCore.h	31;"	d
+GET_STATUS	USB/USBCore.h	23;"	d
+GetTC	WVariant.h	86;"	d
+GetTCChannelNumber	WVariant.h	85;"	d
+GetTCNumber	WVariant.h	84;"	d
+HALF_PI	wiring_constants.h	35;"	d
+HARDSER_DATA_5	HardwareSerial.h	36;"	d
+HARDSER_DATA_6	HardwareSerial.h	37;"	d
+HARDSER_DATA_7	HardwareSerial.h	38;"	d
+HARDSER_DATA_8	HardwareSerial.h	39;"	d
+HARDSER_DATA_MASK	HardwareSerial.h	40;"	d
+HARDSER_PARITY_EVEN	HardwareSerial.h	26;"	d
+HARDSER_PARITY_MASK	HardwareSerial.h	29;"	d
+HARDSER_PARITY_NONE	HardwareSerial.h	28;"	d
+HARDSER_PARITY_ODD	HardwareSerial.h	27;"	d
+HARDSER_STOP_BIT_1	HardwareSerial.h	31;"	d
+HARDSER_STOP_BIT_1_5	HardwareSerial.h	32;"	d
+HARDSER_STOP_BIT_2	HardwareSerial.h	33;"	d
+HARDSER_STOP_BIT_MASK	HardwareSerial.h	34;"	d
+HEX	Print.h	29;"	d
+HIGH	wiring_constants.h	27;"	d
+HOST_DEFINED	USB/samd21_host.c	32;"	d	file:
+HSTPIPCFG_PBK_1_BANK	USB/USBAPI.h	24;"	d
+HSTPIPCFG_PTOKEN_IN	USB/USBAPI.h	22;"	d
+HSTPIPCFG_PTOKEN_OUT	USB/USBAPI.h	23;"	d
+HSTPIPCFG_PTYPE_BLK	USB/USBAPI.h	21;"	d
+HSTPIPCFG_PTYPE_INTRPT	USB/USBAPI.h	25;"	d
+HardwareSerial	HardwareSerial.h	/^class HardwareSerial : public Stream$/;"	c
+HardwareSerial_h	HardwareSerial.h	20;"	d
+I2C_MASTER_OPERATION	SERCOM.h	/^	I2C_MASTER_OPERATION = 0x5u$/;"	e	enum:__anon4
+I2C_SLAVE_OPERATION	SERCOM.h	/^	I2C_SLAVE_OPERATION = 0x4u,$/;"	e	enum:__anon4
+IADDescriptor	USB/USBCore.h	/^} IADDescriptor;$/;"	t	typeref:struct:__anon30
+IMANUFACTURER	USB/USBDesc.h	47;"	d
+INPUT	wiring_constants.h	29;"	d
+INPUT_PULLDOWN	wiring_constants.h	32;"	d
+INPUT_PULLUP	wiring_constants.h	31;"	d
+IPAddress	IPAddress.cpp	/^IPAddress::IPAddress()$/;"	f	class:IPAddress
+IPAddress	IPAddress.cpp	/^IPAddress::IPAddress(const uint8_t *address)$/;"	f	class:IPAddress
+IPAddress	IPAddress.cpp	/^IPAddress::IPAddress(uint32_t address)$/;"	f	class:IPAddress
+IPAddress	IPAddress.cpp	/^IPAddress::IPAddress(uint8_t first_octet, uint8_t second_octet, uint8_t third_octet, uint8_t fourth_octet)$/;"	f	class:IPAddress
+IPAddress	IPAddress.h	/^class IPAddress : public Printable {$/;"	c
+IPAddress_h	IPAddress.h	21;"	d
+IPRODUCT	USB/USBDesc.h	48;"	d
+ISERIAL	USB/USBDesc.h	49;"	d
+ISERIAL_MAX_LEN	USB/USBDesc.h	44;"	d
+ISRHandler	USB/USBCore.cpp	/^void USBDeviceClass::ISRHandler()$/;"	f	class:USBDeviceClass
+InterfaceDescriptor	USB/USBCore.h	/^} InterfaceDescriptor;$/;"	t	typeref:struct:__anon28
+IrqHandler	Uart.cpp	/^void Uart::IrqHandler()$/;"	f	class:Uart
+Is_uhd_in_received	USB/samd21_host.h	103;"	d
+Is_uhd_nak_received	USB/samd21_host.h	107;"	d
+Is_uhd_out_ready	USB/samd21_host.h	105;"	d
+Is_uhd_pipe_frozen	USB/samd21_host.h	93;"	d
+Is_uhd_reset_sent	USB/samd21_host.h	78;"	d
+Is_uhd_setup_ready	USB/samd21_host.h	101;"	d
+Is_uhd_sof	USB/samd21_host.h	84;"	d
+Is_uhd_sof_enabled	USB/samd21_host.h	83;"	d
+Is_uhd_starting_reset	USB/samd21_host.h	73;"	d
+LOW	wiring_constants.h	26;"	d
+LSBFIRST	wiring_constants.h	/^	LSBFIRST = 0,$/;"	e	enum:BitOrder
+LSB_FIRST	SERCOM.h	/^	LSB_FIRST$/;"	e	enum:__anon7
+LineInfo	USB/CDC.cpp	/^} LineInfo;$/;"	t	typeref:struct:__anon20	file:
+LookaheadMode	Stream.h	/^enum LookaheadMode{$/;"	g
+MARK_PARITY	USB/USBAPI.h	/^		MARK_PARITY = 3,$/;"	e	enum:Serial_::__anon25
+MSBFIRST	wiring_constants.h	/^	MSBFIRST = 1$/;"	e	enum:BitOrder
+MSB_FIRST	SERCOM.h	/^	MSB_FIRST = 0,$/;"	e	enum:__anon7
+MSCDescriptor	USB/USBCore.h	/^} MSCDescriptor;$/;"	t	typeref:struct:__anon36
+MSC_GET_MAX_LUN	USB/USBCore.h	74;"	d
+MSC_PROTOCOL_BULK_ONLY	USB/USBCore.h	117;"	d
+MSC_RESET	USB/USBCore.h	73;"	d
+MSC_SUBCLASS_SCSI	USB/USBCore.h	116;"	d
+MultiTarget	Stream.h	/^  struct MultiTarget {$/;"	s	class:Stream
+NOT_AN_INTERRUPT	WVariant.h	/^  NOT_AN_INTERRUPT = -1,$/;"	e	enum:__anon38
+NOT_A_PORT	WVariant.h	/^  NOT_A_PORT=-1,$/;"	e	enum:_EPortType
+NOT_ON_PWM	WVariant.h	/^  NOT_ON_PWM=-1,$/;"	e	enum:_EPWMChannel
+NOT_ON_TIMER	WVariant.h	/^  NOT_ON_TIMER=-1,$/;"	e	enum:_ETCChannel
+NO_IGNORE_CHAR	Stream.h	128;"	d
+NO_IGNORE_CHAR	Stream.h	47;"	d
+NO_PARITY	USB/USBAPI.h	/^		NO_PARITY = 0,$/;"	e	enum:Serial_::__anon25
+NVM_MEMORY	Reset.cpp	26;"	d	file:
+NVM_USB_PAD_TRANSN_POS	USB/samd21_host.c	48;"	d	file:
+NVM_USB_PAD_TRANSN_SIZE	USB/samd21_host.c	49;"	d	file:
+NVM_USB_PAD_TRANSP_POS	USB/samd21_host.c	51;"	d	file:
+NVM_USB_PAD_TRANSP_SIZE	USB/samd21_host.c	52;"	d	file:
+NVM_USB_PAD_TRIM_POS	USB/samd21_host.c	54;"	d	file:
+NVM_USB_PAD_TRIM_SIZE	USB/samd21_host.c	55;"	d	file:
+No_ADC_Channel	WVariant.h	/^  No_ADC_Channel=-1,$/;"	e	enum:_EAnalogChannel
+OCT	Print.h	30;"	d
+ODD_PARITY	USB/USBAPI.h	/^		ODD_PARITY = 1,$/;"	e	enum:Serial_::__anon25
+ONE_AND_HALF_STOP_BIT	USB/USBAPI.h	/^		ONE_AND_HALF_STOP_BIT = 1,$/;"	e	enum:Serial_::__anon24
+ONE_STOP_BIT	USB/USBAPI.h	/^		ONE_STOP_BIT = 0,$/;"	e	enum:Serial_::__anon24
+OUTPUT	wiring_constants.h	30;"	d
+PARSE_TIMEOUT	Stream.cpp	28;"	d	file:
+PGM_P	avr/pgmspace.h	33;"	d
+PI	wiring_constants.h	34;"	d
+PIN_ATTR_ANALOG	WVariant.h	176;"	d
+PIN_ATTR_COMBO	WVariant.h	175;"	d
+PIN_ATTR_DIGITAL	WVariant.h	177;"	d
+PIN_ATTR_EXTINT	WVariant.h	181;"	d
+PIN_ATTR_NONE	WVariant.h	174;"	d
+PIN_ATTR_PWM	WVariant.h	178;"	d
+PIN_ATTR_TIMER	WVariant.h	179;"	d
+PIN_ATTR_TIMER_ALT	WVariant.h	180;"	d
+PIO_AC_CLK	WVariant.h	/^  PIO_AC_CLK,           \/* The pin is controlled by the associated signal of peripheral H. *\/$/;"	e	enum:_EPioType
+PIO_ANALOG	WVariant.h	/^  PIO_ANALOG,           \/* The pin is controlled by the associated signal of peripheral B. *\/$/;"	e	enum:_EPioType
+PIO_COM	WVariant.h	/^  PIO_COM,              \/* The pin is controlled by the associated signal of peripheral G. *\/$/;"	e	enum:_EPioType
+PIO_DIGITAL	WVariant.h	/^  PIO_DIGITAL,          \/* The pin is controlled by PORT. *\/$/;"	e	enum:_EPioType
+PIO_EXTINT	WVariant.h	/^  PIO_EXTINT=0,         \/* The pin is controlled by the associated signal of peripheral A. *\/$/;"	e	enum:_EPioType
+PIO_INPUT	WVariant.h	/^  PIO_INPUT,            \/* The pin is controlled by PORT and is an input. *\/$/;"	e	enum:_EPioType
+PIO_INPUT_PULLUP	WVariant.h	/^  PIO_INPUT_PULLUP,     \/* The pin is controlled by PORT and is an input with internal pull-up resistor enabled. *\/$/;"	e	enum:_EPioType
+PIO_NOT_A_PIN	WVariant.h	/^  PIO_NOT_A_PIN=-1,     \/* Not under control of a peripheral. *\/$/;"	e	enum:_EPioType
+PIO_OUTPUT	WVariant.h	/^  PIO_OUTPUT,           \/* The pin is controlled by PORT and is an output. *\/$/;"	e	enum:_EPioType
+PIO_PWM	WVariant.h	/^  PIO_PWM=PIO_TIMER,$/;"	e	enum:_EPioType
+PIO_PWM_ALT	WVariant.h	/^  PIO_PWM_ALT=PIO_TIMER_ALT,$/;"	e	enum:_EPioType
+PIO_SERCOM	WVariant.h	/^  PIO_SERCOM,           \/* The pin is controlled by the associated signal of peripheral C. *\/$/;"	e	enum:_EPioType
+PIO_SERCOM_ALT	WVariant.h	/^  PIO_SERCOM_ALT,       \/* The pin is controlled by the associated signal of peripheral D. *\/$/;"	e	enum:_EPioType
+PIO_TIMER	WVariant.h	/^  PIO_TIMER,            \/* The pin is controlled by the associated signal of peripheral E. *\/$/;"	e	enum:_EPioType
+PIO_TIMER_ALT	WVariant.h	/^  PIO_TIMER_ALT,        \/* The pin is controlled by the associated signal of peripheral F. *\/$/;"	e	enum:_EPioType
+PLUGGABLE_USB_ENABLED	USB/USBDesc.h	24;"	d
+PORTA	WVariant.h	/^  PORTA=0,$/;"	e	enum:_EPortType
+PORTB	WVariant.h	/^  PORTB=1,$/;"	e	enum:_EPortType
+PORTC	WVariant.h	/^  PORTC=2,$/;"	e	enum:_EPortType
+PROGMEM	avr/pgmspace.h	32;"	d
+PSTR	avr/pgmspace.h	34;"	d
+PUSB_h	USB/PluggableUSB.h	21;"	d
+PWM0_CH0	WVariant.h	/^  PWM0_CH0=TCC0_CH0,$/;"	e	enum:_EPWMChannel
+PWM0_CH1	WVariant.h	/^  PWM0_CH1=TCC0_CH1,$/;"	e	enum:_EPWMChannel
+PWM0_CH2	WVariant.h	/^  PWM0_CH2=TCC0_CH2,$/;"	e	enum:_EPWMChannel
+PWM0_CH3	WVariant.h	/^  PWM0_CH3=TCC0_CH3,$/;"	e	enum:_EPWMChannel
+PWM0_CH4	WVariant.h	/^  PWM0_CH4=TCC0_CH4,$/;"	e	enum:_EPWMChannel
+PWM0_CH5	WVariant.h	/^  PWM0_CH5=TCC0_CH5,$/;"	e	enum:_EPWMChannel
+PWM0_CH6	WVariant.h	/^  PWM0_CH6=TCC0_CH6,$/;"	e	enum:_EPWMChannel
+PWM0_CH7	WVariant.h	/^  PWM0_CH7=TCC0_CH7,$/;"	e	enum:_EPWMChannel
+PWM1_CH0	WVariant.h	/^  PWM1_CH0=TCC1_CH0,$/;"	e	enum:_EPWMChannel
+PWM1_CH1	WVariant.h	/^  PWM1_CH1=TCC1_CH1,$/;"	e	enum:_EPWMChannel
+PWM1_CH2	WVariant.h	/^  PWM1_CH2=TCC1_CH2,$/;"	e	enum:_EPWMChannel
+PWM1_CH3	WVariant.h	/^  PWM1_CH3=TCC1_CH3,$/;"	e	enum:_EPWMChannel
+PWM2_CH0	WVariant.h	/^  PWM2_CH0=TCC2_CH0,$/;"	e	enum:_EPWMChannel
+PWM2_CH1	WVariant.h	/^  PWM2_CH1=TCC2_CH1,$/;"	e	enum:_EPWMChannel
+PWM2_CH2	WVariant.h	/^  PWM2_CH2=TCC2_CH2,$/;"	e	enum:_EPWMChannel
+PWM2_CH3	WVariant.h	/^  PWM2_CH3=TCC2_CH3,$/;"	e	enum:_EPWMChannel
+PWM3_CH0	WVariant.h	/^  PWM3_CH0=TC3_CH0,$/;"	e	enum:_EPWMChannel
+PWM3_CH1	WVariant.h	/^  PWM3_CH1=TC3_CH1,$/;"	e	enum:_EPWMChannel
+PWM4_CH0	WVariant.h	/^  PWM4_CH0=TC4_CH0,$/;"	e	enum:_EPWMChannel
+PWM4_CH1	WVariant.h	/^  PWM4_CH1=TC4_CH1,$/;"	e	enum:_EPWMChannel
+PWM5_CH0	WVariant.h	/^  PWM5_CH0=TC5_CH0,$/;"	e	enum:_EPWMChannel
+PWM5_CH1	WVariant.h	/^  PWM5_CH1=TC5_CH1,$/;"	e	enum:_EPWMChannel
+PinDescription	WVariant.h	/^} PinDescription ;$/;"	t	typeref:struct:_PinDescription
+PluggableUSB	USB/PluggableUSB.cpp	/^PluggableUSB_& PluggableUSB()$/;"	f
+PluggableUSBModule	USB/PluggableUSB.h	/^  PluggableUSBModule(uint8_t numEps, uint8_t numIfs, uint32_t *epType) :$/;"	f	class:PluggableUSBModule
+PluggableUSBModule	USB/PluggableUSB.h	/^class PluggableUSBModule {$/;"	c
+PluggableUSB_	USB/PluggableUSB.cpp	/^PluggableUSB_::PluggableUSB_() : lastIf(CDC_ACM_INTERFACE + CDC_INTERFACE_COUNT),$/;"	f	class:PluggableUSB_
+PluggableUSB_	USB/PluggableUSB.h	/^class PluggableUSB_ {$/;"	c
+Print	Print.h	/^    Print() : write_error(0) {}$/;"	f	class:Print
+Print	Print.h	/^class Print$/;"	c
+Print_h	Print.h	20;"	d
+Printable	Printable.h	/^class Printable$/;"	c
+Printable_h	Printable.h	20;"	d
+RAD_TO_DEG	wiring_constants.h	38;"	d
+REQUEST_CLASS	USB/USBCore.h	53;"	d
+REQUEST_DEVICE	USB/USBCore.h	57;"	d
+REQUEST_DEVICETOHOST	USB/USBCore.h	49;"	d
+REQUEST_DEVICETOHOST_CLASS_INTERFACE	USB/USBCore.h	63;"	d
+REQUEST_DEVICETOHOST_STANDARD_INTERFACE	USB/USBCore.h	65;"	d
+REQUEST_DIRECTION	USB/USBCore.h	50;"	d
+REQUEST_ENDPOINT	USB/USBCore.h	59;"	d
+REQUEST_HOSTTODEVICE	USB/USBCore.h	48;"	d
+REQUEST_HOSTTODEVICE_CLASS_INTERFACE	USB/USBCore.h	64;"	d
+REQUEST_INTERFACE	USB/USBCore.h	58;"	d
+REQUEST_OTHER	USB/USBCore.h	60;"	d
+REQUEST_RECIPIENT	USB/USBCore.h	61;"	d
+REQUEST_STANDARD	USB/USBCore.h	52;"	d
+REQUEST_TYPE	USB/USBCore.h	55;"	d
+REQUEST_VENDOR	USB/USBCore.h	54;"	d
+RISING	WInterrupts.h	32;"	d
+Reset_Handler	cortex_handlers.c	/^void Reset_Handler(void)$/;"	f
+RingBuffer	RingBuffer.cpp	/^RingBuffer::RingBuffer( void )$/;"	f	class:RingBuffer
+RingBuffer	RingBuffer.h	/^class RingBuffer$/;"	c
+SAMD21_HOST_H_INCLUDED	USB/samd21_host.h	20;"	d
+SAMPLE_RATE_x16	SERCOM.h	/^	SAMPLE_RATE_x16 = 0x1,	\/\/Fractional$/;"	e	enum:__anon11
+SAMPLE_RATE_x8	SERCOM.h	/^	SAMPLE_RATE_x8 = 0x3,	\/\/Fractional$/;"	e	enum:__anon11
+SERCOM	SERCOM.cpp	/^SERCOM::SERCOM(Sercom* s)$/;"	f	class:SERCOM
+SERCOM	SERCOM.h	/^class SERCOM$/;"	c
+SERCOM_EVEN_PARITY	SERCOM.h	/^	SERCOM_EVEN_PARITY = 0,$/;"	e	enum:__anon5
+SERCOM_FREQ_REF	SERCOM.h	24;"	d
+SERCOM_NO_PARITY	SERCOM.h	/^	SERCOM_NO_PARITY$/;"	e	enum:__anon5
+SERCOM_ODD_PARITY	SERCOM.h	/^	SERCOM_ODD_PARITY,$/;"	e	enum:__anon5
+SERCOM_RX_PAD_0	SERCOM.h	/^	SERCOM_RX_PAD_0 = 0,$/;"	e	enum:__anon9
+SERCOM_RX_PAD_1	SERCOM.h	/^	SERCOM_RX_PAD_1,$/;"	e	enum:__anon9
+SERCOM_RX_PAD_2	SERCOM.h	/^	SERCOM_RX_PAD_2,$/;"	e	enum:__anon9
+SERCOM_RX_PAD_3	SERCOM.h	/^	SERCOM_RX_PAD_3$/;"	e	enum:__anon9
+SERCOM_SPI_MODE_0	SERCOM.h	/^	SERCOM_SPI_MODE_0 = 0,	\/\/ CPOL : 0  | CPHA : 0$/;"	e	enum:__anon12
+SERCOM_SPI_MODE_1	SERCOM.h	/^	SERCOM_SPI_MODE_1,		\/\/ CPOL : 0  | CPHA : 1$/;"	e	enum:__anon12
+SERCOM_SPI_MODE_2	SERCOM.h	/^	SERCOM_SPI_MODE_2,		\/\/ CPOL : 1  | CPHA : 0$/;"	e	enum:__anon12
+SERCOM_SPI_MODE_3	SERCOM.h	/^	SERCOM_SPI_MODE_3		\/\/ CPOL : 1  | CPHA : 1$/;"	e	enum:__anon12
+SERCOM_STOP_BITS_2	SERCOM.h	/^	SERCOM_STOP_BITS_2$/;"	e	enum:__anon6
+SERCOM_STOP_BIT_1	SERCOM.h	/^	SERCOM_STOP_BIT_1 = 0,$/;"	e	enum:__anon6
+SERIAL	wiring_constants.h	41;"	d
+SERIAL_5E1	HardwareSerial.h	50;"	d
+SERIAL_5E2	HardwareSerial.h	54;"	d
+SERIAL_5N1	HardwareSerial.h	42;"	d
+SERIAL_5N2	HardwareSerial.h	46;"	d
+SERIAL_5O1	HardwareSerial.h	58;"	d
+SERIAL_5O2	HardwareSerial.h	62;"	d
+SERIAL_6E1	HardwareSerial.h	51;"	d
+SERIAL_6E2	HardwareSerial.h	55;"	d
+SERIAL_6N1	HardwareSerial.h	43;"	d
+SERIAL_6N2	HardwareSerial.h	47;"	d
+SERIAL_6O1	HardwareSerial.h	59;"	d
+SERIAL_6O2	HardwareSerial.h	63;"	d
+SERIAL_7E1	HardwareSerial.h	52;"	d
+SERIAL_7E2	HardwareSerial.h	56;"	d
+SERIAL_7N1	HardwareSerial.h	44;"	d
+SERIAL_7N2	HardwareSerial.h	48;"	d
+SERIAL_7O1	HardwareSerial.h	60;"	d
+SERIAL_7O2	HardwareSerial.h	64;"	d
+SERIAL_8E1	HardwareSerial.h	53;"	d
+SERIAL_8E2	HardwareSerial.h	57;"	d
+SERIAL_8N1	HardwareSerial.h	45;"	d
+SERIAL_8N2	HardwareSerial.h	49;"	d
+SERIAL_8O1	HardwareSerial.h	61;"	d
+SERIAL_8O2	HardwareSerial.h	65;"	d
+SERIAL_BUFFER_SIZE	RingBuffer.h	28;"	d
+SET_ADDRESS	USB/USBCore.h	26;"	d
+SET_CONFIGURATION	USB/USBCore.h	30;"	d
+SET_DESCRIPTOR	USB/USBCore.h	28;"	d
+SET_FEATURE	USB/USBCore.h	25;"	d
+SET_INTERFACE	USB/USBCore.h	32;"	d
+SKIP_ALL	Stream.h	/^    SKIP_ALL,       \/\/ All invalid characters are ignored.$/;"	e	enum:LookaheadMode
+SKIP_NONE	Stream.h	/^    SKIP_NONE,      \/\/ Nothing is skipped, and the stream is not touched unless the first waiting character is valid.$/;"	e	enum:LookaheadMode
+SKIP_WHITESPACE	Stream.h	/^    SKIP_WHITESPACE \/\/ Only tabs, spaces, line feeds & carriage returns are skipped.$/;"	e	enum:LookaheadMode
+SLEEP_ACTIVE	sleep.h	/^    SLEEP_ACTIVE,$/;"	e	enum:__anon19
+SLEEP_IDLE_0	sleep.h	/^    SLEEP_IDLE_0,$/;"	e	enum:__anon19
+SLEEP_IDLE_1	sleep.h	/^    SLEEP_IDLE_1,$/;"	e	enum:__anon19
+SLEEP_IDLE_2	sleep.h	/^    SLEEP_IDLE_2,$/;"	e	enum:__anon19
+SLEEP_STANDBY	sleep.h	/^    SLEEP_STANDBY,$/;"	e	enum:__anon19
+SPACE_PARITY	USB/USBAPI.h	/^		SPACE_PARITY = 4,$/;"	e	enum:Serial_::__anon25
+SPI_CHAR_SIZE_8_BITS	SERCOM.h	/^	SPI_CHAR_SIZE_8_BITS = 0x0ul,$/;"	e	enum:__anon14
+SPI_CHAR_SIZE_9_BITS	SERCOM.h	/^	SPI_CHAR_SIZE_9_BITS$/;"	e	enum:__anon14
+SPI_MASTER_OPERATION	SERCOM.h	/^	SPI_MASTER_OPERATION = 0x3u$/;"	e	enum:__anon3
+SPI_PAD_0_SCK_1	SERCOM.h	/^	SPI_PAD_0_SCK_1 = 0,$/;"	e	enum:__anon13
+SPI_PAD_0_SCK_3	SERCOM.h	/^	SPI_PAD_0_SCK_3$/;"	e	enum:__anon13
+SPI_PAD_2_SCK_3	SERCOM.h	/^	SPI_PAD_2_SCK_3,$/;"	e	enum:__anon13
+SPI_PAD_3_SCK_1	SERCOM.h	/^	SPI_PAD_3_SCK_1,$/;"	e	enum:__anon13
+SPI_SLAVE_OPERATION	SERCOM.h	/^	SPI_SLAVE_OPERATION = 0x2u,$/;"	e	enum:__anon3
+STRING_LANGUAGE	USB/USBCore.cpp	/^const uint16_t STRING_LANGUAGE[2] = {$/;"	v
+STRING_MANUFACTURER	USB/USBCore.cpp	/^const uint8_t STRING_MANUFACTURER[] = USB_MANUFACTURER;$/;"	v
+STRING_PRODUCT	USB/USBCore.cpp	/^const uint8_t STRING_PRODUCT[] = USB_PRODUCT;$/;"	v
+SendInterfaces	USB/USBCore.cpp	/^uint8_t USBDeviceClass::SendInterfaces(uint32_t* total)$/;"	f	class:USBDeviceClass
+SercomDataOrder	SERCOM.h	/^} SercomDataOrder;$/;"	t	typeref:enum:__anon7
+SercomI2CMode	SERCOM.h	/^} SercomI2CMode;$/;"	t	typeref:enum:__anon4
+SercomMasterAckActionWire	SERCOM.h	/^} SercomMasterAckActionWire;$/;"	t	typeref:enum:__anon18
+SercomMasterCommandWire	SERCOM.h	/^} SercomMasterCommandWire;$/;"	t	typeref:enum:__anon17
+SercomNumberStopBit	SERCOM.h	/^} SercomNumberStopBit;$/;"	t	typeref:enum:__anon6
+SercomParityMode	SERCOM.h	/^} SercomParityMode;$/;"	t	typeref:enum:__anon5
+SercomRXPad	SERCOM.h	/^} SercomRXPad;$/;"	t	typeref:enum:__anon9
+SercomSpiCharSize	SERCOM.h	/^} SercomSpiCharSize;$/;"	t	typeref:enum:__anon14
+SercomSpiClockMode	SERCOM.h	/^} SercomSpiClockMode;$/;"	t	typeref:enum:__anon12
+SercomSpiMode	SERCOM.h	/^} SercomSpiMode;$/;"	t	typeref:enum:__anon3
+SercomSpiTXPad	SERCOM.h	/^} SercomSpiTXPad;$/;"	t	typeref:enum:__anon13
+SercomUartCharSize	SERCOM.h	/^} SercomUartCharSize;$/;"	t	typeref:enum:__anon8
+SercomUartMode	SERCOM.h	/^} SercomUartMode;$/;"	t	typeref:enum:__anon2
+SercomUartSampleRate	SERCOM.h	/^} SercomUartSampleRate;$/;"	t	typeref:enum:__anon11
+SercomUartTXPad	SERCOM.h	/^} SercomUartTXPad;$/;"	t	typeref:enum:__anon10
+SercomWireBusState	SERCOM.h	/^} SercomWireBusState;$/;"	t	typeref:enum:__anon15
+SercomWireReadWriteFlag	SERCOM.h	/^} SercomWireReadWriteFlag;$/;"	t	typeref:enum:__anon16
+Serial_	USB/USBAPI.h	/^	Serial_(USBDeviceClass &_usb) : usb(_usb) { }$/;"	f	class:Serial_
+Serial_	USB/USBAPI.h	/^class Serial_ : public Stream$/;"	c
+Server	Server.h	/^class Server : public Print {$/;"	c
+SleepMode	sleep.h	/^}SleepMode;$/;"	t	typeref:enum:__anon19
+Stream	Stream.h	/^    Stream() {_timeout=1000;}$/;"	f	class:Stream
+Stream	Stream.h	/^class Stream : public Print$/;"	c
+Stream_h	Stream.h	23;"	d
+String	WString.cpp	/^String::String(String &&rval)$/;"	f	class:String
+String	WString.cpp	/^String::String(StringSumHelper &&rval)$/;"	f	class:String
+String	WString.cpp	/^String::String(char c)$/;"	f	class:String
+String	WString.cpp	/^String::String(const String &value)$/;"	f	class:String
+String	WString.cpp	/^String::String(const __FlashStringHelper *pstr)$/;"	f	class:String
+String	WString.cpp	/^String::String(const char *cstr)$/;"	f	class:String
+String	WString.cpp	/^String::String(double value, unsigned char decimalPlaces)$/;"	f	class:String
+String	WString.cpp	/^String::String(float value, unsigned char decimalPlaces)$/;"	f	class:String
+String	WString.cpp	/^String::String(int value, unsigned char base)$/;"	f	class:String
+String	WString.cpp	/^String::String(long value, unsigned char base)$/;"	f	class:String
+String	WString.cpp	/^String::String(unsigned char value, unsigned char base)$/;"	f	class:String
+String	WString.cpp	/^String::String(unsigned int value, unsigned char base)$/;"	f	class:String
+String	WString.cpp	/^String::String(unsigned long value, unsigned char base)$/;"	f	class:String
+String	WString.h	/^class String$/;"	c
+StringIfHelper	WString.h	/^	void StringIfHelper() const {}$/;"	f	class:String
+StringSumHelper	WString.h	/^	StringSumHelper(char c) : String(c) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(const String &s) : String(s) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(const char *p) : String(p) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(double num) : String(num) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(float num) : String(num) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(int num) : String(num) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(long num) : String(num) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(unsigned char num) : String(num) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(unsigned int num) : String(num) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^	StringSumHelper(unsigned long num) : String(num) {}$/;"	f	class:StringSumHelper
+StringSumHelper	WString.h	/^class StringSumHelper : public String$/;"	c
+String_class_h	WString.h	23;"	d
+SysTick_DefaultHandler	delay.c	/^void SysTick_DefaultHandler(void)$/;"	f
+SysTick_Handler	cortex_handlers.c	/^void SysTick_Handler(void)$/;"	f
+SystemCoreClock	wiring.c	/^uint32_t SystemCoreClock=1000000ul ;$/;"	v
+SystemInit	startup.c	/^void SystemInit( void )$/;"	f
+TC3_CH0	WVariant.h	/^  TC3_CH0  = (3<<8)|(0),$/;"	e	enum:_ETCChannel
+TC3_CH1	WVariant.h	/^  TC3_CH1  = (3<<8)|(1),$/;"	e	enum:_ETCChannel
+TC4_CH0	WVariant.h	/^  TC4_CH0  = (4<<8)|(0),$/;"	e	enum:_ETCChannel
+TC4_CH1	WVariant.h	/^  TC4_CH1  = (4<<8)|(1),$/;"	e	enum:_ETCChannel
+TC5_CH0	WVariant.h	/^  TC5_CH0  = (5<<8)|(0),$/;"	e	enum:_ETCChannel
+TC5_CH1	WVariant.h	/^  TC5_CH1  = (5<<8)|(1),$/;"	e	enum:_ETCChannel
+TCC0_CH0	WVariant.h	/^  TCC0_CH0 = (0<<8)|(0),$/;"	e	enum:_ETCChannel
+TCC0_CH1	WVariant.h	/^  TCC0_CH1 = (0<<8)|(1),$/;"	e	enum:_ETCChannel
+TCC0_CH2	WVariant.h	/^  TCC0_CH2 = (0<<8)|(2),$/;"	e	enum:_ETCChannel
+TCC0_CH3	WVariant.h	/^  TCC0_CH3 = (0<<8)|(3),$/;"	e	enum:_ETCChannel
+TCC0_CH4	WVariant.h	/^  TCC0_CH4 = (0<<8)|(0), \/\/ Channel 4 is 0!$/;"	e	enum:_ETCChannel
+TCC0_CH5	WVariant.h	/^  TCC0_CH5 = (0<<8)|(1), \/\/ Channel 5 is 1!$/;"	e	enum:_ETCChannel
+TCC0_CH6	WVariant.h	/^  TCC0_CH6 = (0<<8)|(2), \/\/ Channel 6 is 2!$/;"	e	enum:_ETCChannel
+TCC0_CH7	WVariant.h	/^  TCC0_CH7 = (0<<8)|(3), \/\/ Channel 7 is 3!$/;"	e	enum:_ETCChannel
+TCC1_CH0	WVariant.h	/^  TCC1_CH0 = (1<<8)|(0),$/;"	e	enum:_ETCChannel
+TCC1_CH1	WVariant.h	/^  TCC1_CH1 = (1<<8)|(1),$/;"	e	enum:_ETCChannel
+TCC1_CH2	WVariant.h	/^  TCC1_CH2 = (1<<8)|(0), \/\/ Channel 2 is 0!$/;"	e	enum:_ETCChannel
+TCC1_CH3	WVariant.h	/^  TCC1_CH3 = (1<<8)|(1), \/\/ Channel 3 is 1!$/;"	e	enum:_ETCChannel
+TCC2_CH0	WVariant.h	/^  TCC2_CH0 = (2<<8)|(0),$/;"	e	enum:_ETCChannel
+TCC2_CH1	WVariant.h	/^  TCC2_CH1 = (2<<8)|(1),$/;"	e	enum:_ETCChannel
+TCC2_CH2	WVariant.h	/^  TCC2_CH2 = (2<<8)|(0), \/\/ Channel 2 is 0!$/;"	e	enum:_ETCChannel
+TCC2_CH3	WVariant.h	/^  TCC2_CH3 = (2<<8)|(1), \/\/ Channel 3 is 1!$/;"	e	enum:_ETCChannel
+TONE_TC	Tone.cpp	34;"	d	file:
+TONE_TC_CHANNEL	Tone.cpp	37;"	d	file:
+TONE_TC_IRQn	Tone.cpp	35;"	d	file:
+TONE_TC_TOP	Tone.cpp	36;"	d	file:
+TRACE_UOTGHS_HOST	USB/samd21_host.c	36;"	d	file:
+TWO_PI	wiring_constants.h	36;"	d
+TWO_STOP_BITS	USB/USBAPI.h	/^		TWO_STOP_BITS = 2,$/;"	e	enum:Serial_::__anon24
+Tone_Handler	Tone.cpp	/^void Tone_Handler (void)$/;"	f
+UART_CHAR_SIZE_5_BITS	SERCOM.h	/^	UART_CHAR_SIZE_5_BITS = 0x5u,$/;"	e	enum:__anon8
+UART_CHAR_SIZE_6_BITS	SERCOM.h	/^	UART_CHAR_SIZE_6_BITS,$/;"	e	enum:__anon8
+UART_CHAR_SIZE_7_BITS	SERCOM.h	/^	UART_CHAR_SIZE_7_BITS$/;"	e	enum:__anon8
+UART_CHAR_SIZE_8_BITS	SERCOM.h	/^	UART_CHAR_SIZE_8_BITS = 0,$/;"	e	enum:__anon8
+UART_CHAR_SIZE_9_BITS	SERCOM.h	/^	UART_CHAR_SIZE_9_BITS,$/;"	e	enum:__anon8
+UART_EXT_CLOCK	SERCOM.h	/^	UART_EXT_CLOCK = 0,$/;"	e	enum:__anon2
+UART_INT_CLOCK	SERCOM.h	/^	UART_INT_CLOCK = 0x1u$/;"	e	enum:__anon2
+UART_TX_PAD_0	SERCOM.h	/^	UART_TX_PAD_0 = 0x0ul,	\/\/ Only for UART$/;"	e	enum:__anon10
+UART_TX_PAD_2	SERCOM.h	/^	UART_TX_PAD_2 = 0x1ul,  \/\/ Only for UART$/;"	e	enum:__anon10
+UART_TX_RTS_CTS_PAD_0_2_3	SERCOM.h	/^	UART_TX_RTS_CTS_PAD_0_2_3 = 0x2ul,  \/\/ Only for UART with TX on PAD0, RTS on PAD2 and CTS on PAD3$/;"	e	enum:__anon10
+UDD_Handler	USB/USBCore.cpp	/^extern "C" void UDD_Handler(void) {$/;"	f
+UDP	Udp.h	/^class UDP : public Stream {$/;"	c
+UHD_BusReset	USB/samd21_host.h	74;"	d
+UHD_GetVBUSState	USB/samd21_host.c	/^uhd_vbus_state_t UHD_GetVBUSState(void)$/;"	f
+UHD_Handler	USB/samd21_host.c	/^void UHD_Handler(void)$/;"	f
+UHD_Init	USB/samd21_host.c	/^void UHD_Init(void)$/;"	f
+UHD_Pipe0_Alloc	USB/samd21_host.c	/^uint32_t UHD_Pipe0_Alloc(uint32_t ul_add , uint32_t ul_ep_size)$/;"	f
+UHD_Pipe_Alloc	USB/samd21_host.c	/^uint32_t UHD_Pipe_Alloc(uint32_t ul_dev_addr, uint32_t ul_dev_ep, uint32_t ul_type, uint32_t ul_dir, uint32_t ul_maxsize, uint32_t ul_interval, uint32_t ul_nb_bank)$/;"	f
+UHD_Pipe_CountZero	USB/samd21_host.c	/^void UHD_Pipe_CountZero(uint32_t ul_pipe)$/;"	f
+UHD_Pipe_Free	USB/samd21_host.c	/^void UHD_Pipe_Free(uint32_t ul_pipe)$/;"	f
+UHD_Pipe_Is_Transfer_Complete	USB/samd21_host.c	/^uint32_t UHD_Pipe_Is_Transfer_Complete(uint32_t ul_pipe, uint32_t ul_token_type)$/;"	f
+UHD_Pipe_Read	USB/samd21_host.c	/^uint32_t UHD_Pipe_Read(uint32_t pipe_num, uint32_t buf_size, uint8_t *buf)$/;"	f
+UHD_Pipe_Send	USB/samd21_host.c	/^void UHD_Pipe_Send(uint32_t ul_pipe, uint32_t ul_token_type)$/;"	f
+UHD_Pipe_Write	USB/samd21_host.c	/^void UHD_Pipe_Write(uint32_t ul_pipe, uint32_t ul_size, uint8_t *buf)$/;"	f
+UHD_STATE_CONNECTED	USB/USB_host.h	/^	UHD_STATE_CONNECTED = 2,$/;"	e	enum:__anon37
+UHD_STATE_DISCONNECTED	USB/USB_host.h	/^	UHD_STATE_DISCONNECTED = 1,$/;"	e	enum:__anon37
+UHD_STATE_ERROR	USB/USB_host.h	/^	UHD_STATE_ERROR = 3,$/;"	e	enum:__anon37
+UHD_STATE_NO_VBUS	USB/USB_host.h	/^	UHD_STATE_NO_VBUS = 0,$/;"	e	enum:__anon37
+USBDevice	USB/USBCore.cpp	/^USBDeviceClass USBDevice;$/;"	v
+USBDeviceClass	USB/USBAPI.h	/^	USBDeviceClass() {};$/;"	f	class:USBDeviceClass
+USBDeviceClass	USB/USBAPI.h	/^class USBDeviceClass {$/;"	c
+USBDevice_SAMD21G18x	USB/SAMD21_USBDevice.h	/^	USBDevice_SAMD21G18x() : usb(USB->DEVICE) {$/;"	f	class:USBDevice_SAMD21G18x
+USBDevice_SAMD21G18x	USB/SAMD21_USBDevice.h	/^class USBDevice_SAMD21G18x {$/;"	c
+USBSetup	USB/USBAPI.h	/^} USBSetup;$/;"	t	typeref:struct:__anon21
+USB_CONFIGURATION_DESCRIPTOR_TYPE	USB/USBCore.h	84;"	d
+USB_CONFIG_BUS_POWERED	USB/USBCore.h	97;"	d
+USB_CONFIG_POWERED_MASK	USB/USBCore.h	96;"	d
+USB_CONFIG_POWER_MA	USB/USBCore.h	102;"	d
+USB_CONFIG_REMOTE_WAKEUP	USB/USBCore.h	99;"	d
+USB_CONFIG_SELF_POWERED	USB/USBCore.h	98;"	d
+USB_DEVICE_CLASS_COMMUNICATIONS	USB/USBCore.h	91;"	d
+USB_DEVICE_CLASS_HUMAN_INTERFACE	USB/USBCore.h	92;"	d
+USB_DEVICE_CLASS_STORAGE	USB/USBCore.h	93;"	d
+USB_DEVICE_CLASS_VENDOR_SPECIFIC	USB/USBCore.h	94;"	d
+USB_DEVICE_DESCRIPTOR_TYPE	USB/USBCore.h	83;"	d
+USB_DEVICE_QUALIFIER	USB/USBCore.h	88;"	d
+USB_DeviceDescriptor	USB/USBCore.cpp	/^const DeviceDescriptor USB_DeviceDescriptor = D_DEVICE(0x00, 0x00, 0x00, 64, USB_VID, USB_PID, 0x100, IMANUFACTURER, IPRODUCT, ISERIAL, 1);$/;"	v
+USB_DeviceDescriptorB	USB/USBCore.cpp	/^const DeviceDescriptor USB_DeviceDescriptorB = D_DEVICE(0xEF, 0x02, 0x01, 64, USB_VID, USB_PID, 0x100, IMANUFACTURER, IPRODUCT, ISERIAL, 1);$/;"	v
+USB_ENDPOINTS	USB/USBCore.h	39;"	d
+USB_ENDPOINT_DESCRIPTOR_TYPE	USB/USBCore.h	87;"	d
+USB_ENDPOINT_DIRECTION_MASK	USB/USBCore.h	35;"	d
+USB_ENDPOINT_IN	USB/USBCore.h	37;"	d
+USB_ENDPOINT_OUT	USB/USBCore.h	36;"	d
+USB_ENDPOINT_TYPE_BULK	USB/USBCore.h	44;"	d
+USB_ENDPOINT_TYPE_CONTROL	USB/USBCore.h	42;"	d
+USB_ENDPOINT_TYPE_INTERRUPT	USB/USBCore.h	45;"	d
+USB_ENDPOINT_TYPE_ISOCHRONOUS	USB/USBCore.h	43;"	d
+USB_ENDPOINT_TYPE_MASK	USB/USBCore.h	41;"	d
+USB_EP_DIR_IN	USB/samd21_host.h	28;"	d
+USB_EP_DIR_OUT	USB/samd21_host.h	29;"	d
+USB_ERRORFLOW	USB/samd21_host.h	44;"	d
+USB_ERRORTIMEOUT	USB/samd21_host.h	45;"	d
+USB_ERROR_DATATOGGLE	USB/samd21_host.h	46;"	d
+USB_HOST_DTGL	USB/samd21_host.h	58;"	d
+USB_HOST_H_INCLUDED	USB/USB_host.h	20;"	d
+USB_HOST_NB_BK_1	USB/samd21_host.h	38;"	d
+USB_HOST_PCFG_PTOKEN_IN	USB/samd21_host.h	41;"	d
+USB_HOST_PCFG_PTOKEN_OUT	USB/samd21_host.h	42;"	d
+USB_HOST_PCFG_PTOKEN_SETUP	USB/samd21_host.h	40;"	d
+USB_HOST_PINTFLAG_TRCPT	USB/samd21_host.c	468;"	d	file:
+USB_HOST_PINTFLAG_TRCPT_Msk	USB/samd21_host.c	467;"	d	file:
+USB_HOST_PINTFLAG_TRCPT_Pos	USB/samd21_host.c	466;"	d	file:
+USB_HOST_PTYPE_BULK	USB/samd21_host.h	34;"	d
+USB_HOST_PTYPE_CTRL	USB/samd21_host.h	32;"	d
+USB_HOST_PTYPE_DIS	USB/samd21_host.h	31;"	d
+USB_HOST_PTYPE_EXT	USB/samd21_host.h	36;"	d
+USB_HOST_PTYPE_INT	USB/samd21_host.h	35;"	d
+USB_HOST_PTYPE_ISO	USB/samd21_host.h	33;"	d
+USB_Handler	cortex_handlers.c	/^void USB_Handler(void)$/;"	f
+USB_INTERFACE_DESCRIPTOR_TYPE	USB/USBCore.h	86;"	d
+USB_MANUFACTURER	USB/USBCore.cpp	57;"	d	file:
+USB_MANUFACTURER	USB/USBCore.cpp	59;"	d	file:
+USB_MANUFACTURER	USB/USBCore.cpp	62;"	d	file:
+USB_OTHER_SPEED_CONFIGURATION	USB/USBCore.h	89;"	d
+USB_PCKSIZE_SIZE_1023_BYTES_FS	USB/samd21_host.h	55;"	d
+USB_PCKSIZE_SIZE_1024_BYTES_HS	USB/samd21_host.h	56;"	d
+USB_PCKSIZE_SIZE_128_BYTES	USB/samd21_host.h	52;"	d
+USB_PCKSIZE_SIZE_16_BYTES	USB/samd21_host.h	49;"	d
+USB_PCKSIZE_SIZE_256_BYTES	USB/samd21_host.h	53;"	d
+USB_PCKSIZE_SIZE_32_BYTES	USB/samd21_host.h	50;"	d
+USB_PCKSIZE_SIZE_512_BYTES	USB/samd21_host.h	54;"	d
+USB_PCKSIZE_SIZE_64_BYTES	USB/samd21_host.h	51;"	d
+USB_PCKSIZE_SIZE_8_BYTES	USB/samd21_host.h	48;"	d
+USB_PRODUCT	USB/USBCore.cpp	50;"	d	file:
+USB_STRING_DESCRIPTOR_TYPE	USB/USBCore.h	85;"	d
+USB_SetHandler	cortex_handlers.c	/^void USB_SetHandler(void (*new_usb_isr)(void))$/;"	f
+Uart	Uart.cpp	/^Uart::Uart(SERCOM *_s, uint8_t _pinRX, uint8_t _pinTX, SercomRXPad _padRX, SercomUartTXPad _padTX)$/;"	f	class:Uart
+Uart	Uart.h	/^class Uart : public HardwareSerial$/;"	c
+WAIT_TC16_REGS_SYNC	Tone.cpp	22;"	d	file:
+WIRE_BUSY_STATE	SERCOM.h	/^	WIRE_BUSY_STATE$/;"	e	enum:__anon15
+WIRE_IDLE_STATE	SERCOM.h	/^	WIRE_IDLE_STATE,$/;"	e	enum:__anon15
+WIRE_MASTER_ACK_ACTION	SERCOM.h	/^	WIRE_MASTER_ACK_ACTION = 0,$/;"	e	enum:__anon18
+WIRE_MASTER_ACT_NO_ACTION	SERCOM.h	/^	WIRE_MASTER_ACT_NO_ACTION = 0,$/;"	e	enum:__anon17
+WIRE_MASTER_ACT_READ	SERCOM.h	/^	WIRE_MASTER_ACT_READ,$/;"	e	enum:__anon17
+WIRE_MASTER_ACT_REPEAT_START	SERCOM.h	/^	WIRE_MASTER_ACT_REPEAT_START,$/;"	e	enum:__anon17
+WIRE_MASTER_ACT_STOP	SERCOM.h	/^	WIRE_MASTER_ACT_STOP$/;"	e	enum:__anon17
+WIRE_MASTER_NACK_ACTION	SERCOM.h	/^	WIRE_MASTER_NACK_ACTION$/;"	e	enum:__anon18
+WIRE_OWNER_STATE	SERCOM.h	/^	WIRE_OWNER_STATE,$/;"	e	enum:__anon15
+WIRE_READ_FLAG	SERCOM.h	/^	WIRE_READ_FLAG$/;"	e	enum:__anon16
+WIRE_UNKNOWN_STATE	SERCOM.h	/^	WIRE_UNKNOWN_STATE = 0x0ul,$/;"	e	enum:__anon15
+WIRE_WRITE_FLAG	SERCOM.h	/^	WIRE_WRITE_FLAG = 0x0ul,$/;"	e	enum:__anon16
+_ADCResolution	wiring_analog.c	/^static int _ADCResolution = 10;$/;"	v	file:
+_CDC_GetInterface	USB/CDC.cpp	/^const void* _CDC_GetInterface(void)$/;"	f
+_CDC_GetInterfaceLength	USB/CDC.cpp	/^uint32_t _CDC_GetInterfaceLength(void)$/;"	f
+_DELAY_	delay.h	20;"	d
+_EAnalogChannel	WVariant.h	/^typedef enum _EAnalogChannel$/;"	g
+_EPWMChannel	WVariant.h	/^typedef enum _EPWMChannel$/;"	g
+_EPioType	WVariant.h	/^typedef enum _EPioType$/;"	g
+_EPortType	WVariant.h	/^typedef enum _EPortType$/;"	g
+_ETCChannel	WVariant.h	/^typedef enum _ETCChannel$/;"	g
+_PM_	pm.h	2;"	d
+_PinDescription	WVariant.h	/^typedef struct _PinDescription$/;"	s
+_RING_BUFFER_	RingBuffer.h	20;"	d
+_SERCOM_CLASS_	SERCOM.h	20;"	d
+_SFR_BYTE	avr/pgmspace.h	36;"	d
+_SLEEP_	sleep.h	2;"	d
+_WIRING_CONSTANTS_	wiring_constants.h	20;"	d
+_WIRING_DIGITAL_	wiring_digital.h	20;"	d
+_WIRING_INTERRUPTS_	WInterrupts.h	20;"	d
+_WIRING_MATH_	WMath.h	20;"	d
+_WIRING_SHIFT_	wiring_shift.h	20;"	d
+__PGMSPACE_H_	avr/pgmspace.h	28;"	d
+__USBCORE_H__	USB/USBCore.h	20;"	d
+__USBDESC_H__	USB/USBDesc.h	20;"	d
+__cxa_deleted_virtual	abi.cpp	/^void __cxa_deleted_virtual(void) {$/;"	f
+__cxa_pure_virtual	abi.cpp	/^void __cxa_pure_virtual(void) {$/;"	f
+__empty	hooks.c	/^static void __empty() {$/;"	f	file:
+__false	hooks.c	/^static int __false() {$/;"	f	file:
+__halt	hooks.c	/^static void __halt() {$/;"	f	file:
+__initialize	WInterrupts.c	/^static void __initialize()$/;"	f	file:
+_address	IPAddress.h	/^    } _address;$/;"	m	class:IPAddress	typeref:union:IPAddress::__anon1
+_aucBuffer	RingBuffer.h	/^    uint8_t _aucBuffer[SERIAL_BUFFER_SIZE] ;$/;"	m	class:RingBuffer
+_cdcInterface	USB/CDC.cpp	/^static CDCDescriptor _cdcInterface = {$/;"	v	file:
+_cdc_rx_buffer	USB/USBAPI.h	/^	RingBuffer *_cdc_rx_buffer;$/;"	m	class:Serial_
+_dry_run	USB/USBCore.cpp	/^bool _dry_run = false;$/;"	v
+_eAnalogReference	wiring_analog.h	/^typedef enum _eAnalogReference$/;"	g
+_iHead	RingBuffer.h	/^    int _iHead ;$/;"	m	class:RingBuffer
+_iTail	RingBuffer.h	/^    int _iTail ;$/;"	m	class:RingBuffer
+_pack_buffer	USB/USBCore.cpp	/^uint8_t _pack_buffer[256];$/;"	v
+_pack_message	USB/USBCore.cpp	/^bool _pack_message = false;$/;"	v
+_pack_size	USB/USBCore.cpp	/^uint16_t _pack_size = 0;$/;"	v
+_readResolution	wiring_analog.c	/^static int _readResolution = 10;$/;"	v	file:
+_serialPeek	USB/CDC.cpp	/^uint32_t _serialPeek = -1;$/;"	v
+_startMillis	Stream.h	/^    unsigned long _startMillis;  \/\/ used for timeout measurement$/;"	m	class:Stream
+_timeout	Stream.h	/^    unsigned long _timeout;      \/\/ number of milliseconds to wait for the next char before aborting timed read$/;"	m	class:Stream
+_ulTickCount	delay.c	/^static volatile uint32_t _ulTickCount=0 ;$/;"	v	file:
+_usbConfiguration	USB/USBCore.cpp	/^volatile uint32_t _usbConfiguration = 0;$/;"	v
+_usbLineInfo	USB/CDC.cpp	/^static volatile LineInfo _usbLineInfo = {$/;"	v	file:
+_usbSetInterface	USB/USBCore.cpp	/^volatile uint32_t _usbSetInterface = 0;$/;"	v
+_writeResolution	wiring_analog.c	/^static int _writeResolution = 8;$/;"	v	file:
+abs	Arduino.h	94;"	d
+abs	Arduino.h	99;"	d
+accept	USB/CDC.cpp	/^void Serial_::accept(void)$/;"	f	class:Serial_
+ackEndOfResetInterrupt	USB/SAMD21_USBDevice.h	/^	inline void ackEndOfResetInterrupt()       { usb.INTFLAG.reg = USB_DEVICE_INTFLAG_EORST; }$/;"	f	class:USBDevice_SAMD21G18x
+ackStartOfFrameInterrupt	USB/SAMD21_USBDevice.h	/^	inline void ackStartOfFrameInterrupt()     { usb.INTFLAG.reg = USB_DEVICE_INTFLAG_SOF; }$/;"	f	class:USBDevice_SAMD21G18x
+acknowledgeUARTError	SERCOM.cpp	/^void SERCOM::acknowledgeUARTError()$/;"	f	class:SERCOM
+addr	USB/USBCore.h	/^	uint8_t addr;$/;"	m	struct:__anon29
+alternate	USB/USBCore.h	/^	uint8_t alternate;$/;"	m	struct:__anon28
+analogRead	wiring_analog.c	/^uint32_t analogRead( uint32_t ulPin )$/;"	f
+analogReadResolution	wiring_analog.c	/^void analogReadResolution( int res )$/;"	f
+analogReference	wiring_analog.c	/^void analogReference( eAnalogReference ulMode )$/;"	f
+analogWrite	wiring_analog.c	/^void analogWrite( uint32_t ulPin, uint32_t ulValue )$/;"	f
+analogWriteResolution	wiring_analog.c	/^void analogWriteResolution( int res )$/;"	f
+armRecv	USB/USBCore.cpp	/^uint8_t USBDeviceClass::armRecv(uint32_t ep)$/;"	f	class:USBDeviceClass
+armRecvCtrlOUT	USB/USBCore.cpp	/^uint8_t USBDeviceClass::armRecvCtrlOUT(uint32_t ep)$/;"	f	class:USBDeviceClass
+armSend	USB/USBCore.cpp	/^uint32_t USBDeviceClass::armSend(uint32_t ep, const void* data, uint32_t len)$/;"	f	class:USBDeviceClass
+attach	USB/SAMD21_USBDevice.h	/^	inline void attach() { usb.CTRLB.bit.DETACH = 0; }$/;"	f	class:USBDevice_SAMD21G18x
+attach	USB/USBCore.cpp	/^bool USBDeviceClass::attach()$/;"	f	class:USBDeviceClass
+attachInterrupt	WInterrupts.c	/^void attachInterrupt(uint32_t pin, voidFuncPtr callback, uint32_t mode)$/;"	f
+attr	USB/USBCore.h	/^	uint8_t attr;$/;"	m	struct:__anon29
+attributes	USB/USBCore.h	/^	uint8_t	attributes;$/;"	m	struct:__anon27
+available	RingBuffer.cpp	/^int RingBuffer::available()$/;"	f	class:RingBuffer
+available	USB/CDC.cpp	/^int Serial_::available(void)$/;"	f	class:Serial_
+available	USB/USBCore.cpp	/^uint32_t USBDeviceClass::available(uint32_t ep)$/;"	f	class:USBDeviceClass
+available	Uart.cpp	/^int Uart::available()$/;"	f	class:Uart
+availableDataUART	SERCOM.cpp	/^bool SERCOM::availableDataUART()$/;"	f	class:SERCOM
+availableWIRE	SERCOM.cpp	/^int SERCOM::availableWIRE( void )$/;"	f	class:SERCOM
+bCharFormat	USB/CDC.cpp	/^	uint8_t bCharFormat;$/;"	m	struct:__anon20	file:
+bDataBits	USB/CDC.cpp	/^	uint8_t bDataBits;$/;"	m	struct:__anon20	file:
+bDataInterface	USB/USBCore.h	/^    uint8_t 	bDataInterface;$/;"	m	struct:__anon33
+bNumConfigurations	USB/USBCore.h	/^	uint8_t	bNumConfigurations;$/;"	m	struct:__anon26
+bParityType	USB/CDC.cpp	/^	uint8_t bParityType;$/;"	m	struct:__anon20	file:
+bRequest	USB/USBAPI.h	/^	uint8_t bRequest;$/;"	m	struct:__anon21
+banzai	Reset.cpp	/^static void banzai() {$/;"	f	file:
+baud	USB/CDC.cpp	/^unsigned long Serial_::baud() {$/;"	f	class:Serial_
+begin	USB/CDC.cpp	/^void Serial_::begin(uint32_t \/* baud_count *\/)$/;"	f	class:Serial_
+begin	USB/CDC.cpp	/^void Serial_::begin(uint32_t \/* baud_count *\/, uint8_t \/* config *\/)$/;"	f	class:Serial_
+begin	Uart.cpp	/^void Uart::begin(unsigned long baudrate)$/;"	f	class:Uart
+begin	Uart.cpp	/^void Uart::begin(unsigned long baudrate, uint16_t config)$/;"	f	class:Uart
+bit	Arduino.h	117;"	d
+bitClear	Arduino.h	114;"	d
+bitRead	Arduino.h	112;"	d
+bitSet	Arduino.h	113;"	d
+bitWrite	Arduino.h	115;"	d
+bmCapabilities	USB/USBCore.h	/^    uint8_t 	bmCapabilities;$/;"	m	struct:__anon33
+bmCapabilities	USB/USBCore.h	/^    uint8_t 	bmCapabilities;$/;"	m	struct:__anon34
+bmRequestType	USB/USBAPI.h	/^		uint8_t bmRequestType;$/;"	m	union:__anon21::__anon22
+boolean	Arduino.h	/^typedef bool boolean;$/;"	t
+breakValue	USB/CDC.cpp	/^static volatile int32_t breakValue = -1;$/;"	v	file:
+buffer	USB/CDC.cpp	/^	uint8_t buffer[CDC_SERIAL_BUFFER_SIZE];$/;"	m	struct:ring_buffer	file:
+buffer	WString.h	/^	char *buffer;	        \/\/ the actual char array$/;"	m	class:String
+byte	Arduino.h	/^typedef uint8_t byte;$/;"	t
+bytes	IPAddress.h	/^	uint8_t bytes[4];  \/\/ IPv4 address$/;"	m	union:IPAddress::__anon1
+c_str	WString.h	/^	const char * c_str() const { return buffer; }$/;"	f	class:String
+calculateBaudrateSynchronous	SERCOM.cpp	/^uint8_t SERCOM::calculateBaudrateSynchronous(uint32_t baudrate)$/;"	f	class:SERCOM
+calibrate	USB/SAMD21_USBDevice.h	/^void USBDevice_SAMD21G18x::calibrate() {$/;"	f	class:USBDevice_SAMD21G18x
+callManagement	USB/USBCore.h	/^	CMFunctionalDescriptor		callManagement;			\/\/ Call Management$/;"	m	struct:__anon35
+callbacksInt	WInterrupts.c	/^static voidFuncPtr callbacksInt[EXTERNAL_NUM_INTERRUPTS];$/;"	v	file:
+cancelReset	Reset.cpp	/^void cancelReset() {$/;"	f
+capacity	WString.h	/^	unsigned int capacity;  \/\/ the array length minus one (for the '\\0')$/;"	m	class:String
+cdc_rx_buffer	USB/CDC.cpp	/^ring_buffer cdc_rx_buffer = {{0}, 0, 0, false};$/;"	v
+changeBuffer	WString.cpp	/^unsigned char String::changeBuffer(unsigned int maxStrLen)$/;"	f	class:String
+charAt	WString.cpp	/^char String::charAt(unsigned int loc) const$/;"	f	class:String
+cif	USB/USBCore.h	/^	InterfaceDescriptor			cif;$/;"	m	struct:__anon35
+cifin	USB/USBCore.h	/^	EndpointDescriptor			cifin;$/;"	m	struct:__anon35
+clear	RingBuffer.cpp	/^void RingBuffer::clear()$/;"	f	class:RingBuffer
+clearStatusUART	SERCOM.cpp	/^void SERCOM::clearStatusUART()$/;"	f	class:SERCOM
+clearWriteError	Print.h	/^    void clearWriteError() { setWriteError(0); }$/;"	f	class:Print
+clen	USB/USBCore.h	/^	uint16_t clen;			\/\/ total length$/;"	m	struct:__anon27
+client_h	Client.h	21;"	d
+clockCyclesPerMicrosecond	Arduino.h	51;"	d
+clockCyclesToMicroseconds	Arduino.h	52;"	d
+compareTo	WString.cpp	/^int String::compareTo(const String &s) const$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(char c)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(const String &s)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(const __FlashStringHelper * str)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(const char *cstr)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(const char *cstr, unsigned int length)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(double num)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(float num)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(int num)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(long num)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(unsigned char num)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(unsigned int num)$/;"	f	class:String
+concat	WString.cpp	/^unsigned char String::concat(unsigned long num)$/;"	f	class:String
+config	USB/USBCore.h	/^	uint8_t	config;$/;"	m	struct:__anon27
+configured	USB/USBCore.cpp	/^bool USBDeviceClass::configured()$/;"	f	class:USBDeviceClass
+connected	USB/USBCore.cpp	/^bool USBDeviceClass::connected()$/;"	f	class:USBDeviceClass
+constrain	Arduino.h	100;"	d
+controlManagement	USB/USBCore.h	/^	ACMFunctionalDescriptor		controlManagement;		\/\/ ACM$/;"	m	struct:__anon35
+copy	WString.cpp	/^String & String::copy(const __FlashStringHelper *pstr, unsigned int length)$/;"	f	class:String
+copy	WString.cpp	/^String & String::copy(const char *cstr, unsigned int length)$/;"	f	class:String
+countPulseASM	pulse_asm.S	/^countPulseASM:$/;"	l
+cycles_per_ms	delay.c	/^static const uint32_t cycles_per_ms = VARIANT_MCK \/ 1000;$/;"	v	file:
+d0	USB/USBCore.h	/^	uint8_t d0;$/;"	m	struct:__anon31
+d0	USB/USBCore.h	/^	uint8_t d0;$/;"	m	struct:__anon32
+d1	USB/USBCore.h	/^	uint8_t d1;$/;"	m	struct:__anon31
+degrees	Arduino.h	103;"	d
+delay	delay.c	/^void delay( uint32_t ms )$/;"	f
+delayMicroseconds	delay.h	/^static __inline__ void delayMicroseconds( uint32_t usec )$/;"	f
+delay_cycles	delay.c	/^static __inline__ void delay_cycles($/;"	f	file:
+detach	USB/SAMD21_USBDevice.h	/^	inline void detach() { usb.CTRLB.bit.DETACH = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+detach	USB/USBCore.cpp	/^bool USBDeviceClass::detach()$/;"	f	class:USBDeviceClass
+detachInterrupt	WInterrupts.c	/^void detachInterrupt(uint32_t pin)$/;"	f
+deviceClass	USB/USBCore.h	/^	uint8_t	deviceClass;$/;"	m	struct:__anon26
+deviceProtocol	USB/USBCore.h	/^	uint8_t	deviceProtocol;$/;"	m	struct:__anon26
+deviceSubClass	USB/USBCore.h	/^	uint8_t	deviceSubClass;$/;"	m	struct:__anon26
+deviceVersion	USB/USBCore.h	/^	uint16_t	deviceVersion;	\/\/ 0x100$/;"	m	struct:__anon26
+dif	USB/USBCore.h	/^	InterfaceDescriptor			dif;$/;"	m	struct:__anon35
+digitalRead	wiring_digital.c	/^int digitalRead( uint32_t ulPin )$/;"	f
+digitalWrite	wiring_digital.c	/^void digitalWrite( uint32_t ulPin, uint32_t ulVal )$/;"	f
+direction	USB/USBAPI.h	/^			uint8_t direction : 5;$/;"	m	struct:__anon21::__anon22::__anon23
+disable	USB/SAMD21_USBDevice.h	/^	inline void disable() { usb.CTRLA.bit.ENABLE = 0; }$/;"	f	class:USBDevice_SAMD21G18x
+disableEndOfResetInterrupt	USB/SAMD21_USBDevice.h	/^	inline void disableEndOfResetInterrupt()   { usb.INTENCLR.bit.EORST = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+disableSPI	SERCOM.cpp	/^void SERCOM::disableSPI()$/;"	f	class:SERCOM
+disableStartOfFrameInterrupt	USB/SAMD21_USBDevice.h	/^	inline void disableStartOfFrameInterrupt() { usb.INTENCLR.bit.SOF = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+disableWIRE	SERCOM.cpp	/^void SERCOM::disableWIRE()$/;"	f	class:SERCOM
+dtostrf	avr/dtostrf.c	/^char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {$/;"	f
+dtr	USB/CDC.cpp	/^bool Serial_::dtr() {$/;"	f	class:Serial_
+dtype	USB/USBCore.h	/^	uint8_t	dtype;			\/\/ 2$/;"	m	struct:__anon27
+dtype	USB/USBCore.h	/^	uint8_t dtype;				\/\/ 1 USB_DEVICE_DESCRIPTOR_TYPE$/;"	m	struct:__anon26
+dtype	USB/USBCore.h	/^	uint8_t dtype;				\/\/ 11$/;"	m	struct:__anon30
+dtype	USB/USBCore.h	/^	uint8_t dtype;		\/\/ 0x24$/;"	m	struct:__anon31
+dtype	USB/USBCore.h	/^	uint8_t dtype;		\/\/ 0x24$/;"	m	struct:__anon32
+dtype	USB/USBCore.h	/^	uint8_t dtype;		\/\/ 4$/;"	m	struct:__anon28
+dtype	USB/USBCore.h	/^	uint8_t dtype;		\/\/ 5$/;"	m	struct:__anon29
+dtype	USB/USBCore.h	/^    uint8_t 	dtype;		\/\/ 0x24$/;"	m	struct:__anon33
+dtype	USB/USBCore.h	/^    uint8_t 	dtype;		\/\/ 0x24$/;"	m	struct:__anon34
+dwDTERate	USB/CDC.cpp	/^	uint32_t dwDTERate;$/;"	m	struct:__anon20	file:
+dword	IPAddress.h	/^	uint32_t dword;$/;"	m	union:IPAddress::__anon1
+eAnalogReference	wiring_analog.h	/^} eAnalogReference ;$/;"	t	typeref:enum:_eAnalogReference
+enable	USB/SAMD21_USBDevice.h	/^	inline void enable()  { usb.CTRLA.bit.ENABLE = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+enableEndOfResetInterrupt	USB/SAMD21_USBDevice.h	/^	inline void enableEndOfResetInterrupt()    { usb.INTENSET.bit.EORST = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+enableSPI	SERCOM.cpp	/^void SERCOM::enableSPI()$/;"	f	class:SERCOM
+enableStartOfFrameInterrupt	USB/SAMD21_USBDevice.h	/^	inline void enableStartOfFrameInterrupt()  { usb.INTENSET.bit.SOF = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+enableUART	SERCOM.cpp	/^void SERCOM::enableUART()$/;"	f	class:SERCOM
+enableWIRE	SERCOM.cpp	/^void SERCOM::enableWIRE()$/;"	f	class:SERCOM
+end	USB/CDC.cpp	/^void Serial_::end(void)$/;"	f	class:Serial_
+end	Uart.cpp	/^void Uart::end()$/;"	f	class:Uart
+endpointType	USB/PluggableUSB.h	/^  const uint32_t *endpointType;$/;"	m	class:PluggableUSBModule
+endsWith	WString.cpp	/^unsigned char String::endsWith( const String &s2 ) const$/;"	f	class:String
+epBank0AckSetupReceived	USB/SAMD21_USBDevice.h	/^	inline void epBank0AckSetupReceived(ep_t ep)    { usb.DeviceEndpoint[ep].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_RXSTP; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0AckStalled	USB/SAMD21_USBDevice.h	/^	inline void epBank0AckStalled(ep_t ep)          { usb.DeviceEndpoint[ep].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_STALL(1); }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0AckTransferComplete	USB/SAMD21_USBDevice.h	/^	inline void epBank0AckTransferComplete(ep_t ep) { usb.DeviceEndpoint[ep].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_TRCPT(1); }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0ByteCount	USB/SAMD21_USBDevice.h	/^	inline uint16_t epBank0ByteCount(ep_t ep) { return EP[ep].DeviceDescBank[0].PCKSIZE.bit.BYTE_COUNT; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0DisableAutoZLP	USB/SAMD21_USBDevice.h	/^	inline void epBank0DisableAutoZLP(ep_t ep) { EP[ep].DeviceDescBank[0].PCKSIZE.bit.AUTO_ZLP = 0; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0DisableSetupReceived	USB/SAMD21_USBDevice.h	/^	inline void epBank0DisableSetupReceived(ep_t ep)    { usb.DeviceEndpoint[ep].EPINTENCLR.bit.RXSTP = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0DisableStalled	USB/SAMD21_USBDevice.h	/^	inline void epBank0DisableStalled(ep_t ep)          { usb.DeviceEndpoint[ep].EPINTENCLR.vec.STALL = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0DisableTransferComplete	USB/SAMD21_USBDevice.h	/^	inline void epBank0DisableTransferComplete(ep_t ep) { usb.DeviceEndpoint[ep].EPINTENCLR.vec.TRCPT = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0EnableAutoZLP	USB/SAMD21_USBDevice.h	/^	inline void epBank0EnableAutoZLP(ep_t ep)  { EP[ep].DeviceDescBank[0].PCKSIZE.bit.AUTO_ZLP = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0EnableSetupReceived	USB/SAMD21_USBDevice.h	/^	inline void epBank0EnableSetupReceived(ep_t ep)    { usb.DeviceEndpoint[ep].EPINTENSET.bit.RXSTP = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0EnableStalled	USB/SAMD21_USBDevice.h	/^	inline void epBank0EnableStalled(ep_t ep)          { usb.DeviceEndpoint[ep].EPINTENSET.vec.STALL = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0EnableTransferComplete	USB/SAMD21_USBDevice.h	/^	inline void epBank0EnableTransferComplete(ep_t ep) { usb.DeviceEndpoint[ep].EPINTENSET.vec.TRCPT = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0IsReady	USB/SAMD21_USBDevice.h	/^	inline bool epBank0IsReady(ep_t ep)    { return usb.DeviceEndpoint[ep].EPSTATUS.bit.BK0RDY; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0IsSetupReceived	USB/SAMD21_USBDevice.h	/^	inline bool epBank0IsSetupReceived(ep_t ep)     { return usb.DeviceEndpoint[ep].EPINTFLAG.bit.RXSTP; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0IsStalled	USB/SAMD21_USBDevice.h	/^	inline bool epBank0IsStalled(ep_t ep)           { return usb.DeviceEndpoint[ep].EPINTFLAG.vec.STALL & 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0IsTransferComplete	USB/SAMD21_USBDevice.h	/^	inline bool epBank0IsTransferComplete(ep_t ep)  { return usb.DeviceEndpoint[ep].EPINTFLAG.vec.TRCPT & 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0ResetReady	USB/SAMD21_USBDevice.h	/^	inline void epBank0ResetReady(ep_t ep) { usb.DeviceEndpoint[ep].EPSTATUSCLR.bit.BK0RDY = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0ResetStallReq	USB/SAMD21_USBDevice.h	/^	inline void epBank0ResetStallReq(ep_t ep) { usb.DeviceEndpoint[ep].EPSTATUSCLR.vec.STALLRQ = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0SetAddress	USB/SAMD21_USBDevice.h	/^	inline void epBank0SetAddress(ep_t ep, void *addr) { EP[ep].DeviceDescBank[0].ADDR.reg = (uint32_t)addr; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0SetByteCount	USB/SAMD21_USBDevice.h	/^	inline void epBank0SetByteCount(ep_t ep, uint16_t bc) { EP[ep].DeviceDescBank[0].PCKSIZE.bit.BYTE_COUNT = bc; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0SetMultiPacketSize	USB/SAMD21_USBDevice.h	/^	inline void epBank0SetMultiPacketSize(ep_t ep, uint16_t s) { EP[ep].DeviceDescBank[0].PCKSIZE.bit.MULTI_PACKET_SIZE = s; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0SetReady	USB/SAMD21_USBDevice.h	/^	inline void epBank0SetReady(ep_t ep)   { usb.DeviceEndpoint[ep].EPSTATUSSET.bit.BK0RDY = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0SetSize	USB/SAMD21_USBDevice.h	/^	inline void epBank0SetSize(ep_t ep, uint16_t size) { EP[ep].DeviceDescBank[0].PCKSIZE.bit.SIZE = EP_PCKSIZE_SIZE(size); }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0SetStallReq	USB/SAMD21_USBDevice.h	/^	inline void epBank0SetStallReq(ep_t ep)   { usb.DeviceEndpoint[ep].EPSTATUSSET.vec.STALLRQ = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank0SetType	USB/SAMD21_USBDevice.h	/^	inline void epBank0SetType(ep_t ep, uint8_t type) { usb.DeviceEndpoint[ep].EPCFG.bit.EPTYPE0 = type; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1AckStalled	USB/SAMD21_USBDevice.h	/^	inline void epBank1AckStalled(ep_t ep)          { usb.DeviceEndpoint[ep].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_STALL(2); }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1AckTransferComplete	USB/SAMD21_USBDevice.h	/^	inline void epBank1AckTransferComplete(ep_t ep) { usb.DeviceEndpoint[ep].EPINTFLAG.reg = USB_DEVICE_EPINTFLAG_TRCPT(2); }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1ByteCount	USB/SAMD21_USBDevice.h	/^	inline uint16_t epBank1ByteCount(ep_t ep) { return EP[ep].DeviceDescBank[1].PCKSIZE.bit.BYTE_COUNT; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1DisableAutoZLP	USB/SAMD21_USBDevice.h	/^	inline void epBank1DisableAutoZLP(ep_t ep) { EP[ep].DeviceDescBank[1].PCKSIZE.bit.AUTO_ZLP = 0; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1DisableStalled	USB/SAMD21_USBDevice.h	/^	inline void epBank1DisableStalled(ep_t ep)          { usb.DeviceEndpoint[ep].EPINTENCLR.vec.STALL = 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1DisableTransferComplete	USB/SAMD21_USBDevice.h	/^	inline void epBank1DisableTransferComplete(ep_t ep) { usb.DeviceEndpoint[ep].EPINTENCLR.vec.TRCPT = 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1EnableAutoZLP	USB/SAMD21_USBDevice.h	/^	inline void epBank1EnableAutoZLP(ep_t ep)  { EP[ep].DeviceDescBank[1].PCKSIZE.bit.AUTO_ZLP = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1EnableStalled	USB/SAMD21_USBDevice.h	/^	inline void epBank1EnableStalled(ep_t ep)          { usb.DeviceEndpoint[ep].EPINTENSET.vec.STALL = 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1EnableTransferComplete	USB/SAMD21_USBDevice.h	/^	inline void epBank1EnableTransferComplete(ep_t ep) { usb.DeviceEndpoint[ep].EPINTENSET.vec.TRCPT = 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1IsReady	USB/SAMD21_USBDevice.h	/^	inline bool epBank1IsReady(ep_t ep)    { return usb.DeviceEndpoint[ep].EPSTATUS.bit.BK1RDY; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1IsStalled	USB/SAMD21_USBDevice.h	/^	inline bool epBank1IsStalled(ep_t ep)           { return usb.DeviceEndpoint[ep].EPINTFLAG.vec.STALL & 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1IsTransferComplete	USB/SAMD21_USBDevice.h	/^	inline bool epBank1IsTransferComplete(ep_t ep)  { return usb.DeviceEndpoint[ep].EPINTFLAG.vec.TRCPT & 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1ResetReady	USB/SAMD21_USBDevice.h	/^	inline void epBank1ResetReady(ep_t ep) { usb.DeviceEndpoint[ep].EPSTATUSCLR.bit.BK1RDY = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1ResetStallReq	USB/SAMD21_USBDevice.h	/^	inline void epBank1ResetStallReq(ep_t ep) { usb.DeviceEndpoint[ep].EPSTATUSCLR.vec.STALLRQ = 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1SetAddress	USB/SAMD21_USBDevice.h	/^	inline void epBank1SetAddress(ep_t ep, void *addr) { EP[ep].DeviceDescBank[1].ADDR.reg = (uint32_t)addr; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1SetByteCount	USB/SAMD21_USBDevice.h	/^	inline void epBank1SetByteCount(ep_t ep, uint16_t bc) { EP[ep].DeviceDescBank[1].PCKSIZE.bit.BYTE_COUNT = bc; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1SetMultiPacketSize	USB/SAMD21_USBDevice.h	/^	inline void epBank1SetMultiPacketSize(ep_t ep, uint16_t s) { EP[ep].DeviceDescBank[1].PCKSIZE.bit.MULTI_PACKET_SIZE = s; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1SetReady	USB/SAMD21_USBDevice.h	/^	inline void epBank1SetReady(ep_t ep)   { usb.DeviceEndpoint[ep].EPSTATUSSET.bit.BK1RDY = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1SetSize	USB/SAMD21_USBDevice.h	/^	inline void epBank1SetSize(ep_t ep, uint16_t size) { EP[ep].DeviceDescBank[1].PCKSIZE.bit.SIZE = EP_PCKSIZE_SIZE(size); }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1SetStallReq	USB/SAMD21_USBDevice.h	/^	inline void epBank1SetStallReq(ep_t ep)   { usb.DeviceEndpoint[ep].EPSTATUSSET.vec.STALLRQ = 2; }$/;"	f	class:USBDevice_SAMD21G18x
+epBank1SetType	USB/SAMD21_USBDevice.h	/^	inline void epBank1SetType(ep_t ep, uint8_t type) { usb.DeviceEndpoint[ep].EPCFG.bit.EPTYPE1 = type; }$/;"	f	class:USBDevice_SAMD21G18x
+epInterruptSummary	USB/SAMD21_USBDevice.h	/^	inline uint16_t epInterruptSummary() { return usb.EPINTSMRY.reg; }$/;"	f	class:USBDevice_SAMD21G18x
+ep_t	USB/SAMD21_USBDevice.h	/^typedef uint8_t ep_t;$/;"	t
+equals	WString.cpp	/^unsigned char String::equals(const String &s2) const$/;"	f	class:String
+equals	WString.cpp	/^unsigned char String::equals(const char *cstr) const$/;"	f	class:String
+equalsIgnoreCase	WString.cpp	/^unsigned char String::equalsIgnoreCase( const String &s2 ) const$/;"	f	class:String
+exception_table	cortex_handlers.c	/^__attribute__ ((section(".isr_vector"))) const DeviceVectors exception_table =$/;"	v
+extractCharSize	Uart.cpp	/^SercomUartCharSize Uart::extractCharSize(uint16_t config)$/;"	f	class:Uart
+extractNbStopBit	Uart.cpp	/^SercomNumberStopBit Uart::extractNbStopBit(uint16_t config)$/;"	f	class:Uart
+extractParity	Uart.cpp	/^SercomParityMode Uart::extractParity(uint16_t config)$/;"	f	class:Uart
+find	Stream.cpp	/^bool  Stream::find(char *target)$/;"	f	class:Stream
+find	Stream.cpp	/^bool Stream::find(char *target, size_t length)$/;"	f	class:Stream
+find	Stream.h	/^  bool find(char target) { return find (&target, 1); }$/;"	f	class:Stream
+find	Stream.h	/^  bool find(uint8_t *target) { return find ((char *)target); }$/;"	f	class:Stream
+find	Stream.h	/^  bool find(uint8_t *target, size_t length) { return find ((char *)target, length); }$/;"	f	class:Stream
+findMulti	Stream.cpp	/^int Stream::findMulti( struct Stream::MultiTarget *targets, int tCount) {$/;"	f	class:Stream
+findUntil	Stream.cpp	/^bool  Stream::findUntil(char *target, char *terminator)$/;"	f	class:Stream
+findUntil	Stream.cpp	/^bool Stream::findUntil(char *target, size_t targetLen, char *terminator, size_t termLen)$/;"	f	class:Stream
+findUntil	Stream.h	/^  bool findUntil(uint8_t *target, char *terminator) { return findUntil((char *)target, terminator); }$/;"	f	class:Stream
+findUntil	Stream.h	/^  bool findUntil(uint8_t *target, size_t targetLen, char *terminate, size_t termLen) {return findUntil((char *)target, targetLen, terminate, termLen); }$/;"	f	class:Stream
+firstInterface	USB/USBCore.h	/^	uint8_t firstInterface;$/;"	m	struct:__anon30
+firstTimeRunning	Tone.cpp	/^volatile bool firstTimeRunning = false;$/;"	v
+flush	USB/CDC.cpp	/^void Serial_::flush(void)$/;"	f	class:Serial_
+flush	USB/USBCore.cpp	/^void USBDeviceClass::flush(uint32_t ep)$/;"	f	class:USBDeviceClass
+flush	Uart.cpp	/^void Uart::flush()$/;"	f	class:Uart
+flushUART	SERCOM.cpp	/^void SERCOM::flushUART()$/;"	f	class:SERCOM
+frameNumber	USB/SAMD21_USBDevice.h	/^	inline uint16_t frameNumber() { return usb.FNUM.bit.FNUM; }$/;"	f	class:USBDevice_SAMD21G18x
+fromString	IPAddress.cpp	/^bool IPAddress::fromString(const char *address)$/;"	f	class:IPAddress
+fromString	IPAddress.h	/^    bool fromString(const String &address) { return fromString(address.c_str()); }$/;"	f	class:IPAddress
+full	USB/CDC.cpp	/^	volatile bool full;$/;"	m	struct:ring_buffer	file:
+functionClass	USB/USBCore.h	/^	uint8_t functionClass;$/;"	m	struct:__anon30
+functionProtocol	USB/USBCore.h	/^	uint8_t functionProtocol;$/;"	m	struct:__anon30
+functionalDescriptor	USB/USBCore.h	/^	CDCCSInterfaceDescriptor	functionalDescriptor;	\/\/ CDC_UNION$/;"	m	struct:__anon35
+funtionSubClass	USB/USBCore.h	/^	uint8_t funtionSubClass;$/;"	m	struct:__anon30
+g_current_mv	pm.c	/^static uint16_t g_current_mv;$/;"	v	file:
+getBytes	WString.cpp	/^void String::getBytes(unsigned char *buf, unsigned int bufsize, unsigned int index) const$/;"	f	class:String
+getDataOrderSPI	SERCOM.cpp	/^SercomDataOrder SERCOM::getDataOrderSPI()$/;"	f	class:SERCOM
+getDescriptor	USB/PluggableUSB.cpp	/^int PluggableUSB_::getDescriptor(USBSetup& setup)$/;"	f	class:PluggableUSB_
+getInterface	USB/PluggableUSB.cpp	/^int PluggableUSB_::getInterface(uint8_t* interfaceCount)$/;"	f	class:PluggableUSB_
+getShortName	USB/PluggableUSB.cpp	/^void PluggableUSB_::getShortName(char *iSerialNum)$/;"	f	class:PluggableUSB_
+getShortName	USB/PluggableUSB.h	/^  virtual uint8_t getShortName(char *name) { name[0] = 'A'+pluggedInterface; return 1; }$/;"	f	class:PluggableUSBModule
+getWriteError	Print.h	/^    int getWriteError() { return write_error; }$/;"	f	class:Print
+handleClassInterfaceSetup	USB/USBCore.cpp	/^bool USBDeviceClass::handleClassInterfaceSetup(USBSetup& setup)$/;"	f	class:USBDeviceClass
+handleEndpoint	USB/USBCore.cpp	/^void USBDeviceClass::handleEndpoint(uint8_t ep)$/;"	f	class:USBDeviceClass
+handleStandardSetup	USB/USBCore.cpp	/^bool USBDeviceClass::handleStandardSetup(USBSetup &setup)$/;"	f	class:USBDeviceClass
+head	USB/CDC.cpp	/^	volatile uint32_t head;$/;"	m	struct:ring_buffer	file:
+header	USB/USBCore.h	/^	CDCCSInterfaceDescriptor	header;$/;"	m	struct:__anon35
+highByte	Arduino.h	110;"	d
+iInterface	USB/USBCore.h	/^	uint8_t iInterface;$/;"	m	struct:__anon28
+iInterface	USB/USBCore.h	/^	uint8_t iInterface;$/;"	m	struct:__anon30
+iManufacturer	USB/USBCore.h	/^	uint8_t	iManufacturer;$/;"	m	struct:__anon26
+iProduct	USB/USBCore.h	/^	uint8_t	iProduct;$/;"	m	struct:__anon26
+iSerialNumber	USB/USBCore.h	/^	uint8_t	iSerialNumber;$/;"	m	struct:__anon26
+iad	USB/USBCore.h	/^	IADDescriptor				iad;	\/\/ Only needed on compound device$/;"	m	struct:__anon35
+iconfig	USB/USBCore.h	/^	uint8_t	iconfig;$/;"	m	struct:__anon27
+idProduct	USB/USBCore.h	/^	uint16_t	idProduct;$/;"	m	struct:__anon26
+idVendor	USB/USBCore.h	/^	uint16_t	idVendor;$/;"	m	struct:__anon26
+in	USB/USBCore.h	/^	EndpointDescriptor			in;$/;"	m	struct:__anon35
+in	USB/USBCore.h	/^	EndpointDescriptor			in;$/;"	m	struct:__anon36
+index	Stream.h	/^    size_t index;     \/\/ index used by the search routine.$/;"	m	struct:Stream::MultiTarget
+indexOf	WString.cpp	/^int String::indexOf( char ch, unsigned int fromIndex ) const$/;"	f	class:String
+indexOf	WString.cpp	/^int String::indexOf(char c) const$/;"	f	class:String
+indexOf	WString.cpp	/^int String::indexOf(const String &s2) const$/;"	f	class:String
+indexOf	WString.cpp	/^int String::indexOf(const String &s2, unsigned int fromIndex) const$/;"	f	class:String
+init	USB/USBCore.cpp	/^void USBDeviceClass::init()$/;"	f	class:USBDeviceClass
+init	WString.cpp	/^inline void String::init(void)$/;"	f	class:String
+init	wiring.c	/^void init( void )$/;"	f
+initClockNVIC	SERCOM.cpp	/^void SERCOM::initClockNVIC( void )$/;"	f	class:SERCOM
+initEP	USB/USBCore.cpp	/^void USBDeviceClass::initEP(uint32_t ep, uint32_t config)$/;"	f	class:USBDeviceClass
+initEndpoints	USB/USBCore.cpp	/^void USBDeviceClass::initEndpoints() {$/;"	f	class:USBDeviceClass
+initFrame	SERCOM.cpp	/^void SERCOM::initFrame(SercomUartCharSize charSize, SercomDataOrder dataOrder, SercomParityMode parityMode, SercomNumberStopBit nbStopBits)$/;"	f	class:SERCOM
+initMasterWIRE	SERCOM.cpp	/^void SERCOM::initMasterWIRE( uint32_t baudrate )$/;"	f	class:SERCOM
+initPads	SERCOM.cpp	/^void SERCOM::initPads(SercomUartTXPad txPad, SercomRXPad rxPad)$/;"	f	class:SERCOM
+initSPI	SERCOM.cpp	/^void SERCOM::initSPI(SercomSpiTXPad mosi, SercomRXPad miso, SercomSpiCharSize charSize, SercomDataOrder dataOrder)$/;"	f	class:SERCOM
+initSPIClock	SERCOM.cpp	/^void SERCOM::initSPIClock(SercomSpiClockMode clockMode, uint32_t baudrate)$/;"	f	class:SERCOM
+initSlaveWIRE	SERCOM.cpp	/^void SERCOM::initSlaveWIRE( uint8_t ucAddress )$/;"	f	class:SERCOM
+initUART	SERCOM.cpp	/^void SERCOM::initUART(SercomUartMode mode, SercomUartSampleRate sampleRate, uint32_t baudrate)$/;"	f	class:SERCOM
+initVariant	main.cpp	/^void initVariant() { }$/;"	f
+initialized	USB/USBAPI.h	/^	bool initialized;$/;"	m	class:USBDeviceClass
+initiateReset	Reset.cpp	/^void initiateReset(int _ticks) {$/;"	f
+int_farptr_t	avr/pgmspace.h	/^typedef const void* int_farptr_t;$/;"	t
+interfaceClass	USB/USBCore.h	/^	uint8_t interfaceClass;$/;"	m	struct:__anon28
+interfaceCount	USB/USBCore.h	/^	uint8_t interfaceCount;$/;"	m	struct:__anon30
+interfaceSubClass	USB/USBCore.h	/^	uint8_t interfaceSubClass;$/;"	m	struct:__anon28
+interrupts	Arduino.h	106;"	d
+interval	USB/USBCore.h	/^	uint8_t interval;$/;"	m	struct:__anon29
+invalidate	WString.cpp	/^void String::invalidate(void)$/;"	f	class:String
+isAddressMatch	SERCOM.cpp	/^bool SERCOM::isAddressMatch( void )$/;"	f	class:SERCOM
+isAlpha	WCharacter.h	/^inline boolean isAlpha(int c)$/;"	f
+isAlphaNumeric	WCharacter.h	/^inline boolean isAlphaNumeric(int c)$/;"	f
+isAscii	WCharacter.h	/^inline boolean isAscii(int c)$/;"	f
+isBufferOverflowErrorSPI	SERCOM.cpp	/^bool SERCOM::isBufferOverflowErrorSPI()$/;"	f	class:SERCOM
+isBufferOverflowErrorUART	SERCOM.cpp	/^bool SERCOM::isBufferOverflowErrorUART()$/;"	f	class:SERCOM
+isBusIdleWIRE	SERCOM.cpp	/^bool SERCOM::isBusIdleWIRE( void )$/;"	f	class:SERCOM
+isBusOwnerWIRE	SERCOM.cpp	/^bool SERCOM::isBusOwnerWIRE( void )$/;"	f	class:SERCOM
+isControl	WCharacter.h	/^inline boolean isControl(int c)$/;"	f
+isDataReadyWIRE	SERCOM.cpp	/^bool SERCOM::isDataReadyWIRE( void )$/;"	f	class:SERCOM
+isDataRegisterEmptySPI	SERCOM.cpp	/^bool SERCOM::isDataRegisterEmptySPI()$/;"	f	class:SERCOM
+isDataRegisterEmptyUART	SERCOM.cpp	/^bool SERCOM::isDataRegisterEmptyUART()$/;"	f	class:SERCOM
+isDigit	WCharacter.h	/^inline boolean isDigit(int c)$/;"	f
+isEndOfResetInterrupt	USB/SAMD21_USBDevice.h	/^	inline bool isEndOfResetInterrupt()        { return usb.INTFLAG.bit.EORST; }$/;"	f	class:USBDevice_SAMD21G18x
+isEndpointHalt	USB/USBCore.cpp	/^static char isEndpointHalt = 0;$/;"	v	file:
+isFrameErrorUART	SERCOM.cpp	/^bool SERCOM::isFrameErrorUART()$/;"	f	class:SERCOM
+isFull	RingBuffer.cpp	/^bool RingBuffer::isFull()$/;"	f	class:RingBuffer
+isGraph	WCharacter.h	/^inline boolean isGraph(int c)$/;"	f
+isHexadecimalDigit	WCharacter.h	/^inline boolean isHexadecimalDigit(int c)$/;"	f
+isLowerCase	WCharacter.h	/^inline boolean isLowerCase(int c)$/;"	f
+isMasterReadOperationWIRE	SERCOM.cpp	/^bool SERCOM::isMasterReadOperationWIRE( void )$/;"	f	class:SERCOM
+isMasterWIRE	SERCOM.cpp	/^bool SERCOM::isMasterWIRE( void )$/;"	f	class:SERCOM
+isParityErrorUART	SERCOM.cpp	/^bool SERCOM::isParityErrorUART()$/;"	f	class:SERCOM
+isPrintable	WCharacter.h	/^inline boolean isPrintable(int c)$/;"	f
+isPunct	WCharacter.h	/^inline boolean isPunct(int c)$/;"	f
+isRXNackReceivedWIRE	SERCOM.cpp	/^bool SERCOM::isRXNackReceivedWIRE( void )$/;"	f	class:SERCOM
+isRemoteWakeUpEnabled	USB/USBCore.cpp	/^static char isRemoteWakeUpEnabled = 0;$/;"	v	file:
+isRestartDetectedWIRE	SERCOM.cpp	/^bool SERCOM::isRestartDetectedWIRE( void )$/;"	f	class:SERCOM
+isSlaveWIRE	SERCOM.cpp	/^bool SERCOM::isSlaveWIRE( void )$/;"	f	class:SERCOM
+isSpace	WCharacter.h	/^inline boolean isSpace(int c)$/;"	f
+isStartOfFrameInterrupt	USB/SAMD21_USBDevice.h	/^	inline bool isStartOfFrameInterrupt()      { return usb.INTFLAG.bit.SOF; }$/;"	f	class:USBDevice_SAMD21G18x
+isStopDetectedWIRE	SERCOM.cpp	/^bool SERCOM::isStopDetectedWIRE( void )$/;"	f	class:SERCOM
+isUARTError	SERCOM.cpp	/^bool SERCOM::isUARTError()$/;"	f	class:SERCOM
+isUpperCase	WCharacter.h	/^inline boolean isUpperCase(int c)$/;"	f
+isWhitespace	WCharacter.h	/^inline boolean isWhitespace(int c)$/;"	f
+itoa	itoa.c	/^extern char* itoa( int value, char *string, int radix )$/;"	f
+lastEp	USB/PluggableUSB.h	/^  uint8_t lastEp;$/;"	m	class:PluggableUSB_
+lastIf	USB/PluggableUSB.h	/^  uint8_t lastIf;$/;"	m	class:PluggableUSB_
+lastIndexOf	WString.cpp	/^int String::lastIndexOf( char theChar ) const$/;"	f	class:String
+lastIndexOf	WString.cpp	/^int String::lastIndexOf(char ch, unsigned int fromIndex) const$/;"	f	class:String
+lastIndexOf	WString.cpp	/^int String::lastIndexOf(const String &s2) const$/;"	f	class:String
+lastIndexOf	WString.cpp	/^int String::lastIndexOf(const String &s2, unsigned int fromIndex) const$/;"	f	class:String
+lastOutputPin	Tone.cpp	/^uint32_t lastOutputPin = 0xFFFFFFFF;$/;"	v
+len	Stream.h	/^    size_t len;       \/\/ length of string you're searching for$/;"	m	struct:Stream::MultiTarget
+len	USB/USBCore.h	/^	uint8_t	len;			\/\/ 9$/;"	m	struct:__anon27
+len	USB/USBCore.h	/^	uint8_t len;				\/\/ 18$/;"	m	struct:__anon26
+len	USB/USBCore.h	/^	uint8_t len;				\/\/ 8$/;"	m	struct:__anon30
+len	USB/USBCore.h	/^	uint8_t len;		\/\/ 4$/;"	m	struct:__anon32
+len	USB/USBCore.h	/^	uint8_t len;		\/\/ 5$/;"	m	struct:__anon31
+len	USB/USBCore.h	/^	uint8_t len;		\/\/ 7$/;"	m	struct:__anon29
+len	USB/USBCore.h	/^	uint8_t len;		\/\/ 9$/;"	m	struct:__anon28
+len	USB/USBCore.h	/^    uint8_t	len;$/;"	m	struct:__anon33
+len	USB/USBCore.h	/^    uint8_t	len;$/;"	m	struct:__anon34
+len	WString.h	/^	unsigned int len;       \/\/ the String length (not counting the '\\0')$/;"	m	class:String
+length	WString.h	/^	inline unsigned int length(void) const {return len;}$/;"	f	class:String
+lineState	USB/CDC.cpp	/^	uint8_t lineState;$/;"	m	struct:__anon20	file:
+lowByte	Arduino.h	109;"	d
+ltoa	itoa.c	/^extern char* ltoa( long value, char *string, int radix )$/;"	f
+main	main.cpp	/^int main( void )$/;"	f
+makeWord	WMath.cpp	/^extern uint16_t makeWord( uint16_t w )$/;"	f
+makeWord	WMath.cpp	/^extern uint16_t makeWord( uint8_t h, uint8_t l )$/;"	f
+map	WMath.cpp	/^extern long map(long x, long in_min, long in_max, long out_min, long out_max)$/;"	f
+mapResolution	wiring_analog.c	/^static inline uint32_t mapResolution( uint32_t value, uint32_t from, uint32_t to )$/;"	f	file:
+max	Arduino.h	98;"	d
+maxPower	USB/USBCore.h	/^	uint8_t	maxPower;$/;"	m	struct:__anon27
+memccpy_P	avr/pgmspace.h	55;"	d
+memchr_P	avr/pgmspace.h	53;"	d
+memcmp_P	avr/pgmspace.h	54;"	d
+memcmp_PF	avr/pgmspace.h	97;"	d
+memcpy_P	avr/pgmspace.h	56;"	d
+memcpy_PF	avr/pgmspace.h	85;"	d
+memmem_P	avr/pgmspace.h	57;"	d
+memrchr_P	avr/pgmspace.h	58;"	d
+micros	delay.c	/^uint32_t micros( void )$/;"	f
+microsecondsToClockCycles	Arduino.h	53;"	d
+millis	delay.c	/^uint32_t millis( void )$/;"	f
+min	Arduino.h	97;"	d
+move	WString.cpp	/^void String::move(String &rhs)$/;"	f	class:String
+msc	USB/USBCore.h	/^	InterfaceDescriptor			msc;$/;"	m	struct:__anon36
+next	USB/PluggableUSB.h	/^  PluggableUSBModule *next = NULL;$/;"	m	class:PluggableUSBModule
+nextIndex	RingBuffer.cpp	/^int RingBuffer::nextIndex(int index)$/;"	f	class:RingBuffer
+noInterrupts	Arduino.h	107;"	d
+noRunInStandby	USB/SAMD21_USBDevice.h	/^	inline void noRunInStandby() { usb.CTRLA.bit.RUNSTDBY = 0; }$/;"	f	class:USBDevice_SAMD21G18x
+noTone	Tone.cpp	/^void noTone (uint32_t outputPin)$/;"	f
+numEndpoints	USB/PluggableUSB.h	/^  const uint8_t numEndpoints;$/;"	m	class:PluggableUSBModule
+numEndpoints	USB/USBCore.h	/^	uint8_t numEndpoints;$/;"	m	struct:__anon28
+numInterfaces	USB/PluggableUSB.h	/^  const uint8_t numInterfaces;$/;"	m	class:PluggableUSBModule
+numInterfaces	USB/USBCore.h	/^	uint8_t	numInterfaces;$/;"	m	struct:__anon27
+number	USB/USBCore.h	/^	uint8_t number;$/;"	m	struct:__anon28
+numbits	USB/CDC.cpp	/^uint8_t Serial_::numbits() {$/;"	f	class:Serial_
+nvmReady	Reset.cpp	/^static inline bool nvmReady(void) {$/;"	f	file:
+operator !=	WString.h	/^	unsigned char operator != (const String &rhs) const {return !equals(rhs);}$/;"	f	class:String
+operator !=	WString.h	/^	unsigned char operator != (const char *cstr) const {return !equals(cstr);}$/;"	f	class:String
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, char c)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, const String &rhs)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, const __FlashStringHelper *rhs)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, const char *cstr)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, double num)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, float num)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, int num)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, long num)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, unsigned char num)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, unsigned int num)$/;"	f
+operator +	WString.cpp	/^StringSumHelper & operator + (const StringSumHelper &lhs, unsigned long num)$/;"	f
+operator +=	WString.h	/^	String & operator += (char c)			{concat(c); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (const String &rhs)	{concat(rhs); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (const __FlashStringHelper *str){concat(str); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (const char *cstr)		{concat(cstr); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (double num)		{concat(num); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (float num)		{concat(num); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (int num)			{concat(num); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (long num)			{concat(num); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (unsigned char num)		{concat(num); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (unsigned int num)		{concat(num); return (*this);}$/;"	f	class:String
+operator +=	WString.h	/^	String & operator += (unsigned long num)	{concat(num); return (*this);}$/;"	f	class:String
+operator <	WString.cpp	/^unsigned char String::operator<(const String &rhs) const$/;"	f	class:String
+operator <=	WString.cpp	/^unsigned char String::operator<=(const String &rhs) const$/;"	f	class:String
+operator =	IPAddress.cpp	/^IPAddress& IPAddress::operator=(const uint8_t *address)$/;"	f	class:IPAddress
+operator =	IPAddress.cpp	/^IPAddress& IPAddress::operator=(uint32_t address)$/;"	f	class:IPAddress
+operator =	WString.cpp	/^String & String::operator = (String &&rval)$/;"	f	class:String
+operator =	WString.cpp	/^String & String::operator = (StringSumHelper &&rval)$/;"	f	class:String
+operator =	WString.cpp	/^String & String::operator = (const String &rhs)$/;"	f	class:String
+operator =	WString.cpp	/^String & String::operator = (const __FlashStringHelper *pstr)$/;"	f	class:String
+operator =	WString.cpp	/^String & String::operator = (const char *cstr)$/;"	f	class:String
+operator ==	IPAddress.cpp	/^bool IPAddress::operator==(const uint8_t* addr) const$/;"	f	class:IPAddress
+operator ==	IPAddress.h	/^    bool operator==(const IPAddress& addr) const { return _address.dword == addr._address.dword; };$/;"	f	class:IPAddress
+operator ==	WString.h	/^	unsigned char operator == (const String &rhs) const {return equals(rhs);}$/;"	f	class:String
+operator ==	WString.h	/^	unsigned char operator == (const char *cstr) const {return equals(cstr);}$/;"	f	class:String
+operator >	WString.cpp	/^unsigned char String::operator>(const String &rhs) const$/;"	f	class:String
+operator >=	WString.cpp	/^unsigned char String::operator>=(const String &rhs) const$/;"	f	class:String
+operator StringIfHelperType	WString.h	/^	operator StringIfHelperType() const { return buffer ? &String::StringIfHelper : 0; }$/;"	f	class:String
+operator []	IPAddress.h	/^    uint8_t operator[](int index) const { return _address.bytes[index]; };$/;"	f	class:IPAddress
+operator []	IPAddress.h	/^    uint8_t& operator[](int index) { return _address.bytes[index]; };$/;"	f	class:IPAddress
+operator []	WString.cpp	/^char & String::operator[](unsigned int index)$/;"	f	class:String
+operator []	WString.cpp	/^char String::operator[]( unsigned int index ) const$/;"	f	class:String
+operator bool	USB/CDC.cpp	/^Serial_::operator bool()$/;"	f	class:Serial_
+operator bool	Uart.h	/^    operator bool() { return true; }$/;"	f	class:Uart
+operator delete	new.cpp	/^void operator delete(void * ptr) {$/;"	f
+operator delete[]	new.cpp	/^void operator delete[](void * ptr) {$/;"	f
+operator new	new.cpp	/^void *operator new(size_t size) {$/;"	f
+operator new[]	new.cpp	/^void *operator new[](size_t size) {$/;"	f
+operator uint32_t	IPAddress.h	/^    operator uint32_t() const { return _address.dword; };$/;"	f	class:IPAddress
+out	USB/USBCore.h	/^	EndpointDescriptor			out;$/;"	m	struct:__anon35
+out	USB/USBCore.h	/^	EndpointDescriptor			out;$/;"	m	struct:__anon36
+packMessages	USB/USBCore.cpp	/^void USBDeviceClass::packMessages(bool val)$/;"	f	class:USBDeviceClass
+packetSize	USB/USBCore.h	/^	uint16_t packetSize;$/;"	m	struct:__anon29
+packetSize0	USB/USBCore.h	/^	uint8_t	packetSize0;		\/\/ Packet 0$/;"	m	struct:__anon26
+paritytype	USB/CDC.cpp	/^uint8_t Serial_::paritytype() {$/;"	f	class:Serial_
+parseFloat	Stream.cpp	/^float Stream::parseFloat(LookaheadMode lookahead, char ignore)$/;"	f	class:Stream
+parseFloat	Stream.h	/^  float parseFloat(char ignore) { return parseFloat(SKIP_ALL, ignore); }$/;"	f	class:Stream
+parseInt	Stream.cpp	/^long Stream::parseInt(LookaheadMode lookahead, char ignore)$/;"	f	class:Stream
+parseInt	Stream.h	/^  long parseInt(char ignore) { return parseInt(SKIP_ALL, ignore); }$/;"	f	class:Stream
+peek	RingBuffer.cpp	/^int RingBuffer::peek()$/;"	f	class:RingBuffer
+peek	USB/CDC.cpp	/^int Serial_::peek(void)$/;"	f	class:Serial_
+peek	Uart.cpp	/^int Uart::peek()$/;"	f	class:Uart
+peekNextDigit	Stream.cpp	/^int Stream::peekNextDigit(LookaheadMode lookahead, bool detectDecimal)$/;"	f	class:Stream
+pgm_get_far_address	avr/pgmspace.h	119;"	d
+pgm_read_byte	avr/pgmspace.h	101;"	d
+pgm_read_byte_far	avr/pgmspace.h	113;"	d
+pgm_read_byte_near	avr/pgmspace.h	107;"	d
+pgm_read_dword	avr/pgmspace.h	103;"	d
+pgm_read_dword_far	avr/pgmspace.h	115;"	d
+pgm_read_dword_near	avr/pgmspace.h	109;"	d
+pgm_read_float	avr/pgmspace.h	104;"	d
+pgm_read_float_far	avr/pgmspace.h	116;"	d
+pgm_read_float_near	avr/pgmspace.h	110;"	d
+pgm_read_ptr	avr/pgmspace.h	105;"	d
+pgm_read_ptr_far	avr/pgmspace.h	117;"	d
+pgm_read_ptr_near	avr/pgmspace.h	111;"	d
+pgm_read_word	avr/pgmspace.h	102;"	d
+pgm_read_word_far	avr/pgmspace.h	114;"	d
+pgm_read_word_near	avr/pgmspace.h	108;"	d
+pinMode	wiring_digital.c	/^void pinMode( uint32_t ulPin, uint32_t ulMode )$/;"	f
+pinPeripheral	wiring_private.c	/^int pinPeripheral( uint32_t ulPin, EPioType ulPeripheral )$/;"	f
+plug	USB/PluggableUSB.cpp	/^bool PluggableUSB_::plug(PluggableUSBModule *node)$/;"	f	class:PluggableUSB_
+pluggedEndpoint	USB/PluggableUSB.h	/^  uint8_t pluggedEndpoint;$/;"	m	class:PluggableUSBModule
+pluggedInterface	USB/PluggableUSB.h	/^  uint8_t pluggedInterface;$/;"	m	class:PluggableUSBModule
+pmInit	pm.c	/^void pmInit()$/;"	f
+pmPowerOffSensors	pm.c	/^void pmPowerOffSensors()$/;"	f
+pmPowerOnSensors	pm.c	/^void pmPowerOnSensors()$/;"	f
+pmSetVoltage	pm.c	/^void pmSetVoltage(uint16_t mv)$/;"	f
+portBitMask	Tone.cpp	/^volatile uint32_t portBitMask;$/;"	v
+portClearRegister	Tone.cpp	/^volatile uint32_t *portClearRegister;$/;"	v
+portToggleRegister	Tone.cpp	/^volatile uint32_t *portToggleRegister;$/;"	v
+prepareAckBitWIRE	SERCOM.cpp	/^void SERCOM::prepareAckBitWIRE( void )$/;"	f	class:SERCOM
+prepareCommandBitsWire	SERCOM.cpp	/^void SERCOM::prepareCommandBitsWire(uint8_t cmd)$/;"	f	class:SERCOM
+prepareNackBitWIRE	SERCOM.cpp	/^void SERCOM::prepareNackBitWIRE( void )$/;"	f	class:SERCOM
+print	Print.cpp	/^size_t Print::print(char c)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(const Printable& x)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(const String &s)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(const __FlashStringHelper *ifsh)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(const char str[])$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(double n, int digits)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(int n, int base)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(long n, int base)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(unsigned char b, int base)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(unsigned int n, int base)$/;"	f	class:Print
+print	Print.cpp	/^size_t Print::print(unsigned long n, int base)$/;"	f	class:Print
+printFloat	Print.cpp	/^size_t Print::printFloat(double number, uint8_t digits)$/;"	f	class:Print
+printNumber	Print.cpp	/^size_t Print::printNumber(unsigned long n, uint8_t base)$/;"	f	class:Print
+printTo	IPAddress.cpp	/^size_t IPAddress::printTo(Print& p) const$/;"	f	class:IPAddress
+println	Print.cpp	/^size_t Print::println(char c)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(const Printable& x)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(const String &s)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(const __FlashStringHelper *ifsh)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(const char c[])$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(double num, int digits)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(int num, int base)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(long num, int base)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(unsigned char b, int base)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(unsigned int num, int base)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(unsigned long num, int base)$/;"	f	class:Print
+println	Print.cpp	/^size_t Print::println(void)$/;"	f	class:Print
+prog_char	avr/pgmspace.h	/^typedef char prog_char;$/;"	t
+prog_int16_t	avr/pgmspace.h	/^typedef int16_t prog_int16_t;$/;"	t
+prog_int32_t	avr/pgmspace.h	/^typedef int32_t prog_int32_t;$/;"	t
+prog_int64_t	avr/pgmspace.h	/^typedef int32_t prog_int64_t;$/;"	t
+prog_int8_t	avr/pgmspace.h	/^typedef int8_t prog_int8_t;$/;"	t
+prog_uchar	avr/pgmspace.h	/^typedef unsigned char prog_uchar;$/;"	t
+prog_uint16_t	avr/pgmspace.h	/^typedef uint16_t prog_uint16_t;$/;"	t
+prog_uint32_t	avr/pgmspace.h	/^typedef uint32_t prog_uint32_t;$/;"	t
+prog_uint64_t	avr/pgmspace.h	/^typedef uint32_t prog_uint64_t;$/;"	t
+prog_uint8_t	avr/pgmspace.h	/^typedef uint8_t prog_uint8_t;$/;"	t
+prog_void	avr/pgmspace.h	/^typedef void prog_void;$/;"	t
+protocol	USB/USBCore.h	/^	uint8_t protocol;$/;"	m	struct:__anon28
+pulseIn	pulse.c	/^uint32_t pulseIn(uint32_t pin, uint32_t state, uint32_t timeout)$/;"	f
+radians	Arduino.h	102;"	d
+random	WMath.cpp	/^extern long random( long howbig )$/;"	f
+random	WMath.cpp	/^extern long random( long howsmall, long howbig )$/;"	f
+randomSeed	WMath.cpp	/^extern void randomSeed( uint32_t dwSeed )$/;"	f
+rawIPAddress	Client.h	/^  uint8_t* rawIPAddress(IPAddress& addr) { return addr.raw_address(); };$/;"	f	class:Client
+rawIPAddress	Udp.h	/^  uint8_t* rawIPAddress(IPAddress& addr) { return addr.raw_address(); };$/;"	f	class:UDP
+raw_address	IPAddress.h	/^    uint8_t* raw_address() { return _address.bytes; };$/;"	f	class:IPAddress
+read	USB/CDC.cpp	/^int Serial_::read(void)$/;"	f	class:Serial_
+read	Uart.cpp	/^int Uart::read()$/;"	f	class:Uart
+readBreak	USB/CDC.cpp	/^int32_t Serial_::readBreak() {$/;"	f	class:Serial_
+readBytes	Stream.cpp	/^size_t Stream::readBytes(char *buffer, size_t length)$/;"	f	class:Stream
+readBytes	Stream.h	/^  size_t readBytes( uint8_t *buffer, size_t length) { return readBytes((char *)buffer, length); }$/;"	f	class:Stream
+readBytesUntil	Stream.cpp	/^size_t Stream::readBytesUntil(char terminator, char *buffer, size_t length)$/;"	f	class:Stream
+readBytesUntil	Stream.h	/^  size_t readBytesUntil( char terminator, uint8_t *buffer, size_t length) { return readBytesUntil(terminator, (char *)buffer, length); }$/;"	f	class:Stream
+readDataSPI	SERCOM.cpp	/^uint16_t SERCOM::readDataSPI()$/;"	f	class:SERCOM
+readDataUART	SERCOM.cpp	/^uint8_t SERCOM::readDataUART()$/;"	f	class:SERCOM
+readDataWIRE	SERCOM.cpp	/^uint8_t SERCOM::readDataWIRE( void )$/;"	f	class:SERCOM
+readString	Stream.cpp	/^String Stream::readString()$/;"	f	class:Stream
+readStringUntil	Stream.cpp	/^String Stream::readStringUntil(char terminator)$/;"	f	class:Stream
+read_char	RingBuffer.cpp	/^int RingBuffer::read_char()$/;"	f	class:RingBuffer
+recv	USB/USBCore.cpp	/^uint32_t USBDeviceClass::recv(uint32_t ep)$/;"	f	class:USBDeviceClass
+recv	USB/USBCore.cpp	/^uint32_t USBDeviceClass::recv(uint32_t ep, void *_data, uint32_t len)$/;"	f	class:USBDeviceClass
+recvControl	USB/USBCore.cpp	/^uint32_t USBDeviceClass::recvControl(void *_data, uint32_t len)$/;"	f	class:USBDeviceClass
+remove	WString.cpp	/^void String::remove(unsigned int index){$/;"	f	class:String
+remove	WString.cpp	/^void String::remove(unsigned int index, unsigned int count){$/;"	f	class:String
+replace	WString.cpp	/^void String::replace(char find, char replace)$/;"	f	class:String
+replace	WString.cpp	/^void String::replace(const String& find, const String& replace)$/;"	f	class:String
+reserve	WString.cpp	/^unsigned char String::reserve(unsigned int size)$/;"	f	class:String
+reset	USB/SAMD21_USBDevice.h	/^void USBDevice_SAMD21G18x::reset() {$/;"	f	class:USBDevice_SAMD21G18x
+resetSPI	SERCOM.cpp	/^void SERCOM::resetSPI()$/;"	f	class:SERCOM
+resetTC	Tone.cpp	/^static inline void resetTC (Tc* TCx)$/;"	f	file:
+resetUART	SERCOM.cpp	/^void SERCOM::resetUART()$/;"	f	class:SERCOM
+resetWIRE	SERCOM.cpp	/^void SERCOM::resetWIRE()$/;"	f	class:SERCOM
+ring_buffer	USB/CDC.cpp	/^struct ring_buffer {$/;"	s	file:
+rootNode	USB/PluggableUSB.h	/^  PluggableUSBModule* rootNode;$/;"	m	class:PluggableUSB_
+round	Arduino.h	101;"	d
+rts	USB/CDC.cpp	/^bool Serial_::rts() {$/;"	f	class:Serial_
+runInStandby	USB/SAMD21_USBDevice.h	/^	inline void runInStandby()   { usb.CTRLA.bit.RUNSTDBY = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+rxBuffer	Uart.h	/^    RingBuffer rxBuffer;$/;"	m	class:Uart
+send	USB/USBCore.cpp	/^uint32_t USBDeviceClass::send(uint32_t ep, const void *data, uint32_t len)$/;"	f	class:USBDeviceClass
+sendConfiguration	USB/USBCore.cpp	/^uint32_t USBDeviceClass::sendConfiguration(uint32_t maxlen)$/;"	f	class:USBDeviceClass
+sendControl	USB/USBAPI.h	/^	uint32_t sendControl(int \/* ep *\/, const void *data, uint32_t len) { return sendControl(data, len); }$/;"	f	class:USBDeviceClass
+sendControl	USB/USBCore.cpp	/^uint32_t USBDeviceClass::sendControl(const void* _data, uint32_t len)$/;"	f	class:USBDeviceClass
+sendDataMasterWIRE	SERCOM.cpp	/^bool SERCOM::sendDataMasterWIRE(uint8_t data)$/;"	f	class:SERCOM
+sendDataSlaveWIRE	SERCOM.cpp	/^bool SERCOM::sendDataSlaveWIRE(uint8_t data)$/;"	f	class:SERCOM
+sendDescriptor	USB/USBCore.cpp	/^bool USBDeviceClass::sendDescriptor(USBSetup &setup)$/;"	f	class:USBDeviceClass
+sendStringDescriptor	USB/USBCore.cpp	/^bool USBDeviceClass::sendStringDescriptor(const uint8_t *string, uint8_t maxlen)$/;"	f	class:USBDeviceClass
+sendZlp	USB/USBCore.cpp	/^void USBDeviceClass::sendZlp(uint32_t ep)$/;"	f	class:USBDeviceClass
+sercom	SERCOM.h	/^		Sercom* sercom;$/;"	m	class:SERCOM
+sercom	Uart.h	/^    SERCOM *sercom;$/;"	m	class:Uart
+server_h	Server.h	21;"	d
+setAddress	USB/SAMD21_USBDevice.h	/^	inline void setAddress(uint32_t addr)   { usb.DADD.bit.DADD = addr; usb.DADD.bit.ADDEN = 1; }$/;"	f	class:USBDevice_SAMD21G18x
+setAddress	USB/USBCore.cpp	/^void USBDeviceClass::setAddress(uint32_t addr)$/;"	f	class:USBDeviceClass
+setBaudrateSPI	SERCOM.cpp	/^void SERCOM::setBaudrateSPI(uint8_t divider)$/;"	f	class:SERCOM
+setCharAt	WString.cpp	/^void String::setCharAt(unsigned int loc, char c) $/;"	f	class:String
+setClockModeSPI	SERCOM.cpp	/^void SERCOM::setClockModeSPI(SercomSpiClockMode clockMode)$/;"	f	class:SERCOM
+setDataOrderSPI	SERCOM.cpp	/^void SERCOM::setDataOrderSPI(SercomDataOrder dataOrder)$/;"	f	class:SERCOM
+setFullSpeed	USB/SAMD21_USBDevice.h	/^	inline void setFullSpeed()       { usb.CTRLB.bit.SPDCONF = USB_DEVICE_CTRLB_SPDCONF_FS_Val;   }$/;"	f	class:USBDevice_SAMD21G18x
+setHiSpeed	USB/SAMD21_USBDevice.h	/^	inline void setHiSpeed()         { usb.CTRLB.bit.SPDCONF = USB_DEVICE_CTRLB_SPDCONF_HS_Val;   }$/;"	f	class:USBDevice_SAMD21G18x
+setHiSpeedTestMode	USB/SAMD21_USBDevice.h	/^	inline void setHiSpeedTestMode() { usb.CTRLB.bit.SPDCONF = USB_DEVICE_CTRLB_SPDCONF_HSTM_Val; }$/;"	f	class:USBDevice_SAMD21G18x
+setLowSpeed	USB/SAMD21_USBDevice.h	/^	inline void setLowSpeed()        { usb.CTRLB.bit.SPDCONF = USB_DEVICE_CTRLB_SPDCONF_LS_Val;   }$/;"	f	class:USBDevice_SAMD21G18x
+setTimeout	Stream.cpp	/^void Stream::setTimeout(unsigned long timeout)  \/\/ sets the maximum number of milliseconds to wait$/;"	f	class:Stream
+setUSBDeviceMode	USB/SAMD21_USBDevice.h	/^	inline void setUSBDeviceMode() { usb.CTRLA.bit.MODE = USB_CTRLA_MODE_DEVICE_Val; }$/;"	f	class:USBDevice_SAMD21G18x
+setUSBHostMode	USB/SAMD21_USBDevice.h	/^	inline void setUSBHostMode()   { usb.CTRLA.bit.MODE = USB_CTRLA_MODE_HOST_Val;   }$/;"	f	class:USBDevice_SAMD21G18x
+setWriteError	Print.h	/^    void setWriteError(int err = 1) { write_error = err; }$/;"	f	class:Print
+setup	USB/PluggableUSB.cpp	/^bool PluggableUSB_::setup(USBSetup& setup)$/;"	f	class:PluggableUSB_
+shiftIn	wiring_shift.c	/^uint32_t shiftIn( uint32_t ulDataPin, uint32_t ulClockPin, uint32_t ulBitOrder )$/;"	f
+shiftOut	wiring_shift.c	/^void shiftOut( uint32_t ulDataPin, uint32_t ulClockPin, uint32_t ulBitOrder, uint32_t ulVal )$/;"	f
+sleep	sleep.h	/^static __inline__ void sleep(void)$/;"	f
+sleepMode	sleep.h	/^static __inline__ void sleepMode(SleepMode sleep_mode)$/;"	f
+sprintf_P	avr/pgmspace.h	99;"	d
+sq	Arduino.h	104;"	d
+stall	USB/USBCore.cpp	/^void USBDeviceClass::stall(uint32_t ep)$/;"	f	class:USBDeviceClass
+startTransmissionWIRE	SERCOM.cpp	/^bool SERCOM::startTransmissionWIRE(uint8_t address, SercomWireReadWriteFlag flag)$/;"	f	class:SERCOM
+startsWith	WString.cpp	/^unsigned char String::startsWith( const String &s2 ) const$/;"	f	class:String
+startsWith	WString.cpp	/^unsigned char String::startsWith( const String &s2, unsigned int offset ) const$/;"	f	class:String
+stopbits	USB/CDC.cpp	/^uint8_t Serial_::stopbits() {$/;"	f	class:Serial_
+store_char	RingBuffer.cpp	/^void RingBuffer::store_char( uint8_t c )$/;"	f	class:RingBuffer
+str	Stream.h	/^    const char *str;  \/\/ string you're searching for$/;"	m	struct:Stream::MultiTarget
+strcasecmp_P	avr/pgmspace.h	64;"	d
+strcasecmp_PF	avr/pgmspace.h	93;"	d
+strcasestr_P	avr/pgmspace.h	65;"	d
+strcat_P	avr/pgmspace.h	59;"	d
+strcat_PF	avr/pgmspace.h	88;"	d
+strchr_P	avr/pgmspace.h	60;"	d
+strchrnul_P	avr/pgmspace.h	61;"	d
+strcmp_P	avr/pgmspace.h	62;"	d
+strcmp_PF	avr/pgmspace.h	91;"	d
+strcpy_P	avr/pgmspace.h	63;"	d
+strcpy_PF	avr/pgmspace.h	86;"	d
+strcspn_P	avr/pgmspace.h	66;"	d
+strlcat_P	avr/pgmspace.h	67;"	d
+strlcat_PF	avr/pgmspace.h	89;"	d
+strlcpy_P	avr/pgmspace.h	68;"	d
+strlcpy_PF	avr/pgmspace.h	96;"	d
+strlen_P	avr/pgmspace.h	69;"	d
+strlen_PF	avr/pgmspace.h	83;"	d
+strncasecmp_P	avr/pgmspace.h	72;"	d
+strncasecmp_PF	avr/pgmspace.h	94;"	d
+strncat_P	avr/pgmspace.h	73;"	d
+strncat_PF	avr/pgmspace.h	90;"	d
+strncmp_P	avr/pgmspace.h	71;"	d
+strncmp_PF	avr/pgmspace.h	92;"	d
+strncpy_P	avr/pgmspace.h	74;"	d
+strncpy_PF	avr/pgmspace.h	87;"	d
+strnlen_P	avr/pgmspace.h	70;"	d
+strnlen_PF	avr/pgmspace.h	84;"	d
+strpbrk_P	avr/pgmspace.h	75;"	d
+strrchr_P	avr/pgmspace.h	76;"	d
+strsep_P	avr/pgmspace.h	77;"	d
+strspn_P	avr/pgmspace.h	78;"	d
+strstr_P	avr/pgmspace.h	79;"	d
+strstr_PF	avr/pgmspace.h	95;"	d
+strtok_P	avr/pgmspace.h	80;"	d
+strtok_rP	avr/pgmspace.h	81;"	d
+substring	WString.cpp	/^String String::substring(unsigned int left, unsigned int right) const$/;"	f	class:String
+substring	WString.h	/^	String substring( unsigned int beginIndex ) const { return substring(beginIndex, len); };$/;"	f	class:String
+subtype	USB/USBCore.h	/^	uint8_t subtype;$/;"	m	struct:__anon31
+subtype	USB/USBCore.h	/^	uint8_t subtype;$/;"	m	struct:__anon32
+subtype	USB/USBCore.h	/^    uint8_t 	subtype;	\/\/ 1$/;"	m	struct:__anon33
+subtype	USB/USBCore.h	/^    uint8_t 	subtype;	\/\/ 1$/;"	m	struct:__anon34
+syncADC	wiring_analog.c	/^static void syncADC() {$/;"	f	file:
+syncTCC	wiring_analog.c	/^static void syncTCC(Tcc* TCCx) {$/;"	f	file:
+syncTC_8	wiring_analog.c	/^static void syncTC_8(Tc* TCx) {$/;"	f	file:
+tail	USB/CDC.cpp	/^	volatile uint32_t tail;$/;"	m	struct:ring_buffer	file:
+tickReset	Reset.cpp	/^void tickReset() {$/;"	f
+ticks	Reset.cpp	/^static int ticks = -1;$/;"	v	file:
+timedPeek	Stream.cpp	/^int Stream::timedPeek()$/;"	f	class:Stream
+timedRead	Stream.cpp	/^int Stream::timedRead()$/;"	f	class:Stream
+toAscii	WCharacter.h	/^inline int toAscii(int c)$/;"	f
+toCharArray	WString.h	/^	void toCharArray(char *buf, unsigned int bufsize, unsigned int index=0) const$/;"	f	class:String
+toFloat	WString.cpp	/^float String::toFloat(void) const$/;"	f	class:String
+toInt	WString.cpp	/^long String::toInt(void) const$/;"	f	class:String
+toLowerCase	WCharacter.h	/^inline int toLowerCase(int c)$/;"	f
+toLowerCase	WString.cpp	/^void String::toLowerCase(void)$/;"	f	class:String
+toUpperCase	WCharacter.h	/^inline int toUpperCase(int c)$/;"	f
+toUpperCase	WString.cpp	/^void String::toUpperCase(void)$/;"	f	class:String
+toggleCount	Tone.cpp	/^volatile int64_t toggleCount;$/;"	v
+tokIN	USB/USB_host.h	29;"	d
+tokINHS	USB/USB_host.h	31;"	d
+tokOUT	USB/USB_host.h	30;"	d
+tokOUTHS	USB/USB_host.h	32;"	d
+tokSETUP	USB/USB_host.h	28;"	d
+tone	Tone.cpp	/^void tone (uint32_t outputPin, uint32_t frequency, uint32_t duration)$/;"	f
+toneAccurateClock	Tone.cpp	/^void toneAccurateClock (uint32_t accurateSystemCoreClockFrequency)$/;"	f
+toneIsActive	Tone.cpp	/^volatile bool toneIsActive = false;$/;"	v
+toneMaxFrequency	Tone.cpp	/^uint32_t toneMaxFrequency = F_CPU \/ 2;$/;"	v
+transferDirection	USB/USBAPI.h	/^			uint8_t transferDirection : 1;$/;"	m	struct:__anon21::__anon22::__anon23
+trim	WString.cpp	/^void String::trim(void)$/;"	f	class:String
+type	USB/USBAPI.h	/^			uint8_t type : 2;$/;"	m	struct:__anon21::__anon22::__anon23
+uc_padRX	Uart.h	/^    SercomRXPad uc_padRX;$/;"	m	class:Uart
+uc_padTX	Uart.h	/^    SercomUartTXPad uc_padTX;$/;"	m	class:Uart
+uc_pinRX	Uart.h	/^    uint8_t uc_pinRX;$/;"	m	class:Uart
+uc_pinTX	Uart.h	/^    uint8_t uc_pinTX;$/;"	m	class:Uart
+udd_ep_in_cache_buffer	USB/USBCore.cpp	/^uint8_t udd_ep_in_cache_buffer[7][64];$/;"	v	file:
+udd_ep_out_cache_buffer	USB/USBCore.cpp	/^uint8_t udd_ep_out_cache_buffer[7][64];$/;"	v	file:
+udp_h	Udp.h	36;"	d
+uhd_ack_connection	USB/samd21_host.h	63;"	d
+uhd_ack_disconnection	USB/samd21_host.h	67;"	d
+uhd_ack_in_received	USB/samd21_host.h	102;"	d
+uhd_ack_nak_received	USB/samd21_host.h	106;"	d
+uhd_ack_out_ready	USB/samd21_host.h	104;"	d
+uhd_ack_reset_sent	USB/samd21_host.h	77;"	d
+uhd_ack_setup_ready	USB/samd21_host.h	100;"	d
+uhd_byte_count	USB/samd21_host.h	99;"	d
+uhd_configure_address	USB/samd21_host.h	87;"	d
+uhd_configure_pipe_token	USB/samd21_host.h	96;"	d
+uhd_disable	USB/samd21_host.h	120;"	d
+uhd_disable_connection_int	USB/samd21_host.h	62;"	d
+uhd_disable_disconnection_int	USB/samd21_host.h	66;"	d
+uhd_disable_sof	USB/samd21_host.h	82;"	d
+uhd_enable	USB/samd21_host.h	118;"	d
+uhd_enable_connection_int	USB/samd21_host.h	61;"	d
+uhd_enable_disconnection_int	USB/samd21_host.h	65;"	d
+uhd_enable_sof	USB/samd21_host.h	81;"	d
+uhd_endpoint_interrupt	USB/samd21_host.h	110;"	d
+uhd_force_full_speed	USB/samd21_host.h	123;"	d
+uhd_force_host_mode	USB/samd21_host.h	115;"	d
+uhd_freeze_pipe	USB/samd21_host.h	91;"	d
+uhd_get_configured_address	USB/samd21_host.h	88;"	d
+uhd_run_in_standby	USB/samd21_host.h	113;"	d
+uhd_start_USB_reg_reset	USB/samd21_host.h	70;"	d
+uhd_state	USB/samd21_host.c	/^static uhd_vbus_state_t uhd_state = UHD_STATE_NO_VBUS;$/;"	v	file:
+uhd_stop_reset	USB/samd21_host.h	75;"	d
+uhd_unfreeze_pipe	USB/samd21_host.h	92;"	d
+uhd_vbus_state_t	USB/USB_host.h	/^} uhd_vbus_state_t;$/;"	t	typeref:enum:__anon37
+uint_farptr_t	avr/pgmspace.h	/^typedef const void* uint_farptr_t;$/;"	t
+ulADCChannelNumber	WVariant.h	/^  EAnalogChannel  ulADCChannelNumber ; \/* ADC Channel number in the SAM device *\/$/;"	m	struct:_PinDescription
+ulExtInt	WVariant.h	/^  EExt_Interrupts ulExtInt ;$/;"	m	struct:_PinDescription
+ulPWMChannel	WVariant.h	/^  EPWMChannel     ulPWMChannel ;$/;"	m	struct:_PinDescription
+ulPin	WVariant.h	/^  uint32_t        ulPin ;$/;"	m	struct:_PinDescription
+ulPinAttribute	WVariant.h	/^  uint32_t        ulPinAttribute ;$/;"	m	struct:_PinDescription
+ulPinType	WVariant.h	/^  EPioType        ulPinType ;$/;"	m	struct:_PinDescription
+ulPort	WVariant.h	/^  EPortType       ulPort ;$/;"	m	struct:_PinDescription
+ulTCChannel	WVariant.h	/^  ETCChannel      ulTCChannel ;$/;"	m	struct:_PinDescription
+ultoa	itoa.c	/^extern char* ultoa( unsigned long value, char *string, int radix )$/;"	f
+unsetAddress	USB/SAMD21_USBDevice.h	/^	inline void unsetAddress()              { usb.DADD.bit.DADD = 0;    usb.DADD.bit.ADDEN = 0; }$/;"	f	class:USBDevice_SAMD21G18x
+usb	USB/SAMD21_USBDevice.h	/^	UsbDevice &usb;$/;"	m	class:USBDevice_SAMD21G18x
+usb	USB/USBAPI.h	/^	USBDeviceClass &usb;$/;"	m	class:Serial_
+usbVersion	USB/USBCore.h	/^	uint16_t usbVersion;		\/\/ 0x200$/;"	m	struct:__anon26
+usb_isr	cortex_handlers.c	/^static void (*usb_isr)(void) = NULL;$/;"	v	file:
+usb_pipe_table	USB/samd21_host.c	/^__attribute__((__aligned__(4))) volatile UsbHostDescriptor usb_pipe_table[USB_EPT_NUM];$/;"	v
+usbd	USB/USBCore.cpp	/^USBDevice_SAMD21G18x usbd;$/;"	v
+utoa	itoa.c	/^extern char* utoa( unsigned value, char *string, int radix )$/;"	f
+voidFuncPtr	WInterrupts.h	/^typedef void (*voidFuncPtr)(void);$/;"	t
+wIndex	USB/USBAPI.h	/^	uint16_t wIndex;$/;"	m	struct:__anon21
+wLength	USB/USBAPI.h	/^	uint16_t wLength;$/;"	m	struct:__anon21
+wValueH	USB/USBAPI.h	/^	uint8_t wValueH;$/;"	m	struct:__anon21
+wValueL	USB/USBAPI.h	/^	uint8_t wValueL;$/;"	m	struct:__anon21
+word	Arduino.h	/^typedef uint16_t word;$/;"	t
+word	WMath.h	30;"	d
+write	Print.cpp	/^size_t Print::write(const uint8_t *buffer, size_t size)$/;"	f	class:Print
+write	Print.h	/^    size_t write(const char *buffer, size_t size) {$/;"	f	class:Print
+write	Print.h	/^    size_t write(const char *str) {$/;"	f	class:Print
+write	USB/CDC.cpp	/^size_t Serial_::write(const uint8_t *buffer, size_t size)$/;"	f	class:Serial_
+write	USB/CDC.cpp	/^size_t Serial_::write(uint8_t c) {$/;"	f	class:Serial_
+write	Uart.cpp	/^size_t Uart::write(const uint8_t data)$/;"	f	class:Uart
+writeDataSPI	SERCOM.cpp	/^void SERCOM::writeDataSPI(uint8_t data)$/;"	f	class:SERCOM
+writeDataUART	SERCOM.cpp	/^int SERCOM::writeDataUART(uint8_t data)$/;"	f	class:SERCOM
+write_error	Print.h	/^    int write_error;$/;"	m	class:Print
+~String	WString.cpp	/^String::~String()$/;"	f	class:String

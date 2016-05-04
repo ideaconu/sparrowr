@@ -41,7 +41,7 @@ uint8_t RF::reg_read(const uint8_t addr)
     byte readCommand = addr | RF_ACCESS_REG | RF_ACCESS_READ;
     digitalWrite(cs_pin, LOW);
     SPI_TYPE.transfer(readCommand);
-    value = SPI1.transfer(0x00);
+    value = SPI_TYPE.transfer(0x00);
     digitalWrite(cs_pin, HIGH);
 
     return (uint8_t)value;
@@ -56,7 +56,7 @@ void RF::sram_read(const uint8_t offset,
     SPI_TYPE.transfer(readCommand);
     SPI_TYPE.transfer((char)offset);
     for (int b=0; b<len; b++) {
-      data[b] = SPI.transfer(0x00);
+      data[b] = SPI_TYPE.transfer(0x00);
     }
     digitalWrite(cs_pin, HIGH);
 }
@@ -70,7 +70,7 @@ void RF::sram_write(const uint8_t offset,
     SPI_TYPE.transfer(writeCommand);
     SPI_TYPE.transfer((char)offset);
     for (int b=0; b<len; b++) {
-      SPI1.transfer(data[b]);
+      SPI_TYPE.transfer(data[b]);
     }
     digitalWrite(cs_pin, HIGH);
 }
@@ -82,7 +82,7 @@ void RF::fb_read(uint8_t *data,
     digitalWrite(cs_pin, LOW);
     SPI_TYPE.transfer(readCommand);
     for (int b=0; b<len; b++) {
-      data[b] = SPI.transfer(0x00);
+      data[b] = SPI_TYPE.transfer(0x00);
     }
     digitalWrite(cs_pin, HIGH);
 }

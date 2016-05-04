@@ -73,12 +73,9 @@ int RF::init()
     //  Set up SPI
     SPI_TYPE.begin();
     //  Data is transmitted and received MSB first
-    //SPI.setBitOrder(MSBFIRST);
-    //  SPI interface will run at 1MHz if 8MHz chip or 2Mhz if 16Mhz
-    //SPI.setClockDivider(SPI_CLOCK_DIV8);
+    //  SPI interface will run at 8 MHz
     //  Data is clocked on the rising edge and clock is low when inactive
-    //SPI.setDataMode(SPI_MODE0);
-    SPI_TYPE.beginTransaction(SPISettings(7500000, MSBFIRST, SPI_MODE0));
+    SPI_TYPE.beginTransaction(SPISettings(8000000, MSBFIRST, SPI_MODE0));
 
     /*  wait for SPI to be ready  */
     delay(10);
@@ -153,10 +150,6 @@ void RF::reset()
 
     /* enable safe mode (protect RX FIFO until reading data starts) */
     reg_write(RF_REG__TRX_CTRL_2, RF_TRX_CTRL_2_MASK__RX_SAFE_MODE);
-
-//#ifdef MODULE_AT86RF212B
-//    at86rf2xx_set_freq(dev, RF_FREQ_915MHZ);
-//#endif
 
     /* don't populate masked interrupt flags to IRQ_STATUS register */
     /*uint8_t tmp = at86rf2xx_reg_read(RF_REG__TRX_CTRL_1);

@@ -34,7 +34,7 @@ static void __initialize()
   NVIC_EnableIRQ(EIC_IRQn);
 
   // Enable GCLK for IEC (External Interrupt Controller)
-  GCLK->CLKCTRL.reg = (uint16_t) (GCLK_CLKCTRL_CLKEN | GCLK_CLKCTRL_GEN_GCLK0 | GCLK_CLKCTRL_ID(GCM_EIC));
+  GCLK->CLKCTRL.reg = (uint16_t) (GCLK_CLKCTRL_CLKEN | GCLK_CLKCTRL_GEN_GCLK1 | GCLK_CLKCTRL_ID(GCM_EIC));
 
 /* Shall we do that?
   // Do a software reset on EIC
@@ -121,7 +121,7 @@ void detachInterrupt(uint32_t pin)
     return;
 
   EIC->INTENCLR.reg = EIC_INTENCLR_EXTINT(1 << in);
-  
+
   // Disable wakeup capability on pin during sleep
   EIC->WAKEUP.reg &= ~(1 << in);
 }
