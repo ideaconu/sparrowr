@@ -36,6 +36,8 @@
 
 #include <SPI.h>
 
+#define RX_BUFF_NUM 8
+
 #define SPI_TYPE    SPI1
 /**
  * @brief   Transition time from SLEEP to TRX_OFF in us, refer figure 7-4, p.42.
@@ -54,16 +56,23 @@
  */
 #define RF_RESET_DELAY           (26U)
 
+typedef struct radio_buffer
+{
+    struct radio_buffer *next;
+    uint8_t len;
+    uint8_t data[127];
+    uint8_t idx;
+} radio_buffer_t;
+
+
 class RF
 {
   public:
 
-    volatile int events;                /**< # of pending interrupts from the radio */
-
     RF();
 
     /**
-     * @brief   Initialize the RF device
+     * @brief   Initialize a given AT86RF2xx device
      *
      * @return                  0 on success
      * @return                  <0 on error
@@ -372,7 +381,18 @@ class RF
      */
     void hardware_reset();
 
+    int available();
+
+    void read_data(radio_buffer_t *rf);
+
+    void put(uint8_t *data, size_t len);
+
+    void pop(radio_buffer_t *rf);
+
+
   private:
+    radio_buffer_t rx_data[RX_BUFF_NUM];
+    radio_buffer_t *rx_old, *rx_new;
     int cs_pin;                         /**< chip select pin */
     int sleep_pin;                      /**< sleep pin */
     int reset_pin;                      /**< reset pin */
@@ -382,9 +402,6 @@ class RF
     uint8_t frame_len;                  /**< length of the current TX frame */
     uint16_t pan;                       /**< currently used PAN ID */
     uint8_t chan;                       /**< currently used channel */
-    //#ifdef MODULE_AT86RF212B
-    //    at86rf2xx_freq_t freq;              /**< currently used frequency */
-    //#endif
     uint8_t addr_short[2];              /**< the radio's short address */
     uint8_t addr_long[8];               /**< the radio's long address */
     uint16_t options;                   /**< state of used options */

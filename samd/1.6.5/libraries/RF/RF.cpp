@@ -32,12 +32,68 @@
 /*  Declare radio device as globally scoped struct  */
 RF RFDevice = RF();
 
+static void rf_receive_data() {
+  size_t pkt_len = RFDevice.rx_len();
+#if USB_PRINT
+  SerialUSB.print("Frame length: ");
+  SerialUSB.print(pkt_len);
+  SerialUSB.println(" bytes");
+
+  /*  Print the frame, byte for byte  */
+  SerialUSB.println("Frame dump (ASCII):");
+#endif
+
+  uint8_t data[pkt_len];
+  RFDevice.rx_read(data, pkt_len, 0);
+  RFDevice.put(data,pkt_len);
+#if USB_PRINT
+  for (int d=0; d<pkt_len; d++)
+    SerialUSB.print((char)data[d]);
+  SerialUSB.println();
+
+  /* How many frames is this so far?  */
+  SerialUSB.print("[[Total frames received: ");
+  SerialUSB.print(++received);
+  SerialUSB.println("]]\n");
+#endif
+}
+
+static void rf_eventHandler() {
+
+  /* If transceiver is sleeping register access is impossible and frames are
+   * lost anyway, so return immediately.
+   */
+  byte state = RFDevice.get_status();
+  if(state == RF_STATE_SLEEP)
+    return;
+
+  /* read (consume) device status */
+  byte irq_mask = RFDevice.reg_read(RF_REG__IRQ_STATUS);
+
+#if USB_PRINT
+  /*  Incoming radio frame! */
+  if (irq_mask & RF_IRQ_STATUS_MASK__RX_START)
+    SerialUSB.println("[at86rf2xx] EVT - RX_START");
+#endif
+  /*  Done receiving radio frame; call our receive_data function.
+   */
+  if (irq_mask & RF_IRQ_STATUS_MASK__TRX_END)
+  {
+    if(state == RF_STATE_RX_AACK_ON || state == RF_STATE_BUSY_RX_AACK) {
+#if USB_PRINT
+      SerialUSB.println("[at86rf2xx] EVT - RX_END");
+#endif
+      rf_receive_data();
+    }
+  }
+}
+
 /**
  * @brief   Increments events count by  1.
  */
 static void rf_irq_handler()
 {
-    RFDevice.events++;
+    rf_eventHandler();
     return;
 }
 
@@ -84,7 +140,7 @@ int RF::init()
     digitalWrite(sleep_pin, LOW);
     digitalWrite(reset_pin, HIGH);
     digitalWrite(cs_pin, HIGH);
-    attachInterrupt(digitalPinToInterrupt(int_pin), rf_irq_handler, RISING);
+    attachInterrupt(int_pin, rf_irq_handler, RISING);
 
     /* make sure device is not sleeping, so we can query part number */
     assert_awake();
@@ -119,6 +175,15 @@ int RF::init()
 
 void RF::reset()
 {
+    rx_new = NULL;
+    rx_old = &rx_data[0];
+    for(int i =0; i < RX_BUFF_NUM - 1;i++)
+    {
+        rx_data[i].next = &rx_data[i+1];
+    }
+
+    rx_data[RX_BUFF_NUM - 1].next = &rx_data[0];
+
     hardware_reset();
 
     /* Reset state machine to ensure a known state */
@@ -279,3 +344,57 @@ void RF::rx_read(uint8_t *data, size_t len, size_t offset)
      */
     sram_read(offset + 1, data, len);
 }
+
+int RF::available()
+{
+    return rx_new != NULL;
+}
+
+void RF::read_data(radio_buffer_t *rf)
+{
+    __disable_irq();
+    pop(rf);
+    __enable_irq();
+}
+
+void RF::pop(radio_buffer_t *rf)
+{
+    if (rx_new == NULL)
+    {
+        rf->len = 0;
+    }
+    else
+    {
+        rf->len = rx_old->len;
+        memcpy(rf->data,rx_old->data,rf->len);
+        if (rx_old == rx_new)
+        {
+            rx_new = NULL;
+        }
+        else
+        {
+            rx_old = rx_old->next;
+        }
+    }
+}
+
+void RF::put(uint8_t *data, size_t len)
+{
+    if (rx_new == NULL)
+    {
+        rx_new = rx_old;
+    }
+    else
+    {
+        if(rx_new->next == rx_old)
+        {
+            rx_old = rx_old->next;
+        }
+        rx_new = rx_new->next;
+    }
+    rx_new->len = len;
+    memcpy(rx_new->data, data, len);
+}
+
+
+
