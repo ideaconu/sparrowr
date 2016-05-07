@@ -132,8 +132,8 @@ RF_REG__VREG_CTRL	RF-registers.h	75;"	d
 RF_REG__XAH_CTRL_0	RF-registers.h	103;"	d
 RF_REG__XAH_CTRL_1	RF-registers.h	83;"	d
 RF_REG__XOSC_CTRL	RF-registers.h	77;"	d
-RF_RESET_DELAY	RF.h	55;"	d
-RF_RESET_PULSE_WIDTH	RF.h	49;"	d
+RF_RESET_DELAY	RF.h	57;"	d
+RF_RESET_PULSE_WIDTH	RF.h	51;"	d
 RF_STATE_BUSY_RX_AACK	RF-defaults.h	56;"	d
 RF_STATE_BUSY_TX_ARET	RF-defaults.h	57;"	d
 RF_STATE_IN_PROGRESS	RF-defaults.h	60;"	d
@@ -214,7 +214,7 @@ RF_TRX_STATUS__SLEEP	RF-registers.h	189;"	d
 RF_TRX_STATUS__STATE_TRANSITION_IN_PROGRESS	RF-registers.h	197;"	d
 RF_TRX_STATUS__TRX_OFF	RF-registers.h	187;"	d
 RF_TRX_STATUS__TX_ARET_ON	RF-registers.h	193;"	d
-RF_WAKEUP_DELAY	RF.h	44;"	d
+RF_WAKEUP_DELAY	RF.h	46;"	d
 RF_XAH_CTRL_0__MAX_CSMA_RETRIES	RF-registers.h	279;"	d
 RF_XAH_CTRL_0__MAX_FRAME_RETRIES	RF-registers.h	278;"	d
 RF_XAH_CTRL_0__SLOTTED_OPERATION	RF-registers.h	280;"	d
@@ -224,17 +224,19 @@ RF_XAH_CTRL_1__AACK_PROM_MODE	RF-registers.h	290;"	d
 RF_XAH_CTRL_1__AACK_UPLD_RES_FT	RF-registers.h	288;"	d
 RF_XOSC_CTRL__XTAL_MODE_CRYSTAL	RF-registers.h	257;"	d
 RF_XOSC_CTRL__XTAL_MODE_EXTERNAL	RF-registers.h	258;"	d
-SPI_TYPE	RF.h	39;"	d
+RX_BUFF_NUM	RF.h	39;"	d
+SPI_TYPE	RF.h	41;"	d
 USB_PRINT	RF.cpp	30;"	d	file:
 _set_state	RF-getset.cpp	/^inline void RF::_set_state(uint8_t state_)$/;"	f	class:RF
 addr_long	RF.h	/^    uint8_t addr_long[8];               \/**< the radio's long address *\/$/;"	m	class:RF
 addr_short	RF.h	/^    uint8_t addr_short[2];              \/**< the radio's short address *\/$/;"	m	class:RF
 assert_awake	RF-internal.cpp	/^void RF::assert_awake()$/;"	f	class:RF
+available	RF.cpp	/^int RF::available()$/;"	f	class:RF
 cca	RF.cpp	/^bool RF::cca()$/;"	f	class:RF
 chan	RF.h	/^    uint8_t chan;                       \/**< currently used channel *\/$/;"	m	class:RF
 cs_pin	RF.h	/^    int cs_pin;                         \/**< chip select pin *\/$/;"	m	class:RF
+data	RF.h	/^    uint8_t data[127];$/;"	m	struct:radio_buffer
 dbm_to_tx_pow	RF-getset.cpp	/^static const uint8_t dbm_to_tx_pow[] = {0x0f, 0x0f, 0x0f, 0x0e, 0x0e, 0x0e,$/;"	v	file:
-events	RF.h	/^    volatile int events;                \/**< # of pending interrupts from the radio *\/$/;"	m	class:RF
 fb_read	RF-internal.cpp	/^void RF::fb_read(uint8_t *data,$/;"	f	class:RF
 force_trx_off	RF-internal.cpp	/^void RF::force_trx_off()$/;"	f	class:RF
 frame_len	RF.h	/^    uint8_t frame_len;                  \/**< length of the current TX frame *\/$/;"	m	class:RF
@@ -248,17 +250,30 @@ get_status	RF-internal.cpp	/^uint8_t RF::get_status()$/;"	f	class:RF
 get_txpower	RF-getset.cpp	/^int16_t RF::get_txpower()$/;"	f	class:RF
 hardware_reset	RF-internal.cpp	/^void RF::hardware_reset()$/;"	f	class:RF
 idle_state	RF.h	/^    uint8_t idle_state;                 \/**< state to return to after sending *\/$/;"	m	class:RF
+idx	RF.h	/^    uint8_t idx;$/;"	m	struct:radio_buffer
 init	RF.cpp	/^int RF::init()$/;"	f	class:RF
 int_pin	RF.h	/^    int int_pin;                        \/**< external interrupt pin *\/$/;"	m	class:RF
+len	RF.h	/^    uint8_t len;$/;"	m	struct:radio_buffer
+next	RF.h	/^    struct radio_buffer *next;$/;"	m	struct:radio_buffer	typeref:struct:radio_buffer::radio_buffer
 options	RF.h	/^    uint16_t options;                   \/**< state of used options *\/$/;"	m	class:RF
 pan	RF.h	/^    uint16_t pan;                       \/**< currently used PAN ID *\/$/;"	m	class:RF
+pop	RF.cpp	/^void RF::pop(radio_buffer_t *rf)$/;"	f	class:RF
+put	RF.cpp	/^void RF::put(uint8_t *data, size_t len)$/;"	f	class:RF
+radio_buffer	RF.h	/^typedef struct radio_buffer$/;"	s
+radio_buffer_t	RF.h	/^} radio_buffer_t;$/;"	t	typeref:struct:radio_buffer
+read_data	RF.cpp	/^void RF::read_data(radio_buffer_t *rf)$/;"	f	class:RF
 reg_read	RF-internal.cpp	/^uint8_t RF::reg_read(const uint8_t addr)$/;"	f	class:RF
 reg_write	RF-internal.cpp	/^void RF::reg_write(const uint8_t addr,$/;"	f	class:RF
 reset	RF.cpp	/^void RF::reset()$/;"	f	class:RF
 reset_pin	RF.h	/^    int reset_pin;                      \/**< reset pin *\/$/;"	m	class:RF
 reset_state_machine	RF-getset.cpp	/^void RF::reset_state_machine()$/;"	f	class:RF
+rf_eventHandler	RF.cpp	/^static void rf_eventHandler() {$/;"	f	file:
 rf_irq_handler	RF.cpp	/^static void rf_irq_handler()$/;"	f	file:
+rf_receive_data	RF.cpp	/^static void rf_receive_data() {$/;"	f	file:
+rx_data	RF.h	/^    radio_buffer_t rx_data[RX_BUFF_NUM];$/;"	m	class:RF
 rx_len	RF.cpp	/^size_t RF::rx_len()$/;"	f	class:RF
+rx_new	RF.h	/^    radio_buffer_t *rx_old, *rx_new;$/;"	m	class:RF
+rx_old	RF.h	/^    radio_buffer_t *rx_old, *rx_new;$/;"	m	class:RF
 rx_read	RF.cpp	/^void RF::rx_read(uint8_t *data, size_t len, size_t offset)$/;"	f	class:RF
 send	RF.cpp	/^size_t RF::send(uint8_t *data, size_t len)$/;"	f	class:RF
 seq_nr	RF.h	/^    uint8_t seq_nr;                     \/**< sequence number to use next *\/$/;"	m	class:RF

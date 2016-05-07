@@ -63,6 +63,7 @@ static void rf_eventHandler() {
   /* If transceiver is sleeping register access is impossible and frames are
    * lost anyway, so return immediately.
    */
+
   byte state = RFDevice.get_status();
   if(state == RF_STATE_SLEEP)
     return;
@@ -93,6 +94,7 @@ static void rf_eventHandler() {
  */
 static void rf_irq_handler()
 {
+
     rf_eventHandler();
     return;
 }
@@ -119,11 +121,11 @@ int RF::init()
     pinMode(sleep_pin, OUTPUT);
     pinMode(int_pin, INPUT_PULLDOWN);
     pinMode(cs_pin, OUTPUT);
-    //pinMode(RF_DIG1, INPUT_PULLDOWN);
-    //pinMode(RF_DIG2, INPUT_PULLDOWN);
-    //pinMode(RF_DIG3, INPUT_PULLDOWN);
-    //pinMode(RF_DIG4, INPUT_PULLDOWN);
-    //pinMode(RF_CLKM, INPUT_PULLDOWN);
+    pinMode(RF_DIG1, INPUT_PULLDOWN);
+    pinMode(RF_DIG2, INPUT_PULLDOWN);
+    pinMode(RF_DIG3, INPUT_PULLDOWN);
+    pinMode(RF_DIG4, INPUT_PULLDOWN);
+    pinMode(RF_CLKM, INPUT_PULLDOWN);
 
     /* initialise SPI */
     //  Set up SPI
@@ -210,8 +212,8 @@ void RF::reset()
     set_option(RF_OPT_PROMISCUOUS, true);
     set_option(RF_OPT_AUTOACK, true);
     set_option(RF_OPT_CSMA, true);
-    set_option(RF_OPT_TELL_RX_START, true);
-    set_option(RF_OPT_TELL_RX_END, true);
+
+    //RF_TRX_CTRL_1_MASK__TX_AUTO_CRC_ON
 
     /* enable safe mode (protect RX FIFO until reading data starts) */
     reg_write(RF_REG__TRX_CTRL_2, RF_TRX_CTRL_2_MASK__RX_SAFE_MODE);
@@ -221,6 +223,10 @@ void RF::reset()
     tmp &= ~(RF_TRX_CTRL_1_MASK__IRQ_MASK_MODE);
     at86rf2xx_reg_write(RF_REG__TRX_CTRL_1, tmp);*/
 
+    /* Auto FCS generation */
+    //reg_write(RF_REG__TRX_CTRL_1, RF_TRX_CTRL_1_MASK__TX_AUTO_CRC_ON);
+
+
     /* disable clock output to save power */
     byte tmp = reg_read(RF_REG__TRX_CTRL_0);
     tmp &= ~(RF_TRX_CTRL_0_MASK__CLKM_CTRL);
@@ -229,7 +235,7 @@ void RF::reset()
     reg_write(RF_REG__TRX_CTRL_0, tmp);
 
     /* enable interrupts */
-    reg_write(RF_REG__IRQ_MASK, RF_IRQ_STATUS_MASK__TRX_END);
+    reg_write(RF_REG__IRQ_MASK, RF_IRQ_STATUS_MASK__TRX_END | RF_IRQ_STATUS_MASK__RX_START);
 
     /* clear interrupt flags */
     reg_read(RF_REG__IRQ_STATUS);
@@ -396,5 +402,9 @@ void RF::put(uint8_t *data, size_t len)
     memcpy(rx_new->data, data, len);
 }
 
+void RF::handleEvents()
+{
+    rf_eventHandler();
+}
 
 

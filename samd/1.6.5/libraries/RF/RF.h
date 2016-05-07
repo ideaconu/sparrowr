@@ -389,6 +389,7 @@ class RF
 
     void pop(radio_buffer_t *rf);
 
+    void handleEvents();
 
   private:
     radio_buffer_t rx_data[RX_BUFF_NUM];
