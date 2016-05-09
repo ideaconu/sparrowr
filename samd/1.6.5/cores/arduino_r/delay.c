@@ -23,22 +23,8 @@
 extern "C" {
 #endif
 
-static const uint32_t cycles_per_ms = VARIANT_MCK / 1000;
-
 /** Tick Counter united by ms */
 static volatile uint32_t _ulTickCount=0 ;
-
-static __inline__ void delay_cycles(
-		const uint32_t n)
-{
-	if (n > 0) {
-		SysTick->LOAD = n;
-		SysTick->VAL = 0;
-
-		while (!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)) {
-		};
-	}
-}
 
 uint32_t millis( void )
 {
@@ -84,7 +70,7 @@ void delay( uint32_t ms )
 
   while (ms--) {
     /* Devide up to blocks of 1ms */
-    delay_cycles(cycles_per_ms);
+    delayMicroseconds(992);
   }
 }
 

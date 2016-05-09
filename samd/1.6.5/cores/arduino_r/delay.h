@@ -60,7 +60,8 @@ extern void delay( uint32_t dwMs ) ;
  *
  * \param dwUs the number of microseconds to pause (uint32_t)
  */
-static __inline__ void delayMicroseconds( uint32_t ) __attribute__((always_inline, unused)) ;
+
+__attribute__ ((section(".ramfunc")))
 static __inline__ void delayMicroseconds( uint32_t usec )
 {
   if ( usec == 0 )
@@ -100,5 +101,6 @@ static __inline__ void delayMicroseconds( uint32_t usec )
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif /* _DELAY_ */
