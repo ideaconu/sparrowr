@@ -18,6 +18,9 @@
 
 #pragma once
 
+#ifndef _PULSE_H
+#define _PULSE_H
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -37,3 +40,4 @@ uint32_t pulseIn(uint32_t pin, uint32_t state, uint32_t timeout = 1000000L);
 } // extern "C"
 #endif
 
+#endif /* _PULSE_H */

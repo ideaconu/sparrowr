@@ -88,6 +88,7 @@ void loop( void ) ;
 #include "WInterrupts.h"
 #include "pm.h"
 #include "sleep.h"
+#include "evsys.h"
 
 // undefine stdlib's abs if encountered
 #ifdef abs
@@ -122,4 +123,5 @@ void loop( void ) ;
 #include "USB/USBAPI.h"
 #include "USB/USB_host.h"
 
+#include "WRTC.h"
 #endif // Arduino_h

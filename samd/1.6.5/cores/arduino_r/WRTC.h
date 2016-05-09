@@ -17,10 +17,13 @@
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
 */
 
-#ifndef WRTC_H
-#define WRTC_H
+#ifdef __cplusplus
 
-#include "Arduino.h"
+#ifndef _WRTC_H
+#define _WRTC_H
+
+#include <stdint.h>
+
 
 typedef void(*voidFuncPtr)(void);
 
@@ -44,8 +47,8 @@ public:
   void enableAlarm(Alarm_Match match);
   void disableAlarm();
 
-  void attachInterrupt(voidFuncPtr callback);
-  void detachInterrupt();
+  void attachAlarmInterrupt(voidFuncPtr callback);
+  void detachAlarmInterrupt();
 
   /* Get Functions */
 
@@ -106,4 +109,6 @@ private:
 
 extern WRTC rtc;
 
-#endif // WRTC_H
+#endif /* _WRTC_H */
+
+#endif /* CPLUS_PLUS */

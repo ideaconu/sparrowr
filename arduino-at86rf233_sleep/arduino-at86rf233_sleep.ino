@@ -1,5 +1,4 @@
 #include <RF.h>
-#include <WRTC.h>
 
 int received = 0;
 
@@ -27,7 +26,7 @@ void setup() {
   rtc.begin();
   rtc.setAlarmSeconds(0);
   rtc.enableAlarm(rtc.MATCH_SS);
-  rtc.attachInterrupt(rtcAlarm);
+  rtc.attachAlarmInterrupt(rtcAlarm);
 }
 
 
