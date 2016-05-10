@@ -88,7 +88,6 @@ void loop( void ) ;
 #include "WInterrupts.h"
 #include "pm.h"
 #include "sleep.h"
-#include "events.h"
 
 // undefine stdlib's abs if encountered
 #ifdef abs

@@ -13,6 +13,9 @@ uint8_t events_init(uint8_t generator, uint8_t user);
 
 void events_attach_interrupt(uint8_t resource, voidFuncPtr callback);
 
+void events_detach_interrupt(uint8_t resource);
+
+void events_reset(void);
 
 #ifdef __cplusplus
 }

@@ -18,8 +18,8 @@
 */
 
 #include <time.h>
-#include "Arduino.h"
 #include "WRTC.h"
+#include "events.h"
 
 #define EPOCH_TIME_OFF      946684800  // This is 1st January 2000, 00:00:00 in epoch time
 #define EPOCH_TIME_YEAR_OFF 100        // years since 1900
@@ -70,11 +70,6 @@ void WRTC::begin()
 
   while (RTCisSyncing())
     ;
-    uint32_t event_mask =0;
-  for (uint8_t i = 0; i < 8; i++) {
-			event_mask |= RTC_MODE2_EVCTRL_PEREO(1 << i);
-	}
-  RTC->MODE2.EVCTRL.reg = event_mask;
 
   RTCenable();
   RTCresetRemove();
@@ -111,6 +106,37 @@ void WRTC::attachAlarmInterrupt(voidFuncPtr callback)
 void WRTC::detachAlarmInterrupt()
 {
   RTC_callBack = NULL;
+}
+
+
+void WRTC::enablePeriodicInterrupt(uint8_t per)
+{
+    RTCdisable();
+
+    uint32_t event_mask =0;
+
+    event_mask |= RTC_MODE2_EVCTRL_PEREO(1 << (per - RTC_PER_128));
+
+    RTC->MODE2.EVCTRL.reg = event_mask;
+
+    RTCenable();
+
+    events_init(per,EVSYS_ID_USER_DMAC_CH_0);
+}
+
+void WRTC::disablePeriodicInterrupt()
+{
+    events_reset();
+}
+
+void WRTC::attachPeriodicInterrupt(voidFuncPtr callback)
+{
+    events_attach_interrupt(0,callback);
+}
+
+void WRTC::detachPeriodicInterrupt()
+{
+    events_detach_interrupt(0);
 }
 
 /*

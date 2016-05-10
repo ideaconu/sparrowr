@@ -49,17 +49,17 @@ static void _events_release_channel(uint8_t channel);
 
 uint32_t _events_find_bit_position(uint8_t channel, uint8_t start_offset);
 
+static void _events_reset(void);
+
 
 voidFuncPtr EVENTS_callBack = NULL;
 
 uint8_t events_init(uint8_t generator, uint8_t user)
 {
     PM->APBCMASK.reg |=  PM_APBCMASK_EVSYS;
-    EVSYS->CTRL.reg = EVSYS_CTRL_SWRST;
 
-	while (EVSYS->CTRL.reg & EVSYS_CTRL_SWRST) {
-	}
-    
+    _events_reset();
+
     uint8_t new_channel = _event_find_first_free_channel_and_allocate();
     uint8_t edge_detect = EVENTS_EDGE_DETECT_RISING;
     uint8_t path = EVENTS_PATH_SYNCHRONOUS;
@@ -93,10 +93,10 @@ uint8_t events_init(uint8_t generator, uint8_t user)
 
 	/* Restore previous configured clock generator */
 	GCLK->CLKCTRL.bit.GEN = prev_gen_id;
- 
+
 	/* Write the new configuration */
 	GCLK->CLKCTRL.reg = new_clkctrl_config;
-     
+
     *((uint8_t*)&GCLK->CLKCTRL.reg) = channel;
 
 	/* Enable the generic clock */
@@ -120,10 +120,10 @@ uint8_t events_init(uint8_t generator, uint8_t user)
 
                  /* --- enable interrupt*/
 
-                 //add hock 
-    NVIC_EnableIRQ(EVSYS_IRQn); // enable RTC interrupt 
+                 //add hock
+    NVIC_EnableIRQ(EVSYS_IRQn); // enable RTC interrupt
     NVIC_SetPriority(EVSYS_IRQn, 0x00);
-    
+
                  /* --- enable interrupt */
     //INTERRUPT DETECT
     EVSYS->INTENSET.reg = _events_find_bit_position(new_channel,
@@ -131,7 +131,7 @@ uint8_t events_init(uint8_t generator, uint8_t user)
 
     while(EVSYS->CHSTATUS.reg & (_events_find_bit_position(new_channel,
 			_EVENTS_START_OFFSET_BUSY_BITS)));
-            
+
     return 0;
 }
 
@@ -141,7 +141,15 @@ void events_attach_interrupt(uint8_t resource, voidFuncPtr callback)
 }
 
 
+void events_detach_interrupt(uint8_t resource)
+{
+    EVENTS_callBack = NULL;
+}
 
+void events_reset(void)
+{
+    _events_reset();
+}
 
 static uint8_t _event_find_first_free_channel_and_allocate(void)
 {
@@ -212,3 +220,10 @@ void EVSYS_Handler(void)
     }
 }
 
+void _events_reset(void)
+{
+    EVSYS->CTRL.reg = EVSYS_CTRL_SWRST;
+
+    while (EVSYS->CTRL.reg & EVSYS_CTRL_SWRST) {
+    }
+}

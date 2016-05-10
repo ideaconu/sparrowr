@@ -22,10 +22,24 @@
 #ifndef _WRTC_H
 #define _WRTC_H
 
+#include "Arduino.h"
 #include <stdint.h>
 
 
 typedef void(*voidFuncPtr)(void);
+
+  enum Per_Int: uint8_t
+  {
+    RTC_PER_1   = EVSYS_ID_GEN_RTC_PER_7,
+    RTC_PER_2   = EVSYS_ID_GEN_RTC_PER_6,
+    RTC_PER_4   = EVSYS_ID_GEN_RTC_PER_5,
+    RTC_PER_8   = EVSYS_ID_GEN_RTC_PER_4,
+    RTC_PER_16  = EVSYS_ID_GEN_RTC_PER_3,
+    RTC_PER_32  = EVSYS_ID_GEN_RTC_PER_2,
+    RTC_PER_64  = EVSYS_ID_GEN_RTC_PER_1,
+    RTC_PER_128 = EVSYS_ID_GEN_RTC_PER_0,
+  };
+
 
 class WRTC {
 public:
@@ -98,6 +112,11 @@ public:
   uint32_t getY2kEpoch();
   void setEpoch(uint32_t ts);
   void setY2kEpoch(uint32_t ts);
+
+  void enablePeriodicInterrupt(uint8_t per);
+  void disablePeriodicInterrupt();
+  void attachPeriodicInterrupt(voidFuncPtr);
+  void detachPeriodicInterrupt();
 
 private:
   bool RTCisSyncing(void);
