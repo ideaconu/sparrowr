@@ -57,8 +57,6 @@ void SystemInit( void )
    */
   SYSCTRL->XOSC32K.reg = SYSCTRL_XOSC32K_STARTUP( 0x6u ) | /* cf table 15.10 of product datasheet in chapter 15.8.6 */
                          SYSCTRL_XOSC32K_XTALEN | SYSCTRL_XOSC32K_EN32K  | SYSCTRL_XOSC32K_EN1K;
-  SYSCTRL->XOSC32K.bit.RUNSTDBY = 1;
-  SYSCTRL->XOSC32K.bit.ONDEMAND = 0;
   SYSCTRL->XOSC32K.bit.ENABLE = 1 ; /* separate call, as described in chapter 15.6.3 */
 
   while ( (SYSCTRL->PCLKSR.reg & SYSCTRL_PCLKSR_XOSC32KRDY) == 0 )
@@ -66,6 +64,7 @@ void SystemInit( void )
     /* Wait for oscillator stabilization */
   }
 
+  SYSCTRL->XOSC32K.bit.RUNSTDBY = 1;
   SYSCTRL->XOSC32K.bit.ONDEMAND = 1;
 
   /* Software reset the module to ensure it is re-initialized correctly */
@@ -93,8 +92,7 @@ void SystemInit( void )
   GCLK->GENCTRL.reg = GCLK_GENCTRL_ID( GENERIC_CLOCK_GENERATOR_XOSC32K ) | // Generic Clock Generator 1
                       GCLK_GENCTRL_SRC_XOSC32K | // Selected source is External 32KHz Oscillator
 //                      GCLK_GENCTRL_OE | // Output clock to a pin for tests
-                      GCLK_GENCTRL_GENEN |
-                      GCLK_GENCTRL_RUNSTDBY;
+                      GCLK_GENCTRL_GENEN | GCLK_GENCTRL_RUNSTDBY;
 
   while ( GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY )
   {

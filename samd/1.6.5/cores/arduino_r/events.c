@@ -72,14 +72,8 @@ uint8_t events_init(uint8_t generator, uint8_t user)
     }
     uint8_t channel = EVSYS_GCLK_ID_0 + new_channel;
 /* Cache the new config to reduce sync requirements */
-	uint32_t new_clkctrl_config = (channel << GCLK_CLKCTRL_ID_Pos);
-
-	/* Select the desired generic clock generator */
-	new_clkctrl_config |= source_generator << GCLK_CLKCTRL_GEN_Pos;
-
 	/* Disable generic clock channel */
-
-    *((uint8_t*)&GCLK->CLKCTRL.reg) = channel;
+    GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID(channel);
 
 	/* Switch to known-working source so that the channel can be disabled */
 	uint32_t prev_gen_id = GCLK->CLKCTRL.bit.GEN;
@@ -94,13 +88,15 @@ uint8_t events_init(uint8_t generator, uint8_t user)
 	/* Restore previous configured clock generator */
 	GCLK->CLKCTRL.bit.GEN = prev_gen_id;
 
+    GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID(channel);
+
 	/* Write the new configuration */
-	GCLK->CLKCTRL.reg = new_clkctrl_config;
 
-    *((uint8_t*)&GCLK->CLKCTRL.reg) = channel;
+    /* Enable the generic clock */
+	GCLK->CLKCTRL.reg = (uint32_t)(GCLK_CLKCTRL_CLKEN | GCLK_CLKCTRL_GEN_GCLK1 |
+        GCLK_CLKCTRL_ID(channel));
 
-	/* Enable the generic clock */
-	GCLK->CLKCTRL.reg |= GCLK_CLKCTRL_CLKEN;
+    while (GCLK->STATUS.bit.SYNCBUSY);
 
 
 
