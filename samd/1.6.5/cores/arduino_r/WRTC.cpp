@@ -70,6 +70,11 @@ void WRTC::begin()
 
   while (RTCisSyncing())
     ;
+    uint32_t event_mask =0;
+  for (uint8_t i = 0; i < 8; i++) {
+			event_mask |= RTC_MODE2_EVCTRL_PEREO(1 << i);
+	}
+  RTC->MODE2.EVCTRL.reg = event_mask;
 
   RTCenable();
   RTCresetRemove();

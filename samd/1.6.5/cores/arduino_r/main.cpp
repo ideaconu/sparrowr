@@ -41,7 +41,7 @@ int main( void )
 
   sleepMode(SLEEP_STANDBY);
 
-  rtc.begin();
+  //rtc.begin();
 
   setup();
 
