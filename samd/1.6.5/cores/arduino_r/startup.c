@@ -52,6 +52,17 @@ void SystemInit( void )
   /* Turn on the digital interface clock */
   PM->APBAMASK.reg |= PM_APBAMASK_GCLK ;
 
+  /* Software reset the module to ensure it is re-initialized correctly */
+  /* Note: Due to synchronization, there is a delay from writing CTRL.SWRST until the reset is complete.
+   * CTRL.SWRST and STATUS.SYNCBUSY will both be cleared when the reset is complete, as described in chapter 13.8.1
+   */
+  GCLK->CTRL.reg = GCLK_CTRL_SWRST ;
+
+  while ( (GCLK->CTRL.reg & GCLK_CTRL_SWRST) && (GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY) )
+  {
+    /* Wait for reset to complete */
+  }
+
   /* ----------------------------------------------------------------------------------------------
    * 1) Enable XOSC32K clock (External on-board 32.768Hz oscillator)
    */
@@ -67,16 +78,6 @@ void SystemInit( void )
   SYSCTRL->XOSC32K.bit.RUNSTDBY = 1;
   SYSCTRL->XOSC32K.bit.ONDEMAND = 1;
 
-  /* Software reset the module to ensure it is re-initialized correctly */
-  /* Note: Due to synchronization, there is a delay from writing CTRL.SWRST until the reset is complete.
-   * CTRL.SWRST and STATUS.SYNCBUSY will both be cleared when the reset is complete, as described in chapter 13.8.1
-   */
-  GCLK->CTRL.reg = GCLK_CTRL_SWRST ;
-
-  while ( (GCLK->CTRL.reg & GCLK_CTRL_SWRST) && (GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY) )
-  {
-    /* Wait for reset to complete */
-  }
 
   /* ----------------------------------------------------------------------------------------------
    * 2) Put XOSC32K as source of Generic Clock Generator 1
