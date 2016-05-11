@@ -1,5 +1,4 @@
-#include <RF.h>
-#include <events.h>
+#include <RF.h> 
 
 int received = 0;
  
@@ -7,7 +6,7 @@ int received = 0;
 void setup() {
 
 
-  pmSetVoltage(3200);
+  pmSetVoltage(1800);
   //USBDevice.init();
   //USBDevice.attach();
 

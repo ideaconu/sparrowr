@@ -80,11 +80,17 @@ static void rf_eventHandler() {
    */
   if (irq_mask & RF_IRQ_STATUS_MASK__TRX_END)
   {
-    if(state == RF_STATE_RX_AACK_ON || state == RF_STATE_BUSY_RX_AACK) {
+      if(state == RF_STATE_RX_AACK_ON || state == RF_STATE_BUSY_RX_AACK) {
 #if USB_PRINT
       SerialUSB.println("[at86rf2xx] EVT - RX_END");
 #endif
       rf_receive_data();
+    }
+    else
+    {
+#if USB_PRINT
+      SerialUSB.println("[at86rf2xx] EVT - TX_END");
+#endif
     }
   }
 }
@@ -94,8 +100,10 @@ static void rf_eventHandler() {
  */
 static void rf_irq_handler()
 {
-
-    rf_eventHandler();
+//    delayMicroseconds(12);
+    RFDevice.events ++;
+//    SerialUSB.println("interrupt");
+//    rf_eventHandler();
     return;
 }
 
@@ -133,7 +141,7 @@ int RF::init()
     //  Data is transmitted and received MSB first
     //  SPI interface will run at 8 MHz
     //  Data is clocked on the rising edge and clock is low when inactive
-    SPI_TYPE.beginTransaction(SPISettings(8000000, MSBFIRST, SPI_MODE0));
+    SPI_TYPE.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));
 
     /*  wait for SPI to be ready  */
     delay(10);
@@ -209,6 +217,7 @@ void RF::reset()
     set_txpower(RF_DEFAULT_TXPOWER);
 
     /* set default options */
+    /* this disabled did not block the TX */
     set_option(RF_OPT_PROMISCUOUS, true);
     set_option(RF_OPT_AUTOACK, true);
     set_option(RF_OPT_CSMA, true);
@@ -239,9 +248,6 @@ void RF::reset()
 
     /* clear interrupt flags */
     reg_read(RF_REG__IRQ_STATUS);
-
-    /* go into RX state */
-    set_state(RF_STATE_RX_AACK_ON);
 
     #if USB_PRINT
     SerialUSB.println("[at86rf2xx] Reset complete.");
@@ -274,7 +280,7 @@ bool RF::cca()
     }
 }
 
-size_t RF::send(uint8_t *data, size_t len)
+size_t RF::send(uint8_t *data, size_t len, size_t sleep_now)
 {
     /* check data length */
     if (len > RF_MAX_PKT_LENGTH) {
@@ -286,7 +292,9 @@ size_t RF::send(uint8_t *data, size_t len)
     }
     RF::tx_prepare();
     RF::tx_load(data, len, 0);
-    RF::tx_exec();
+    //This was commented when TX worked
+    //RFDevice.reg_read(RF_REG__IRQ_STATUS);
+    RF::tx_exec(sleep_now);
     return len;
 }
 
@@ -319,15 +327,28 @@ size_t RF::tx_load(uint8_t *data,
     return offset + len;
 }
 
-void RF::tx_exec()
+void RF::tx_exec(size_t sleepNow)
 {
     /* write frame length field in FIFO */
     sram_write(0, &(frame_len), 1);
     /* trigger sending of pre-loaded frame */
-    reg_write(RF_REG__TRX_STATE, RF_TRX_STATE__TX_START);
-    /*if (at86rf2xx.event_cb && (at86rf2xx.options & RF_OPT_TELL_TX_START)) {
-        at86rf2xx.event_cb(NETDEV_EVENT_TX_STARTED, NULL);
-    }*/
+    //reg_write(RF_REG__TRX_STATE, RF_TRX_STATE__TX_START);
+    digitalWrite(sleep_pin, HIGH);
+    delayMicroseconds(4);
+    digitalWrite(sleep_pin, LOW);
+    if(sleepNow)
+    {
+        sleep();
+    }
+
+        uint16_t timeout = 50*10;
+        while(events == 0 && timeout > 0)
+        {
+            timeout --;
+            delayMicroseconds(100);
+        }
+    events = 0;
+    rf_eventHandler();
 }
 
 size_t RF::rx_len()

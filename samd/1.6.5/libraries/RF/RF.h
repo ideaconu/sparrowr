@@ -71,6 +71,7 @@ class RF
 
     RF();
 
+    volatile int events;
     /**
      * @brief   Initialize a given AT86RF2xx device
      *
@@ -266,7 +267,7 @@ class RF
      * @return                  number of bytes that were actually send
      * @return                  0 on error
      */
-    size_t send(uint8_t *data, size_t len);
+    size_t send(uint8_t *data, size_t len, size_t sleep_now);
 
     /**
      * @brief   Prepare for sending of data
@@ -292,7 +293,7 @@ class RF
      * @brief   Trigger sending of data previously loaded into transmit buffer
      *
      */
-    void tx_exec();
+    void tx_exec(size_t sleep_now);
 
     /**
      * @brief   Read the length of a received packet
