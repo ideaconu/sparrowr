@@ -100,10 +100,7 @@ static void rf_eventHandler() {
  */
 static void rf_irq_handler()
 {
-//    delayMicroseconds(12);
     RFDevice.events ++;
-//    SerialUSB.println("interrupt");
-//    rf_eventHandler();
     return;
 }
 
@@ -139,9 +136,9 @@ int RF::init()
     //  Set up SPI
     SPI_TYPE.begin();
     //  Data is transmitted and received MSB first
-    //  SPI interface will run at 8 MHz
+    //  SPI interface will run at 7.5 max, and SamR21 will allow 6 MHz or 8MHz
     //  Data is clocked on the rising edge and clock is low when inactive
-    SPI_TYPE.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));
+    SPI_TYPE.beginTransaction(SPISettings(6000000, MSBFIRST, SPI_MODE0));
 
     /*  wait for SPI to be ready  */
     delay(10);

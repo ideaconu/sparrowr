@@ -11,9 +11,9 @@ void setup() {
  // SPI.beginTransaction(SPISettings(200000, MSBFIRST, SPI_MODE0));
   //Serial.begin(115200);
   
-  //USBDevice.init();
-  //USBDevice.attach();
-  //SerialUSB.begin(9600);
+  USBDevice.init();
+  USBDevice.attach();
+  SerialUSB.begin(9600);
   //Serial1.begin(115200);
   RFDevice.init();
   
@@ -35,17 +35,17 @@ uint32_t old_ms, new_ms;
 void loop() {
   //sleep();
   return;
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  SPI.transfer(0xaa);
-  Serial.println("a1");
-  //delay(100);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  SPI.transfer(0xaa);
+//  Serial.println("a1");
+  delay(1000);
   //sleep();
   //SerialUSB.println("0");
   //SerialUSB.println(((SystemCoreClock >> (PM->APBCSEL.reg) ) * 8) / (16 * 115200));
@@ -58,8 +58,7 @@ void loop() {
  
 void evtPer()
 {
-  //SerialUSB.println("per int");
-  //Serial1.println("per int");
+  SerialUSB.println("per int");
   if( received == 0)
   {
     digitalWrite(2,HIGH);
@@ -76,6 +75,5 @@ void rtcAlarm()
 {
     digitalWrite(2,LOW);
   //SerialUSB.println("RTC ALARM");
-  //Serial1.println("RTC ALARM");
 }
 

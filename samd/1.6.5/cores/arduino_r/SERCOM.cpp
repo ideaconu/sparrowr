@@ -98,6 +98,7 @@ void SERCOM::resetUART()
 
 void SERCOM::enableUART()
 {
+  enableClock();
   //Setting  the enable bit to 1
   sercom->USART.CTRLA.bit.ENABLE = 0x1u;
 
@@ -234,6 +235,9 @@ void SERCOM::resetSPI()
 void SERCOM::enableSPI()
 {
   //Setting the enable bit to 1
+
+  enableClock();
+
   sercom->SPI.CTRLA.bit.ENABLE = 1;
 
   while(sercom->SPI.SYNCBUSY.bit.ENABLE)
@@ -245,12 +249,16 @@ void SERCOM::enableSPI()
 void SERCOM::disableSPI()
 {
   //Setting the enable bit to 0
+
+  enableClock();
+
   sercom->SPI.CTRLA.bit.ENABLE = 0;
 
   while(sercom->SPI.SYNCBUSY.bit.ENABLE)
   {
     //Waiting then enable bit from SYNCBUSY is equal to 0;
   }
+
 }
 
 void SERCOM::setDataOrderSPI(SercomDataOrder dataOrder)
@@ -277,7 +285,7 @@ void SERCOM::setBaudrateSPI(uint8_t divider)
   //Register enable-protected
   disableSPI();
 
-  sercom->SPI.BAUD.reg = calculateBaudrateSynchronous( SERCOM_FREQ_REF / divider );
+  sercom->SPI.BAUD.reg = calculateBaudrateSynchronous( SystemCoreClock / divider );
 
   enableSPI();
 }
@@ -379,7 +387,7 @@ void SERCOM::resetWIRE()
 void SERCOM::enableWIRE()
 {
   // I2C Master and Slave modes share the ENABLE bit function.
-
+  enableClock();
   // Enable the I²C master mode
   sercom->I2CM.CTRLA.bit.ENABLE = 1 ;
 
@@ -400,7 +408,7 @@ void SERCOM::enableWIRE()
 void SERCOM::disableWIRE()
 {
   // I2C Master and Slave modes share the ENABLE bit function.
-
+  enableClock();
   // Enable the I²C master mode
   sercom->I2CM.CTRLA.bit.ENABLE = 0 ;
 

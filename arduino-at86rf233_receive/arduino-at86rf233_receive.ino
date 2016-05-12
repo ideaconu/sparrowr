@@ -1,5 +1,6 @@
 #include <RF.h>
 int received = 0;
+volatile int perEvent = 0;
 void setup() {
 
   pmSetVoltage(3200);
@@ -11,22 +12,33 @@ void setup() {
   RFDevice.init();
   RFDevice.set_state(RF_STATE_RX_AACK_ON);
   RFDevice.set_chan(11);
+  rtc.begin();
+  rtc.enablePeriodicInterrupt(RTC_PER_1);
+  rtc.attachPeriodicInterrupt(rtcPer);
+  sleepMode(SLEEP_IDLE_2);
 }
 
 void loop() {
-
   RFDevice.handleEvents();
-  SerialUSB.println("Waiting for data");
-
+  if(perEvent >= 1)
+  {
+    SerialUSB.println("----WAITING FOR DATA---");
+    perEvent = -1;
+  }
   while (RFDevice.available())
   {
+    perEvent = -1;
+    received ++;
     radio_buffer_t data;
     RFDevice.read_data(&data);
 
     size_t pkt_len = RFDevice.rx_len();
-    SerialUSB.print("Frame length: ");
+    SerialUSB.print(received);
+    SerialUSB.print(" - Frame length: ");
     SerialUSB.print(pkt_len);
-    SerialUSB.print(" bytes  ");
+    SerialUSB.print(" bytes, buffer len:  ");
+    SerialUSB.print(data.len);
+    SerialUSB.print(" bytes  ---  ");
 
     for (int d = 0; d < data.len; d++)
     {
@@ -34,7 +46,11 @@ void loop() {
       SerialUSB.print(" ");
     }
     SerialUSB.println();
+    perEvent = -4;
   }
-  delay(1001);
   return;
+}
+void rtcPer()
+{
+  perEvent ++;
 }
