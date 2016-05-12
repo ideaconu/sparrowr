@@ -97,12 +97,12 @@ static const uint8_t A5  = PIN_A5;
 #define ADC_RESOLUTION		12
 
 // Serial1
-#define PIN_SERIAL1_RX       (0ul)
-#define PIN_SERIAL1_TX       (1ul)
-#define PAD_SERIAL1_TX       (UART_TX_PAD_0)
-#define PAD_SERIAL1_RX       (SERCOM_RX_PAD_1)
-#define PERIPH_SERIAL1       sercom3
-#define SERIAL1_IT_HANDLER   SERCOM3_Handler
+#define PIN_SERIAL_RX       (0ul)
+#define PIN_SERIAL_TX       (1ul)
+#define PAD_SERIAL_TX       (UART_TX_PAD_0)
+#define PAD_SERIAL_RX       (SERCOM_RX_PAD_1)
+#define PERIPH_SERIAL       sercom3
+#define SERIAL_IT_HANDLER   SERCOM3_Handler
 
 /*
  * SPI Interfaces
@@ -194,7 +194,6 @@ extern SERCOM sercom4;
 extern SERCOM sercom5;
 
 extern Uart Serial;
-extern Uart Serial1;
 
 #endif
 
@@ -214,10 +213,10 @@ extern Uart Serial1;
 // SERIAL_PORT_HARDWARE_OPEN  Hardware serial ports which are open for use.  Their RX & TX
 //                            pins are NOT connected to anything by default.
 #define SERIAL_PORT_USBVIRTUAL      SerialUSB
-#define SERIAL_PORT_MONITOR         Serial
+#define SERIAL_PORT_MONITOR         SerialUSB
 // Serial has no physical pins broken out, so it's not listed as HARDWARE port
-#define SERIAL_PORT_HARDWARE        Serial1
-#define SERIAL_PORT_HARDWARE_OPEN   Serial1
+#define SERIAL_PORT_HARDWARE        Serial
+#define SERIAL_PORT_HARDWARE_OPEN   Serial
 
 #endif /* _VARIANT_ARDUINO_ZERO_ */
 

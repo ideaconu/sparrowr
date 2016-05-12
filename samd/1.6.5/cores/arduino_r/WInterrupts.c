@@ -33,6 +33,9 @@ static void __initialize()
   NVIC_SetPriority(EIC_IRQn, 0);
   NVIC_EnableIRQ(EIC_IRQn);
 
+  // Clock EIC for I/O interrupts
+  PM->APBAMASK.reg |= PM_APBAMASK_EIC;
+
   // Enable GCLK for IEC (External Interrupt Controller)
   GCLK->CLKCTRL.reg = (uint16_t) (GCLK_CLKCTRL_CLKEN | GCLK_CLKCTRL_GEN_GCLK1 | GCLK_CLKCTRL_ID(GCM_EIC));
 

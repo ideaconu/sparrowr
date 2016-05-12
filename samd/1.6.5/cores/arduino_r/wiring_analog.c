@@ -130,8 +130,8 @@ void analogReference( eAnalogReference ulMode )
 
     case AR_DEFAULT:
     default:
-      ADC->INPUTCTRL.bit.GAIN = ADC_INPUTCTRL_GAIN_DIV2_Val;
-      ADC->REFCTRL.bit.REFSEL = ADC_REFCTRL_REFSEL_INTVCC1_Val; // 1/2 VDDANA = 0.5* 3V3 = 1.65V
+      ADC->INPUTCTRL.bit.GAIN = ADC_INPUTCTRL_GAIN_1X_Val;
+      ADC->REFCTRL.bit.REFSEL = ADC_REFCTRL_REFSEL_INT1V_Val; // 1/2 VDDANA = 0.5* 3V3 = 1.65V
       break;
   }
 }
@@ -215,14 +215,40 @@ void analogWrite( uint32_t ulPin, uint32_t ulValue )
 
     Tc*  TCx  = 0 ;
     Tcc* TCCx = 0 ;
+
+  // Clock TC/TCC for Pulse and Analog
     uint8_t Channelx = GetTCChannelNumber( g_APinDescription[ulPin].ulPWMChannel ) ;
     if ( GetTCNumber( g_APinDescription[ulPin].ulPWMChannel ) >= TCC_INST_NUM )
     {
       TCx = (Tc*) GetTC( g_APinDescription[ulPin].ulPWMChannel ) ;
+      if (TCx == TC3)
+      {
+         PM->APBCMASK.reg |= PM_APBCMASK_TC3;
+      }
+      else if (TCx == TC4)
+      {
+         PM->APBCMASK.reg |= PM_APBCMASK_TC4;
+      }
+      else if (TCx == TC5)
+      {
+         PM->APBCMASK.reg |= PM_APBCMASK_TC5;
+      }
     }
     else
     {
       TCCx = (Tcc*) GetTC( g_APinDescription[ulPin].ulPWMChannel ) ;
+      if (TCCx == TCC0)
+      {
+         PM->APBCMASK.reg |= PM_APBCMASK_TCC0;
+      }
+      else if (TCCx == TCC1)
+      {
+         PM->APBCMASK.reg |= PM_APBCMASK_TCC1;
+      }
+      else if (TCCx == TCC2)
+      {
+         PM->APBCMASK.reg |= PM_APBCMASK_TCC2;
+      }
     }
 
     // Enable clocks according to TCCx instance to use

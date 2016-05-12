@@ -219,11 +219,11 @@ void SystemInit( void )
    * There values are normally the one present after Reset.
    */
   PM->CPUSEL.reg  = PM_CPUSEL_CPUDIV_DIV1 ;
-  PM->APBASEL.reg = PM_APBASEL_APBADIV_DIV4_Val ;
-  PM->APBBSEL.reg = PM_APBBSEL_APBBDIV_DIV4_Val ;
-  PM->APBCSEL.reg = PM_APBCSEL_APBCDIV_DIV4_Val ;
+  PM->APBASEL.reg = PM_APBASEL_APBADIV_DIV4;
+  PM->APBBSEL.reg = PM_APBBSEL_APBBDIV_DIV4;
+  PM->APBCSEL.reg = PM_APBCSEL_APBCDIV_DIV4;
 
-  SystemCoreClock=VARIANT_MCK ;
+  SystemCoreClock=VARIANT_MCK;
 
   /* ----------------------------------------------------------------------------------------------
    * 8) Load ADC factory calibration values

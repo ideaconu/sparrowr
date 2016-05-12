@@ -6,77 +6,75 @@ int received = 0;
 void setup() {
 
 
-  pmSetVoltage(3200);
-  SPI.begin();
-  SPI.beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE0));
+  pmSetVoltage(1800);
+ // SPI.begin();
+ // SPI.beginTransaction(SPISettings(200000, MSBFIRST, SPI_MODE0));
+  //Serial.begin(115200);
+  
   //USBDevice.init();
   //USBDevice.attach();
-
-  //USBDevice.detach();
-  //USBDevice.detach();
-  //sleep();
   //SerialUSB.begin(9600);
   //Serial1.begin(115200);
   RFDevice.init();
-  //sleep();
-
+  
   //RFDevice.set_chan(11); // set channel to 26
   //RFDevice.set_state(RF_STATE_SLEEP);
   //RFDevice.set_state(RF_STATE_TRX_OFF);
-  
-  pinMode(0,OUTPUT);
-  pinMode(1,INPUT_PULLUP);
-  attachInterrupt(1,pinPer, FALLING);
+   
   rtc.begin();
   rtc.setAlarmSeconds(15);
   rtc.enableAlarm(rtc.MATCH_SS);
   rtc.attachAlarmInterrupt(rtcAlarm);
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(evtPer);
-  sleepMode(SLEEP_STANDBY);
-  digitalWrite(0,HIGH);
-  //sleep();
-  //delay(5000);
-  
-  //USBDevice.init();
-  //USBDevice.attach();
-  //SerialUSB.begin(9600);
-  
+  pinMode(2,OUTPUT); 
+  //analogWrite(3,100);
 }
 
 uint32_t old_ms, new_ms;
 void loop() {
+  //sleep();
+  return;
   SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  SPI.transfer(0xaa);
+  Serial.println("a1");
+  //delay(100);
   //sleep();
   //SerialUSB.println("0");
-  //Serial1.println("0");
-  //SerialUSB.println(rtc.getSeconds());
+  //SerialUSB.println(((SystemCoreClock >> (PM->APBCSEL.reg) ) * 8) / (16 * 115200));
+  //SerialUSB.println((SystemCoreClock >> (PM->APBCSEL.reg)));
+  //SerialUSB.println(PM->APBASEL.reg);
+  //SerialUSB.println(PM->APBBSEL.reg);
+  //SerialUSB.println(PM->APBCSEL.reg);
+  
 }
-
-void pinPer()
-{ 
-  //SerialUSB.println("btn int");
-  digitalWrite(0,LOW);
-}
+ 
 void evtPer()
 {
   //SerialUSB.println("per int");
   //Serial1.println("per int");
   if( received == 0)
   {
-    digitalWrite(0,HIGH);
+    digitalWrite(2,HIGH);
     received = 1;
   }
   else
   {
-    digitalWrite(0,LOW);
+    digitalWrite(2,LOW);
     received = 0;
   }
 }
 
 void rtcAlarm()
 {
-    digitalWrite(0,LOW);
+    digitalWrite(2,LOW);
   //SerialUSB.println("RTC ALARM");
   //Serial1.println("RTC ALARM");
 }

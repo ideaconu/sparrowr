@@ -32,6 +32,7 @@ void SERCOM::initUART(SercomUartMode mode, SercomUartSampleRate sampleRate, uint
 {
   initClockNVIC();
   resetUART();
+  enableClock();
 
   //Setting the CTRLA register
   sercom->USART.CTRLA.reg =	SERCOM_USART_CTRLA_MODE(mode) |
@@ -54,7 +55,7 @@ void SERCOM::initUART(SercomUartMode mode, SercomUartSampleRate sampleRate, uint
     // Asynchronous fractional mode (Table 24-2 in datasheet)
     //   BAUD = fref / (sampleRateValue * fbaud)
     // (multiply by 8, to calculate fractional piece)
-    uint32_t baudTimes8 = ((SystemCoreClock>> (PM->APBCSEL.reg)) * 8) / (sampleRateValue * baudrate);
+    uint32_t baudTimes8 = ((SystemCoreClock) * 8) / (sampleRateValue * baudrate);
 
     sercom->USART.BAUD.FRAC.FP   = (baudTimes8 % 8);
     sercom->USART.BAUD.FRAC.BAUD = (baudTimes8 / 8);
@@ -84,6 +85,7 @@ void SERCOM::initPads(SercomUartTXPad txPad, SercomRXPad rxPad)
 
 void SERCOM::resetUART()
 {
+  enableClock();
   // Start the Software Reset
   sercom->USART.CTRLA.bit.SWRST = 1 ;
 
@@ -91,6 +93,7 @@ void SERCOM::resetUART()
   {
     // Wait for both bits Software Reset from CTRLA and SYNCBUSY coming back to 0
   }
+  disableClock();
 }
 
 void SERCOM::enableUART()
@@ -178,6 +181,7 @@ void SERCOM::initSPI(SercomSpiTXPad mosi, SercomRXPad miso, SercomSpiCharSize ch
   resetSPI();
   initClockNVIC();
 
+  enableClock();
   //Setting the CTRLA register
   sercom->SPI.CTRLA.reg =	SERCOM_SPI_CTRLA_MODE_SPI_MASTER |
                           SERCOM_SPI_CTRLA_DOPO(mosi) |
@@ -216,11 +220,15 @@ void SERCOM::initSPIClock(SercomSpiClockMode clockMode, uint32_t baudrate)
 
 void SERCOM::resetSPI()
 {
+
+  enableClock();
   //Setting the Software Reset bit to 1
   sercom->SPI.CTRLA.bit.SWRST = 1;
 
   //Wait both bits Software Reset from CTRLA and SYNCBUSY are equal to 0
   while(sercom->SPI.CTRLA.bit.SWRST || sercom->SPI.SYNCBUSY.bit.SWRST);
+
+  disableClock();
 }
 
 void SERCOM::enableSPI()
@@ -346,7 +354,7 @@ bool SERCOM::isDataRegisterEmptySPI()
 
 uint8_t SERCOM::calculateBaudrateSynchronous(uint32_t baudrate)
 {
-  return SERCOM_FREQ_REF / (2 * baudrate) - 1;
+  return (SystemCoreClock) / (2 * baudrate) - 1;
 }
 
 
@@ -356,6 +364,7 @@ uint8_t SERCOM::calculateBaudrateSynchronous(uint32_t baudrate)
  */
 void SERCOM::resetWIRE()
 {
+  enableClock();
   //I2CM OR I2CS, no matter SWRST is the same bit.
 
   //Setting the Software bit to 1
@@ -363,6 +372,8 @@ void SERCOM::resetWIRE()
 
   //Wait both bits Software Reset from CTRLA and SYNCBUSY are equal to 0
   while(sercom->I2CM.CTRLA.bit.SWRST || sercom->I2CM.SYNCBUSY.bit.SWRST);
+
+  disableClock();
 }
 
 void SERCOM::enableWIRE()
@@ -405,6 +416,7 @@ void SERCOM::initSlaveWIRE( uint8_t ucAddress )
   initClockNVIC() ;
   resetWIRE() ;
 
+  enableClock();
   // Set slave mode
   sercom->I2CS.CTRLA.bit.MODE = I2C_SLAVE_OPERATION ;
 
@@ -429,6 +441,7 @@ void SERCOM::initMasterWIRE( uint32_t baudrate )
 
   resetWIRE() ;
 
+  enableClock();
   // Set master mode and enable SCL Clock Stretch mode (stretch after ACK bit)
   sercom->I2CM.CTRLA.reg =  SERCOM_I2CM_CTRLA_MODE( I2C_MASTER_OPERATION )/* |
                             SERCOM_I2CM_CTRLA_SCLSM*/ ;
@@ -441,7 +454,7 @@ void SERCOM::initMasterWIRE( uint32_t baudrate )
 //  sercom->I2CM.INTENSET.reg = SERCOM_I2CM_INTENSET_MB | SERCOM_I2CM_INTENSET_SB | SERCOM_I2CM_INTENSET_ERROR ;
 
   // Synchronous arithmetic baudrate
-  sercom->I2CM.BAUD.bit.BAUD = (SystemCoreClock >> (PM->APBCSEL.reg)) / ( 2 * baudrate) - 1 ;
+  sercom->I2CM.BAUD.bit.BAUD = (SystemCoreClock) / ( 2 * baudrate) - 1 ;
 }
 
 void SERCOM::prepareNackBitWIRE( void )
@@ -693,5 +706,45 @@ void SERCOM::initClockNVIC( void )
   while ( GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY )
   {
     /* Wait for synchronization */
+  }
+}
+
+
+void SERCOM::enableClock()
+{
+    setClock(1);
+}
+
+void SERCOM::disableClock()
+{
+    setClock(0);
+}
+
+void SERCOM::setClock(uint8_t type)
+{
+
+  if(sercom == SERCOM0)
+  {
+     PM->APBCMASK.bit.SERCOM0_ =type;
+  }
+  else if(sercom == SERCOM1)
+  {
+     PM->APBCMASK.bit.SERCOM1_ = type;
+  }
+  else if(sercom == SERCOM2)
+  {
+     PM->APBCMASK.bit.SERCOM2_ = type;
+  }
+  else if(sercom == SERCOM3)
+  {
+     PM->APBCMASK.bit.SERCOM3_ = type;
+  }
+  else if(sercom == SERCOM4)
+  {
+     PM->APBCMASK.bit.SERCOM4_ = type;
+  }
+  else if(sercom == SERCOM5)
+  {
+     PM->APBCMASK.bit.SERCOM5_ = type;
   }
 }
