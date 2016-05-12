@@ -45,7 +45,11 @@
 
 void SystemInit( void )
 {
-  /* Set 1 Flash Wait State for 48MHz, cf tables 20.9 and 35.27 in SAMD21 Datasheet */
+
+  /* Various bits in the INTFLAG register can be set to one at startup.
+	   This will ensure that these bits are cleared */
+  SYSCTRL->INTFLAG.reg = SYSCTRL_INTFLAG_BOD33RDY | SYSCTRL_INTFLAG_BOD33DET | SYSCTRL_INTFLAG_DFLLRDY;
+
   /* 3 wait states for 1v8 operation. */
   NVMCTRL->CTRLB.bit.RWS = 3;
 
@@ -61,6 +65,35 @@ void SystemInit( void )
   while ( (GCLK->CTRL.reg & GCLK_CTRL_SWRST) && (GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY) )
   {
     /* Wait for reset to complete */
+  }
+
+
+  /* Switch all peripheral clock to a not enabled general clock */
+  for (uint32_t gclk_id = 0; gclk_id < GCLK_NUM; gclk_id++)
+  {
+    /* Cache the new config to reduce sync requirements */
+	/* Disable generic clock channel */
+    GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID(gclk_id);
+
+	/* Switch to known-working source so that the channel can be disabled */
+	uint32_t prev_gen_id = GCLK->CLKCTRL.bit.GEN;
+	GCLK->CLKCTRL.bit.GEN = 0;
+
+	/* Disable the generic clock */
+	GCLK->CLKCTRL.reg &= ~GCLK_CLKCTRL_CLKEN;
+	while (GCLK->CLKCTRL.reg & GCLK_CLKCTRL_CLKEN) {
+		/* Wait for clock to become disabled */
+	}
+
+    /* Restore previous configured clock generator */
+	GCLK->CLKCTRL.bit.GEN = prev_gen_id;
+
+    GCLK->CLKCTRL.reg = GCLK_CLKCTRL_ID(gclk_id);
+
+
+    /* Set generic clock */
+	GCLK->CLKCTRL.reg = (uint32_t)(GCLK_CLKCTRL_GEN_GCLK7 |
+        GCLK_CLKCTRL_ID(gclk_id));
   }
 
   /* ----------------------------------------------------------------------------------------------
@@ -216,4 +249,5 @@ void SystemInit( void )
    * 10) Low power cache, saves 1-2%.
    */
   NVMCTRL->CTRLB.bit.READMODE = 1;
+
 }

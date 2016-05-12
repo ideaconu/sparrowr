@@ -150,17 +150,18 @@ uint32_t* pulSketch_Start_Address;
 
 void vout_init()
 {
-	
-	PORT->Group[BOARD_VSEL2_PORT].DIRSET.reg = (1<<BOARD_VSEL2_PIN);
+
+	PORT->Group[BOARD_CTRL_PORT].DIRSET.reg = (1<<BOARD_CTRL_PIN);
+	PORT->Group[BOARD_CTRL_PORT].OUTCLR.reg = (1<<BOARD_CTRL_PIN);
+
+    PORT->Group[BOARD_VSEL2_PORT].DIRSET.reg = (1<<BOARD_VSEL2_PIN);
 	PORT->Group[BOARD_VSEL3_PORT].DIRSET.reg = (1<<BOARD_VSEL3_PIN);
 	PORT->Group[BOARD_VSEL4_PORT].DIRSET.reg = (1<<BOARD_VSEL4_PIN);
-	PORT->Group[BOARD_CTRL_PORT].DIRSET.reg = (1<<BOARD_CTRL_PIN);
-	
-	PORT->Group[BOARD_VSEL2_PORT].OUTCLR.reg = (1<<BOARD_VSEL2_PIN);
+
+    PORT->Group[BOARD_VSEL2_PORT].OUTCLR.reg = (1<<BOARD_VSEL2_PIN);
 	PORT->Group[BOARD_VSEL3_PORT].OUTCLR.reg = (1<<BOARD_VSEL3_PIN);
 	PORT->Group[BOARD_VSEL4_PORT].OUTCLR.reg = (1<<BOARD_VSEL4_PIN);
-	
-	PORT->Group[BOARD_CTRL_PORT].OUTCLR.reg = (1<<BOARD_CTRL_PIN); 
+
 }
 
 void vout_set_3v3()
@@ -184,9 +185,9 @@ int main(void)
 
   /* Jump in application if condition is satisfied */
   check_start_application();
-  
+
   vout_set_3v3();
-  
+
   /* We have determined we should stay in the monitor. */
   /* System initialization */
   board_init();
