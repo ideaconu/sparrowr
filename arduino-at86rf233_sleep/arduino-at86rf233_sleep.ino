@@ -1,12 +1,14 @@
 #include <RF.h> 
-
+#include <SPI.h>
 int received = 0;
  
 
 void setup() {
 
 
-  pmSetVoltage(1800);
+  pmSetVoltage(3200);
+  SPI.begin();
+  SPI.beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE0));
   //USBDevice.init();
   //USBDevice.attach();
 
@@ -39,11 +41,13 @@ void setup() {
   //USBDevice.init();
   //USBDevice.attach();
   //SerialUSB.begin(9600);
+  
 }
 
 uint32_t old_ms, new_ms;
 void loop() {
-  sleep();
+  SPI.transfer(0xaa);
+  //sleep();
   //SerialUSB.println("0");
   //Serial1.println("0");
   //SerialUSB.println(rtc.getSeconds());
