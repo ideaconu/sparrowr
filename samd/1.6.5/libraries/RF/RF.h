@@ -407,7 +407,6 @@ class RF
     uint8_t addr_short[2];              /**< the radio's short address */
     uint8_t addr_long[8];               /**< the radio's long address */
     uint16_t options;                   /**< state of used options */
-    uint8_t idle_state;                 /**< state to return to after sending */
 
     /**
      * @brief   Trigger a clear channel assessment

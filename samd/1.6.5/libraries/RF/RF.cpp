@@ -101,6 +101,7 @@ static void rf_eventHandler() {
 static void rf_irq_handler()
 {
     RFDevice.events ++;
+    SerialUSB.println("RF int 1");
     return;
 }
 
@@ -118,7 +119,6 @@ int RF::init()
     int_pin = RF_IRQ;
     sleep_pin = RF_SLP_TR;
     reset_pin = RF_RESET;
-    idle_state = RF_STATE_TRX_OFF;
     state = RF_STATE_SLEEP;
 
     /* setup GPIOs */
@@ -171,8 +171,6 @@ int RF::init()
 
     /* reset device to default values and put it into RX state */
     reset();
-
-    force_trx_off();
 
     //Put RF to sleep for low power consumption
     set_state(RF_STATE_SLEEP);
@@ -305,13 +303,6 @@ void RF::tx_prepare()
     }
     while (state == RF_STATE_BUSY_TX_ARET);
 
-    /* if receiving cancel */
-    if(state == RF_STATE_BUSY_RX_AACK) {
-        force_trx_off();
-        idle_state = RF_STATE_RX_AACK_ON;
-    } else if (state != RF_STATE_TX_ARET_ON) {
-        idle_state = state;
-    }
     set_state(RF_STATE_TX_ARET_ON);
     frame_len = IEEE802154_FCS_LEN;
 }

@@ -287,15 +287,8 @@ void RF::set_state(uint8_t state_)
         old_state = get_status();
     }
 
-    /* we need to go via PLL_ON if we are moving between RX_AACK_ON <-> TX_ARET_ON */
-    if ((old_state == RF_STATE_RX_AACK_ON &&
-             state_ == RF_STATE_TX_ARET_ON) ||
-        (old_state == RF_STATE_TX_ARET_ON &&
-             state_ == RF_STATE_RX_AACK_ON)) {
-        _set_state(RF_STATE_PLL_ON);
-    }
     /* check if we need to wake up from sleep mode */
-    else if (old_state == RF_STATE_SLEEP) {
+    if (old_state == RF_STATE_SLEEP) {
         //DEBUG("at86rf2xx: waking up from sleep mode\n");
         assert_awake();
     }
@@ -304,7 +297,7 @@ void RF::set_state(uint8_t state_)
         /* First go to TRX_OFF */
         force_trx_off();
 
-        _set_state(RF_STATE_TRX_OFF);
+        //_set_state(RF_STATE_TRX_OFF);
         /* Discard all IRQ flags, framebuffer is lost anyway */
         reg_read(RF_REG__IRQ_STATUS);
         /* Go to SLEEP mode from TRX_OFF */
