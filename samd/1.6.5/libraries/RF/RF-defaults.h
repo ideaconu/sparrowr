@@ -53,6 +53,7 @@ extern "C" {
 #define RF_STATE_TRX_OFF      (0x08)     /**< idle */
 #define RF_STATE_PLL_ON       (0x09)     /**< ready to transmit */
 #define RF_STATE_SLEEP        (0x0f)     /**< sleep mode */
+#define RF_STATE_DEEP_SLEEP   (0x10)     /**< deep sleep mode */
 #define RF_STATE_BUSY_RX_AACK (0x11)     /**< busy receiving data */
 #define RF_STATE_BUSY_TX_ARET (0x12)     /**< busy transmitting data */
 #define RF_STATE_RX_AACK_ON   (0x16)     /**< wait for incoming data */

@@ -288,14 +288,21 @@ void RF::set_state(uint8_t state_)
     }
 
     /* check if we need to wake up from sleep mode */
-    if (old_state == RF_STATE_SLEEP) {
+    if (old_state == RF_STATE_SLEEP ||
+            old_state == RF_STATE_DEEP_SLEEP) {
         //DEBUG("at86rf2xx: waking up from sleep mode\n");
         assert_awake();
     }
 
-    if (state_ == RF_STATE_SLEEP) {
+    if (state_ == RF_STATE_SLEEP ||
+            state_ == RF_STATE_DEEP_SLEEP) {
         /* First go to TRX_OFF */
         force_trx_off();
+
+        if (state_ == RF_STATE_DEEP_SLEEP)
+        {
+            _set_state(RF_STATE_DEEP_SLEEP);
+        }
 
         //_set_state(RF_STATE_TRX_OFF);
         /* Discard all IRQ flags, framebuffer is lost anyway */

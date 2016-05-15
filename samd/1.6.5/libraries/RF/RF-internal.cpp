@@ -90,7 +90,8 @@ void RF::fb_read(uint8_t *data,
 uint8_t RF::get_status()
 {
     /* if sleeping immediately return state */
-    if(state == RF_STATE_SLEEP)
+    if(state == RF_STATE_SLEEP ||
+            state == RF_STATE_DEEP_SLEEP)
         return state;
 
     return reg_read(RF_REG__TRX_STATUS) & RF_TRX_STATUS_MASK__TRX_STATUS;
@@ -98,11 +99,17 @@ uint8_t RF::get_status()
 
 void RF::assert_awake()
 {
-    if(get_status() == RF_STATE_SLEEP) {
+    int state_ = get_status();
+    if(state_ == RF_STATE_SLEEP ||
+            state_ == RF_STATE_DEEP_SLEEP) {
         /* wake up and wait for transition to TRX_OFF */
         digitalWrite(sleep_pin, LOW);
         delayMicroseconds(RF_WAKEUP_DELAY);
 
+        if (state_ == RF_STATE_DEEP_SLEEP)
+        {
+            initDefaults();
+        }
         /* update state */
         state = reg_read(RF_REG__TRX_STATUS) & RF_TRX_STATUS_MASK__TRX_STATUS;
     }

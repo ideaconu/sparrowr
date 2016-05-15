@@ -408,6 +408,8 @@ class RF
     uint8_t addr_long[8];               /**< the radio's long address */
     uint16_t options;                   /**< state of used options */
 
+    void initDefaults();
+
     /**
      * @brief   Trigger a clear channel assessment
      *

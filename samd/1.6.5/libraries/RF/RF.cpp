@@ -65,7 +65,8 @@ static void rf_eventHandler() {
    */
 
   byte state = RFDevice.get_status();
-  if(state == RF_STATE_SLEEP)
+  if(state == RF_STATE_SLEEP ||
+          state == RF_STATE_DEEP_SLEEP)
     return;
 
   /* read (consume) device status */
@@ -101,7 +102,6 @@ static void rf_eventHandler() {
 static void rf_irq_handler()
 {
     RFDevice.events ++;
-    SerialUSB.println("RF int 1");
     return;
 }
 
@@ -119,7 +119,7 @@ int RF::init()
     int_pin = RF_IRQ;
     sleep_pin = RF_SLP_TR;
     reset_pin = RF_RESET;
-    state = RF_STATE_SLEEP;
+    state = RF_STATE_DEEP_SLEEP;
 
     /* setup GPIOs */
     pinMode(reset_pin, OUTPUT);
@@ -173,7 +173,7 @@ int RF::init()
     reset();
 
     //Put RF to sleep for low power consumption
-    set_state(RF_STATE_SLEEP);
+    set_state(RF_STATE_DEEP_SLEEP);
 
     return 0;
 }
@@ -198,6 +198,15 @@ void RF::reset()
     seq_nr = 0;
     options = 0;
 
+    initDefaults();
+
+    #if USB_PRINT
+    SerialUSB.println("[at86rf2xx] Reset complete.");
+    #endif
+}
+
+void RF::initDefaults()
+{
     /* set short and long address */
     set_addr_long(RF_DEFAULT_ADDR_LONG);
     set_addr_short(RF_DEFAULT_ADDR_SHORT);
@@ -244,10 +253,8 @@ void RF::reset()
     /* clear interrupt flags */
     reg_read(RF_REG__IRQ_STATUS);
 
-    #if USB_PRINT
-    SerialUSB.println("[at86rf2xx] Reset complete.");
-    #endif
 }
+
 
 bool RF::cca()
 {
@@ -324,7 +331,7 @@ void RF::tx_exec(size_t sleepNow)
     digitalWrite(sleep_pin, HIGH);
     delayMicroseconds(4);
     digitalWrite(sleep_pin, LOW);
-    if(sleepNow)
+    if(sleepNow && events == 0)
     {
         sleep();
     }
