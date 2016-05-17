@@ -61,6 +61,8 @@ typedef struct radio_buffer
     struct radio_buffer *next;
     uint8_t len;
     uint8_t data[127];
+    uint8_t lqi;
+    int8_t rssi;
     uint8_t idx;
 } radio_buffer_t;
 
@@ -386,7 +388,7 @@ class RF
 
     void read_data(radio_buffer_t *rf);
 
-    void put(uint8_t *data, size_t len);
+    void put(uint8_t *data, size_t len, int8_t rssi, uint8_t lqi);
 
     void pop(radio_buffer_t *rf);
 
@@ -409,7 +411,8 @@ class RF
     uint16_t options;                   /**< state of used options */
 
     void initDefaults();
-
+    void receiveData();
+    void eventHandler();
     /**
      * @brief   Trigger a clear channel assessment
      *

@@ -15,14 +15,13 @@ void setup() {
   rtc.begin();
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(rtcPer);
-  sleepMode(SLEEP_IDLE_2);
 }
 
 void loop() {
   RFDevice.handleEvents();
   if(perEvent >= 1)
   {
-    SerialUSB.println("----WAITING FOR DATA---");
+    SerialUSB.println("----WAITING FOR DATA----");
     perEvent = -1;
   }
   while (RFDevice.available())
@@ -32,13 +31,14 @@ void loop() {
     radio_buffer_t data;
     RFDevice.read_data(&data);
 
-    size_t pkt_len = RFDevice.rx_len();
     SerialUSB.print(received);
     SerialUSB.print(" - Frame length: ");
-    SerialUSB.print(pkt_len);
-    SerialUSB.print(" bytes, buffer len:  ");
     SerialUSB.print(data.len);
-    SerialUSB.print(" bytes  ---  ");
+    SerialUSB.print(" - RSSI: ");
+    SerialUSB.print(data.rssi);
+    SerialUSB.print("dB, - LQI: ");
+    SerialUSB.print(data.lqi);
+    SerialUSB.print(", bytes  ---  ");
 
     for (int d = 0; d < data.len; d++)
     {
@@ -46,9 +46,10 @@ void loop() {
       SerialUSB.print(" ");
     }
     SerialUSB.println();
+
     perEvent = -4;
   }
-  return;
+
 }
 void rtcPer()
 {

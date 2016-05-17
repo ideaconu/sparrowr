@@ -86,16 +86,6 @@ extern "C" {
                                                      *   PAN ID */
 /** @} */
 
-/**
-  * @brief   Frequency configuration for sub-GHz devices.
-  * @{
-  */
-//typedef enum {
-//    RF_FREQ_915MHZ,       /**< frequency 915MHz enabled */
-//    RF_FREQ_868MHZ,       /**< frequency 868MHz enabled */
-//} rf_freq_t;
-/** @} */
-
 #ifdef __cplusplus
 }
 #endif

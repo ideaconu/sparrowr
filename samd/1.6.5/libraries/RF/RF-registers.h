@@ -29,13 +29,6 @@ extern "C" {
 
 #define MODULE_AT86RF233    1
 
-/**
- * @brief   Constant part numbers of the AT86RF2xx device family
- * @{
- */
-#define AT86RF212B_PARTNUM       (0x07)
-#define AT86RF231_PARTNUM        (0x03)
-#define AT86RF232_PARTNUM        (0x0a)
 #define AT86RF233_PARTNUM        (0x0b)
 /** @} */
 
@@ -77,9 +70,7 @@ extern "C" {
 #define RF_REG__XOSC_CTRL                                (0x12)
 #define RF_REG__CC_CTRL_1                                (0x14)
 #define RF_REG__RX_SYN                                   (0x15)
-#ifdef MODULE_AT86RF212B
-#define RF_REG__RF_CTRL_0                                (0x16)
-#endif
+#define RF_REG__TRX_RPC                                  (0x16)
 #define RF_REG__XAH_CTRL_1                               (0x17)
 #define RF_REG__FTN_CTRL                                 (0x18)
 #define RF_REG__PLL_CF                                   (0x1A)
@@ -272,6 +263,27 @@ extern "C" {
 #define RF_TIMING__RESET                                 (100)
 #define RF_TIMING__RESET_TO_TRX_OFF                      (37)
 /** @} */
+
+/**
+ * @brief Bitfield definitions for the TRX_RPC register
+ * @{
+ */
+#define RF_TRX_RPC__RX_RPC_CTRL                          (0x40)
+#define RF_TRX_RPC__RX_RPC_EN                            (0x20)
+#define RF_TRX_RPC__PDT_RPC_EN                           (0x10)
+#define RF_TRX_RPC__PLL_RPC_EN                           (0x08)
+#define RF_TRX_RPC__XAH_TX_RPC_EN                        (0x04)
+#define RF_TRX_RPC__IPAN_RPC_EN                          (0x02)
+/** @} */
+
+/**
+ * @brief Bitfield definitions for the FTN_CTRL register
+ * @{
+ */
+#define RF_FTN_CTRL__FTN_START                           (0x80)
+#define RF_FTN_CTRL__FTNV                                (0x01)
+/** @} */
+
 
 /**
  * @brief   Bitfield definitions for the XAH_CTRL_0 register

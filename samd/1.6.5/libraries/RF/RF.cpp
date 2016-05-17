@@ -32,70 +32,6 @@
 /*  Declare radio device as globally scoped struct  */
 RF RFDevice = RF();
 
-static void rf_receive_data() {
-  size_t pkt_len = RFDevice.rx_len();
-#if USB_PRINT
-  SerialUSB.print("Frame length: ");
-  SerialUSB.print(pkt_len);
-  SerialUSB.println(" bytes");
-
-  /*  Print the frame, byte for byte  */
-  SerialUSB.println("Frame dump (ASCII):");
-#endif
-
-  uint8_t data[pkt_len];
-  RFDevice.rx_read(data, pkt_len, 0);
-  RFDevice.put(data,pkt_len);
-#if USB_PRINT
-  for (int d=0; d<pkt_len; d++)
-    SerialUSB.print((char)data[d]);
-  SerialUSB.println();
-
-  /* How many frames is this so far?  */
-  SerialUSB.print("[[Total frames received: ");
-  SerialUSB.print(++received);
-  SerialUSB.println("]]\n");
-#endif
-}
-
-static void rf_eventHandler() {
-
-  /* If transceiver is sleeping register access is impossible and frames are
-   * lost anyway, so return immediately.
-   */
-
-  byte state = RFDevice.get_status();
-  if(state == RF_STATE_SLEEP ||
-          state == RF_STATE_DEEP_SLEEP)
-    return;
-
-  /* read (consume) device status */
-  byte irq_mask = RFDevice.reg_read(RF_REG__IRQ_STATUS);
-
-#if USB_PRINT
-  /*  Incoming radio frame! */
-  if (irq_mask & RF_IRQ_STATUS_MASK__RX_START)
-    SerialUSB.println("[at86rf2xx] EVT - RX_START");
-#endif
-  /*  Done receiving radio frame; call our receive_data function.
-   */
-  if (irq_mask & RF_IRQ_STATUS_MASK__TRX_END)
-  {
-      if(state == RF_STATE_RX_AACK_ON || state == RF_STATE_BUSY_RX_AACK) {
-#if USB_PRINT
-      SerialUSB.println("[at86rf2xx] EVT - RX_END");
-#endif
-      rf_receive_data();
-    }
-    else
-    {
-#if USB_PRINT
-      SerialUSB.println("[at86rf2xx] EVT - TX_END");
-#endif
-    }
-  }
-}
-
 /**
  * @brief   Increments events count by  1.
  */
@@ -237,8 +173,10 @@ void RF::initDefaults()
     at86rf2xx_reg_write(RF_REG__TRX_CTRL_1, tmp);*/
 
     /* Auto FCS generation */
-    //reg_write(RF_REG__TRX_CTRL_1, RF_TRX_CTRL_1_MASK__TX_AUTO_CRC_ON);
+    reg_write(RF_REG__TRX_CTRL_1, RF_TRX_CTRL_1_MASK__TX_AUTO_CRC_ON);
 
+    /*Enable PLL energy Saving */
+    reg_write(RF_REG__TRX_RPC, RF_TRX_RPC__PLL_RPC_EN);
 
     /* disable clock output to save power */
     byte tmp = reg_read(RF_REG__TRX_CTRL_0);
@@ -248,7 +186,7 @@ void RF::initDefaults()
     reg_write(RF_REG__TRX_CTRL_0, tmp);
 
     /* enable interrupts */
-    reg_write(RF_REG__IRQ_MASK, RF_IRQ_STATUS_MASK__TRX_END | RF_IRQ_STATUS_MASK__RX_START);
+    reg_write(RF_REG__IRQ_MASK, RF_IRQ_STATUS_MASK__TRX_END);// | RF_IRQ_STATUS_MASK__RX_START);
 
     /* clear interrupt flags */
     reg_read(RF_REG__IRQ_STATUS);
@@ -292,6 +230,7 @@ size_t RF::send(uint8_t *data, size_t len, size_t sleep_now)
         #endif
         return 0;
     }
+    SerialUSB.println("Sending Data");
     RF::tx_prepare();
     RF::tx_load(data, len, 0);
     //This was commented when TX worked
@@ -326,24 +265,33 @@ void RF::tx_exec(size_t sleepNow)
 {
     /* write frame length field in FIFO */
     sram_write(0, &(frame_len), 1);
+    SerialUSB.println("Waiting");
+
+    RFDevice.reg_read(RF_REG__IRQ_STATUS);
     /* trigger sending of pre-loaded frame */
     //reg_write(RF_REG__TRX_STATE, RF_TRX_STATE__TX_START);
     digitalWrite(sleep_pin, HIGH);
     delayMicroseconds(4);
     digitalWrite(sleep_pin, LOW);
-    if(sleepNow && events == 0)
+    int _events = events;
+    if (sleepNow)
     {
         sleep();
     }
 
-        uint16_t timeout = 50*10;
-        while(events == 0 && timeout > 0)
-        {
-            timeout --;
-            delayMicroseconds(100);
-        }
-    events = 0;
-    rf_eventHandler();
+    uint16_t timeout = 50*10;
+    while (events == _events && timeout > 0)
+    {
+        timeout --;
+        delayMicroseconds(100);
+    }
+
+    events --;
+    if (events < 0)
+    {
+        events = 0;
+    }
+    RFDevice.reg_read(RF_REG__IRQ_STATUS);
 }
 
 size_t RF::rx_len()
@@ -364,7 +312,8 @@ void RF::rx_read(uint8_t *data, size_t len, size_t offset)
      * The AT86RF231 does not return the PHR field and return
      * the first data byte at position 0.
      */
-    sram_read(offset + 1, data, len);
+    //sram_read(offset + 1, data, len);
+    fb_read(data,len);
 }
 
 int RF::available()
@@ -376,6 +325,11 @@ void RF::read_data(radio_buffer_t *rf)
 {
     __disable_irq();
     pop(rf);
+    events --;
+    if (events < 0)
+    {
+        events = 0;
+    }
     __enable_irq();
 }
 
@@ -388,7 +342,7 @@ void RF::pop(radio_buffer_t *rf)
     else
     {
         rf->len = rx_old->len;
-        memcpy(rf->data,rx_old->data,rf->len);
+        memcpy(rf->data,rx_old->data, sizeof(radio_buffer_t));
         if (rx_old == rx_new)
         {
             rx_new = NULL;
@@ -400,7 +354,7 @@ void RF::pop(radio_buffer_t *rf)
     }
 }
 
-void RF::put(uint8_t *data, size_t len)
+void RF::put(uint8_t *data, size_t len, int8_t rssi, uint8_t lqi)
 {
     if (rx_new == NULL)
     {
@@ -415,12 +369,99 @@ void RF::put(uint8_t *data, size_t len)
         rx_new = rx_new->next;
     }
     rx_new->len = len;
+    rx_new->rssi = rssi;
+    rx_new->lqi = lqi;
+
     memcpy(rx_new->data, data, len);
 }
 
 void RF::handleEvents()
 {
-    rf_eventHandler();
+    eventHandler();
+}
+
+void RF::receiveData() {
+  uint8_t phy_rssi = RFDevice.reg_read(RF_REG__PHY_RSSI);
+
+  if ((phy_rssi & RF_PHY_RSSI_MASK__RX_CRC_VALID) == 0)
+  {
+      return;
+  }
+
+
+  size_t pkt_len = RFDevice.rx_len();
+  if (pkt_len > 127)
+  {
+      pkt_len = 127;
+  }
+#if USB_PRINT
+  SerialUSB.print("Frame length: ");
+  SerialUSB.print(pkt_len);
+  SerialUSB.println(" bytes");
+
+  /*  Print the frame, byte for byte  */
+  SerialUSB.println("Frame dump (ASCII):");
+#endif
+
+  uint8_t data[pkt_len+6];
+  RFDevice.rx_read(data, pkt_len+5, 0);
+  int8_t rssi = data[pkt_len+4] - 94;
+  RFDevice.put(data+1, pkt_len, rssi, data[pkt_len+3]);
+#if USB_PRINT
+  for (int d=0; d < pkt_len; d++)
+    SerialUSB.print((char)data[d]);
+  SerialUSB.println();
+
+  /* How many frames is this so far?  */
+  SerialUSB.print("[[Total frames received: ");
+  SerialUSB.print(++received);
+  SerialUSB.println("]]\n");
+#endif
 }
 
 
+void RF::eventHandler() {
+
+  /* If transceiver is sleeping register access is impossible and frames are
+   * lost anyway, so return immediately.
+   */
+
+  byte rf_state = RFDevice.get_status();
+  if(rf_state == RF_STATE_SLEEP ||
+          rf_state == RF_STATE_DEEP_SLEEP)
+    return;
+
+  /* read (consume) device status */
+  byte irq_mask = RFDevice.reg_read(RF_REG__IRQ_STATUS);
+
+#if USB_PRINT
+  /*  Incoming radio frame! */
+  if (irq_mask & RF_IRQ_STATUS_MASK__RX_START)
+    SerialUSB.println("[at86rf2xx] EVT - RX_START");
+#endif
+  /*  Done receiving radio frame; call our receive_data function.
+   */
+  if (irq_mask & RF_IRQ_STATUS_MASK__TRX_END)
+  {
+      if(rf_state == RF_STATE_RX_AACK_ON || rf_state == RF_STATE_BUSY_RX_AACK) {
+#if USB_PRINT
+        SerialUSB.println("[at86rf2xx] EVT - RX_END");
+#endif
+        receiveData();
+      }
+      else
+      {
+#if USB_PRINT
+        SerialUSB.println("[at86rf2xx] EVT - TX_END");
+#endif
+      }
+  }
+
+  /*
+  if (rf_state == RF_STATE_RX_AACK_ON)
+  {
+      //need to do FTN calibration, datasheet, page 139.
+    reg_write(RF_REG__FTN_CTRL,RF_FTN_CTRL__FTN_START);_
+  }
+  */
+}
