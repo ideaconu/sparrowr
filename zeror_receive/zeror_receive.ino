@@ -1,4 +1,3 @@
-#include <RF.h>
 int received = 0;
 volatile int perEvent = 0;
 void setup() {
@@ -8,17 +7,16 @@ void setup() {
   USBDevice.attach();
 
   SerialUSB.begin(9600);
-
-  RFDevice.init();
+ 
   RFDevice.set_state(RF_STATE_RX_AACK_ON);
   RFDevice.set_chan(11);
-  rtc.begin();
+
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(rtcPer);
 }
 
 void loop() {
-  RFDevice.handleEvents();
+
   if(perEvent >= 1)
   {
     SerialUSB.println("----WAITING FOR DATA----");
