@@ -1,7 +1,7 @@
 {
    "packages":[
       {
-         "name":"Arduino_ZeroR",
+         "name":"arduino_rf",
          "maintainer":"Ioan Deaconu",
          "websiteURL":"https://bitbucket.org/ioan_deaconu/master",
          "email":"ioan.deaconu@gmail.com",
@@ -12,11 +12,11 @@
                "name":"Arduino SAMR Boards (32-bits ARM Cortex-M0+)",
                "architecture":"samr",
                "version":"1.6.5",
-               "category":"Bucharest",
-               "url":"https://bitbucket.org/ioan_deaconu/master/raw/31fb87621f1756eef127231ee761049d0a244855/samr-1.6.5.zip",
+               "category":"Contributed",
+               "url":"https://bitbucket.org/ioan_deaconu/master/raw/6baab143c97d474a4eea264d48f4700a014bf2fd/samr-1.6.5.zip",
                "archiveFileName":"samr-1.6.5.zip",
-               "checksum":"SHA-256:99bc724d3ed97e9d5e6f8f05f6e9c5cd3b1af43ad5ebce2e71545bcde45a5507",
-               "size":"997331",
+               "checksum":"SHA-256:d0fb7fd611076516384792bd2dc3fc09d7bb83be4d030b118506f2bb59ff0091",
+               "size":"3143874",
                "boards":[
                   {
                      "name":"Arduino/Genuino ZeroR"
