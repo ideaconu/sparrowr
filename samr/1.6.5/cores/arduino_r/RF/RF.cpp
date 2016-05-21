@@ -458,12 +458,24 @@ void RF::eventHandler() {
       }
   }
 
-#if 0
-  if (rf_state == RF_STATE_RX_AACK_ON)
+  static int last_minutes = 0;
+  int minutes = rtc.getMinutes();
+  if ((rf_state == RF_STATE_RX_AACK_ON ||
+          rf_state == RF_STATE_PLL_ON ||
+          rf_state == RF_STATE_TX_ARET_ON) &&
+          minutes != last_minutes &&
+          minutes % 4 == 0)
   {
-      //need to do FTN calibration, datasheet, page 139.
-    reg_write(RF_REG__FTN_CTRL,RF_FTN_CTRL__FTN_START);_
+    last_minutes = minutes;
+    set_state(RF_STATE_TRX_OFF);
+    //need to do FTN calibration, datasheet, page 139.
+    reg_write(RF_REG__FTN_CTRL,RF_FTN_CTRL__FTN_START);
+    byte rf_ftn;
+    do {
+        rf_ftn = reg_read(RF_REG__FTN_CTRL);
+    } while( (rf_ftn & RF_FTN_CTRL__FTN_START) != 0);
+
+    set_state(rf_state);
   }
-#endif
 
 }
