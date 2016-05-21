@@ -71,7 +71,6 @@ uint8_t RF::get_chan()
 
 void RF::set_chan(uint8_t channel)
 {
-    assert_awake();
     uint8_t tmp;
 
     if (channel < RF_MIN_CHANNEL

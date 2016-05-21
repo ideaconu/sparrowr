@@ -55,7 +55,7 @@ int RF::init()
     int_pin = RF_IRQ;
     sleep_pin = RF_SLP_TR;
     reset_pin = RF_RESET;
-    state = RF_STATE_DEEP_SLEEP;
+    state = RF_STATE_SLEEP;
 
     /* setup GPIOs */
     pinMode(reset_pin, OUTPUT);
