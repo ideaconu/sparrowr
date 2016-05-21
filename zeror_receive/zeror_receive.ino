@@ -9,7 +9,7 @@ void setup() {
   SerialUSB.begin(9600);
  
   RFDevice.set_state(RF_STATE_RX_AACK_ON);
-  RFDevice.set_chan(11);
+  RFDevice.set_chan(20);
 
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(rtcPer);

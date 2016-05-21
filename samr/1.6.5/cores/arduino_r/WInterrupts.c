@@ -59,8 +59,11 @@ void attachInterrupt(uint32_t pin, voidFuncPtr callback, uint32_t mode)
   static int enabled = 0;
   uint32_t config;
   uint32_t pos;
-
+#if ARDUINO_SAMD_VARIANT_COMPLIANCE >= 10606
+  EExt_Interrupts in = g_APinDescription[pin].ulExtInt;
+#else
   EExt_Interrupts in = digitalPinToInterrupt(pin);
+#endif
   if (in == NOT_AN_INTERRUPT || in == EXTERNAL_INT_NMI)
     return;
 

@@ -232,6 +232,23 @@ extern "C" {
 #define RF_PHY_TX_PWR_DEFAULT__PA_BUF_LT                 (0xC0)
 #define RF_PHY_TX_PWR_DEFAULT__PA_LT                     (0x00)
 #define RF_PHY_TX_PWR_DEFAULT__TX_PWR                    (0x00)
+
+#define RF_TX_PWR_PLUS_4dBm                              (0x00)
+#define RF_TX_PWR_PLUS_7dBm                              (0x01)
+#define RF_TX_PWR_PLUS_4dBm                              (0x02)
+#define RF_TX_PWR_PLUS_3dBm                              (0x03)
+#define RF_TX_PWR_PLUS_2_5dBm                            (0x04)
+#define RF_TX_PWR_PLUS_2dBm                              (0x05)
+#define RF_TX_PWR_PLUS_1dBm                              (0x06)
+#define RF_TX_PWR_0dBm                                   (0x07)
+#define RF_TX_PWR_MINUS_1dBm                             (0x08)
+#define RF_TX_PWR_MINUS_2dBm                             (0x09)
+#define RF_TX_PWR_MINUS_3dBm                             (0x0a)
+#define RF_TX_PWR_MINUS_4dBm                             (0x0b)
+#define RF_TX_PWR_MINUS_6dBm                             (0x0c)
+#define RF_TX_PWR_MINUS_8dBm                             (0x0d)
+#define RF_TX_PWR_MINUS_12dBm                            (0x0e)
+#define RF_TX_PWR_MINUS_17dBm                            (0x0f)
 /** @} */
 
 /**

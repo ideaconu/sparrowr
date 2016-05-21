@@ -24,43 +24,32 @@
 #include "RF.h"
 
 
-static const int16_t tx_pow_to_dbm[] = {4, 4, 3, 3, 2, 2, 1,
-                                        0, -1, -2, -3, -4, -6, -8, -12, -17};
-static const uint8_t dbm_to_tx_pow[] = {0x0f, 0x0f, 0x0f, 0x0e, 0x0e, 0x0e,
-                                        0x0e, 0x0d, 0x0d, 0x0d, 0x0c, 0x0c,
-                                        0x0b, 0x0b, 0x0a, 0x09, 0x08, 0x07,
-                                        0x06, 0x05, 0x03,0x00};
-
 uint16_t RF::get_addr_short()
 {
-    return (addr_short[0] << 8) | addr_short[1];
+    return addr_short;
 }
 
 void RF::set_addr_short(uint16_t addr)
 {
-    addr_short[0] = addr >> 8;
-    addr_short[1] = addr & 0xff;
-    reg_write(RF_REG__SHORT_ADDR_0,
-                        addr_short[0]);
-    reg_write(RF_REG__SHORT_ADDR_1,
-                        addr_short[1]);
+    addr_short = addr;
+    uint8_t addr_byte = addr >> 8;
+    reg_write(RF_REG__SHORT_ADDR_0, addr_byte);
+    addr_byte = addr & 0xff;
+    reg_write(RF_REG__SHORT_ADDR_1, addr_byte);
 }
 
 uint64_t RF::get_addr_long()
 {
-    uint64_t addr;
-    uint8_t *ap = (uint8_t *)(&addr);
-    for (int i = 0; i < 8; i++) {
-        ap[i] = addr_long[7 - i];
-    }
-    return addr;
+    return addr_long;
 }
 
 void RF::set_addr_long(uint64_t addr)
 {
+    uint8_t addr_byte;
+    addr_long = addr;
     for (int i = 0; i < 8; i++) {
-        addr_long[i] = (addr >> ((7 - i) * 8));
-        reg_write((RF_REG__IEEE_ADDR_0 + i), addr_long[i]);
+        addr_byte = (addr >> ((7 - i) * 8));
+        reg_write((RF_REG__IEEE_ADDR_0 + i), addr_byte);
     }
 }
 
@@ -99,21 +88,13 @@ void RF::set_pan(uint16_t pan_)
 
 int16_t RF::get_txpower()
 {
-    uint8_t txpower = reg_read(RF_REG__PHY_TX_PWR) & RF_PHY_TX_PWR_MASK__TX_PWR;
-    return tx_pow_to_dbm[txpower];
+    tx_power = reg_read(RF_REG__PHY_TX_PWR) & RF_PHY_TX_PWR_MASK__TX_PWR;
+    return tx_power;
 }
 
 void RF::set_txpower(int16_t txpower)
 {
-    txpower += 17;
-    if (txpower < 0) {
-        txpower = 0;
-    }
-    else if (txpower > 21) {
-        txpower = 21;
-    }
-
-    reg_write(RF_REG__PHY_TX_PWR, dbm_to_tx_pow[txpower]);
+    reg_write(RF_REG__PHY_TX_PWR, txpower);
 }
 
 uint8_t RF::get_max_retries()
@@ -160,19 +141,14 @@ void RF::set_csma_backoff_exp(uint8_t min, uint8_t max)
     reg_write(RF_REG__CSMA_BE, (max << 4) | (min));
 }
 
-void RF::set_csma_seed(uint8_t entropy[2])
+void RF::set_csma_seed(uint16_t entropy)
 {
-    if(entropy == NULL) {
-        //DEBUG("[at86rf2xx] opt: CSMA seed entropy is nullpointer\n");
-        return;
-    }
-    //DEBUG("[at86rf2xx] opt: Set CSMA seed to 0x%x 0x%x\n", entropy[0], entropy[1]);
 
-    reg_write(RF_REG__CSMA_SEED_0, entropy[0]);
+    reg_write(RF_REG__CSMA_SEED_0, entropy >> 8);
 
     uint8_t tmp = reg_read(RF_REG__CSMA_SEED_1);
     tmp &= ~(RF_CSMA_SEED_1__CSMA_SEED_1);
-    tmp |= entropy[1] & RF_CSMA_SEED_1__CSMA_SEED_1;
+    tmp |= entropy & RF_CSMA_SEED_1__CSMA_SEED_1;
     reg_write(RF_REG__CSMA_SEED_1, tmp);
 }
 

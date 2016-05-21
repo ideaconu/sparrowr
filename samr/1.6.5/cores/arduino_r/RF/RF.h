@@ -239,7 +239,7 @@ class RF
      *
      * @param[in] entropy       11 bit of entropy as seed for random backoff
      */
-    void set_csma_seed(uint8_t entropy[2]);
+    void set_csma_seed(uint16_t entropy);
 
     /**
      * @brief   Enable or disable driver specific options
@@ -414,9 +414,10 @@ class RF
     uint8_t frame_len;                  /**< length of the current TX frame */
     uint16_t pan;                       /**< currently used PAN ID */
     uint8_t chan;                       /**< currently used channel */
-    uint8_t addr_short[2];              /**< the radio's short address */
-    uint8_t addr_long[8];               /**< the radio's long address */
+    uint16_t addr_short;              /**< the radio's short address */
+    uint64_t addr_long;               /**< the radio's long address */
     uint16_t options;                   /**< state of used options */
+    uint8_t tx_power;
 
     void initDefaults();
     void receiveData();

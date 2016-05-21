@@ -105,6 +105,14 @@ int RF::init()
     SerialUSB.println(reg_read(RF_REG__VERSION_NUM), HEX);
     #endif
 
+    pan = RF_DEFAULT_PANID;
+    chan = RF_DEFAULT_CHANNEL;
+
+    addr_short = RF_DEFAULT_ADDR_SHORT;
+    addr_long = RF_DEFAULT_ADDR_LONG;
+    tx_power = RF_DEFAULT_TXPOWER;
+
+
     /* reset device to default values and put it into RX state */
     reset();
 
@@ -144,17 +152,17 @@ void RF::reset()
 void RF::initDefaults()
 {
     /* set short and long address */
-    set_addr_long(RF_DEFAULT_ADDR_LONG);
-    set_addr_short(RF_DEFAULT_ADDR_SHORT);
+    set_addr_long(addr_long);
+    set_addr_short(addr_short);
 
     /* set default PAN id */
-    set_pan(RF_DEFAULT_PANID);
+    set_pan(pan);
 
     /* set default channel */
-    set_chan(RF_DEFAULT_CHANNEL);
+    set_chan(chan);
 
     /* set default TX power */
-    set_txpower(RF_DEFAULT_TXPOWER);
+    set_txpower(tx_power);
 
     /* set default options */
     /* this disabled did not block the TX */
@@ -230,7 +238,6 @@ size_t RF::send(uint8_t *data, size_t len)
         #endif
         return 0;
     }
-    SerialUSB.println("Sending Data");
     RF::tx_prepare();
     RF::tx_load(data, len, 0);
     //This was commented when TX worked
@@ -248,8 +255,10 @@ void RF::tx_prepare()
         state = get_state();
     }
     while (state == RF_STATE_BUSY_TX_ARET);
-
-    set_state(RF_STATE_TX_ARET_ON);
+    if (state != RF_STATE_TX_ARET_ON)
+    {
+        set_state(RF_STATE_TX_ARET_ON);
+    }
     frame_len = IEEE802154_FCS_LEN;
 }
 
@@ -265,7 +274,6 @@ void RF::tx_exec()
 {
     /* write frame length field in FIFO */
     sram_write(0, &(frame_len), 1);
-    SerialUSB.println("Waiting");
 
     RFDevice.reg_read(RF_REG__IRQ_STATUS);
     /* trigger sending of pre-loaded frame */
@@ -286,7 +294,6 @@ void RF::tx_exec()
         timeout --;
         delayMicroseconds(50);
     }
-
     events --;
     if (events < 0)
     {
@@ -389,7 +396,6 @@ void RF::receiveData() {
       return;
   }
 
-
   size_t pkt_len = RFDevice.rx_len();
   if (pkt_len > 127)
   {
@@ -434,7 +440,6 @@ void RF::eventHandler() {
 
   /* read (consume) device status */
   byte irq_mask = RFDevice.reg_read(RF_REG__IRQ_STATUS);
-
 #if USB_PRINT
   /*  Incoming radio frame! */
   if (irq_mask & RF_IRQ_STATUS_MASK__RX_START)
