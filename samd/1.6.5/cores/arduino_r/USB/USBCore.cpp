@@ -320,7 +320,18 @@ bool USBDeviceClass::attach()
 	usbd.enableStartOfFrameInterrupt();
 
 	_usbConfiguration = 0;
-	return true;
+	attached = true;
+    return true;
+}
+
+bool USBDeviceClass::isAttached()
+{
+    return attached;
+}
+
+bool USBDeviceClass::isInitialized()
+{
+    return initialized;
 }
 
 void USBDeviceClass::setAddress(uint32_t addr)
@@ -344,6 +355,7 @@ bool USBDeviceClass::detach()
 	if (!initialized)
 		return false;
 	usbd.detach();
+    attached = false;
 	return true;
 }
 

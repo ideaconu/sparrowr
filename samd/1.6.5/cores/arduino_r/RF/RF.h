@@ -25,6 +25,8 @@
  * @author      Mark Solters <msolters@gmail.com>
  */
 
+#ifdef __cplusplus
+
 #ifndef RF_H_
 #define RF_H_
 
@@ -38,7 +40,7 @@
 
 #define RX_BUFF_NUM 8
 
-#define SPI_TYPE    SPI1
+#define SPI_TYPE    SPIRF
 /**
  * @brief   Transition time from SLEEP to TRX_OFF in us, refer figure 7-4, p.42.
  *          For different environments refer figure 13-13, p.201
@@ -65,6 +67,13 @@ typedef struct radio_buffer
     int8_t rssi;
     uint8_t idx;
 } radio_buffer_t;
+
+enum RF_WAIT: uint8_t
+{
+    RF_TRX_SLEEP_WAIT   = 0,
+    RF_TRX_WHILE_WAIT   = 1,
+};
+
 
 
 class RF
@@ -269,7 +278,7 @@ class RF
      * @return                  number of bytes that were actually send
      * @return                  0 on error
      */
-    size_t send(uint8_t *data, size_t len, size_t sleep_now);
+    size_t send(uint8_t *data, size_t len);
 
     /**
      * @brief   Prepare for sending of data
@@ -295,7 +304,7 @@ class RF
      * @brief   Trigger sending of data previously loaded into transmit buffer
      *
      */
-    void tx_exec(size_t sleep_now);
+    void tx_exec();
 
     /**
      * @brief   Read the length of a received packet
@@ -314,8 +323,7 @@ class RF
     void rx_read(uint8_t *data, size_t len, size_t offset);
 
     /**
-     * @brief   Read from a register at address `addr` from device `dev`.
-     *
+     * @brief   Read from a register at address `addr` from device `de*
      * @param[in] addr      address of the register to read
      *
      * @return              the value of the specified register
@@ -366,11 +374,11 @@ class RF
     void force_trx_off();
 
     /**
-     * @brief   Convenience function for reading the status of the given device
+     * @brief   Convenience function for reading the state of the given device
      *
-     * @return              internal status of the given device
+     * @return              internal state of the given device
      */
-    uint8_t get_status();
+    uint8_t get_state();
 
     /**
      * @brief   Make sure that device is not sleeping
@@ -427,3 +435,5 @@ extern RF RFDevice;
 
 #endif /* RF_H_ */
 /** @} */
+
+#endif //__cplusplus

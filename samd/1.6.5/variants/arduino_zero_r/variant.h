@@ -107,7 +107,7 @@ static const uint8_t A5  = PIN_A5;
 /*
  * SPI Interfaces
  */
-#define SPI_INTERFACES_COUNT 2
+#define SPI_INTERFACES_COUNT 1
 
 #define PIN_SPI_MISO         (22u)
 #define PIN_SPI_MOSI         (23u)
@@ -124,12 +124,12 @@ static const uint8_t SCK  = PIN_SPI_SCK ;
 /*
  * RF internal SPI
  */
-#define PIN_SPI1_MISO         (44u)
-#define PIN_SPI1_MOSI         (45u)
-#define PIN_SPI1_SCK          (46u)
-#define PERIPH_SPI1           sercom4
-#define PAD_SPI1_TX           SPI_PAD_2_SCK_3
-#define PAD_SPI1_RX           SERCOM_RX_PAD_0
+#define PIN_SPIRF_MISO         (44u)
+#define PIN_SPIRF_MOSI         (45u)
+#define PIN_SPIRF_SCK          (46u)
+#define PERIPH_SPIRF           sercom4
+#define PAD_SPIRF_TX           SPI_PAD_2_SCK_3
+#define PAD_SPIRF_RX           SERCOM_RX_PAD_0
 
 /*
  * RF Signal Pinout

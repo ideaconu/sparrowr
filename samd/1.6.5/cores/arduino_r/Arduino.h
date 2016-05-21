@@ -123,4 +123,8 @@ void loop( void ) ;
 #include "USB/USB_host.h"
 
 #include "WRTC.h"
+
+#include "SPI.h"
+#include "RF/RF.h"
+
 #endif // Arduino_h

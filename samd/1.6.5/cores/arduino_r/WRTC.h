@@ -30,30 +30,31 @@ typedef void(*voidFuncPtr)(void);
 
   enum Per_Int: uint8_t
   {
-    RTC_PER_1   = EVSYS_ID_GEN_RTC_PER_7,
-    RTC_PER_2   = EVSYS_ID_GEN_RTC_PER_6,
-    RTC_PER_4   = EVSYS_ID_GEN_RTC_PER_5,
-    RTC_PER_8   = EVSYS_ID_GEN_RTC_PER_4,
-    RTC_PER_16  = EVSYS_ID_GEN_RTC_PER_3,
-    RTC_PER_32  = EVSYS_ID_GEN_RTC_PER_2,
-    RTC_PER_64  = EVSYS_ID_GEN_RTC_PER_1,
-    RTC_PER_128 = EVSYS_ID_GEN_RTC_PER_0,
+    RTC_PER_1             = EVSYS_ID_GEN_RTC_PER_7,
+    RTC_PER_2             = EVSYS_ID_GEN_RTC_PER_6,
+    RTC_PER_4             = EVSYS_ID_GEN_RTC_PER_5,
+    RTC_PER_8             = EVSYS_ID_GEN_RTC_PER_4,
+    RTC_PER_16            = EVSYS_ID_GEN_RTC_PER_3,
+    RTC_PER_32            = EVSYS_ID_GEN_RTC_PER_2,
+    RTC_PER_64            = EVSYS_ID_GEN_RTC_PER_1,
+    RTC_PER_128           = EVSYS_ID_GEN_RTC_PER_0,
+  };
+
+  enum Alarm_Match: uint8_t // Should we have this enum or just use the identifiers from /component/rtc.h ?
+  {
+    RTC_MATCH_OFF          = RTC_MODE2_MASK_SEL_OFF_Val,          // Never
+    RTC_MATCH_SS           = RTC_MODE2_MASK_SEL_SS_Val,           // Every Minute
+    RTC_MATCH_MMSS         = RTC_MODE2_MASK_SEL_MMSS_Val,         // Every Hour
+    RTC_MATCH_HHMMSS       = RTC_MODE2_MASK_SEL_HHMMSS_Val,       // Every Day
+    RTC_MATCH_DHHMMSS      = RTC_MODE2_MASK_SEL_DDHHMMSS_Val,     // Every Month
+    RTC_MATCH_MMDDHHMMSS   = RTC_MODE2_MASK_SEL_MMDDHHMMSS_Val,   // Every Year
+    RTC_MATCH_YYMMDDHHMMSS = RTC_MODE2_MASK_SEL_YYMMDDHHMMSS_Val  // Once, on a specific date and a specific time
   };
 
 
 class WRTC {
 public:
 
-  enum Alarm_Match: uint8_t // Should we have this enum or just use the identifiers from /component/rtc.h ?
-  {
-    MATCH_OFF          = RTC_MODE2_MASK_SEL_OFF_Val,          // Never
-    MATCH_SS           = RTC_MODE2_MASK_SEL_SS_Val,           // Every Minute
-    MATCH_MMSS         = RTC_MODE2_MASK_SEL_MMSS_Val,         // Every Hour
-    MATCH_HHMMSS       = RTC_MODE2_MASK_SEL_HHMMSS_Val,       // Every Day
-    MATCH_DHHMMSS      = RTC_MODE2_MASK_SEL_DDHHMMSS_Val,     // Every Month
-    MATCH_MMDDHHMMSS   = RTC_MODE2_MASK_SEL_MMDDHHMMSS_Val,   // Every Year
-    MATCH_YYMMDDHHMMSS = RTC_MODE2_MASK_SEL_YYMMDDHHMMSS_Val  // Once, on a specific date and a specific time
-  };
 
   WRTC() {};
   void begin();

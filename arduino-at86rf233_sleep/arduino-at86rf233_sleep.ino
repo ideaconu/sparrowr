@@ -1,5 +1,3 @@
-#include <RF.h> 
-#include <SPI.h>
 int received = 0;
  
 
@@ -14,16 +12,14 @@ void setup() {
   USBDevice.init();
   USBDevice.attach();
   SerialUSB.begin(9600);
-  //Serial1.begin(115200);
-  RFDevice.init();
+  //Serial1.begin(115200); 
   
   //RFDevice.set_chan(11); // set channel to 26
   //RFDevice.set_state(RF_STATE_SLEEP);
   //RFDevice.set_state(RF_STATE_TRX_OFF);
-   
-  rtc.begin();
+    
   rtc.setAlarmSeconds(15);
-  rtc.enableAlarm(rtc.MATCH_SS);
+  rtc.enableAlarm(RTC_MATCH_SS);
   rtc.attachAlarmInterrupt(rtcAlarm);
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(evtPer);

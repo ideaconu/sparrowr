@@ -220,7 +220,7 @@ bool RF::cca()
     }
 }
 
-size_t RF::send(uint8_t *data, size_t len, size_t sleep_now)
+size_t RF::send(uint8_t *data, size_t len)
 {
     /* check data length */
     if (len > RF_MAX_PKT_LENGTH) {
@@ -235,7 +235,7 @@ size_t RF::send(uint8_t *data, size_t len, size_t sleep_now)
     RF::tx_load(data, len, 0);
     //This was commented when TX worked
     //RFDevice.reg_read(RF_REG__IRQ_STATUS);
-    RF::tx_exec(sleep_now);
+    RF::tx_exec();
     return len;
 }
 
@@ -245,7 +245,7 @@ void RF::tx_prepare()
 
     /* make sure ongoing transmissions are finished */
     do {
-        state = get_status();
+        state = get_state();
     }
     while (state == RF_STATE_BUSY_TX_ARET);
 
@@ -261,7 +261,7 @@ size_t RF::tx_load(uint8_t *data,
     return offset + len;
 }
 
-void RF::tx_exec(size_t sleepNow)
+void RF::tx_exec()
 {
     /* write frame length field in FIFO */
     sram_write(0, &(frame_len), 1);
@@ -274,16 +274,17 @@ void RF::tx_exec(size_t sleepNow)
     delayMicroseconds(4);
     digitalWrite(sleep_pin, LOW);
     int _events = events;
-    if (sleepNow)
+
+    if (USBDevice.isAttached() == false)
     {
         sleep();
     }
 
-    uint16_t timeout = 50*10;
+    uint16_t timeout = 50*20;
     while (events == _events && timeout > 0)
     {
         timeout --;
-        delayMicroseconds(100);
+        delayMicroseconds(50);
     }
 
     events --;
@@ -426,7 +427,7 @@ void RF::eventHandler() {
    * lost anyway, so return immediately.
    */
 
-  byte rf_state = RFDevice.get_status();
+  byte rf_state = RFDevice.get_state();
   if(rf_state == RF_STATE_SLEEP ||
           rf_state == RF_STATE_DEEP_SLEEP)
     return;
@@ -457,11 +458,12 @@ void RF::eventHandler() {
       }
   }
 
-  /*
+#if 0
   if (rf_state == RF_STATE_RX_AACK_ON)
   {
       //need to do FTN calibration, datasheet, page 139.
     reg_write(RF_REG__FTN_CTRL,RF_FTN_CTRL__FTN_START);_
   }
-  */
+#endif
+
 }

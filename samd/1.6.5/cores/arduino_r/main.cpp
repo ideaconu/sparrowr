@@ -41,12 +41,15 @@ int main( void )
 
   sleepMode(SLEEP_STANDBY);
 
-  //rtc.begin();
+  rtc.begin();
+
+  RFDevice.init();
 
   setup();
 
   for (;;)
   {
+    RFDevice.handleEvents();
     loop();
     if (serialEventRun) serialEventRun();
   }

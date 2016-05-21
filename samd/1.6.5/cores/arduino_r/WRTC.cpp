@@ -67,7 +67,7 @@ void WRTC::begin()
   NVIC_SetPriority(RTC_IRQn, 0x00);
 
   RTC->MODE2.INTENSET.reg |= RTC_MODE2_INTENSET_ALARM0; // enable alarm interrupt
-  RTC->MODE2.Mode2Alarm[0].MASK.bit.SEL = MATCH_OFF; // default alarm match is off (disabled)
+  RTC->MODE2.Mode2Alarm[0].MASK.bit.SEL = RTC_MATCH_OFF; // default alarm match is off (disabled)
 
   while (RTCisSyncing())
     ;

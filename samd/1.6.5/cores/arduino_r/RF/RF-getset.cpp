@@ -71,6 +71,7 @@ uint8_t RF::get_chan()
 
 void RF::set_chan(uint8_t channel)
 {
+    assert_awake();
     uint8_t tmp;
 
     if (channel < RF_MIN_CHANNEL
@@ -268,13 +269,13 @@ void RF::set_option(uint16_t option, bool state)
 inline void RF::_set_state(uint8_t state_)
 {
     reg_write(RF_REG__TRX_STATE, state_);
-    while (get_status() != state_);
+    while (get_state() != state_);
     state = state_;
 }
 
 void RF::set_state(uint8_t state_)
 {
-    uint8_t old_state = get_status();
+    uint8_t old_state = get_state();
 
     if (state_ == old_state) {
         return;
@@ -284,7 +285,7 @@ void RF::set_state(uint8_t state_)
     while (old_state == RF_STATE_BUSY_RX_AACK ||
            old_state == RF_STATE_BUSY_TX_ARET ||
            old_state == RF_STATE_IN_PROGRESS) {
-        old_state = get_status();
+        old_state = get_state();
     }
 
     /* check if we need to wake up from sleep mode */
@@ -323,7 +324,7 @@ void RF::reset_state_machine()
 
     /* Wait for any state transitions to complete before forcing TRX_OFF */
     do {
-        old_state = get_status();
+        old_state = get_state();
     } while (old_state == RF_STATE_IN_PROGRESS);
 
     force_trx_off();

@@ -1,4 +1,3 @@
-#include <RF.h>
 int sent = 0;
 
 volatile int rtcPeriodic = 0;
@@ -8,11 +7,8 @@ void setup() {
   pmSetVoltage(3200);
   //enableUSB();
  
-  RFDevice.init(); 
-  RFDevice.set_state(RF_STATE_TRX_OFF);
   RFDevice.set_chan(11); // set channel to 26
   pinMode(0,OUTPUT);
-  rtc.begin();
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(perInt);
 }
@@ -25,7 +21,7 @@ void loop() {
     c[5] = sent++;
   
     RFDevice.set_state(RF_STATE_TRX_OFF);
-    RFDevice.send(c,6,1);
+    RFDevice.send(c,6);
     RFDevice.set_state(RF_STATE_DEEP_SLEEP);
   
     if(sent %2 == 0)

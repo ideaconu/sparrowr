@@ -58,7 +58,9 @@ public:
 
 	// USB Device API
 	void init();
-	bool attach();
+	bool isAttached();
+    bool isInitialized();
+    bool attach();
 	bool detach();
 	void setAddress(uint32_t addr);
 
@@ -102,6 +104,7 @@ public:
 
 private:
 	bool initialized;
+    bool attached;
 };
 
 extern USBDeviceClass USBDevice;
