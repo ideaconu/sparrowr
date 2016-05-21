@@ -1,7 +1,7 @@
 {
    "packages":[
       {
-         "name":"Arduino ZeroR",
+         "name":"Arduino_ZeroR",
          "maintainer":"Ioan Deaconu",
          "websiteURL":"https://bitbucket.org/ioan_deaconu/master",
          "email":"ioan.deaconu@gmail.com",
