@@ -8,7 +8,7 @@ for Atmel's SAMD21 processor (used on the Arduino Zero board).
 This core is available as a package in the Arduino IDE cores manager.
 Just open the "Boards Manager" and install the package called:
 
-"Arduino SAMD Boards (32-bit ARM Cortex-M0+)"
+"Arduino SAMR Boards (32-bit ARM Cortex-M0+)"
 
 ## Support
 
@@ -27,7 +27,7 @@ to avoid duplicates.
 
 ## Contributions
 
-Contributions are always welcome. The preferred way to receive code cotribution is by submitting a 
+Contributions are always welcome. The preferred way to receive code cotribution is by submitting a
 Pull Request on github.
 
 ## Hourly builds
