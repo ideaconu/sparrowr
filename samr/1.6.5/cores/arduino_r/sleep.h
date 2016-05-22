@@ -27,7 +27,7 @@ typedef enum
  */
 static __inline__ void sleepMode(SleepMode sleep_mode)
 {
-  NVMCTRL->CTRLB.bit.SLEEPPRM = 1;
+  NVMCTRL->CTRLB.bit.SLEEPPRM = 0;
   switch (sleep_mode) {
 		case SLEEP_IDLE_0:
 		case SLEEP_IDLE_1:

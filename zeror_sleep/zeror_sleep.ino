@@ -30,17 +30,7 @@ void setup() {
 uint32_t old_ms, new_ms;
 void loop() {
   //sleep();
-  SerialUSB.println("test");
-  uint8_t page_data[EEPROM_PAGE_SIZE];
-  EEPROM.read(0, page_data,EEPROM_PAGE_SIZE);
-  SerialUSB.println(page_data[0]);
-  
-  page_data[0] ++;
-  EEPROM.write(0, page_data, EEPROM_PAGE_SIZE); 
-  
-  EEPROM.read(0, page_data,EEPROM_PAGE_SIZE);
-  SerialUSB.println(page_data[0]);
-  delay(4000);
+  //eeprom_test();
   return;
 //  SPI.transfer(0xaa);
 //  SPI.transfer(0xaa);
@@ -54,13 +44,6 @@ void loop() {
 //  Serial.println("a1");
   delay(1000);
   //sleep();
-  //SerialUSB.println("0");
-  //SerialUSB.println(((SystemCoreClock >> (PM->APBCSEL.reg) ) * 8) / (16 * 115200));
-  //SerialUSB.println((SystemCoreClock >> (PM->APBCSEL.reg)));
-  //SerialUSB.println(PM->APBASEL.reg);
-  //SerialUSB.println(PM->APBBSEL.reg);
-  //SerialUSB.println(PM->APBCSEL.reg);
-  
 }
  
 void evtPer()
@@ -81,5 +64,20 @@ void rtcAlarm()
 {
     digitalWrite(2,LOW);
   //SerialUSB.println("RTC ALARM");
+}
+
+void eeprom_test()
+{
+  SerialUSB.println("test");
+  uint8_t page_data[EEPROM_PAGE_SIZE];
+  EEPROM.read(0, page_data,EEPROM_PAGE_SIZE);
+  SerialUSB.println(page_data[0]);
+  
+  page_data[0] ++;
+  EEPROM.write(0, page_data, EEPROM_PAGE_SIZE); 
+  
+  EEPROM.read(0, page_data,EEPROM_PAGE_SIZE);
+  SerialUSB.println(page_data[0]);
+  delay(4000);
 }
 
