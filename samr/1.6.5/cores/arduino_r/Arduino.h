@@ -89,6 +89,8 @@ void loop( void ) ;
 #include "pm.h"
 #include "sleep.h"
 
+#include "EEPROM.h"
+
 // undefine stdlib's abs if encountered
 #ifdef abs
 #undef abs

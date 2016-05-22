@@ -70,7 +70,7 @@ void init( void )
   }
 
   // Clock PORT for Digital I/O
-  PM->APBBMASK.reg |= PM_APBBMASK_PORT ;
+  PM->APBBMASK.reg |= PM_APBBMASK_PORT | PM_APBBMASK_NVMCTRL;
 
   // Clock ADC/DAC for Analog
   PM->APBCMASK.reg |= PM_APBCMASK_ADC;

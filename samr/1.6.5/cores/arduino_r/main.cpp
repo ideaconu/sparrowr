@@ -41,6 +41,8 @@ int main( void )
 
   sleepMode(SLEEP_STANDBY);
 
+  EEPROM.init();
+
   rtc.begin();
 
   RFDevice.init();

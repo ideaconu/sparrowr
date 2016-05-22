@@ -51,5 +51,6 @@ void loop() {
 }
 void rtcPer()
 {
+  SerialUSB.println("perInt");
   perEvent ++;
 }

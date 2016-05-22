@@ -1,20 +1,20 @@
+#include <EEPROM.h>
 int received = 0;
  
 
 void setup() {
 
 
-  pmSetVoltage(1800);
+  pmSetVoltage(3200);
  // SPI.begin();
  // SPI.beginTransaction(SPISettings(200000, MSBFIRST, SPI_MODE0));
   //Serial.begin(115200);
   
   USBDevice.init();
   USBDevice.attach();
-  SerialUSB.begin(9600);
-  //Serial1.begin(115200); 
-  
-  //RFDevice.set_chan(11); // set channel to 26
+  SerialUSB.begin(9600); 
+  delay(2000);
+
   //RFDevice.set_state(RF_STATE_SLEEP);
   //RFDevice.set_state(RF_STATE_TRX_OFF);
     
@@ -30,6 +30,17 @@ void setup() {
 uint32_t old_ms, new_ms;
 void loop() {
   //sleep();
+  SerialUSB.println("test");
+  uint8_t page_data[EEPROM_PAGE_SIZE];
+  EEPROM.read(0, page_data,EEPROM_PAGE_SIZE);
+  SerialUSB.println(page_data[0]);
+  
+  page_data[0] ++;
+  EEPROM.write(0, page_data, EEPROM_PAGE_SIZE); 
+  
+  EEPROM.read(0, page_data,EEPROM_PAGE_SIZE);
+  SerialUSB.println(page_data[0]);
+  delay(4000);
   return;
 //  SPI.transfer(0xaa);
 //  SPI.transfer(0xaa);
@@ -53,8 +64,7 @@ void loop() {
 }
  
 void evtPer()
-{
-  SerialUSB.println("per int");
+{ 
   if( received == 0)
   {
     digitalWrite(2,HIGH);

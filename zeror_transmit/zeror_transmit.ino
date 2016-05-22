@@ -22,7 +22,9 @@ void loop() {
     c[5] = sent++;
   
     RFDevice.set_state(RF_STATE_TRX_OFF);
+    SerialUSB.println("Sending Data");
     RFDevice.send(c,6);
+    SerialUSB.println("Sleep");
     RFDevice.set_state(RF_STATE_SLEEP);
   
     if(sent %2 == 0)
@@ -40,6 +42,7 @@ void loop() {
 
 void perInt(void)
 {
+  SerialUSB.println("perInt");
   rtcPeriodic = 1;
 }
 
