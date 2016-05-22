@@ -4,7 +4,7 @@ volatile int rtcPeriodic = 0;
 
 void setup() {
 
-  pmSetVoltage(3200);
+  pmSetVoltage(1800);
   //enableUSB();
  
   RFDevice.set_state(RF_STATE_TRX_OFF);
@@ -23,7 +23,7 @@ void loop() {
   
     RFDevice.set_state(RF_STATE_TRX_OFF);
     RFDevice.send(c,6);
-    RFDevice.set_state(RF_STATE_DEEP_SLEEP);
+    RFDevice.set_state(RF_STATE_SLEEP);
   
     if(sent %2 == 0)
     {

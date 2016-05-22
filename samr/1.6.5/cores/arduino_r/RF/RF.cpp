@@ -184,7 +184,7 @@ void RF::initDefaults()
     reg_write(RF_REG__TRX_CTRL_1, RF_TRX_CTRL_1_MASK__TX_AUTO_CRC_ON);
 
     /*Enable PLL energy Saving */
-    reg_write(RF_REG__TRX_RPC, RF_TRX_RPC__PLL_RPC_EN);
+    //reg_write(RF_REG__TRX_RPC, RF_TRX_RPC__PLL_RPC_EN);
 
     /* disable clock output to save power */
     byte tmp = reg_read(RF_REG__TRX_CTRL_0);
