@@ -10,7 +10,7 @@ void setup() {
   RFDevice.set_state(RF_STATE_TRX_OFF);
   RFDevice.set_chan(20); // set channel to 26
   pinMode(0,OUTPUT);
-  rtc.enablePeriodicInterrupt(RTC_PER_8);
+  rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(perInt);
 }
 
