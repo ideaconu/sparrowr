@@ -1,24 +1,28 @@
 #include <EEPROM.h>
+#include <Wire.h>
+
 int received = 0;
  
 
 void setup() {
 
 
-  pmSetVoltage(3200);
+  pmSetVoltage(1800);
  // SPI.begin();
  // SPI.beginTransaction(SPISettings(200000, MSBFIRST, SPI_MODE0));
   //Serial.begin(115200);
+
+  //Wire.begin();
   
-  USBDevice.init();
-  USBDevice.attach();
-  SerialUSB.begin(9600); 
-  delay(2000);
+  //USBDevice.init();
+  //USBDevice.attach();
+  //SerialUSB.begin(9600); 
+  //delay(2000);
 
   //RFDevice.set_state(RF_STATE_SLEEP);
   //RFDevice.set_state(RF_STATE_TRX_OFF);
     
-  rtc.setAlarmSeconds(15);
+  rtc.setAlarmSeconds(0);
   rtc.enableAlarm(RTC_MATCH_SS);
   rtc.attachAlarmInterrupt(rtcAlarm);
   rtc.enablePeriodicInterrupt(RTC_PER_1);
@@ -28,9 +32,15 @@ void setup() {
 }
 
 uint32_t old_ms, new_ms;
+byte x;
 void loop() {
+  //Wire.beginTransmission(4); // transmit to device #4
+  //Wire.write("x is ");        // sends five bytes
+  //Wire.write(x);              // sends one byte  
+  //Wire.endTransmission();    // stop transmitting
   //sleep();
   //eeprom_test();
+  sleep();
   return;
 //  SPI.transfer(0xaa);
 //  SPI.transfer(0xaa);

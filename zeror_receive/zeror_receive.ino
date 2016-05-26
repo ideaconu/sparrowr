@@ -9,14 +9,15 @@ void setup() {
   SerialUSB.begin(9600);
  
   RFDevice.set_state(RF_STATE_RX_AACK_ON);
-  RFDevice.set_chan(20);
-
+  RFDevice.set_chan(20); 
+  
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(rtcPer);
 }
 
 void loop() {
-
+  // for some reason, a delay is needed in order to automaticaly reset the de board
+  //delay(10);
   if(perEvent >= 1)
   {
     SerialUSB.println("----WAITING FOR DATA----");

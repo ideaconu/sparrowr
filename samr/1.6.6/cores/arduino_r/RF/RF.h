@@ -45,7 +45,7 @@
  * @brief   Transition time from SLEEP to TRX_OFF in us, refer figure 7-4, p.42.
  *          For different environments refer figure 13-13, p.201
  */
-#define RF_WAKEUP_DELAY          (300U)
+#define RF_WAKEUP_DELAY          (500U)
 
 /**
  * @brief   Minimum reset pulse width, refer p.190
@@ -418,10 +418,11 @@ class RF
     uint64_t addr_long;               /**< the radio's long address */
     uint16_t options;                   /**< state of used options */
     uint8_t tx_power;
-
     void initDefaults();
     void receiveData();
     void eventHandler();
+
+    bool initialized = false;
     /**
      * @brief   Trigger a clear channel assessment
      *

@@ -77,6 +77,12 @@ void pmPowerOffSensors()
     digitalWrite(VOLTAGE_CTRL,LOW);
 }
 
+uint16_t pmGetVoltage()
+{
+    return g_current_mv;
+}
+
+
 #ifdef __cplusplus
 }
 #endif

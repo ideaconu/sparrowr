@@ -38,6 +38,7 @@ RF RFDevice = RF();
 static void rf_irq_handler()
 {
     RFDevice.events ++;
+    digitalWrite(4,LOW);
     return;
 }
 
@@ -45,7 +46,7 @@ RF::RF() {}
 
 int RF::init()
 {
-
+    RFDevice.initialized = false;
     #if USB_PRINT
     SerialUSB.println("[at86rf2xx] Booting radio device.");
     #endif
@@ -86,6 +87,7 @@ int RF::init()
     attachInterrupt(int_pin, rf_irq_handler, RISING);
 
     /* make sure device is not sleeping, so we can query part number */
+
     assert_awake();
 
     /* test if the SPI is set up correctly and the device is responding */
@@ -112,13 +114,13 @@ int RF::init()
     addr_long = RF_DEFAULT_ADDR_LONG;
     tx_power = RF_DEFAULT_TXPOWER;
 
-
     /* reset device to default values and put it into RX state */
     reset();
 
     //Put RF to sleep for low power consumption
     set_state(RF_STATE_DEEP_SLEEP);
-
+    events = 0;
+    RFDevice.initialized = true;
     return 0;
 }
 
@@ -194,11 +196,11 @@ void RF::initDefaults()
     reg_write(RF_REG__TRX_CTRL_0, tmp);
 
     /* enable interrupts */
-    reg_write(RF_REG__IRQ_MASK, RF_IRQ_STATUS_MASK__TRX_END);// | RF_IRQ_STATUS_MASK__RX_START);
+    reg_write(RF_REG__IRQ_MASK, RF_IRQ_STATUS_MASK__TRX_END | RF_IRQ_STATUS_MASK__CCA_ED_DONE);// | RF_IRQ_STATUS_MASK__RX_START);
 
     /* clear interrupt flags */
     reg_read(RF_REG__IRQ_STATUS);
-
+    events = 0;
 }
 
 
@@ -238,16 +240,16 @@ size_t RF::send(uint8_t *data, size_t len)
         #endif
         return 0;
     }
+
     RF::tx_prepare();
     RF::tx_load(data, len, 0);
-    //This was commented when TX worked
-    //RFDevice.reg_read(RF_REG__IRQ_STATUS);
     RF::tx_exec();
     return len;
 }
 
 void RF::tx_prepare()
 {
+    assert_awake();
     uint8_t state;
 
     /* make sure ongoing transmissions are finished */
@@ -255,10 +257,12 @@ void RF::tx_prepare()
         state = get_state();
     }
     while (state == RF_STATE_BUSY_TX_ARET);
+
     if (state != RF_STATE_TX_ARET_ON)
     {
         set_state(RF_STATE_TX_ARET_ON);
     }
+
     frame_len = IEEE802154_FCS_LEN;
 }
 
@@ -282,24 +286,18 @@ void RF::tx_exec()
     delayMicroseconds(4);
     digitalWrite(sleep_pin, LOW);
     int _events = events;
-
-    if (USBDevice.isAttached() == false)
-    {
-        sleep();
-    }
-
+    sleep();
     uint16_t timeout = 50*20;
     while (events == _events && timeout > 0)
     {
         timeout --;
         delayMicroseconds(50);
     }
-    events --;
-    if (events < 0)
-    {
-        events = 0;
-    }
-    RFDevice.reg_read(RF_REG__IRQ_STATUS);
+
+    byte irq_mask = RFDevice.reg_read(RF_REG__IRQ_STATUS);
+
+    events = 0;
+    eventHandler();
 }
 
 size_t RF::rx_len()
@@ -333,11 +331,7 @@ void RF::read_data(radio_buffer_t *rf)
 {
     __disable_irq();
     pop(rf);
-    events --;
-    if (events < 0)
-    {
-        events = 0;
-    }
+    events = 0;
     __enable_irq();
 }
 
@@ -460,8 +454,10 @@ void RF::eventHandler() {
 #if USB_PRINT
         SerialUSB.println("[at86rf2xx] EVT - TX_END");
 #endif
+        events = 0;
       }
   }
+
 
   static int last_minutes = 0;
   int minutes = rtc.getMinutes();

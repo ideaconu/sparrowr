@@ -320,6 +320,7 @@ bool USBDeviceClass::attach()
 	usbd.enableStartOfFrameInterrupt();
 
 	_usbConfiguration = 0;
+    sleepMode(SLEEP_IDLE_0);
 	attached = true;
     return true;
 }

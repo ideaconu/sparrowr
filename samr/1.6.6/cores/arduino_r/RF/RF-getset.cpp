@@ -262,7 +262,6 @@ void RF::set_state(uint8_t state_)
            old_state == RF_STATE_IN_PROGRESS) {
         old_state = get_state();
     }
-
     /* check if we need to wake up from sleep mode */
     if (old_state == RF_STATE_SLEEP ||
             old_state == RF_STATE_DEEP_SLEEP) {

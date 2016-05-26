@@ -1,6 +1,6 @@
 #ifndef _SLEEP_
 #define _SLEEP_
-
+#include "Arduino.h"
 #include "sam.h"
 
 #ifdef __cplusplus
