@@ -104,12 +104,16 @@ void RF::assert_awake()
             state_ == RF_STATE_DEEP_SLEEP) {
 
         /* wake up and wait for transition to TRX_OFF */
+        events = 0;
         digitalWrite(sleep_pin, LOW);
         if (RFDevice.initialized == true &&
                 state != RF_STATE_DEEP_SLEEP)
         {
             //delayMicroseconds(RF_WAKEUP_DELAY);
-            sleep();
+            while (events == 0)
+            {
+                sleep();
+            }
         }
         else
         {

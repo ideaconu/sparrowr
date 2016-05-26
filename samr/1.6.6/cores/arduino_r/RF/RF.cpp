@@ -286,13 +286,10 @@ void RF::tx_exec()
     delayMicroseconds(4);
     digitalWrite(sleep_pin, LOW);
 
-    sleep();
 
-    uint16_t timeout = 50*20;
-    while (events == 0 && timeout > 0)
+    while (events == 0)
     {
-        timeout --;
-        delayMicroseconds(50);
+        sleep();
     }
 
     RFDevice.reg_read(RF_REG__IRQ_STATUS);
