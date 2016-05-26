@@ -2,17 +2,15 @@ int sent = 0;
 
 volatile int rtcPeriodic = 0;
 
-int received = 0;
 void setup() {
 
   pmSetVoltage(1800);
   //enableUSB();
   RFDevice.set_state(RF_STATE_TRX_OFF);
-  RFDevice.set_chan(20); // set channel to 26
+  RFDevice.set_chan(20); // set channel to 20
  
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(perInt);
-  //sleepMode(SLEEP_STANDBY);
 }
 
 
@@ -32,17 +30,6 @@ void loop() {
 void perInt(void)
 { 
   rtcPeriodic = 1;
-  
-  if( received == 0)
-  {
-    digitalWrite(2,HIGH);
-    received = 1;
-  }
-  else
-  {
-    digitalWrite(2,LOW);
-    received = 0;
-  }
 }
 
 void enableUSB(void)

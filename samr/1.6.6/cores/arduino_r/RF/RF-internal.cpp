@@ -108,6 +108,7 @@ void RF::assert_awake()
         if (RFDevice.initialized == true &&
                 state != RF_STATE_DEEP_SLEEP)
         {
+            //delayMicroseconds(RF_WAKEUP_DELAY);
             sleep();
         }
         else

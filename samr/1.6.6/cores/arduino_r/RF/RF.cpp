@@ -38,7 +38,6 @@ RF RFDevice = RF();
 static void rf_irq_handler()
 {
     RFDevice.events ++;
-    digitalWrite(4,LOW);
     return;
 }
 
@@ -186,7 +185,7 @@ void RF::initDefaults()
     reg_write(RF_REG__TRX_CTRL_1, RF_TRX_CTRL_1_MASK__TX_AUTO_CRC_ON);
 
     /*Enable PLL energy Saving */
-    //reg_write(RF_REG__TRX_RPC, RF_TRX_RPC__PLL_RPC_EN);
+    reg_write(RF_REG__TRX_RPC, RF_TRX_RPC__PLL_RPC_EN);
 
     /* disable clock output to save power */
     byte tmp = reg_read(RF_REG__TRX_CTRL_0);
@@ -282,20 +281,21 @@ void RF::tx_exec()
     RFDevice.reg_read(RF_REG__IRQ_STATUS);
     /* trigger sending of pre-loaded frame */
     //reg_write(RF_REG__TRX_STATE, RF_TRX_STATE__TX_START);
+    events = 0;
     digitalWrite(sleep_pin, HIGH);
     delayMicroseconds(4);
     digitalWrite(sleep_pin, LOW);
-    int _events = events;
+
     sleep();
+
     uint16_t timeout = 50*20;
-    while (events == _events && timeout > 0)
+    while (events == 0 && timeout > 0)
     {
         timeout --;
         delayMicroseconds(50);
     }
 
-    byte irq_mask = RFDevice.reg_read(RF_REG__IRQ_STATUS);
-
+    RFDevice.reg_read(RF_REG__IRQ_STATUS);
     events = 0;
     eventHandler();
 }
