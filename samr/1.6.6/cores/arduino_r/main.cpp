@@ -45,12 +45,15 @@ int main( void )
 
   rtc.begin();
 
+  wdt_init();
+
   RFDevice.init();
 
   setup();
 
   for (;;)
   {
+    wdt_clear_counter(rtc.getMinutes());
     RFDevice.handleEvents();
     loop();
     if (serialEventRun) serialEventRun();

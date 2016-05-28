@@ -120,6 +120,8 @@ void RF::assert_awake()
             delayMicroseconds(RF_WAKEUP_DELAY);
         }
 
+        /* clear interrupt flags */
+        reg_read(RF_REG__IRQ_STATUS);
         if (state_ == RF_STATE_DEEP_SLEEP &&
                 RFDevice.initialized == true)
         {

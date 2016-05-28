@@ -194,6 +194,12 @@ void RF::initDefaults()
     tmp |= (RF_TRX_CTRL_0_CLKM_CTRL__OFF);
     reg_write(RF_REG__TRX_CTRL_0, tmp);
 
+
+
+    tmp = reg_read(RF_REG__XAH_CTRL_1);
+    tmp |= RF_XAH_CTRL_1__AACK_ACK_TIME;
+    reg_write(RF_REG__XAH_CTRL_1, tmp);
+
     /* enable interrupts */
     reg_write(RF_REG__IRQ_MASK, RF_IRQ_STATUS_MASK__TRX_END | RF_IRQ_STATUS_MASK__CCA_ED_DONE);// | RF_IRQ_STATUS_MASK__RX_START);
 
@@ -251,16 +257,7 @@ void RF::tx_prepare()
     assert_awake();
     uint8_t state;
 
-    /* make sure ongoing transmissions are finished */
-    do {
-        state = get_state();
-    }
-    while (state == RF_STATE_BUSY_TX_ARET);
-
-    if (state != RF_STATE_TX_ARET_ON)
-    {
-        set_state(RF_STATE_TX_ARET_ON);
-    }
+    set_state(RF_STATE_TX_ARET_ON);
 
     frame_len = IEEE802154_FCS_LEN;
 }

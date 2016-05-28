@@ -570,7 +570,6 @@ enum status_code eeprom_emulator_init(void)
 	struct nvm_config config;
 	struct nvm_parameters parameters;
 
-#if 0
 	/* Retrieve the NVM controller configuration - enable manual page writing
 	 * mode so that the emulator has exclusive control over page writes to
 	 * allow for caching */
@@ -581,8 +580,8 @@ enum status_code eeprom_emulator_init(void)
 	do {
 		error_code = nvm_set_config(&config);
 	} while (error_code == STATUS_BUSY);
-#endif
-	/* Get the NVM controller configuration parameters */
+
+    /* Get the NVM controller configuration parameters */
 	nvm_get_parameters(&parameters);
 
 	/* Ensure the device fuses are configured for at least one master page row,
@@ -984,6 +983,8 @@ void EEPROMClass::init()
         nvm_get_fuses(&fuseBits);
         fuseBits.eeprom_size = NVM_EEPROM_EMULATOR_SIZE_16384;
         nvm_set_fuses(&fuseBits);
+        eeprom_emulator_erase_memory();
+        eeprom_emulator_init();
     }
     else if (error_code != STATUS_OK) {
 

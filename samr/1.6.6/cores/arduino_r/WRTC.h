@@ -51,6 +51,19 @@ typedef void(*voidFuncPtr)(void);
     RTC_MATCH_YYMMDDHHMMSS = RTC_MODE2_MASK_SEL_YYMMDDHHMMSS_Val  // Once, on a specific date and a specific time
   };
 
+typedef struct __attribute__((packed)){
+    union {
+        struct {
+            uint32_t second : 6;
+            uint32_t minute : 6;
+            uint32_t hour   : 5;
+            uint32_t day    : 5;
+            uint32_t month  : 4;
+            uint32_t year   : 6;
+        };                      /**< hidden structure, used for union allocation. */
+        uint32_t FIELD;         /**< Value used for faster compare between two structures. */
+    };
+}calendar_struct;
 
 class WRTC {
 public:

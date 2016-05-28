@@ -45,18 +45,18 @@
  * @brief   Transition time from SLEEP to TRX_OFF in us, refer figure 7-4, p.42.
  *          For different environments refer figure 13-13, p.201
  */
-#define RF_WAKEUP_DELAY          (500U)
+#define RF_WAKEUP_DELAY          (1200U)
 
 /**
  * @brief   Minimum reset pulse width, refer p.190
  */
-#define RF_RESET_PULSE_WIDTH     (1U)
+#define RF_RESET_PULSE_WIDTH     (10U)
 
 /**
  * @brief   Transition time to TRX_OFF after reset pulse in us, refer
  *          figure 7-8, p. 44.
  */
-#define RF_RESET_DELAY           (26U)
+#define RF_RESET_DELAY           (100U)
 
 typedef struct radio_buffer
 {
@@ -418,11 +418,12 @@ class RF
     uint64_t addr_long;               /**< the radio's long address */
     uint16_t options;                   /**< state of used options */
     uint8_t tx_power;
+    bool initialized;
+
     void initDefaults();
     void receiveData();
     void eventHandler();
 
-    bool initialized = false;
     /**
      * @brief   Trigger a clear channel assessment
      *

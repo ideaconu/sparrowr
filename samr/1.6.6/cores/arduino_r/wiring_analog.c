@@ -23,8 +23,8 @@
 extern "C" {
 #endif
 
-static int _readResolution = 10;
-static int _ADCResolution = 10;
+static int _readResolution = 12;
+static int _ADCResolution = 12;
 static int _writeResolution = 8;
 
 // Wait for synchronization of registers between the clock domains
