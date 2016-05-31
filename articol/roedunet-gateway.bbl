@@ -1,0 +1,52 @@
+\begin{thebibliography}{1}
+
+\bibitem{arampatzis2005survey}
+T.~Arampatzis, J.~Lygeros, and S.~Manesis.
+\newblock A survey of applications of wireless sensors and wireless sensor
+  networks.
+\newblock In {\em Intelligent Control, 2005. Proceedings of the 2005 IEEE
+  International Symposium on, Mediterrean Conference on Control and
+  Automation}, pages 719--724. IEEE, 2005.
+
+\bibitem{xyls}
+S.~M. Das, H.~Pucha, and Y.~C. Hu.
+\newblock Performance comparison of scalable location services for geographic
+  ad hoc routing.
+\newblock In {\em INFOCOM 2005. 24th Annual Joint Conference of the IEEE
+  Computer and Communications Societies. Proceedings IEEE}, volume~2, pages
+  1228--1239. IEEE, 2005.
+
+\bibitem{lbd}
+E.~B. Hamida and G.~Chelius.
+\newblock A line-based data dissemination protocol for wireless sensor networks
+  with mobile sink.
+\newblock In {\em Communications, 2008. ICC'08. IEEE International Conference
+  on}, pages 2201--2205. IEEE, 2008.
+
+\bibitem{dirduf}
+C.~Intanagonwiwat, R.~Govindan, and D.~Estrin.
+\newblock Directed diffusion: a scalable and robust communication paradigm for
+  sensor networks.
+\newblock In {\em Proceedings of the 6th annual international conference on
+  Mobile computing and networking}, pages 56--67. ACM, 2000.
+
+\bibitem{savarese2001location}
+C.~Savarese, J.~M. Rabaey, and J.~Beutel.
+\newblock Location in distributed ad-hoc wireless sensor networks.
+\newblock In {\em Acoustics, Speech, and Signal Processing, 2001.
+  Proceedings.(ICASSP'01). 2001 IEEE International Conference on}, volume~4,
+  pages 2037--2040. IEEE, 2001.
+
+\bibitem{steenkamp2009wireless}
+L.~Steenkamp, S.~Kaplan, and R.~H. Wilkinson.
+\newblock Wireless sensor network gateway.
+\newblock In {\em AFRICON, 2009. AFRICON'09.}, pages 1--6. IEEE, 2009.
+
+\bibitem{ttdd}
+F.~Ye, H.~Luo, J.~Cheng, S.~Lu, and L.~Zhang.
+\newblock A two-tier data dissemination model for large-scale wireless sensor
+  networks.
+\newblock In {\em Proceedings of the 8th annual international conference on
+  Mobile computing and networking}, pages 148--159. ACM, 2002.
+
+\end{thebibliography}

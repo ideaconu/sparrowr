@@ -1,0 +1,36 @@
+\label{chap:arch}
+
+
+
+\subsection{\textit{Hardware}}
+
+Because not all sensors are designed to run at 1v8 up to 3v3, we need to be able to dynamically change the operating voltage of the node. We used TPS62742, a step-down switching DC/DC converter with up to 95% efficiency, voltage selectable output from 1v8 to 3v2 with 200mV step, 360nA quiescent current and a special mcu controllable load output, with push-pull transistors. In inactive state the load line is pulled to GND and when active is pulled to VCC. When active it consume 12uA, but compared to the controlled sensors, this should not be noticeable. Because this allows to completely power down the sensors, the "stand-by" power consumption is 0uA and it also eliminates the previous design problem of floating GND which allowed the sensors to "steal" power from other pins and not be properly disabled.
+
+The node can be conneted to an extension daughter board which respects 100% the Arduino pinout. This allows to easily test and prototype new configurations in order to be able to deliver the best results in shortest time. Also existing hardware designed for Arduino can work with this board, which increased the number of compatible hardware.
+
+\subsection{\textit{Software}}
+
+The SAMR21 micro-controller is 95% compatible with SAMD21 micro-controller, which is used in Arduino Zero boards. Thanks to this, the Arduino Zero represented the foundation of the new platform, self titled Arduino Zero RF.
+
+Even thought the Arduino software is well designed, it was not designed with low power approach from the beginning. We will describe some of the problems encountered when trying to create the software stack.
+
+The first problem noticed was that the Arduino Zero board had no sleep functionality implemented. The ideal idle power consumption should have been less than 5uA, tested and measured using a project created in Atmel Studio 7.0. The power consumption of the board was around 350uA. We dig deeper and discovered that the USB device was always initialized, witch accounted for the extra 200 uA. The rest of 150uA came from a default initializations of the pins as input pins, but this only lowered the power consumption to about 60uA. We kept searching for a cause, and discovered that the clock generators are never disabled at start-up, which accounted for about 30uA.
+
+So far we managed to decrease the idle power consumption for the platform from 350uA to about 30uA @ 3v2, but still far from ideal. Surprisingly, lowering the voltage to 1v8 lead to a 3.3uA sleep power consumption and when examining the power trace using a digital oscilloscope, we found that for some reason, a clock remains active, leading which at 3v2 leads to high spikes in power consumption.
+
+Event tough we did not reach the goal of 5uA, we still reached a respectable 30uA @ 3v2 and less than 4 uA @1v8. Due to the little time remaining and the need to use the nodes in order to implement and test new features, we decided that for now this is acceptable, and for future revisions, we will come back and find the wild clock source.
+
+Even the run power consumption was not ideal, instead of achieving the promised 70uA/MHz @ 3v2, which would have lead to around 3.5mA power consumption of the CPU, the micro-controller consumed 8mA @ 48MHz. We managed to reduce the power consumption to 5.5mA @ 48MHz, due to clock optimizations presented bellow.
+
+The Peripherals are run at a much lower clock, instead of 48 MHz, we run them at 12 MHz. Also if peripherals are not used, we completely disable them. Due to this, we ran into problems related toSERCOM implementation, a generic module that handle USART, SPI and I2C. It was working on Arduino Zero, because the CPU and the BUS were configured at the same speed, but due to some clock source modifications, the SERCOM did not set the correct speed. Also, there are 6 SERCOMs, and instead of enabling the clock for each one only when it is used, all of them were enabled, which lead to extra power consumption during run time.
+
+We implemented in the platform architecture special modules, designed for low power like a sleep implementation, power management which can dynamical change the running voltage between 1v8 to 3v2. This allows the user to select which voltage is better required for applications. For example, some sensor must be run at exactly 2v8 or other run at 2v5 or higher. This module allows for precise voltage selection, use the sensor, and then switch to the lowest voltage in order to obtain the best power consumption possible.
+
+The RF module is AT86RF233, integrated into the micro-controller. We integrated a module for the RF in the core of the platform, in order to let the user focus on what to do with the platform and not how to do something with it. For example, in case the RF is constantly running in receive mode for more than 5 minutes, than it is recommended to do Fine Tuning of the PLL clock in order to eliminate possible clock skews. Also, the module automatically receives a packet, saves it locally together with RSSI and LQI, which can be later read and used buy the user. The internal buffer is designed for 8 packets of 127KB of data, which amounts for 1 KB of ram. The buffer is cyclic, so in case the buffer is not read, the oldest data is discarded and replaced by a new one. This should not happen very often, because the buffer is large enough to handle all request, even for high bandwidth transfers.
+
+In order to be able to save data locally, the micro-controller has an EEPROM like functionality which allows a 16KB region of flash to emulate flash write endurance. The flash contains pages of 64 bytes, and the EEPROM has an overhead of 4 bytes, which leaves 60 bytes for actual data. Also, for each page, another page must be reserved for further use. This means that out of 16KB used, the total amount of usable space left is (16*1024 / 2) * 60/64 = 7680 bytes. This should be more than enough for normal use. This approach rases the 25k cycles of flash write and erase to at least 100k, with typical values reaching 600k cycles.  For the moment, the EEPROM zone is completely erased when programming the node.
+
+For timekeeping when sleeping, RTC functionality was implemented. Besides keeping the time, RTC provides alarm interrupts for a special dates, which can be configured to be triggered every minute, every hour, every day, every month, every year, or only once, ever. Together with another peripheral EventSys, periodic interrupts are provided also, interrupts that can range from once very second up to 128 times per seconds, with increments of power base 2.
+
+Because the software and hardware are not perfect, a watchdog functionality is also implemented, in order to avoid code lock-up or hardware failure due to extreme environment conditions.
+

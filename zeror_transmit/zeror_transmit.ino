@@ -110,10 +110,10 @@ void calculateSolar()
     current_solar.solar_voltage = 1800;
     current_solar.send_freq = 3600;
     prev_minute = current_minute;
-  //}
+  }
   
-  //if (current_hour != prev_hour)
-  //{
+  if (current_hour != prev_hour)
+  {
     current_solar.calendar.year = rtc.getYear();
     current_solar.calendar.month = rtc.getMonth();
     current_solar.calendar.day = rtc.getDay();

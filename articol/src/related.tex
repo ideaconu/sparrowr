@@ -1,0 +1,18 @@
+Nodes for wireless sensor networks have been created in the past ( voinescu), V3.2 is a successful
+iteration based on Atmel Atmega128RFA1. Pared with the node, a dongle can be connected to a
+computer using an usb port which allows the PC to act as a gateway for the network of nodes. Even
+though the node is very low power, developing new applications on the node is very complicated. The
+only way to program a node is using an ISP programmer. For debugging a JTAG must be used or a FTDI
+for simple printf information display. Also, adding new hardware is very difficult, the expansions
+    capabilities are limited which leads to using only the existing sensors mounted on the node.
+
+The next iteration, the Sparrow V4 tried to fix the development environment by being Arduino
+compatible. This removed the necessity of using an ISP for programming and having a simple printf
+option via FTDI. The limited expansing capabilities are still an issue and unfortunately, the node
+has a very high power consumption.
+
+
+Tried this before using previous versions of sparrow. Sparrow E did not start on battery. Sparrow
+V4.x has major power consumption problems , the idle power is 6.6mW. They are Arduino compatible but the platform is not fully tested and compatible with the processor.
+
+The Arduino software not fully developed and hardware with designs flaws.

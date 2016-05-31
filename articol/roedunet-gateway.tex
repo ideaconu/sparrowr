@@ -1,0 +1,78 @@
+% vim: set tw=78 sts=2 sw=2 ts=8 aw et ai:
+\documentclass[conference]{IEEEtran}
+
+\usepackage{ucs}
+\usepackage{url}
+\usepackage[utf8x]{inputenc}
+\usepackage[english]{babel}
+%\usepackage{hyperref}	  % use \url{http://$URL} or \href{http://$URL}{Name}
+\usepackage{underscore}	  % underscores need not be escaped
+\usepackage{subfigure}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{parskip}
+\usepackage{flushend}
+
+% Support for including graphics
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\begin{document}
+
+\title{Mobile Gateway for Wireless Sensor Networks utilizing drones}
+
+\author{
+\IEEEauthorblockN{Ioan Deaconu, Andrei Voinescu}
+\IEEEauthorblockA{
+  Automatic Control and Computers Faculty\\
+  University Politehnica of Bucharest,\\
+  \{ioan.deaconu@cti.pub.ro, andrei.voinescu@cs.pub.ro\}}
+  }
+
+
+\maketitle
+
+\begin{abstract}
+\input{src/abstract}
+\end{abstract}
+
+\begin{IEEEkeywords}
+gateway, wireless sensor networks, drone
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:introduction}
+\input{src/introduction}
+
+\section{Related Work}
+\label{sec:related}
+\input{src/related}
+
+\section{System architecture}
+\label{sec:architecture}
+\input{src/architecture}
+
+\section{Implementation}
+\label{sec:implementation}
+\input{src/implementation}
+
+
+\section{Results}
+\label{sec:results}
+\input{src/results}
+
+\section{Future work}
+\label{sec:future}
+\input{src/future}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\input{src/conclusion}
+
+
+
+\bibliographystyle{abbrv}
+\bibliography{roedunet-gateway}
+
+\end{document}
