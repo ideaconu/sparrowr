@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.9)  31 MAY 2016 22:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.9)  6 JUN 2016 23:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -260,13 +260,44 @@ Package: flushend 1997/10/01
 \@extra@skip=\dimen129
 \@nd@page@rule=\dimen130
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mathtools.sty
+Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks36
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count110
+\calc@Bcount=\count111
+\calc@Adimen=\dimen131
+\calc@Bdimen=\dimen132
+\calc@Askip=\skip56
+\calc@Bskip=\skip57
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count112
+\calc@Cskip=\skip58
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mh/mhsetup.sty
+Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count113
+\l_MT_multwidth_dim=\dimen133
+\origjot=\skip59
+\l_MT_shortvdotswithinadjustabove_dim=\dimen134
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen135
+\l_MT_above_intertext_sep=\dimen136
+\l_MT_below_intertext_sep=\dimen137
+\l_MT_above_shortintertext_sep=\dimen138
+\l_MT_below_shortintertext_sep=\dimen139
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
@@ -287,42 +318,42 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count110
+\Gread@gobject=\count114
 ))
-\Gin@req@height=\dimen131
-\Gin@req@width=\dimen132
+\Gin@req@height=\dimen140
+\Gin@req@width=\dimen141
 )
 (./roedunet-gateway.aux)
 \openout1 = `roedunet-gateway.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen133
+\scratchcounter=\count115
+\scratchdimen=\dimen142
 \scratchbox=\box35
-\nofMPsegments=\count112
-\nofMParguments=\count113
+\nofMPsegments=\count116
+\nofMParguments=\count117
 \everyMPshowfont=\toks37
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen134
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen143
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks38
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -371,45 +402,73 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 34.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 34.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 35.
  (./src/abstract.tex) (./src/introduction.tex) (./src/related.tex
-Underfull \hbox (badness 10000) in paragraph at lines 11--19
-[]\OT1/ptm/m/n/10 Two-Tier Data Dissemination[[]], Line-Based
+<img/sparrowv32.jpg, id=1, 1284.8pt x 915.42pt>
+File: img/sparrowv32.jpg Graphic file (type jpg)
+ <use img/sparrowv32.jpg>
+Package pdftex.def Info: img/sparrowv32.jpg used on input line 10.
+(pdftex.def)             Requested size: 258.0pt x 183.82106pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 10--11
+ [][] 
  []
 
+<img/sparrowv4.jpg, id=2, 2529.45pt x 2360.82pt>
+File: img/sparrowv4.jpg Graphic file (type jpg)
+ <use img/sparrowv4.jpg>
+Package pdftex.def Info: img/sparrowv4.jpg used on input line 29.
+(pdftex.def)             Requested size: 258.0pt x 240.77884pt.
 
-Underfull \hbox (badness 5548) in paragraph at lines 11--19
-\OT1/ptm/m/n/10 Dissemination[[]] are pro-to-cols with mo-bile sinks for
+Overfull \hbox (6.0pt too wide) in paragraph at lines 29--30
+ [][] 
  []
 
 ) (./src/architecture.tex [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]) (./src/implementation.tex
-<img/dronedongle.jpg, id=11, 2071.74pt x 1119.18124pt>
-File: img/dronedongle.jpg Graphic file (type jpg)
+ <./img/sparrowv32.jpg>] <img/sparrowrf.jpg, id=13, 2429.075pt x 2019.545pt>
+File: img/sparrowrf.jpg Graphic file (type jpg)
 
-<use img/dronedongle.jpg>
-Package pdftex.def Info: img/dronedongle.jpg used on input line 6.
-(pdftex.def)             Requested size: 232.19843pt x 125.43283pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 10.
+<use img/sparrowrf.jpg>
+Package pdftex.def Info: img/sparrowrf.jpg used on input line 40.
+(pdftex.def)             Requested size: 258.0pt x 214.47751pt.
 
+Overfull \hbox (6.0pt too wide) in paragraph at lines 40--41
+ [][] 
+ []
+
+[2 <./img/sparrowv4.jpg> <./img/sparrowrf.jpg>]
+<img/base-with-sensor.jpg, id=17, 2818.53pt x 2356.805pt>
+File: img/base-with-sensor.jpg Graphic file (type jpg)
+
+<use img/base-with-sensor.jpg>
+Package pdftex.def Info: img/base-with-sensor.jpg used on input line 83.
+(pdftex.def)             Requested size: 258.0pt x 215.73544pt.
+
+Overfull \hbox (6.0pt too wide) in paragraph at lines 83--84
+ [][] 
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 114.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 10.
+LaTeX Font Info:    Try loading font information for U+msb on input line 114.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2 <./img/dronedongle.jpg>]) (./src/results.tex) (./src/future.tex) (./src/co
-nclusion.tex)
-(./roedunet-gateway.bbl)
+)) (./src/results.tex
+Underfull \vbox (badness 2698) has occurred while \output is active []
+
+ [3 <./img/base-with-sensor.jpg>]) (./src/conclusion.tex) (./roedunet-gateway.b
+bl [4])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -421,33 +480,42 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Extra height:0.0pt when 649.89822pt
-(2)Left:649.89822pt Right:645.23183pt Output:649.89822pt
+Extra height:12.0pt when 48.79095pt
+Extra height:12.0pt when 49.79095pt
+Extra height:12.0pt when 50.79095pt
+Extra height:12.0pt when 51.79095pt
+Extra height:0.0pt when 52.79095pt
+(2)Left:52.79095pt Right:52.73193pt Output:52.79095pt
 - LAST -
 Extra skip:0.0pt
-Left:649.89822pt
-Right:645.23183pt
-Output:649.89822pt
-[3] (./roedunet-gateway.aux) ) 
+Left:52.79095pt
+Right:52.73193pt
+Output:52.79095pt
+[5
+
+] (./roedunet-gateway.aux) ) 
 Here is how much of TeX's memory you used:
- 4183 strings out of 493304
- 61542 string characters out of 6139871
- 155934 words of memory out of 5000000
- 7521 multiletter control sequences out of 15000+600000
- 35842 words of font info for 71 fonts, out of 8000000 for 9000
+ 4739 strings out of 493304
+ 71094 string characters out of 6139871
+ 153438 words of memory out of 5000000
+ 8063 multiletter control sequences out of 15000+600000
+ 38942 words of font info for 83 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,8n,26p,947b,291s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/ba
-se/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-times/utmri8a.pfb>
-Output written on roedunet-gateway.pdf (3 pages, 499367 bytes).
+ 37i,8n,26p,346b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base
+/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
+imes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on roedunet-gateway.pdf (5 pages, 5426785 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 27 compressed objects within 1 object stream
+ 65 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,18 +1,34 @@
-Nodes for wireless sensor networks have been created in the past ( voinescu), V3.2 is a successful
-iteration based on Atmel Atmega128RFA1. Pared with the node, a dongle can be connected to a
-computer using an usb port which allows the PC to act as a gateway for the network of nodes. Even
+Nodes for wireless sensor networks have been created in the past \cite{voinescu2013lightweight}, V3.2 is a successful
+iteration based on Atmel Atmega128RFA1. Paired with the node, a dongle can be connected to a
+computer using an USB port which allows the PC to act as a gateway for the network of nodes. Even
 though the node is very low power, developing new applications on the node is very complicated. The
 only way to program a node is using an ISP programmer. For debugging a JTAG must be used or a FTDI
 for simple printf information display. Also, adding new hardware is very difficult, the expansions
-    capabilities are limited which leads to using only the existing sensors mounted on the node.
+capabilities are limited which leads to using only the existing sensors mounted on the node.
 
-The next iteration, the Sparrow V4 tried to fix the development environment by being Arduino
+\begin{figure}[ht] \centering
+\includegraphics[width=0.5\textwidth]{img/sparrowv32.jpg}
+\caption{Sparrow V3.2 with gateway and programming base board}
+\end{figure}
+
+
+The next iteration, the Sparrow V4 based on the same microcontroller as Sparrow V3.2, tried to fix the development environment by being Arduino
 compatible. This removed the necessity of using an ISP for programming and having a simple printf
-option via FTDI. The limited expansing capabilities are still an issue and unfortunately, the node
-has a very high power consumption.
+option via FTDI. The limited expansing capabilities are still an issue and, unfortunately, the node
+has a very high power consumption of between 400uA up to 1.5mA when in deep sleep.
+
+Another problem is that Sparrow is directly powered from an external source, which we must make
+sure it is between 1v8 and 3v6, depending on the sensors maximum operating voltage, otherwise there
+is a change for some components to be destroyed. Because the
+microcontroller has an internal LDO, it will have the same current consumption regardless of the
+operating voltage resulting in the power consumption to vary between 7.4mW up to 14.8mW for the cpu
+and between 32.5mW up to 65mW when transmitting data. Also, the power for on-board sensors is cut
+using an mosfet-N on the common GND line. Due to this, some sensors can "borrow" the GND from
+digital pins which increases the power consumption.
+\begin{figure}[ht] \centering
+\includegraphics[width=0.5\textwidth]{img/sparrowv4.jpg}
+\caption{Sparrow V4 with programming base board}
+\end{figure}
 
 
-Tried this before using previous versions of sparrow. Sparrow E did not start on battery. Sparrow
-V4.x has major power consumption problems , the idle power is 6.6mW. They are Arduino compatible but the platform is not fully tested and compatible with the processor.
 
-The Arduino software not fully developed and hardware with designs flaws.

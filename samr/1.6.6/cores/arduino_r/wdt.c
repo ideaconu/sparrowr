@@ -102,8 +102,9 @@ int wdt_init()
 
 	uint32_t new_config = 0;
 
+    /* Set to 4 seconds, for low power when getting stuck */
 	/* Update the timeout period value with the requested period */
-	new_config |= (WDT_PERIOD_16384CLK - 1) << WDT_CONFIG_PER_Pos;
+	new_config |= (WDT_PERIOD_1024CLK - 1) << WDT_CONFIG_PER_Pos;
 
 #if 0
 	/* Check if the user has requested a reset window period */

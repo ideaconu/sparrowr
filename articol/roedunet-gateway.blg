@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: roedunet-gateway.aux
 The style file: abbrv.bst
 Database file #1: roedunet-gateway.bib
-You've used 7 entries,
+Warning--to sort, need author or key in rf233
+You've used 2 entries,
             2118 wiz_defined-function locations,
-            539 strings with 5375 characters,
-and the built_in function-call counts, 3551 in all, are:
-= -- 382
-> -- 131
-< -- 9
-+ -- 54
-- -- 44
-* -- 221
-:= -- 507
-add.period$ -- 28
-call.type$ -- 7
-change.case$ -- 43
+            507 strings with 4058 characters,
+and the built_in function-call counts, 610 in all, are:
+= -- 61
+> -- 19
+< -- 1
++ -- 9
+- -- 6
+* -- 33
+:= -- 92
+add.period$ -- 7
+call.type$ -- 2
+change.case$ -- 9
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 161
-empty$ -- 288
-format.name$ -- 44
-if$ -- 822
+cite$ -- 3
+duplicate$ -- 26
+empty$ -- 59
+format.name$ -- 6
+if$ -- 139
 int.to.chr$ -- 0
-int.to.str$ -- 7
-missing$ -- 7
-newline$ -- 38
-num.names$ -- 14
-pop$ -- 62
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 13
+num.names$ -- 2
+pop$ -- 19
 preamble$ -- 1
-purify$ -- 36
+purify$ -- 7
 quote$ -- 0
-skip$ -- 129
+skip$ -- 17
 stack$ -- 0
-substring$ -- 262
-swap$ -- 79
-text.length$ -- 9
+substring$ -- 27
+swap$ -- 8
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 0
-while$ -- 35
-width$ -- 8
-write$ -- 88
+type$ -- 8
+warning$ -- 1
+while$ -- 5
+width$ -- 3
+write$ -- 23
+(There was 1 warning)
