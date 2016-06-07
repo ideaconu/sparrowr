@@ -185,16 +185,7 @@ static inline bool wdt_is_early_warning(void)
 
 void wdt_reset_count(void);
 
-static inline void wdt_clear_counter(int minutes)
-{
-    static int last_minutes = 0;
-
-    if (minutes != last_minutes)
-    {
-        last_minutes = minutes;
-        wdt_reset_count();
-    }
-}
+void wdt_clear_counter(int minutes);
 
 
 /** @} */

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.9)  6 JUN 2016 23:16
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.9)  7 JUN 2016 19:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -423,10 +423,10 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 10--11
 <img/sparrowv4.jpg, id=2, 2529.45pt x 2360.82pt>
 File: img/sparrowv4.jpg Graphic file (type jpg)
  <use img/sparrowv4.jpg>
-Package pdftex.def Info: img/sparrowv4.jpg used on input line 29.
+Package pdftex.def Info: img/sparrowv4.jpg used on input line 30.
 (pdftex.def)             Requested size: 258.0pt x 240.77884pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 29--30
+Overfull \hbox (6.0pt too wide) in paragraph at lines 30--31
  [][] 
  []
 
@@ -449,26 +449,33 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 40--41
 File: img/base-with-sensor.jpg Graphic file (type jpg)
 
 <use img/base-with-sensor.jpg>
-Package pdftex.def Info: img/base-with-sensor.jpg used on input line 83.
+Package pdftex.def Info: img/base-with-sensor.jpg used on input line 82.
 (pdftex.def)             Requested size: 258.0pt x 215.73544pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 83--84
+Overfull \hbox (6.0pt too wide) in paragraph at lines 82--83
  [][] 
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 114.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 113.
+
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 114.
+LaTeX Font Info:    Try loading font information for U+msb on input line 113.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) (./src/results.tex
-Underfull \vbox (badness 2698) has occurred while \output is active []
+) [3 <./img/base-with-sensor.jpg>]) (./src/results.tex) (./src/conclusion.tex)
+(./roedunet-gateway.bbl [4]
+Underfull \hbox (badness 10000) in paragraph at lines 14--17
+[]\OT1/ptm/m/n/8 Atmel samd21 datasheet.  $http : / / www . atmel . com / image
+s /
+ []
 
- [3 <./img/base-with-sensor.jpg>]) (./src/conclusion.tex) (./roedunet-gateway.b
-bl [4])
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -480,28 +487,33 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-Extra height:12.0pt when 48.79095pt
-Extra height:12.0pt when 49.79095pt
-Extra height:12.0pt when 50.79095pt
-Extra height:12.0pt when 51.79095pt
-Extra height:0.0pt when 52.79095pt
-(2)Left:52.79095pt Right:52.73193pt Output:52.79095pt
+Extra height:12.0pt when 92.29095pt
+Extra height:12.0pt when 93.29095pt
+Extra height:12.0pt when 94.29095pt
+Extra height:12.0pt when 95.29095pt
+Extra height:12.0pt when 96.29095pt
+Extra height:12.0pt when 97.29095pt
+Extra height:12.0pt when 98.29095pt
+Extra height:12.0pt when 99.29095pt
+Extra height:12.0pt when 100.29095pt
+Extra height:0.0pt when 101.29095pt
+(2)Left:101.29095pt Right:100.73193pt Output:101.29095pt
 - LAST -
 Extra skip:0.0pt
-Left:52.79095pt
-Right:52.73193pt
-Output:52.79095pt
+Left:101.29095pt
+Right:100.73193pt
+Output:101.29095pt
 [5
 
 ] (./roedunet-gateway.aux) ) 
 Here is how much of TeX's memory you used:
- 4739 strings out of 493304
- 71094 string characters out of 6139871
- 153438 words of memory out of 5000000
- 8063 multiletter control sequences out of 15000+600000
- 38942 words of font info for 83 fonts, out of 8000000 for 9000
+ 4745 strings out of 493304
+ 71155 string characters out of 6139871
+ 153454 words of memory out of 5000000
+ 8069 multiletter control sequences out of 15000+600000
+ 39449 words of font info for 84 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 37i,8n,26p,346b,326s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,26p,346b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base
 /8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
@@ -512,7 +524,7 @@ dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on roedunet-gateway.pdf (5 pages, 5426785 bytes).
+Output written on roedunet-gateway.pdf (5 pages, 5426763 bytes).
 PDF statistics:
  65 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream

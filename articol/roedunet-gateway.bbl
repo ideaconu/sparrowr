@@ -1,9 +1,30 @@
 \begin{thebibliography}{1}
 
+\bibitem{arduino}
+Arduino.
+\newblock \url{https://www.arduino.cc}.
+\newblock Accessed: 2016-06-05.
+
 \bibitem{rf233}
 Arduino-at86rf233.
 \newblock \url{https://github.com/msolters/arduino-at86rf233}.
 \newblock Accessed: 2016-06-05.
+
+\bibitem{samd21}
+Atmel samd21 datasheet.
+\newblock \url{http://www.atmel.com/images/atmel-42181-sam-d21_datasheet.pdf}.
+\newblock Accessed: 2016-06-05.
+
+\bibitem{samr21}
+Atmel samr21 datasheet.
+\newblock
+  \url{http://www.atmel.com/Images/Atmel-42223%E2%80%93SAM-R21_Datasheet.pdf}.
+\newblock Accessed: 2016-06-05.
+
+\bibitem{geo}
+M.~Andrei-Alexandru, T.~Dan, and D.~Ioan.
+\newblock Geodynamics monitorization using wireless sensor networks.
+\newblock {\em CSCS}, 2015.
 
 \bibitem{voinescu2013lightweight}
 A.~Voinescu, D.~Tudose, and D.~Dragomir.

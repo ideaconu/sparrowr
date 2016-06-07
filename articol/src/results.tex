@@ -4,28 +4,27 @@
 \subsection{Power Consumption}
 
 Because the node was designed with low power in mind, we can obtain a very low deep sleep power
-consumption of 5uW. This means that we can use a small solar panel together with a
-small capacitor to act as the main power supply.
+consumption of 5uW. A small solar panel together with a
+small capacitor can be used as the main power supply.
 
-For example, if a 1F capacitor is use with the voltage ranging from 3v3 to 2v1 for complete
-discharge, the equivalent battery capacity would be
+For example, when a 1F capacitor is used with the voltage ranging from 3v3 to 2v1 the equivalent battery capacity would be
 
 $$ \frac{F * (Vi - Vf)}{t} = \frac{1F * (3.3V - 2.1V)}{3600s} = 0.333mAh$$
 
-The node is equipped with a DC/DC converter with can bring substantial power savings, depending on
+The node is equipped with a DC/DC converter that can bring substantial power savings, depending on
 the voltage of the power supply. A LDO wastes a lot off energy as the delta between the
 voltages increases, were as DC/DC works best when the delta increases, or putting it simple, if an
 LDO ouputs 1v8 and a chip consumes 5mA, the input current is almost the sam 5mA regardless of the
-input voltage. So event though the chip consumes 9mW, the total power consumed is actually 25mW. If
+input voltage. So even though the chip consumes 9mW, the total power consumed is actually 25mW. If
 in the same situation, a DC/DC with a 90\% efficiency is used, then the input current would be :
 $$Iin = \frac{Iout * Vout}{Vin*Efficiency} = \frac{5mA * 1.8V*100}{5v*90}= 2mA$$
 
 
 we can ignore the quiescent current because it is very small, around 360nA. The total power
-consumption in this case is 10mW for an output power of 9mW compared with the LDO which consume
+consumption in this case is 10mW for an output power of 9mW compared with the LDO which consumes
 25mW in order to output just 9mW, a 250\% difference between them.
 
-In real world situation, when a battery or a capacitor is used, the difference between them is
+In a real world situation, when a battery or a capacitor is used, the difference between them is
 smaller. We will present two cases, in order to better understand the influence of higher
 voltage supply.
 
@@ -36,11 +35,11 @@ Case 1: Capacitor charged to 3v3.
 
 $$T_{LDO} = \frac{C * (V_i - V_f)}{I}=\frac{1F * (3.3V - 1.9V)}{5.5mA} = 254.45s $$
 
-$$E_i = \frac{C*V_i^2}{2} = \frac{1f*3.3v^2}{2} =5.445J$$
-$$E_f = \frac{C*V_f^2}{2} = \frac{1f*2.1v^2}{2} =2.205J$$
+$$E_i = \frac{C*V_i^2}{2} = \frac{1f*(3.3V)^2}{2} =5.445J$$
+$$E_f = \frac{C*V_f^2}{2} = \frac{1f*(2.1V)^2}{2} =2.205J$$
 $$E = E_i - E_f = 3.24J$$
 $$P = V*I*E_{fficiency }= \frac{1.8V * 5.5mA * 90}{100} = 11mW$$
-$$T_{DC} = \frac{E}{P} = \frac{3.24J}{11mW} =294.54S $$
+$$T_{DC} = \frac{E}{P} = \frac{3.24J}{11mW} =294.54s $$
 
 $$Advantage = \frac{T_{DC} - T_{LDO}}{T_{LDO}} = \frac{294.54s - 254.45s}{254.45s} = 15.7\%$$
 
@@ -48,26 +47,26 @@ Case 2: Capacitor charged to 5v.
 
 $$T_{LDO} = \frac{C * (V_i - V_f)}{I}=\frac{1F * (5V - 1.9V)}{5.5mA} = 527.27s $$
 
-$$E_i = \frac{C*V_i^2}{2} = \frac{1f*5v^2}{2} =12.5J$$
+$$E_i = \frac{C*V_i^2}{2} = \frac{1f*(5V)^2}{2} =12.5J$$
 $$E = E_i - E_f = 10.295J$$
-$$T_{DC} = \frac{E}{P} = \frac{3.24J}{11mW} =935.91S $$
+$$T_{DC} = \frac{E}{P} = \frac{3.24J}{11mW} =935.91s $$
 
 $$Advantage = \frac{T_{DC} - T_{LDO}}{T_{LDO}} = \frac{935.91s - 527.27s}{527.27s} = 77.5\%$$
 
-At 3.3V the advantage is not that big, but at 5V we nearly double the battery life. Using a LIPO
-battery which does not discharge as linearly as the capacitor, will furthermore increase the
+At 3.3V the advantage is not that big, but at 5V we nearly double the battery life. Furthermore, using a LIPO
+battery which does not discharge as linearly as the capacitor will increase the
 advantage of the DC/DC.
 
 In real world testing, we charged a 1F capacitor up to 3v3 and let it discharge by transmitting data every second. Even though the software was not
 optimized for low power, the node managed to run for 8 hours before the capacitor was completely
-discharged with translates to an average power consumption for almost 112uW.
+discharged which translates to an average power consumption for almost 112uW.
 
 
 \subsection{Software}
 
-The software is open source and can it is compatible with Arduino 1.6.x, latest iteration to date,
+The software is packed as a new board that can be installed on Arduino 1.6.x, latest iteration to date,
 May 2016. It was tested using Windows 8.1, but it should be fully compatible with other operating systems as well.
 
-The node has on board native USB which allows for code upload and also serial interface over CDC
-useful for debugging and also for versatility, because the same node can be configured as gateway or
-as leaf.
+The node has native USB which allows for code upload and also serial interface over CDC. Because no
+extra components are needed, the same node can be configured to act as a gateway or
+as a leaf.

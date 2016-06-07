@@ -60,9 +60,13 @@
  * \retval STATUS_ERR_IO  If the Watchdog module is locked to be always on
  */
 
+
+static int last_minutes;
+
 int wdt_init()
 {
-	Wdt *const WDT_module = WDT;
+    last_minutes = -1;
+    Wdt *const WDT_module = WDT;
 
 	/* Turn on the digital interface clock */
     PM->APBAMASK.reg |= PM_APBAMASK_WDT;
@@ -162,12 +166,26 @@ int wdt_init()
  */
 void wdt_reset_count(void)
 {
+
+    while (wdt_is_syncing()) {
+		/* Wait for all hardware modules to complete synchronization */
+	}
+
 	Wdt *const WDT_module = WDT;
 
 	/* Disable the Watchdog module */
 	WDT_module->CLEAR.reg = WDT_CLEAR_CLEAR_KEY;
 
-	while (wdt_is_syncing()) {
-		/* Wait for all hardware modules to complete synchronization */
-	}
 }
+
+void wdt_clear_counter(int minutes)
+{
+
+    if (minutes != last_minutes)
+    {
+        last_minutes = minutes;
+        wdt_reset_count();
+    }
+}
+
+
