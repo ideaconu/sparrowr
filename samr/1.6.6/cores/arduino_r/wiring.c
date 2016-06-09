@@ -91,7 +91,7 @@ void init( void )
 
   while( ADC->STATUS.bit.SYNCBUSY == 1 );          // Wait for synchronization of registers between the clock domains
 
-  ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV256 |    // Divide Clock by 512.
+  ADC->CTRLB.reg = ADC_CTRLB_PRESCALER_DIV128 |    // Divide Clock by 512.
                    ADC_CTRLB_RESSEL_12BIT;         // 10 bits resolution as default
 
   ADC->SAMPCTRL.reg = 0x3f;                        // Set max Sampling Time Length
@@ -101,8 +101,8 @@ void init( void )
   ADC->INPUTCTRL.reg = ADC_INPUTCTRL_MUXNEG_GND;   // No Negative input (Internal Ground)
 
   // Averaging (see datasheet table in AVGCTRL register description)
-  ADC->AVGCTRL.reg = ADC_AVGCTRL_SAMPLENUM_1 |    // 1 sample only (no oversampling nor averaging)
-                     ADC_AVGCTRL_ADJRES(0x0ul);   // Adjusting result by 0
+  ADC->AVGCTRL.reg = ADC_AVGCTRL_SAMPLENUM_32 |    // 1 sample only (no oversampling nor averaging)
+                     ADC_AVGCTRL_ADJRES(0x4ul);   // Adjusting result by 0
 
   analogReference( AR_DEFAULT ) ; // Analog Reference is AREF pin (3.3v)
 

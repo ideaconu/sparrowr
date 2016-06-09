@@ -14,48 +14,18 @@ void setup() {
 
   //Wire.begin();
   
-  pmSetVoltage(3200);
-  USBDevice.init();
-  USBDevice.attach();
-  SerialUSB.begin(9600); 
-  
-  delay(6000);
-
-
-    enum status_code error_code = eeprom_emulator_init();
-    #if 0
-    if (error_code == STATUS_ERR_NO_MEMORY) {
-    #if 1
-        nvm_fusebits fuseBits;
-        nvm_get_fuses(&fuseBits);
-        fuseBits.eeprom_size = NVM_EEPROM_EMULATOR_SIZE_16384;
-        nvm_set_fuses(&fuseBits);
-        eeprom_emulator_erase_memory();
-        eeprom_emulator_init();
-    #endif
-    }
-    #endif
-    SerialUSB.print("test ");
-    SerialUSB.println(error_code);
-    
-    if (error_code != STATUS_OK) {
-
-        SerialUSB.println("not ok ");
-        /* Erase the emulated EEPROM memory (assume it is unformatted or
-        * irrecoverably corrupt) */
-        eeprom_emulator_erase_memory();
-        error_code = eeprom_emulator_init();
-    } 
-
-    SerialUSB.print("test ");
-    SerialUSB.println(error_code);
-
+  //pmSetVoltage(3200);
+  //USBDevice.init();
+  //USBDevice.attach();
+  //SerialUSB.begin(9600); 
+   
   //RFDevice.set_state(RF_STATE_SLEEP);
   //RFDevice.set_state(RF_STATE_TRX_OFF);
     
-  rtc.setAlarmSeconds(0);
-  rtc.enableAlarm(RTC_MATCH_SS);
-  rtc.attachAlarmInterrupt(rtcAlarm);
+  //rtc.setAlarmSeconds(0);
+  //rtc.enableAlarm(RTC_MATCH_SS);
+  //rtc.attachAlarmInterrupt(rtcAlarm);
+  
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(evtPer);
   pinMode(2,OUTPUT); 
@@ -70,8 +40,8 @@ void loop() {
   //Wire.write(x);              // sends one byte  
   //Wire.endTransmission();    // stop transmitting
   //sleep();
-  eeprom_test();
-  //sleep();
+  //eeprom_test();
+  sleep();
   return;
 //  SPI.transfer(0xaa);
 //  SPI.transfer(0xaa);

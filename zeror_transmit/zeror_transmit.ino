@@ -1,6 +1,8 @@
 #define TOTAL_DAYS  (3)
 #define TOTAL_HOURS (TOTAL_DAYS*24)
 
+#define WDT_USER
+
 int sent = 0;
 
 volatile int rtcPeriodic = 0, period;
@@ -14,25 +16,28 @@ typedef struct {
 
 solar_t current_solar;
 
+uint32_t perTime = 0;
 uint8_t current_index;
 
 void setup() {
 
   pmSetVoltage(1800);
-  //enableUSB();
+  enableUSB();
 
   RFDevice.set_state(RF_STATE_TRX_OFF);
   RFDevice.set_chan(20); // set channel to 20
  
+  rtc.setAlarmSeconds(0);
+  rtc.enableAlarm(RTC_MATCH_SS);
+  //rtc.attachAlarmInterrupt(rtcAlarm);
+  
   rtc.enablePeriodicInterrupt(RTC_PER_1);
   rtc.attachPeriodicInterrupt(perInt);
-  initSolar();
+  //initSolar(); 
 }
 
 
 void loop() {
-  calculateSolar();
-  
   if (rtcPeriodic != 0)
   {
     RFDevice.send( (uint8_t*) &current_solar, sizeof(solar_t));
@@ -40,11 +45,24 @@ void loop() {
   
     rtcPeriodic = 0;
   }
+  
   sleep();
+}
+
+void rtcAlarm(void)
+{
+  calculateSolar();
 }
  
 void perInt(void)
 { 
+  perTime ++;
+  wdt_reset_count();
+  
+  if (perTime % 60 == 0)
+  {
+  }
+  
   rtcPeriodic = 1;
   if (period == 0)
   {
@@ -56,6 +74,13 @@ void perInt(void)
     period = 0;
     digitalWrite(2,LOW);
   }
+  
+  digitalWrite(0,HIGH); 
+  int solar = analogRead(0);
+  digitalWrite(0,LOW); 
+   
+  SerialUSB.println(solar*1000*77/40960);
+  //SerialUSB.println(1000*solar/4096);
 }
 
 void initSolar()
@@ -97,20 +122,15 @@ void initSolar()
 
 void calculateSolar()
 {
-  static uint8_t prev_hour = 0;
-  static uint8_t prev_minute = 0;
+  static uint8_t prev_hour = 0; 
   uint8_t current_hour = rtc.getHours();
   uint8_t current_minute = rtc.getMinutes();
   current_solar.calendar.second = rtc.getSeconds();
-  
-  if (prev_minute != current_minute)
-  {
-    current_solar.calendar.minute = current_minute;
-    current_solar.supply_voltage = 1800;
-    current_solar.solar_voltage = 1800;
-    current_solar.send_freq = 3600;
-    prev_minute = current_minute;
-  }
+ 
+  current_solar.calendar.minute = current_minute;
+  current_solar.supply_voltage = 1800;
+  current_solar.solar_voltage = 1800;
+  current_solar.send_freq = 3600; 
   
   if (current_hour != prev_hour)
   {

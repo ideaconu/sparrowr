@@ -93,7 +93,7 @@ int wdt_init()
 	system_gclk_chan_enable(WDT_GCLK_ID);
 #endif
   // Setup clock GCLK4 with OSC32K divided by 128 for 64s period.
-  GCLK->GENDIV.reg = GCLK_GENDIV_ID(4)|GCLK_GENDIV_DIV(6);
+  GCLK->GENDIV.reg = GCLK_GENDIV_ID(4)|GCLK_GENDIV_DIV(1);
   while (GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY)
     ;
   GCLK->GENCTRL.reg = (GCLK_GENCTRL_GENEN | GCLK_GENCTRL_SRC_XOSC32K | GCLK_GENCTRL_ID(4) | GCLK_GENCTRL_DIVSEL | GCLK_GENCTRL_RUNSTDBY);
@@ -108,7 +108,7 @@ int wdt_init()
 
     /* Set to 4 seconds, for low power when getting stuck */
 	/* Update the timeout period value with the requested period */
-	new_config |= (WDT_PERIOD_1024CLK - 1) << WDT_CONFIG_PER_Pos;
+	new_config |= (WDT_PERIOD_16384CLK - 1) << WDT_CONFIG_PER_Pos;
 
 #if 0
 	/* Check if the user has requested a reset window period */

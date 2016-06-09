@@ -24,6 +24,8 @@
 void initVariant() __attribute__((weak));
 void initVariant() { }
 
+static void minute_interrupt(void);
+
 /*
  * \brief Main entry point of Arduino application
  */
@@ -45,15 +47,19 @@ int main( void )
 
   rtc.begin();
 
-  wdt_init();
-
   RFDevice.init();
 
   setup();
 
+  wdt_init();
+
+  wdt_reset_count();
+
   for (;;)
   {
-    wdt_clear_counter(rtc.getMinutes());
+#ifndef WDT_USER
+    wdt_reset_count();
+#endif
     RFDevice.handleEvents();
     loop();
     if (serialEventRun) serialEventRun();
@@ -61,3 +67,4 @@ int main( void )
 
   return 0;
 }
+

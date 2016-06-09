@@ -81,7 +81,6 @@ void RTC_Handler(void)
   if (RTC_callBack != NULL) {
     RTC_callBack();
   }
-
   RTC->MODE2.INTFLAG.reg = RTC_MODE2_INTFLAG_ALARM0; // must clear flag at end
 }
 
