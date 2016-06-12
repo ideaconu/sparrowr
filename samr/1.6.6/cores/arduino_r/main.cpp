@@ -51,15 +51,8 @@ int main( void )
 
   setup();
 
-  wdt_init();
-
-  wdt_reset_count();
-
   for (;;)
   {
-#ifndef WDT_USER
-    wdt_reset_count();
-#endif
     RFDevice.handleEvents();
     loop();
     if (serialEventRun) serialEventRun();

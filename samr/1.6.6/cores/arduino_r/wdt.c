@@ -93,7 +93,7 @@ int wdt_init()
 	system_gclk_chan_enable(WDT_GCLK_ID);
 #endif
   // Setup clock GCLK4 with OSC32K divided by 128 for 64s period.
-  GCLK->GENDIV.reg = GCLK_GENDIV_ID(4)|GCLK_GENDIV_DIV(1);
+  GCLK->GENDIV.reg = GCLK_GENDIV_ID(4)|GCLK_GENDIV_DIV(3);
   while (GCLK->STATUS.reg & GCLK_STATUS_SYNCBUSY)
     ;
   GCLK->GENCTRL.reg = (GCLK_GENCTRL_GENEN | GCLK_GENCTRL_SRC_XOSC32K | GCLK_GENCTRL_ID(4) | GCLK_GENCTRL_DIVSEL | GCLK_GENCTRL_RUNSTDBY);
@@ -171,10 +171,8 @@ void wdt_reset_count(void)
 		/* Wait for all hardware modules to complete synchronization */
 	}
 
-	Wdt *const WDT_module = WDT;
-
 	/* Disable the Watchdog module */
-	WDT_module->CLEAR.reg = WDT_CLEAR_CLEAR_KEY;
+	WDT->CLEAR.reg = WDT_CLEAR_CLEAR_KEY;
 
 }
 

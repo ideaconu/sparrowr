@@ -2,10 +2,24 @@ int received = 0;
 volatile int perEvent = 0;
 
 typedef struct {
-  uint16_t supply_voltage;
-  uint16_t solar_voltage;
-  uint16_t send_freq;
-  calendar_struct calendar;
+  
+  uint16_t start_voltage; //2
+  uint16_t end_voltage; //2
+  uint32_t total_sent; //4
+  uint32_t start_timestamp; //4
+  uint32_t end_timestamp; //4
+  
+  uint32_t target_time; //4
+  
+  uint32_t current_timestamp; //4
+  uint16_t current_voltage; //2
+  
+  uint32_t time_changed; //4
+  uint16_t voltage_changed; //2
+  uint16_t send_freq; //2
+  uint8_t state; //1
+  uint32_t estimated; //4
+  uint32_t remaining; //4
 } solar_t;
 
 void setup() {
@@ -55,30 +69,44 @@ void loop() {
     }
     SerialUSB.println();
 #endif
+
     if (data.len == sizeof(solar_t))
     {
       solar = (solar_t*)data.data;
       SerialUSB.print(received);
       SerialUSB.print(", ");
-      SerialUSB.print(solar->calendar.FIELD);
-      SerialUSB.print(", ");
-      SerialUSB.print(solar->calendar.year);
-      SerialUSB.print(" ");
-      SerialUSB.print(solar->calendar.month);
-      SerialUSB.print(" ");
-      SerialUSB.print(solar->calendar.day);
-      SerialUSB.print(" ");
-      SerialUSB.print(solar->calendar.hour);
-      SerialUSB.print(":");
-      SerialUSB.print(solar->calendar.minute);
-      SerialUSB.print(":");
-      SerialUSB.print(solar->calendar.second);
+      SerialUSB.print(solar->current_timestamp);
       SerialUSB.print(", supply mv: ");
-      SerialUSB.print(solar->supply_voltage);
-      SerialUSB.print(", solare mv: ");
-      SerialUSB.print(solar->solar_voltage);
+      SerialUSB.print(solar->current_voltage);
+      SerialUSB.print(",");
+      SerialUSB.print(solar->state);
       SerialUSB.print(", send freq: ");
       SerialUSB.print(solar->send_freq);
+      SerialUSB.print(", ");
+      SerialUSB.print(solar->voltage_changed);
+      SerialUSB.print(", ");
+      SerialUSB.print(solar->target_time);
+      SerialUSB.print(", ");
+      SerialUSB.print(solar->start_timestamp);
+      SerialUSB.print(", time_changed ");
+      SerialUSB.print(solar->time_changed);
+      SerialUSB.print(", end time ");
+      SerialUSB.print(solar->end_timestamp);
+      SerialUSB.print(", est ");
+      SerialUSB.print(solar->estimated);
+      SerialUSB.print(", remain ");
+      SerialUSB.print(solar->remaining);
+      SerialUSB.print(", ");
+      SerialUSB.print(solar->total_sent);
+      SerialUSB.print(", voltage changed ");
+      SerialUSB.print(solar->voltage_changed);
+      
+    int delta_time = solar->current_timestamp - solar->time_changed;
+    int absolute_delta_time = solar->end_timestamp - solar->start_timestamp;
+      SerialUSB.print(", delta_time ");
+      SerialUSB.print(delta_time);
+      SerialUSB.print(", absolute_delta_time ");
+      SerialUSB.print(absolute_delta_time);
       SerialUSB.println();
     }
     perEvent = -4;
@@ -87,6 +115,5 @@ void loop() {
 }
 void rtcPer()
 {
-  SerialUSB.println("per event");
   perEvent ++;
 }

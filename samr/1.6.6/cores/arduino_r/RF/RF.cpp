@@ -458,11 +458,10 @@ void RF::eventHandler() {
   if ((rf_state == RF_STATE_RX_AACK_ON ||
           rf_state == RF_STATE_PLL_ON ||
           rf_state == RF_STATE_TX_ARET_ON) &&
-          minutes != last_minutes &&
-          minutes % 4 == 0)
+          minutes != last_minutes)
   {
     last_minutes = minutes;
-    set_state(RF_STATE_TRX_OFF);
+    //set_state(RF_STATE_TRX_OFF);
     //need to do FTN calibration, datasheet, page 139.
     reg_write(RF_REG__FTN_CTRL,RF_FTN_CTRL__FTN_START);
     byte rf_ftn;
@@ -470,7 +469,7 @@ void RF::eventHandler() {
         rf_ftn = reg_read(RF_REG__FTN_CTRL);
     } while( (rf_ftn & RF_FTN_CTRL__FTN_START) != 0);
 
-    set_state(rf_state);
+    //set_state(rf_state);
   }
 
 }
