@@ -14,9 +14,11 @@
 #define MAX_SEND_FREQ       (3600)
 #define DEFAULT_SEND_FREQ   (3600)
 
-#define MIN_WAIT_TIME       (119)
-#define MIN_COMPUTE_TIME    (MIN_WAIT_TIME+119)
-#define MIN_VOLTAGE         (2050)
+#define MIN_WAIT_TIME       (59)
+#define MIN_COMPUTE_TIME    (MIN_WAIT_TIME+299)
+#define MIN_VOLTAGE_COMPUTE (2150)
+#define MIN_VOLTAGE         (2075)
+#define MIN_VOLTAGE_DELTA   (10)
 
 #define CHARGING            (0)
 #define DISCHARGING         (1)
@@ -68,7 +70,6 @@ void setup() {
   initSolar();
   wdt_init();
   wdt_reset_count();
-  //PM->RCAUSE;
 }
 
 
@@ -169,6 +170,11 @@ void initSolar()
   ticks_per_send = SECONDS_PER_HOUR / solar->send_freq;
   times_discharged = 0;
   sendData = 1;
+  //if it was not a WDT reset, then assume a charging state.
+  if (pmWDTReset() == 0)
+  {   
+    solar->state = CHARGING;
+  }
 }
 
 void calculateSolar()
@@ -243,26 +249,24 @@ void calculateSolar()
       solar->voltage_changed = voltage; 
     }
     
-    if (delta_time >= MIN_COMPUTE_TIME && 
-        solar->voltage_changed > voltage)
+    if ( voltage <= MIN_VOLTAGE) {
+      if (solar->send_freq != MIN_SEND_FREQ)
+        {
+          data_changed = 1;
+          solar->voltage_changed = voltage;
+          solar->send_freq = MIN_SEND_FREQ;
+        }
+    }
+    else
     {
-      if ( voltage > MIN_VOLTAGE) {
+      if (voltage > MIN_VOLTAGE_COMPUTE &&
+          delta_time >= MIN_COMPUTE_TIME && 
+          solar->voltage_changed > voltage + MIN_VOLTAGE_DELTA)
+      {
         solar->estimated = (voltage - MIN_VOLTAGE) * delta_time / ( solar->voltage_changed - voltage);
         //if we do not reach our quota
         solar->remaining = 0;
-        /*
-        if (solar->estimated + absolute_delta_time < solar->target_time)
-        {
-          solar->remaining = solar->target_time - absolute_delta_time;
-        }
-        else
-        {
-          if (solar->target_time - absolute_delta_time)
-          {
-            solar->remaining = solar->target_time - absolute_delta_time;
-          } 
-        }
-        */
+        
         if (solar->target_time > absolute_delta_time)
         {
           solar->remaining = solar->target_time - absolute_delta_time;
@@ -289,15 +293,6 @@ void calculateSolar()
             data_changed = 1;
             solar->send_freq = send_freq;
           }
-        }
-      }
-      else
-      {
-        if (solar->send_freq != MIN_SEND_FREQ)
-        {
-          data_changed = 1;
-          solar->voltage_changed = voltage;
-          solar->send_freq = MIN_SEND_FREQ;
         }
       }
     }
