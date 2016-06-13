@@ -34,6 +34,8 @@ void pmPowerOnSensors();
  */
 void pmPowerOffSensors();
 
+uint8_t pmWDTReset();
+
 #ifdef __cplusplus
 }
 #endif

@@ -82,6 +82,10 @@ uint16_t pmGetVoltage()
     return g_current_mv;
 }
 
+uint8_t pmWDTReset()
+{
+    return (PM->RCAUSE.reg & PM_RCAUSE_WDT) != 0;
+}
 
 #ifdef __cplusplus
 }

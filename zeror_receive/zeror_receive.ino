@@ -1,10 +1,8 @@
 int received = 0;
 volatile int perEvent = 0;
 
-typedef struct {
-  
-  uint16_t start_voltage; //2
-  uint16_t end_voltage; //2
+typedef struct __attribute__((packed)){
+  uint32_t nothing; //4
   uint32_t total_sent; //4
   uint32_t start_timestamp; //4
   uint32_t end_timestamp; //4
@@ -17,6 +15,7 @@ typedef struct {
   uint32_t time_changed; //4
   uint16_t voltage_changed; //2
   uint16_t send_freq; //2
+  uint16_t actual_freq; //2
   uint8_t state; //1
   uint32_t estimated; //4
   uint32_t remaining; //4
@@ -39,7 +38,7 @@ void setup() {
 
 void loop() {
   // for some reason, a delay is needed in order to automaticaly reset the de board
-  //delay(10);
+  //delay(10); 
   if(perEvent >= 1)
   {
     //SerialUSB.println("----WAITING FOR DATA----");
@@ -82,7 +81,9 @@ void loop() {
       SerialUSB.print(solar->state);
       SerialUSB.print(", send freq: ");
       SerialUSB.print(solar->send_freq);
-      SerialUSB.print(", ");
+      SerialUSB.print(", actual_freq: ");
+      SerialUSB.print(solar->actual_freq);
+      SerialUSB.print(", voltage changed ");
       SerialUSB.print(solar->voltage_changed);
       SerialUSB.print(", ");
       SerialUSB.print(solar->target_time);
@@ -98,8 +99,6 @@ void loop() {
       SerialUSB.print(solar->remaining);
       SerialUSB.print(", ");
       SerialUSB.print(solar->total_sent);
-      SerialUSB.print(", voltage changed ");
-      SerialUSB.print(solar->voltage_changed);
       
     int delta_time = solar->current_timestamp - solar->time_changed;
     int absolute_delta_time = solar->end_timestamp - solar->start_timestamp;

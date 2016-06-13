@@ -1,8 +1,13 @@
+#include <math.h>
+
+
 #define TOTAL_DAYS          (3)
 #define TOTAL_HOURS         (TOTAL_DAYS*24)
-#define SECONDS_PER_HOUR    (60*60)
+#define SECONDS_PER_MINUTE  (60)
+#define SECONDS_PER_HOUR    (60*SECONDS_PER_MINUTE)
+#define WDT_SAVE_PERIOD     (10*SECONDS_PER_MINUTE)
 
-#define DEFAULT_TARGET_TIME (2*60*60)
+#define DEFAULT_TARGET_TIME (3*60*60)
 #define DECREASE_EFFICIENY  (80)
 
 #define MIN_SEND_FREQ       (1)
@@ -18,10 +23,8 @@
 #define CHARGING_DELTA_START  (40)
 #define DISCHARGE_DELTA_START (-45)
 
-typedef struct {
-
-  uint16_t start_voltage; //2
-  uint16_t end_voltage; //2
+typedef struct __attribute__((packed)){
+  uint32_t nothing; //4
   uint32_t total_sent; //4
   uint32_t start_timestamp; //4
   uint32_t end_timestamp; //4
@@ -34,12 +37,13 @@ typedef struct {
   uint32_t time_changed; //4
   uint16_t voltage_changed; //2
   uint16_t send_freq; //2
+  uint16_t actual_freq; //2
   uint8_t state; //1
   uint32_t estimated; //4
   uint32_t remaining; //4
 } solar_t; //35 bytes
 
-static uint8_t buffer_solar[60];
+static uint8_t buffer_solar[64];
 solar_t *solar = (solar_t *)buffer_solar;
 
 volatile int wdtClear = 1, period, sendData, ticks_per_send;
@@ -101,13 +105,13 @@ void perInt(void)
     wdtClear = 1;
   }
 
-  if (solar->current_timestamp % ticks_per_send == 0 ||
-      solar->current_timestamp % 10 == 0)
+  if (solar->current_timestamp % ticks_per_send == 0)// ||
+  //    solar->current_timestamp % 60 == 0)
   {
     sendData = 1;
     if (solar->state == DISCHARGING)
     {
-      //solar->total_sent ++;
+      solar->total_sent ++;
     }
     solar->current_voltage = readVoltage();
   }
@@ -154,8 +158,12 @@ void initSolar()
 
     EEPROM.write(0, buffer_solar, 60);
   }
+
+  //This in case a wdt reset happens, recover some of time lost.
+  solar->current_timestamp = pmWDTReset() * WDT_SAVE_PERIOD / 2;  
   
-  previous_voltage = readVoltage();
+  previous_voltage = readVoltage(); 
+  
   solar->current_voltage = previous_voltage;
   solar->state = DISCHARGING;
   ticks_per_send = SECONDS_PER_HOUR / solar->send_freq;
@@ -184,26 +192,16 @@ void calculateSolar()
   }
   else
   {
-    if (delta_voltage <= 0)
-    {
-      if (times_discharged < 2)
-      {
-        times_discharged ++;
-      }
-      else
-      {
-        
-        times_discharged = 3;
-      }
+    if (delta_voltage < 0)
+    { 
       
-      if (delta_voltage < DISCHARGE_DELTA_START || times_discharged > 1)
+      if (delta_voltage < DISCHARGE_DELTA_START || times_discharged > 4)
       {
         if (solar->state == CHARGING)
         {
           if (solar->end_timestamp != 0 &&
               solar->total_sent != 0 &&
-              solar->start_voltage != 0 &&
-              solar->end_voltage != 0)
+              solar->voltage_changed != 0)
           {
             solar->target_time = solar->end_timestamp - solar->start_timestamp;
             solar->send_freq = (solar->target_time * solar->total_sent/ SECONDS_PER_HOUR);
@@ -221,7 +219,6 @@ void calculateSolar()
           solar->start_timestamp = solar->current_timestamp;
           solar->time_changed = solar->current_timestamp;
           solar->total_sent = 0;
-          solar->start_voltage = 0;
           solar->voltage_changed = 0;
         }
         solar->state = DISCHARGING;
@@ -236,18 +233,14 @@ void calculateSolar()
   if (solar->state == DISCHARGING)
   {
     solar->end_timestamp = solar->current_timestamp;
-    solar->end_voltage = voltage;
     int delta_time = solar->current_timestamp - solar->time_changed;
     int absolute_delta_time = solar->current_timestamp - solar->start_timestamp;
      
-    if (absolute_delta_time >= MIN_WAIT_TIME &&
+    if (delta_time >= MIN_WAIT_TIME &&
         solar->voltage_changed == 0)
     {
       data_changed = 1;
-      solar->start_voltage = voltage;
-      solar->end_voltage = voltage;
-      solar->voltage_changed = voltage;
-      solar->total_sent ++;
+      solar->voltage_changed = voltage; 
     }
     
     if (delta_time >= MIN_COMPUTE_TIME && 
@@ -257,18 +250,28 @@ void calculateSolar()
         solar->estimated = (voltage - MIN_VOLTAGE) * delta_time / ( solar->voltage_changed - voltage);
         //if we do not reach our quota
         solar->remaining = 0;
+        /*
         if (solar->estimated + absolute_delta_time < solar->target_time)
         {
           solar->remaining = solar->target_time - absolute_delta_time;
         }
         else
         {
-          solar->remaining = 2* solar->estimated + absolute_delta_time - solar-> target_time;
+          if (solar->target_time - absolute_delta_time)
+          {
+            solar->remaining = solar->target_time - absolute_delta_time;
+          } 
+        }
+        */
+        if (solar->target_time > absolute_delta_time)
+        {
+          solar->remaining = solar->target_time - absolute_delta_time;
         }
         
         if (solar->remaining != 0)
         {
-          int send_freq = SECONDS_PER_HOUR / (SECONDS_PER_HOUR / (solar->send_freq * solar->estimated / solar->remaining));
+          solar->actual_freq = (solar->send_freq * solar->estimated) / solar->remaining;
+          int send_freq = SECONDS_PER_HOUR / ceil(SECONDS_PER_HOUR *1.0f /  solar->actual_freq);
           
           if (send_freq > MAX_SEND_FREQ)
           {
@@ -282,7 +285,7 @@ void calculateSolar()
           if (send_freq != solar->send_freq)
           {
             solar->time_changed = solar->current_timestamp;
-            //solar->voltage_changed = voltage;
+            solar->voltage_changed = 0;
             data_changed = 1;
             solar->send_freq = send_freq;
           }
@@ -293,7 +296,7 @@ void calculateSolar()
         if (solar->send_freq != MIN_SEND_FREQ)
         {
           data_changed = 1;
-          //solar->voltage_changed = voltage;
+          solar->voltage_changed = voltage;
           solar->send_freq = MIN_SEND_FREQ;
         }
       }
@@ -302,7 +305,7 @@ void calculateSolar()
 
   ticks_per_send = SECONDS_PER_HOUR / solar->send_freq;
     
-  if (solar->current_timestamp % SECONDS_PER_HOUR == 0 ||
+  if (solar->current_timestamp % WDT_SAVE_PERIOD == 0 ||
       data_changed == 1)
   {
     EEPROM.write(0, buffer_solar, 60);

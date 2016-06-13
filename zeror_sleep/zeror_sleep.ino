@@ -14,10 +14,10 @@ void setup() {
 
   //Wire.begin();
   
-  //pmSetVoltage(3200);
-  //USBDevice.init();
-  //USBDevice.attach();
-  //SerialUSB.begin(9600); 
+  pmSetVoltage(3200);
+  USBDevice.init();
+  USBDevice.attach();
+  SerialUSB.begin(9600); 
    
   //RFDevice.set_state(RF_STATE_SLEEP);
   //RFDevice.set_state(RF_STATE_TRX_OFF);
@@ -30,6 +30,7 @@ void setup() {
   rtc.attachPeriodicInterrupt(evtPer);
   pinMode(2,OUTPUT); 
   //analogWrite(3,100);
+  PM->RCAUSE;
 }
 
 uint32_t old_ms, new_ms;
@@ -41,7 +42,8 @@ void loop() {
   //Wire.endTransmission();    // stop transmitting
   //sleep();
   //eeprom_test();
-  sleep();
+  //sleep();
+  SerialUSB.println();
   return;
 //  SPI.transfer(0xaa);
 //  SPI.transfer(0xaa);
