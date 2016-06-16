@@ -5,8 +5,12 @@
 #define SECONDS_PER_HOUR    (60*SECONDS_PER_MINUTE)
 #define WDT_SAVE_PERIOD     (10*SECONDS_PER_MINUTE)
 
-#define DEFAULT_TARGET_TIME (8*60*60)
+#define DEFAULT_TARGET_TIME (4*60*60)
+#define MIN_ESTIMATED_TIME  (10*60)
+
 #define TIME_GRACE_PERIOD   (30*60)
+#define TIME_PERCENTAGE_PENALTY (80)
+
 #define SPEED_DECREASE_PENALTY  (75)
 
 #define MIN_SEND_FREQ       (1)
@@ -18,9 +22,9 @@
 
 #define MIN_WAIT_TIME       (119)
 #define MIN_COMPUTE_TIME    (MIN_WAIT_TIME+119)
-#define MIN_VOLTAGE_COMPUTE (2150)
+#define MIN_VOLTAGE_COMPUTE (2200)
 #define MIN_VOLTAGE         (2100)
-#define MIN_VOLTAGE_DELTA   (30)
+#define MIN_VOLTAGE_DELTA   (40)
 
 #define CHARGING            (0)
 #define DISCHARGING         (1)
@@ -43,15 +47,15 @@ typedef struct __attribute__((packed)){
   uint16_t send_freq; //2
   uint16_t actual_freq; //2
   uint8_t state; //1
-  uint32_t estimated; //4
-  uint32_t remaining; //4
+  int32_t estimated; //4
+  int32_t remaining; //4
 } solar_t; //35 bytes
 
 static uint8_t buffer_solar[EEPROM_PAGE_SIZE+4];
 solar_t *solar = (solar_t *)buffer_solar;
 
 volatile int wdtClear = 1, period, sendData, ticks_per_send;
-volatile int previous_voltage, times_discharged;
+volatile int previous_voltage, previous_10_min_voltage, times_discharged;
 volatile int wdt_last_saved_time;
 void setup() {
 
@@ -204,15 +208,19 @@ void calculateSolar()
   }
   else
   {
-    if (delta_voltage < 0)
+    if (delta_voltage <= 0)
     { 
-      
+      if (times_discharged < 1000)
+      {
+        times_discharged ++;
+      }
       if (delta_voltage < DISCHARGE_DELTA_START || times_discharged > 4)
       {
         if (solar->state == CHARGING)
         {
           if (solar->end_timestamp != 0 &&
-              solar->total_sent != 0)
+              solar->total_sent != 0 &&
+              solar->end_timestamp != solar->start_timestamp)
           {
             solar->target_time = solar->end_timestamp - solar->start_timestamp;
             solar->send_freq = (solar->target_time * solar->total_sent/ SECONDS_PER_HOUR);
@@ -259,10 +267,12 @@ void calculateSolar()
         delta_time >= MIN_COMPUTE_TIME && 
         solar->voltage_changed > voltage + MIN_VOLTAGE_DELTA)
     {
-      solar->estimated = (voltage - MIN_VOLTAGE) * delta_time / ( solar->voltage_changed - voltage) - TIME_GRACE_PERIOD;
-      if (solar->estimated < 0)
+      //solar->estimated = TIME_PERCENTAGE_PENALTY *(voltage - MIN_VOLTAGE) * delta_time / ( solar->voltage_changed - voltage) - TIME_GRACE_PERIOD;
+      
+      solar->estimated = (TIME_PERCENTAGE_PENALTY *(voltage - MIN_VOLTAGE) * delta_time) / (( solar->voltage_changed - voltage) * 100);
+      if (solar->estimated < MIN_ESTIMATED_TIME)
       {
-        solar->estimated = 1;
+        solar->estimated = MIN_ESTIMATED_TIME;
       }
       //if we do not reach our quota
       solar->remaining = 0;
@@ -307,6 +317,26 @@ void calculateSolar()
           solar->send_freq = send_freq;
         }
       }
+    }
+    
+    if (voltage < MIN_VOLTAGE_COMPUTE)
+    {
+        int send_freq = SECONDS_PER_HOUR / ceil(SECONDS_PER_HOUR *2.0f /  solar->actual_freq);
+        
+        if (send_freq > MAX_SEND_FREQ)
+        {
+            send_freq = MAX_SEND_FREQ;
+        }
+        if (send_freq < MIN_SEND_FREQ)
+        {
+          send_freq = MIN_SEND_FREQ;
+        }
+        
+        if (send_freq != solar->send_freq)
+        {
+          data_changed = 1;
+          solar->send_freq = send_freq;
+        }
     }
   }
 
