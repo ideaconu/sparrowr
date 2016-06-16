@@ -44,7 +44,7 @@ typedef struct __attribute__((packed)){
 
   uint32_t time_changed; //4
   uint16_t voltage_changed; //2
-  uint16_t send_freq; //2
+  int16_t send_freq; //2
   uint16_t actual_freq; //2
   uint8_t state; //1
   int32_t estimated; //4
@@ -220,10 +220,10 @@ void calculateSolar()
         {
           if (solar->end_timestamp != 0 &&
               solar->total_sent != 0 &&
-              solar->end_timestamp != solar->start_timestamp)
+              solar->end_timestamp > solar->start_timestamp)
           {
             solar->target_time = solar->end_timestamp - solar->start_timestamp;
-            solar->send_freq = (solar->target_time * solar->total_sent/ SECONDS_PER_HOUR);
+            solar->send_freq = (SECONDS_PER_HOUR * solar->total_sent / solar->target_time);
             if (solar->send_freq < MIN_SEND_FREQ)
             {
               solar->send_freq = MIN_SEND_FREQ;
