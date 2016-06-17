@@ -1,0 +1,63 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+The style file: plainnat.bst
+Database file #1: thesis.bib
+Warning--to sort, need author or key in arduino
+Warning--to sort, need author or key in rf233
+Warning--to sort, need author or key in samd21
+Warning--to sort, need author or key in samr21
+Warning--to sort, need author or key in json
+Warning--to sort, need author or key in parrot_drone
+Warning--to sort, need author or key in cdcacm
+Warning--to sort, need author or key in atmegafa
+Warning--empty year in arduino
+Warning--empty year in atmegafa
+Warning--empty year in json
+Warning--empty year in parrot_drone
+Warning--empty year in rf233
+Warning--empty year in samd21
+Warning--empty year in samr21
+Warning--empty journal in teh2008experiments
+You've used 21 entries,
+            2773 wiz_defined-function locations,
+            694 strings with 8153 characters,
+and the built_in function-call counts, 8646 in all, are:
+= -- 791
+> -- 411
+< -- 9
++ -- 148
+- -- 126
+* -- 663
+:= -- 1175
+add.period$ -- 63
+call.type$ -- 21
+change.case$ -- 105
+chr.to.int$ -- 20
+cite$ -- 66
+duplicate$ -- 426
+empty$ -- 815
+format.name$ -- 141
+if$ -- 1904
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 12
+newline$ -- 109
+num.names$ -- 52
+pop$ -- 299
+preamble$ -- 1
+purify$ -- 84
+quote$ -- 0
+skip$ -- 318
+stack$ -- 0
+substring$ -- 254
+swap$ -- 60
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 231
+warning$ -- 16
+while$ -- 59
+width$ -- 0
+write$ -- 259
+(There were 16 warnings)

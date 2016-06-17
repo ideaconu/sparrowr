@@ -5,7 +5,7 @@
 #define SECONDS_PER_HOUR    (60*SECONDS_PER_MINUTE)
 #define WDT_SAVE_PERIOD     (10*SECONDS_PER_MINUTE)
 
-#define DEFAULT_TARGET_TIME (4*60*60)
+#define DEFAULT_TARGET_TIME (12*60*60)
 #define MIN_ESTIMATED_TIME  (10*60)
 
 #define TIME_GRACE_PERIOD   (30*60)
@@ -89,7 +89,7 @@ void loop() {
 
   if (sendData != 0)
   {
-    delay(100);
+    delay(50);
     RFDevice.send( (uint8_t*) solar, sizeof(solar_t));
     RFDevice.set_state(RF_STATE_SLEEP);
 
@@ -214,7 +214,7 @@ void calculateSolar()
       {
         times_discharged ++;
       }
-      if (delta_voltage < DISCHARGE_DELTA_START || times_discharged > 4)
+      if (delta_voltage < DISCHARGE_DELTA_START || times_discharged > 12)
       {
         if (solar->state == CHARGING)
         {
