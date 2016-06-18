@@ -38,5 +38,10 @@ The problem with their approach, in our opinion, and even simpler ones like fuzz
 constant feedback of consumed energy must be provided. The fact that the results of all the
 algorithms were simulated and not implemented and tested on a real device, indicated that real
 conditions, like capacitor leakage or temperature variations are not taken into consideration.
+Also, every algorithm needs to know how much energy it is using performing different tasks. This is
+not feasible in real world, in time leading to large errors.
 
+What this mean is that the above algorithms will work best in high power scenarios, where leakage
+currents are small enough to be considered inexistent. In a low power scenario, the results are
+very optimal.
 

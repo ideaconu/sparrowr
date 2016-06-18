@@ -1,5 +1,164 @@
 \normalfont\normalsize
 \chapter{Software Implementation}
 
+In this chapter we will present a simple yet efficient scheduling algorithm for single users.
+
+State-of-the-art algorithms require a lot of feedback in other to dynamically schedule transmission
+task, the feedback being the consumed energy, the remaining energy. This is not very desirable
+in real world, where a lot of variables can generate a big error in the estimated energy left
+\begin{itemize}
+    \item Large changes in temperature can alter the total energy stored
+    \item Leakage currents, that can vary between charges and different levels of stored energy
+    \item Differences between supposed identical super-capacitors.
+\end{itemize}
+
+In order to simply the algorithms for the user to deploy them faster in a real EHWSN applications,
+we have implemented and tested a simple dynamic scheduling algorithm for transfered data.
+
+The algorithm can be considered to have very basic waterfilling policy, with one slot and that is
+the current discharge period. This simplifies the implementation and reduces the computational
+requirements.
+
+The algorithm has a total time that it needs to respect, while trying to maximize the total number
+of packets sent. In order to achieve this two simple requirements, it dynamically estimates the
+remaining time and according to the difference between the estimation and the remaining time, it
+keeps the same send frequency or alters it. Because when lowering the speed, the total consumed
+energy will not be halved, a penalty is imposed, one that we selected at 75\% energy decrease.
+Also, in order to make sure that the deadline is respected, under a certain voltage level, the
+speed is halved and kept until the energy is depleted or the capacitor is recharged.
+
+\lstset{language=C}
+\begin{lstlisting}[frame=single]
+
+  int voltage = readVoltage();
+  int delta_voltage = voltage - previous_voltage;
+  int delta_voltage_minutes = voltage - previous_voltage_minutes;
+  int data_changed = 0;
+
+  solar->current_voltage = voltage;
+  previous_voltage = voltage;
+
+  if (solar->current_timestamp % (4 * SECONDS_PER_MINUTE) == 0)
+  {
+    previous_voltage_minutes = voltage;
+  }
+
+  if (delta_voltage > CHARGING_DELTA_START || delta_voltage_minutes > CHARGING_DELTA_START)
+  {
+    if (solar->state == DISCHARGING)
+    {
+      solar->state = CHARGING;
+      solar->send_freq = DEFAULT_SEND_FREQ;
+      data_changed = 1;
+    }
+    times_discharged = 0;
+  }
+  else
+  {
+    if (delta_voltage <= 0)
+    {
+      if (times_discharged < 1000)
+      {
+        times_discharged ++;
+      }
+      if (delta_voltage_minutes < DISCHARGE_DELTA_START || delta_voltage < DISCHARGE_DELTA_START || times_discharged > 12)
+      {
+        if (solar->state == CHARGING)
+        {
+          if (solar->end_timestamp != 0 &&
+              solar->total_sent != 0 &&
+              solar->end_timestamp > solar->start_timestamp)
+          {
+            solar->target_time = solar->end_timestamp - solar->start_timestamp;
+            solar->send_freq = (SECONDS_PER_HOUR * solar->total_sent / solar->target_time);
+            if (solar->send_freq < MIN_SEND_FREQ)
+            {
+              solar->send_freq = MIN_SEND_FREQ;
+            }
+
+            if (solar->send_freq > MAX_SEND_FREQ)
+            {
+              solar->send_freq = MAX_SEND_FREQ;
+            }
+            data_changed = 1;
+          }
+          solar->start_timestamp = solar->current_timestamp;
+          solar->time_changed = solar->current_timestamp;
+          solar->total_sent = 0;
+          solar->voltage_changed = 0;
+        }
+        solar->state = DISCHARGING;
+      }
+    }
+    else
+    {
+      times_discharged = 0;
+    }
+  }
+
+  if (solar->state == DISCHARGING)
+  {
+    solar->end_timestamp = solar->current_timestamp;
+    int delta_time = solar->current_timestamp - solar->time_changed;
+    int absolute_delta_time = solar->current_timestamp - solar->start_timestamp;
+
+    if (delta_time >= MIN_WAIT_TIME &&
+        solar->voltage_changed == 0)
+    {
+      data_changed = 1;
+      solar->voltage_changed = voltage;
+    }
+
+
+    if (voltage > MIN_VOLTAGE_COMPUTE &&
+        delta_time >= MIN_COMPUTE_TIME &&
+        solar->voltage_changed > voltage + MIN_VOLTAGE_DELTA)
+    {
+      //solar->estimated = TIME_PERCENTAGE_PENALTY *(voltage - MIN_VOLTAGE) * delta_time / ( solar->voltage_changed - voltage) - TIME_GRACE_PERIOD;
+
+      solar->estimated = (TIME_PERCENTAGE_PENALTY *(voltage - MIN_VOLTAGE) * delta_time) / (( solar->voltage_changed - voltage) * 100);
+      if (solar->estimated < MIN_ESTIMATED_TIME)
+      {
+        solar->estimated = MIN_ESTIMATED_TIME;
+      }
+      //if we do not reach our quota
+      solar->remaining = 0;
+
+      if (solar->target_time > absolute_delta_time)
+      {
+        solar->remaining = solar->target_time - absolute_delta_time;
+      }
+
+      if (solar->remaining > 0)
+      {
+        solar->actual_freq = (solar->send_freq * solar->estimated) / (solar->remaining + TIME_EXTRA_REMAINING);
+        //if we change down the speed, then we do not scale linear, so we incure a penalty.
+        if (solar->actual_freq < solar->send_freq)
+        {
+          solar->actual_freq = solar->actual_freq * SPEED_DECREASE_PENALTY / 100;
+        }
+
+        int send_freq = SECONDS_PER_HOUR / ceil(SECONDS_PER_HOUR *1.0f /  solar->actual_freq);
+
+        if (send_freq != solar->send_freq)
+        {
+          solar->time_changed = solar->current_timestamp;
+          solar->voltage_changed = 0;
+          data_changed = 1;
+          solar->send_freq = send_freq;
+        }
+      }
+    }
+
+    if (voltage < MIN_VOLTAGE_COMPUTE)
+    {
+        solar->send_freq = SECONDS_PER_HOUR / ceil(SECONDS_PER_HOUR *2.0f /  solar->actual_freq);
+    }
+  }
+
+  ticks_per_send = SECONDS_PER_HOUR / solar->send_freq;
+
+\end{lstlisting}
+
 
 

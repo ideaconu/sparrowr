@@ -188,8 +188,6 @@ void initSolar()
 
 void calculateSolar()
 {
-  static uint8_t prev_hour = 0;
-
   int voltage = readVoltage();
   int delta_voltage = voltage - previous_voltage;
   int delta_voltage_minutes = voltage - previous_voltage_minutes;
