@@ -9,6 +9,7 @@
 #define MIN_ESTIMATED_TIME  (10*60)
 
 #define TIME_GRACE_PERIOD   (30*60)
+#define TIME_EXTRA_REMAINING    (10*60)
 #define TIME_PERCENTAGE_PENALTY (80)
 
 #define SPEED_DECREASE_PENALTY  (75)
@@ -55,7 +56,7 @@ static uint8_t buffer_solar[EEPROM_PAGE_SIZE+4];
 solar_t *solar = (solar_t *)buffer_solar;
 
 volatile int wdtClear = 1, period, sendData, ticks_per_send;
-volatile int previous_voltage, previous_10_min_voltage, times_discharged;
+volatile int previous_voltage, previous_voltage_minutes, times_discharged;
 volatile int wdt_last_saved_time;
 void setup() {
 
@@ -89,7 +90,7 @@ void loop() {
 
   if (sendData != 0)
   {
-    delay(50);
+    delay(100);
     RFDevice.send( (uint8_t*) solar, sizeof(solar_t));
     RFDevice.set_state(RF_STATE_SLEEP);
 
@@ -172,7 +173,7 @@ void initSolar()
     changed = 1;
   }
   previous_voltage = readVoltage(); 
-   
+  previous_voltage_minutes = previous_voltage;
   ticks_per_send = SECONDS_PER_HOUR / solar->send_freq;
   times_discharged = 0;
   sendData = 1;
@@ -191,12 +192,18 @@ void calculateSolar()
 
   int voltage = readVoltage();
   int delta_voltage = voltage - previous_voltage;
+  int delta_voltage_minutes = voltage - previous_voltage_minutes;
   int data_changed = 0;
 
   solar->current_voltage = voltage;
   previous_voltage = voltage;
   
-  if (delta_voltage > CHARGING_DELTA_START)
+  if (solar->current_timestamp % (4 * SECONDS_PER_MINUTE) == 0)
+  {
+    previous_voltage_minutes = voltage;
+  }
+  
+  if (delta_voltage > CHARGING_DELTA_START || delta_voltage_minutes > CHARGING_DELTA_START)
   {
     if (solar->state == DISCHARGING)
     {
@@ -214,7 +221,7 @@ void calculateSolar()
       {
         times_discharged ++;
       }
-      if (delta_voltage < DISCHARGE_DELTA_START || times_discharged > 12)
+      if (delta_voltage_minutes < DISCHARGE_DELTA_START || delta_voltage < DISCHARGE_DELTA_START || times_discharged > 12)
       {
         if (solar->state == CHARGING)
         {
@@ -281,18 +288,10 @@ void calculateSolar()
       {
         solar->remaining = solar->target_time - absolute_delta_time;
       }
-/*
-      int delta_estimated = abs(solar->estimated-solar->remaining);
 
-      int delta_change = DELTA_NO_SPEED_CHANGE;
-      if (solar->remaining * DELTA_PERCENTAGE_NO_CHANGE /100 > DELTA_NO_SPEED_CHANGE )
+      if (solar->remaining > 0)
       {
-        delta_change = DELTA_PERCENTAGE_NO_CHANGE /100;
-      }
-      */
-      if (solar->remaining > 0)// && delta_estimated > delta_change)
-      {
-        solar->actual_freq = (solar->send_freq * solar->estimated) / solar->remaining;
+        solar->actual_freq = (solar->send_freq * solar->estimated) / (solar->remaining + TIME_EXTRA_REMAINING);
         //if we change down the speed, then we do not scale linear, so we incure a penalty.
         if (solar->actual_freq < solar->send_freq)
         {

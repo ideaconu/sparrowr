@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,11 @@ Atmega128rfa1 datasheet.
 {Json Standard}.
 \newblock \url{http://www.json.org/xml.html}.
 
+\bibitem[nod()]{nodelist}
+List of wireless nodes.
+\newblock \url{https://en.wikipedia.org/wiki/List_of_wireless_sensor_nodes}.
+\newblock Accessed: 2016-06-20.
+
 \bibitem[par()]{parrot_drone}
 {Parrot Drone}.
 \newblock \url{http://img.clubic.com/04862120-photo-parrot-ar-drone-2-0.jpg}.
@@ -35,9 +40,15 @@ Atmel samd21 datasheet.
 
 \bibitem[sam({\natexlab{b}})]{samr21}
 Atmel samr21 datasheet.
-\newblock \url{http://www.atmel.com/images/atmel-42181-sam-d21_datasheet.pdf},
+\newblock \url{www.atmel.com/Images/Atmel-42223SAM-R21_Datasheet.pdf},
   {\natexlab{b}}.
 \newblock Accessed: 2016-06-05.
+
+\bibitem[ulr()]{ulracap}
+Ultra-capacitors.
+\newblock
+  \url{http://www.maxwell.com/images/documents/Ultracapacitors_Overview_Flyer_3000615-2EN.pdf}.
+\newblock Accessed: 2016-06-20.
 
 \bibitem[cdc(2010)]{cdcacm}
 {USB ACM}.
@@ -53,6 +64,12 @@ Ian~F Akyildiz, Weilian Su, Yogesh Sankarasubramaniam, and Erdal Cayirci.
 Musat Andrei-Alexandru, Tudose Dan, and Deaconu Ioan.
 \newblock Geodynamics monitorization using wireless sensor networks.
 \newblock \emph{CSCS}, 2015.
+
+\bibitem[Aoudia et~al.(2016)Aoudia, Gautier, and Berder]{aoudia2016fuzzy}
+Faycal~Ait Aoudia, Matthieu Gautier, and Olivier Berder.
+\newblock Fuzzy power management for energy harvesting wireless sensor nodes.
+\newblock In \emph{IEEE International Conference on Communications (ICC16)},
+  2016.
 
 \bibitem[Arampatzis et~al.(2005)Arampatzis, Lygeros, and
   Manesis]{arampatzis2005survey}
@@ -89,6 +106,21 @@ Ayseg{\"u}l~T{\"u}ys{\"u}z Erman, LV~Hoesel, Paul Havinga, and Jian Wu.
 \newblock \emph{Wireless Communications, IEEE}, 15\penalty0 (6):\penalty0
   38--46, 2008.
 
+\bibitem[Huang and Neely(2013)]{huang2013utility}
+Longbo Huang and Michael~J Neely.
+\newblock Utility optimal scheduling in energy-harvesting networks.
+\newblock \emph{IEEE/ACM Transactions on Networking (TON)}, 21\penalty0
+  (4):\penalty0 1117--1130, 2013.
+
+\bibitem[Jurdak et~al.(2011)Jurdak, Klues, Kusy, Richter, Langendoen, and
+  Br{\"u}nig]{jurdak2011opal}
+Raja Jurdak, Kevin Klues, Brano Kusy, Christian Richter, Koen Langendoen, and
+  Michael Br{\"u}nig.
+\newblock Opal: A multiradio platform for high throughput wireless sensor
+  networks.
+\newblock \emph{Embedded Systems Letters, IEEE}, 3\penalty0 (4):\penalty0
+  121--124, 2011.
+
 \bibitem[Ollero et~al.(2007)Ollero, Bernard, La~Civita, van Hoesel, Marron,
   Lepley, and de~Andres]{ollero2007aware}
 Anibal Ollero, Markus Bernard, Marco La~Civita, Lodewijk van Hoesel, Pedro~J
@@ -98,10 +130,34 @@ Anibal Ollero, Markus Bernard, Marco La~Civita, Lodewijk van Hoesel, Pedro~J
 \newblock In \emph{Safety, Security and Rescue Robotics, 2007. SSRR 2007. IEEE
   International Workshop on}, pages 1--6. IEEE, 2007.
 
+\bibitem[Ozel et~al.(2011)Ozel, Tutuncuoglu, Yang, Ulukus, and
+  Yener]{ozel2011transmission}
+Omur Ozel, Kaya Tutuncuoglu, Jing Yang, Sennur Ulukus, and Aylin Yener.
+\newblock Transmission with energy harvesting nodes in fading wireless
+  channels: Optimal policies.
+\newblock \emph{Selected Areas in Communications, IEEE Journal on}, 29\penalty0
+  (8):\penalty0 1732--1743, 2011.
+
+\bibitem[Ozel et~al.(2012)Ozel, Yang, and Ulukus]{ozel2012optimal}
+Omur Ozel, Jing Yang, and Sennur Ulukus.
+\newblock Optimal broadcast scheduling for an energy harvesting rechargeable
+  transmitter with a finite capacity battery.
+\newblock \emph{Wireless Communications, IEEE Transactions on}, 11\penalty0
+  (6):\penalty0 2193--2203, 2012.
+
 \bibitem[Parrot(2012)]{parrot2012drone}
 AR~Parrot.
 \newblock Drone.
 \newblock \emph{Available: ardrone.parrot.com}, 75, 2012.
+
+\bibitem[Piorno et~al.(2009)Piorno, Bergonzini, Atienza, and
+  Rosing]{piorno2009prediction}
+Joaquin~Recas Piorno, Carlo Bergonzini, David Atienza, and Tajana~Simunic
+  Rosing.
+\newblock Prediction and management in energy harvested wireless sensor nodes.
+\newblock In \emph{Wireless Communication, Vehicular Technology, Information
+  Theory and Aerospace \& Electronic Systems Technology, 2009. Wireless VITAE
+  2009. 1st International Conference on}, pages 6--10. IEEE, 2009.
 
 \bibitem[Savarese et~al.(2001)Savarese, Rabaey, and
   Beutel]{savarese2001location}
@@ -131,5 +187,19 @@ Andrei Voinescu, Dan Tudose, and Dan Dragomir.
   networks.
 \newblock In \emph{Networking in Education and Research, 2013 RoEduNet
   International Conference 12th Edition}, pages 1--4. IEEE, 2013.
+
+\bibitem[Wang et~al.(2015)Wang, Aggarwal, and Wang]{wang2015iterative}
+Zhe Wang, Vaneet Aggarwal, and Xiaodong Wang.
+\newblock Iterative dynamic water-filling for fading multiple-access channels
+  with energy harvesting.
+\newblock \emph{Selected Areas in Communications, IEEE Journal on}, 33\penalty0
+  (3):\penalty0 382--395, 2015.
+
+\bibitem[Yang and Ulukus(2012)]{yang2012optimal}
+Jing Yang and Sennur Ulukus.
+\newblock Optimal packet scheduling in a multiple access channel with energy
+  harvesting transmitters.
+\newblock \emph{Communications and Networks, Journal of}, 14\penalty0
+  (2):\penalty0 140--150, 2012.
 
 \end{thebibliography}

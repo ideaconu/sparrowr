@@ -1,40 +1,79 @@
 \normalfont\normalsize
 \chapter{Sparrow R}
 
+Most of the nodes are build using AVR processor \cite{nodelist}, an 8-bit architecture. Few attempts have been made
+using newer Arm Cortex-M3 32-bit architecture. The benefits of higher computing power are presented here
+\cite{jurdak2011opal}, where a 4.6 throughput can be obtained compared to an 8-bit cpu over the
+same wireless network. Unfortunately, the downside is higher power consumption that can create
+difficulties for power supplies. Even though the same average power consumption can be obtained, due
+to higher power peaks, the power supplies will be depleted more quickly.
 
-\subsection{\textit{Hardware}}
-Because not all sensors are designed to run at 1v8 up to 3v3, we need to be able to dynamically
-change the operating voltage of the node. We used TPS62742, a step-down switching DC/DC converter
-with up to 90\% efficiency, voltage selectable output from 1v8 to 3v2 with 200mV step, 360nA
-quiescent current and a special mcu controllable load output, with push-pull transistors. In
-inactive state the load line is pulled to GND and when active is pulled to VCC. When active it
-consumes 12uA, but compared to the controlled sensors, this should not be noticeable. Because this
-allows to completely power down the sensors, the "stand-by" current consumption is 0uA and it also
-eliminates the previous design problem of floating GND which allowed the sensors to "steal" power
-from other pins and not be properly disabled.
+The current nodes, Sparrow V3.2 and SparrowV4, use an AVR 8-bit architecture and run at a speed of
+16MHz. For our solar powered node, we wanted to use a newer, more powerful and low power
+microcontroller. Based on the previous requirements, we have chosen an Arm Cortex-M0+ 32-bit Atmel SamR21.
 
-The node can be connected to an extension daughter board which fully respects the Arduino pinout.
-The advantage of this approach is that it allows to easily test and prototype new configurations in
-order to be prepare the project in the shortest time possible. Also existing hardware designed for Arduino can work with this board,
-which increased the number of compatible hardware. In total, 20 I/O pins are available, pins that
-can be used for connecting sensors, either on the daughter board, or directly on a specialty
-designed board.
 
-A jumper can select whether the Node is powered from USB or from other 2v1+ voltage supply. Through
-the same jumper a power measuring device can be used to monitor the total power consumption. In case the DC/DC converter is not
-needed the node can use other power source.
+\section{\textit{Performance}}
 
-\subsection{\textit{Performance}}
+We present bellow the main diferences between the two mcus, SAMR21 and ATMEGA128RFA1.
 
-The SAMR21\cite{samr21} micro-controller is an ARM cortex M0+ core clocked at 48 MHz with 32KB of RAM and 256KB
-of flash. Being a 32-bit architecture and a new architecture, even though SAMR21 consumes 5.5mA
+\begin{table} \centering
+\begin{tabular}{llr}
+\hline
+Criteria    & Atmega128RFA1 & SamR21 \\
+\hline
+CPU Speed      & 16 MHz    & 48 MHz      \\
+CPU architecture      & AVR 8bit    & Cortex M0+ 32bit      \\
+CPU Power          & 4.1 mA       & 6.5 mA       \\
+Flash           & 128 kB        & 256 kB        \\
+Ram                 & 16 kB     & 32 kB         \\
+Flash Endurance     &  50000    & 150000        \\
+Rx Consumption       & 12.5 mA     & 11.8 mA     \\
+Tx Consumption       & 14.5 mA @ 3.5mA     & 13.8 mA @ 4 dBm      \\
+Receiver sensitivity & -100 dBm      & -101 dBm       \\
+Tx Max Power & 3.5 dBm      & 4 dBm       \\
+Package & QFN64      & QFN48 or QFN32      \\
+\hline
+\end{tabular}
+\caption{Comparison between Atmega128RFA1 and SamR21}
+\end{table}
+
+\begin{table} \centering
+\begin{tabular}{llllr}
+\hline
+Criteria    & Atmega128RFA1 & SamR21 & Total Advantage & Advantage per MHz \\
+\hline
+Integer Iterations      & 44890    & 403950   & 8.99 &  2.99 \\
+Branch Iterations      & 27782    & 93552  &  3.36 &  1.12  \\
+While(1) Iterations          & 191536     & 6693086    & 34.94  & 11.64  \\
+\hline
+\hline
+\end{tabular}
+\caption{Speed comparison}
+\end{table}
+
+\begin{table} \centering
+\begin{tabular}{llr}
+\hline
+Criteria    & Atmega128RFA1 & SamR21 \\
+\hline
+Integer Iteration    &  274 nJ & 49 nJ \\
+Branch Iteration      & 442 nJ & 208 nJ  \\
+While(1) Iteration          & 64 nJ & 2.9 nJ \\
+\hline
+\hline
+\end{tabular}
+\caption{Energy efficiency comparison}
+\end{table}
+
+Being a 32-bit architecture and a new architecture, even though SAMR21 consumes 5.5mA
 compared to 4.1mA of Atmega128RFA1, for simple 32-bit integer addition, SAMR21 consumes only 49nJ
 per iteration while the 8-bit micro-controller consumes 274nJ, almost 5 times more. Considering
 performance figures, SAMR21 was 9 times faster with 403950 iterations per second while
 Atmega128RFA1 managed only 44890 iterations.
 
 Testing the performance of branch predictor, revealed that the M0+ is only 12\% better than
-the older 8-bit counterpart, but thanks to the frequency difference, it ends up being 3,36 times
+the older 8-bit counterpart when running at the same speed, but thanks to the frequency difference, it ends up being 3,36 times
 faster.
 
 
@@ -84,8 +123,30 @@ enabled, which lead to extra power consumption during run time.
 \includegraphics[width=0.5\textwidth]{img/base-with-sensor.jpg}
 \caption{Sparrow R node mounted on Aduino compatible base}
 \end{figure}
-\subsection{\textit{Software}}
 
+\section{\textit{Hardware}}
+Because not all sensors are designed to run at 1v8 up to 3v3, we need to be able to dynamically
+change the operating voltage of the node. We used TPS62742, a step-down switching DC/DC converter
+with up to 90\% efficiency, voltage selectable output from 1v8 to 3v2 with 200mV step, 360nA
+quiescent current and a special mcu controllable load output, with push-pull transistors. In
+inactive state the load line is pulled to GND and when active is pulled to VCC. When active it
+consumes 12uA, but compared to the controlled sensors, this should not be noticeable. Because this
+allows to completely power down the sensors, the "stand-by" current consumption is 0uA and it also
+eliminates the previous design problem of floating GND which allowed the sensors to "steal" power
+from other pins and not be properly disabled.
+
+The node can be connected to an extension daughter board which fully respects the Arduino pinout.
+The advantage of this approach is that it allows to easily test and prototype new configurations in
+order to be prepare the project in the shortest time possible. Also existing hardware designed for Arduino can work with this board,
+which increased the number of compatible hardware. In total, 20 I/O pins are available, pins that
+can be used for connecting sensors, either on the daughter board, or directly on a specialty
+designed board.
+
+A jumper can select whether the Node is powered from USB or from other 2v1+ voltage supply. Through
+the same jumper a power measuring device can be used to monitor the total power consumption. In case the DC/DC converter is not
+needed the node can use other power source.
+
+\section{\textit{Software}}
 
 We implemented new modules designed for low power like sleep, power management which can dynamical
 change the running voltage between 1v8 to 3v2 when requested and enable or disable the LOAD power
@@ -126,11 +187,17 @@ from once every second up to 128 times per second, with increments of power base
 Because the software and hardware are never perfect, a watchdog functionality is also implemented,
 in order to avoid code lock-up or hardware failure due to extreme environment conditions.
 
+The software can be installed as a new board for Arduino 1.6.x, latest iteration to date,
+May 2016. It was tested using Windows 8.1, but it should be fully compatible with other operating systems as well.
+
+The node has native USB which allows for code upload and also serial interface over CDC. Because no
+extra components are needed, the same node can be configured to act as a gateway or
+as a leaf.
 
 \label{chap:results}
 
 
-\subsection{Power Consumption}
+\section{Power Consumption}
 
 Because the node was designed with low power in mind, we can obtain a very low deep sleep power
 consumption of 5uW. A small solar panel together with a
@@ -189,15 +256,4 @@ advantage of the DC/DC.
 In real world testing, we charged a 1F capacitor up to 3v3 and let it discharge by transmitting data every second. Even though the software was not
 optimized for low power, the node managed to run for 8 hours before the capacitor was completely
 discharged which translates to an average power consumption for almost 112uW.
-
-
-\subsection{Software}
-
-The software is packed as a new board that can be installed on Arduino 1.6.x, latest iteration to date,
-May 2016. It was tested using Windows 8.1, but it should be fully compatible with other operating systems as well.
-
-The node has native USB which allows for code upload and also serial interface over CDC. Because no
-extra components are needed, the same node can be configured to act as a gateway or
-as a leaf.
-
 
