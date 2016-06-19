@@ -12,12 +12,12 @@
 \contentsline {section}{\numberline {3.4}Power Consumption}{11}{section.3.4}
 \contentsline {chapter}{\chapternumberline {4}Energy Harvesting}{13}{chapter.4}
 \contentsline {section}{\numberline {4.1}TI BQ25504}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Super-capacitor}{13}{section.4.2}
-\contentsline {section}{\numberline {4.3}Solar Panel}{14}{section.4.3}
-\contentsline {chapter}{\chapternumberline {5}Software Implementation}{15}{chapter.5}
-\contentsline {chapter}{\chapternumberline {6}Evaluation}{17}{chapter.6}
-\contentsline {chapter}{\chapternumberline {7}Conclusions}{18}{chapter.7}
-\contentsline {section}{\numberline {7.1}Future Work}{18}{section.7.1}
-\contentsline {chapter}{Bibliography}{19}{section*.5}
-\contentsline {chapter}{List of Figures}{22}{section*.6}
-\contentsline {chapter}{Listings}{23}{section*.7}
+\contentsline {section}{\numberline {4.2}Super-capacitor}{14}{section.4.2}
+\contentsline {section}{\numberline {4.3}Solar Panel}{15}{section.4.3}
+\contentsline {chapter}{\chapternumberline {5}Software Implementation}{16}{chapter.5}
+\contentsline {chapter}{\chapternumberline {6}Evaluation}{19}{chapter.6}
+\contentsline {chapter}{\chapternumberline {7}Conclusions}{22}{chapter.7}
+\contentsline {section}{\numberline {7.1}Future Work}{22}{section.7.1}
+\contentsline {chapter}{Bibliography}{23}{section*.5}
+\contentsline {chapter}{List of Figures}{25}{section*.6}
+\contentsline {chapter}{Listings}{26}{section*.7}

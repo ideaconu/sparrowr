@@ -6,66 +6,59 @@ Database file #1: thesis.bib
 Warning--I didn't find a database entry for "huan2013utility"
 Warning--I didn't find a database entry for "want2015iterative"
 Warning--I didn't find a database entry for "ozel2011transimision"
-Warning--I didn't find a database entry for "ultracap"
 Warning--to sort, need author or key in arduino
 Warning--to sort, need author or key in rf233
 Warning--to sort, need author or key in samd21
 Warning--to sort, need author or key in samr21
 Warning--to sort, need author or key in nodelist
-Warning--to sort, need author or key in ulracap
-Warning--to sort, need author or key in json
-Warning--to sort, need author or key in parrot_drone
-Warning--to sort, need author or key in cdcacm
+Warning--to sort, need author or key in ultracap
 Warning--to sort, need author or key in atmegafa
 Warning--empty year in arduino
 Warning--empty year in atmegafa
-Warning--empty year in json
 Warning--empty year in nodelist
-Warning--empty year in parrot_drone
 Warning--empty year in rf233
 Warning--empty year in samd21
 Warning--empty year in samr21
-Warning--empty year in ulracap
-Warning--empty journal in teh2008experiments
-You've used 31 entries,
+Warning--empty year in ultracap
+You've used 17 entries,
             2773 wiz_defined-function locations,
-            752 strings with 10288 characters,
-and the built_in function-call counts, 13440 in all, are:
-= -- 1225
-> -- 687
-< -- 12
-+ -- 242
-- -- 210
-* -- 1078
-:= -- 1869
-add.period$ -- 94
-call.type$ -- 31
-change.case$ -- 163
-chr.to.int$ -- 30
-cite$ -- 92
-duplicate$ -- 633
-empty$ -- 1225
-format.name$ -- 237
-if$ -- 2922
+            679 strings with 7665 characters,
+and the built_in function-call counts, 7033 in all, are:
+= -- 646
+> -- 336
+< -- 4
++ -- 120
+- -- 102
+* -- 570
+:= -- 956
+add.period$ -- 52
+call.type$ -- 17
+change.case$ -- 85
+chr.to.int$ -- 16
+cite$ -- 55
+duplicate$ -- 331
+empty$ -- 665
+format.name$ -- 116
+if$ -- 1534
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 20
-newline$ -- 159
-num.names$ -- 84
-pop$ -- 432
+missing$ -- 10
+newline$ -- 92
+num.names$ -- 40
+pop$ -- 241
 preamble$ -- 1
-purify$ -- 132
+purify$ -- 68
 quote$ -- 0
-skip$ -- 469
+skip$ -- 232
 stack$ -- 0
-substring$ -- 463
-swap$ -- 77
-text.length$ -- 6
+substring$ -- 244
+swap$ -- 32
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 341
-warning$ -- 20
-while$ -- 98
+type$ -- 187
+warning$ -- 14
+while$ -- 48
 width$ -- 0
-write$ -- 385
-(There were 24 warnings)
+write$ -- 214
+(There were 17 warnings)

@@ -21,6 +21,11 @@
 \usepackage{listings}
 \usepackage[utf8x]{inputenc}
 
+\usepackage{algorithm}
+
+\usepackage{algpseudocode}
+%\usepackage[]{algorithm2e}
+
 \usepackage{natbib}
 \bibpunct{[}{]}{;}{s}{,}{,}
 \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue]{hyperref}
@@ -102,7 +107,7 @@
 \definecolor{tan}           {cmyk}{0.14, 0.42, 0.56, 0   }
 \definecolor{gray}          {cmyk}{0   , 0   , 0   , 0.50}
 \definecolor{black}         {cmyk}{0   , 0   , 0   , 1   }
-\definecolor{white}         {cmyk}{0   , 0   , 0   , 0   } 
+\definecolor{white}         {cmyk}{0   , 0   , 0   , 0   }
 
 % *************** Enable hyperlinks in PDF documents ***************
 %\ifpdf
@@ -115,11 +120,11 @@
 %        pagecolor=red,%
 %        urlcolor=sepia,%
 %        pdftex,%
-%        unicode]{hyperref} 
+%        unicode]{hyperref}
 %    \input supp-mis.tex
 %    \input supp-pdf.tex
 %    \pdfimageresolution=600
-%    \usepackage{thumbpdf} 
+%    \usepackage{thumbpdf}
 %\else
 %    \usepackage{hyperref}
 %\fi
@@ -196,7 +201,7 @@ frame=tb,
 framesep=5pt,
 basicstyle=\normalsize,
 keywordstyle=\ttfamily\color{navyblue},
-identifierstyle=\ttfamily\color{black}\bfseries, 
+identifierstyle=\ttfamily\color{black}\bfseries,
 commentstyle=\color{brown},
 stringstyle=\ttfamily,
 showstringspaces=false,

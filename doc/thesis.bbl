@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -14,18 +14,10 @@ Arduino.
 Atmega128rfa1 datasheet.
 \newblock \url{http://www.atmel.com/Images/doc8266.pdf}.
 
-\bibitem[jso()]{json}
-{Json Standard}.
-\newblock \url{http://www.json.org/xml.html}.
-
 \bibitem[nod()]{nodelist}
 List of wireless nodes.
 \newblock \url{https://en.wikipedia.org/wiki/List_of_wireless_sensor_nodes}.
 \newblock Accessed: 2016-06-20.
-
-\bibitem[par()]{parrot_drone}
-{Parrot Drone}.
-\newblock \url{http://img.clubic.com/04862120-photo-parrot-ar-drone-2-0.jpg}.
 
 \bibitem[rf2()]{rf233}
 Arduino-at86rf233.
@@ -44,21 +36,11 @@ Atmel samr21 datasheet.
   {\natexlab{b}}.
 \newblock Accessed: 2016-06-05.
 
-\bibitem[ulr()]{ulracap}
+\bibitem[ult()]{ultracap}
 Ultra-capacitors.
 \newblock
   \url{http://www.maxwell.com/images/documents/Ultracapacitors_Overview_Flyer_3000615-2EN.pdf}.
 \newblock Accessed: 2016-06-20.
-
-\bibitem[cdc(2010)]{cdcacm}
-{USB ACM}.
-\newblock \url{http://wiki.openmoko.org/wiki/CDC_ACM}, March 2010.
-
-\bibitem[Akyildiz et~al.(2002)Akyildiz, Su, Sankarasubramaniam, and
-  Cayirci]{akyildiz2002wireless}
-Ian~F Akyildiz, Weilian Su, Yogesh Sankarasubramaniam, and Erdal Cayirci.
-\newblock Wireless sensor networks: a survey.
-\newblock \emph{Computer networks}, 38\penalty0 (4):\penalty0 393--422, 2002.
 
 \bibitem[Andrei-Alexandru et~al.(2015)Andrei-Alexandru, Dan, and Ioan]{geo}
 Musat Andrei-Alexandru, Tudose Dan, and Deaconu Ioan.
@@ -70,41 +52,6 @@ Faycal~Ait Aoudia, Matthieu Gautier, and Olivier Berder.
 \newblock Fuzzy power management for energy harvesting wireless sensor nodes.
 \newblock In \emph{IEEE International Conference on Communications (ICC16)},
   2016.
-
-\bibitem[Arampatzis et~al.(2005)Arampatzis, Lygeros, and
-  Manesis]{arampatzis2005survey}
-Th~Arampatzis, John Lygeros, and S~Manesis.
-\newblock A survey of applications of wireless sensors and wireless sensor
-  networks.
-\newblock In \emph{Intelligent Control, 2005. Proceedings of the 2005 IEEE
-  International Symposium on, Mediterrean Conference on Control and
-  Automation}, pages 719--724. IEEE, 2005.
-
-\bibitem[Baggio(2005)]{baggio2005wireless}
-Aline Baggio.
-\newblock Wireless sensor networks in precision agriculture.
-\newblock In \emph{ACM Workshop on Real-World Wireless Sensor Networks (REALWSN
-  2005), Stockholm, Sweden}, 2005.
-
-\bibitem[BRACETTI(2013)]{parrotpopular}
-ALEX BRACETTI.
-\newblock {The 10 Best Drones You Can Buy Right Now}.
-\newblock
-  \url{http://www.complex.com/pop-culture/2013/03/10-cool-drones-you-can-buy-right-now/parrot-ardrone-20},
-  March 2013.
-
-\bibitem[Cardei and Du(2005)]{cardei2005improving}
-Mihaela Cardei and Ding-Zhu Du.
-\newblock Improving wireless sensor network lifetime through power aware
-  organization.
-\newblock \emph{Wireless Networks}, 11\penalty0 (3):\penalty0 333--340, 2005.
-
-\bibitem[Erman et~al.(2008)Erman, Hoesel, Havinga, and Wu]{erman2008enabling}
-Ayseg{\"u}l~T{\"u}ys{\"u}z Erman, LV~Hoesel, Paul Havinga, and Jian Wu.
-\newblock Enabling mobility in heterogeneous wireless sensor networks
-  cooperating with uavs for mission-critical management.
-\newblock \emph{Wireless Communications, IEEE}, 15\penalty0 (6):\penalty0
-  38--46, 2008.
 
 \bibitem[Huang and Neely(2013)]{huang2013utility}
 Longbo Huang and Michael~J Neely.
@@ -121,15 +68,6 @@ Raja Jurdak, Kevin Klues, Brano Kusy, Christian Richter, Koen Langendoen, and
 \newblock \emph{Embedded Systems Letters, IEEE}, 3\penalty0 (4):\penalty0
   121--124, 2011.
 
-\bibitem[Ollero et~al.(2007)Ollero, Bernard, La~Civita, van Hoesel, Marron,
-  Lepley, and de~Andres]{ollero2007aware}
-Anibal Ollero, Markus Bernard, Marco La~Civita, Lodewijk van Hoesel, Pedro~J
-  Marron, Jason Lepley, and Eduardo de~Andres.
-\newblock Aware: Platform for autonomous self-deploying and operation of
-  wireless sensor-actuator networks cooperating with unmanned aerial vehicles.
-\newblock In \emph{Safety, Security and Rescue Robotics, 2007. SSRR 2007. IEEE
-  International Workshop on}, pages 1--6. IEEE, 2007.
-
 \bibitem[Ozel et~al.(2011)Ozel, Tutuncuoglu, Yang, Ulukus, and
   Yener]{ozel2011transmission}
 Omur Ozel, Kaya Tutuncuoglu, Jing Yang, Sennur Ulukus, and Aylin Yener.
@@ -145,11 +83,6 @@ Omur Ozel, Jing Yang, and Sennur Ulukus.
 \newblock \emph{Wireless Communications, IEEE Transactions on}, 11\penalty0
   (6):\penalty0 2193--2203, 2012.
 
-\bibitem[Parrot(2012)]{parrot2012drone}
-AR~Parrot.
-\newblock Drone.
-\newblock \emph{Available: ardrone.parrot.com}, 75, 2012.
-
 \bibitem[Piorno et~al.(2009)Piorno, Bergonzini, Atienza, and
   Rosing]{piorno2009prediction}
 Joaquin~Recas Piorno, Carlo Bergonzini, David Atienza, and Tajana~Simunic
@@ -158,27 +91,6 @@ Joaquin~Recas Piorno, Carlo Bergonzini, David Atienza, and Tajana~Simunic
 \newblock In \emph{Wireless Communication, Vehicular Technology, Information
   Theory and Aerospace \& Electronic Systems Technology, 2009. Wireless VITAE
   2009. 1st International Conference on}, pages 6--10. IEEE, 2009.
-
-\bibitem[Savarese et~al.(2001)Savarese, Rabaey, and
-  Beutel]{savarese2001location}
-Chris Savarese, Jan~M Rabaey, and Jan Beutel.
-\newblock Location in distributed ad-hoc wireless sensor networks.
-\newblock In \emph{Acoustics, Speech, and Signal Processing, 2001.
-  Proceedings.(ICASSP'01). 2001 IEEE International Conference on}, volume~4,
-  pages 2037--2040. IEEE, 2001.
-
-\bibitem[Teh et~al.(2008)Teh, Mejias, Corke, and Hu]{teh2008experiments}
-Steven~K Teh, Luis Mejias, Peter Corke, and Wen Hu.
-\newblock Experiments in integrating autonomous uninhabited aerial vehicles
-  (uavs) and wireless sensor networks.
-\newblock 2008.
-
-\bibitem[Valente et~al.(2011)Valente, Sanz, Barrientos, Cerro, Ribeiro, and
-  Rossi]{valente2011air}
-Jo{\~a}o Valente, David Sanz, Antonio Barrientos, Jaime~del Cerro, {\'A}ngela
-  Ribeiro, and Claudio Rossi.
-\newblock An air-ground wireless sensor network for crop monitoring.
-\newblock \emph{Sensors}, 11\penalty0 (6):\penalty0 6088--6108, 2011.
 
 \bibitem[Voinescu et~al.(2013)Voinescu, Tudose, and
   Dragomir]{voinescu2013lightweight}

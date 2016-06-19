@@ -1,8 +1,53 @@
 \normalfont\normalsize
 \chapter{Evaluation}
 
+Our goal was to deliver a solution that could be deployed in an application as fast as possible, so
+instead of running software simulations, we decided to implement and test the algorithm on the new
+node Sparrow R. The algorithm is implemented in C, and compiled with gcc-arm-none-eabi-4.8.3-2014q1 on Arduino 1.6.4.
+
+We selected 2 super-capacitors of 1F and 5V maximum rating. We fully charged the capacitor and then
+let the algorithm decide how fast the data should be transmitted in order to reach the time
+deadline.
+
+The only input needed is the current voltage of the capacitor, read using a voltage divider that is
+control by an n-mos transistor in order to reduce the power dissipated by the divider. The node
+will run a task that simulates sensors readings and other processing through a delay of 100 ms. The
+network is configure as single-hop, and the data sent through RF has the length of 45 bytes.
+
+\begin{figure}[ht] \centering
+\includegraphics[width=0.85\textwidth]{img/algtest.png}
+\caption{Two runs of the algorithm}
+\end{figure}
+
+When beginning with a deadline of 4 hours, in the first run, the node manages to execute 1593 task and be
+functional for a total time of 4 hours and 18 minutes. The second run, with a new deadline of 4
+hours and 11 minutes, the node ran 1631 tasks for a total time of 4 hours and 35 minutes.
+
+With a longer, more realistic deadline of 8 hours, the node managed to transmit 785 times for a
+duration of 8 hours and 14 minutes. We ran into problems when a longer deadline of 12 hours was
+tested, mainly because the self discharge of the capacitor combined with the idle current
+consumption of the node is high enough to waste more 75\% of the energy. This had a significant
+impact on the total number of executed tasks.
 
 
+TODO - add the 12 hours test and talk more about it.
 
+The 12 hour test meant that 1F capacitor is barely enough for 12 hours with our demo test and that
+a bigger capacitor might be needed. Because we had two types of 1F capacitor, we were curios to
+see if there is a difference between them. What we found was a bit of surprise, especially the
+lowest voltage at which the node stopped working. The blue capacitor had a lower voltage of 1950mV
+compared to the black of 2050mV. However, the black one managed to transmit data more times than
+the blue one, even when the algorithm was tweaked to take into consideration the lower working
+voltage of the blue one. The black managed to send 1642, while the blue one manage a 1254.
+
+\begin{figure}[ht] \centering
+\includegraphics[width=0.85\textwidth]{img/capacitors.jpg}
+\caption{1F differen capacitors, Left Black - Right Blue}
+\end{figure}
+
+\begin{figure}[ht] \centering
+\includegraphics[width=0.85\textwidth]{img/captest1.png}
+\caption{1F different capacitors test, blue vs black}
+\end{figure}
 
 

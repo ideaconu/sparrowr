@@ -1,7 +1,28 @@
 \chapter{Conclusions}
 
+The main goal of this thesis was to present the complete architecture of a Energy Harvesting Wireless Sensor
+Network. We have presented a brand new node designed to be new development platform that can be used to
+bring new ideas to life. On of those ideas is dynamically varying the transmission speed in order to
+keep alive a node until the capacitor can be recharged. We implemented an algorithm that we tested
+on the node, something that our research found that is rarely done, and proved that it is able to
+keep the node alive and use efficiently all the stored energy.
+
+
+Because the algorithm needs to be able to read the voltage of the capacitor, the hardware
+requirements are very small and it can be easily deployed on existing hardware with little to no
+modification.
+
 
 
 \section{Future Work}
 
+Even though the algorithm is functional, there is always room for improvement. We would like our
+work to be continued with an optimization of the algorithm for better time estimation. Also, taking
+into account past weather in order to predict when we can start to generate power could help us to
+better determine the new target time, so that in case of a very cloudy weather, we could adjust the
+deadline and hopefully, keep the node alive until the sun will be able to recharge the
+super-capacitor.
 
+Another point not covered in this thesis is multi-hop network. We tested the algorithm in a simple
+single-hop scenario, but a multi-hop test is needed to know if the algorithm needs improvements for
+this scenario.

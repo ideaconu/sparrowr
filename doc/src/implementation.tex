@@ -15,150 +15,92 @@ in real world, where a lot of variables can generate a big error in the estimate
 In order to simply the algorithms for the user to deploy them faster in a real EHWSN applications,
 we have implemented and tested a simple dynamic scheduling algorithm for transfered data.
 
-The algorithm can be considered to have very basic waterfilling policy, with one slot and that is
+The algorithm can be considered to have very basic water-filling policy, with one slot that is
 the current discharge period. This simplifies the implementation and reduces the computational
-requirements.
+requirements. It is designed to be run with an energy harvesting module that has a super capacitor
+as energy storage unit. Because of this, we simplified the predictor in order to obtain O(1)
+complexity.
+
+The capacitor does not discharge very linear, but in the tests we have conducted, the error is
+small enough to allow us to estimated de remaining time without the requirement of measuring how
+much energy did the capacitor stored and how much energy is was consumed or without a discharge
+curve.
+
+
+\begin{figure}[ht] \centering
+\includegraphics[width=0.85\textwidth]{img/capacitor.png}
+\caption{1F capacitor discharge}
+\end{figure}
+
+
+\newcommand{\var}[1]{{\ttfamily#1}}% variable
+\begin{algorithm}[t]
+  \caption{Send frequency scheduling Algorithm}\label{euclid}
+  \begin{algorithmic}[1]
+    \Procedure{algorithm,}{$voltage,time$}\Comment{}
+    \State determine current state Charging/Discharging
+    \If{changed from Charging to Discharging}
+        \State Calculate the new target time
+        \State Calculate the frequency based on total number of sent data
+        \State $changedVoltage \gets voltage$
+    \EndIf
+    \If{current state is Discharging}
+    \If{$voltage < MIN\_COMPUTE\_DELTA$}
+        \State $sendFreq \gets sendFreq / 2$
+    \EndIf
+    \State $deltaVoltage \gets changedVoltage - voltage$
+    \If{$deltaVoltage > MIN\_VOLTAGE\_DELTA$}
+        \State Estimate the new remaining time
+        \State Calculate remaining time until deadline
+        \State $newSendFreq \gets sendFreq*estimated*percentagePenalty/remaining $
+        \If {$newSendFreq != sendFreq$}
+            \State Change the speed
+            \State $changedVoltage \gets voltage$
+        \EndIf
+    \EndIf
+    \EndIf
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
+
 
 The algorithm has a total time that it needs to respect, while trying to maximize the total number
 of packets sent. In order to achieve this two simple requirements, it dynamically estimates the
 remaining time and according to the difference between the estimation and the remaining time, it
 keeps the same send frequency or alters it. Because when lowering the speed, the total consumed
-energy will not be halved, a penalty is imposed, one that we selected at 75\% energy decrease.
-Also, in order to make sure that the deadline is respected, under a certain voltage level, the
+energy will not be halved, due to leakage and sleep current, a penalty is imposed,
+one that we selected at 75\%. Also, in order to make sure that the deadline is respected, under a certain voltage level, the
 speed is halved and kept until the energy is depleted or the capacitor is recharged.
 
-\lstset{language=C}
-\begin{lstlisting}[frame=single]
+The algorithm is very versatile, with customization options, depending on the type of hardware and
+requirements of the application in which it is used.
 
-  int voltage = readVoltage();
-  int delta_voltage = voltage - previous_voltage;
-  int delta_voltage_minutes = voltage - previous_voltage_minutes;
-  int data_changed = 0;
+What can be changed and it is recommended to be changed is presented in the list bellow.  Other
+customization options exists, but it is not recommended to changed them.
 
-  solar->current_voltage = voltage;
-  previous_voltage = voltage;
-
-  if (solar->current_timestamp % (4 * SECONDS_PER_MINUTE) == 0)
-  {
-    previous_voltage_minutes = voltage;
-  }
-
-  if (delta_voltage > CHARGING_DELTA_START || delta_voltage_minutes > CHARGING_DELTA_START)
-  {
-    if (solar->state == DISCHARGING)
-    {
-      solar->state = CHARGING;
-      solar->send_freq = DEFAULT_SEND_FREQ;
-      data_changed = 1;
-    }
-    times_discharged = 0;
-  }
-  else
-  {
-    if (delta_voltage <= 0)
-    {
-      if (times_discharged < 1000)
-      {
-        times_discharged ++;
-      }
-      if (delta_voltage_minutes < DISCHARGE_DELTA_START || delta_voltage < DISCHARGE_DELTA_START || times_discharged > 12)
-      {
-        if (solar->state == CHARGING)
-        {
-          if (solar->end_timestamp != 0 &&
-              solar->total_sent != 0 &&
-              solar->end_timestamp > solar->start_timestamp)
-          {
-            solar->target_time = solar->end_timestamp - solar->start_timestamp;
-            solar->send_freq = (SECONDS_PER_HOUR * solar->total_sent / solar->target_time);
-            if (solar->send_freq < MIN_SEND_FREQ)
-            {
-              solar->send_freq = MIN_SEND_FREQ;
-            }
-
-            if (solar->send_freq > MAX_SEND_FREQ)
-            {
-              solar->send_freq = MAX_SEND_FREQ;
-            }
-            data_changed = 1;
-          }
-          solar->start_timestamp = solar->current_timestamp;
-          solar->time_changed = solar->current_timestamp;
-          solar->total_sent = 0;
-          solar->voltage_changed = 0;
-        }
-        solar->state = DISCHARGING;
-      }
-    }
-    else
-    {
-      times_discharged = 0;
-    }
-  }
-
-  if (solar->state == DISCHARGING)
-  {
-    solar->end_timestamp = solar->current_timestamp;
-    int delta_time = solar->current_timestamp - solar->time_changed;
-    int absolute_delta_time = solar->current_timestamp - solar->start_timestamp;
-
-    if (delta_time >= MIN_WAIT_TIME &&
-        solar->voltage_changed == 0)
-    {
-      data_changed = 1;
-      solar->voltage_changed = voltage;
-    }
+\begin{itemize}
+    \item DEFAULT\_TARGET\_TIME The default deadline for the algorithm. After one iteration it is
+        dynamically adjusted.
+    \item TIME\_PERCENTAGE\_PENALTY Reduce or increase the estimation time.
+    \item SPEED\_DECREASE\_PENALTY When the transmission speed is decreased, a penalty must be applied
+        because it is not linear.
+    \item MIN\_SEND\_FREQ  Minimum packets per hour for the algorithm. Minimum value that can be
+        set is one per hour
+    \item MAX\_SEND\_FREQ  Maximum packets per hour for the algorithm. Maximum value that can be
+        set is one per second, or 3600 per hour.
+    \item DEFAULT\_SEND\_FREQ The default packets per hour before the algorithm stabilizes.
+    \item MIN\_VOLTAGE\_COMPUTE The minimum voltage under which the algorithm will stop adjusting
+        the frequency
+    \item MIN\_VOLTAGE The minimum voltage considered by the algorithm when computing the estimated
+        time and the new send frequency.
+    \item MIN\_VOLTAGE\_DELTA The delta voltage over which the algorithm will start to compute the
+        estimated time and the new send frequency.
+\end{itemize}
 
 
-    if (voltage > MIN_VOLTAGE_COMPUTE &&
-        delta_time >= MIN_COMPUTE_TIME &&
-        solar->voltage_changed > voltage + MIN_VOLTAGE_DELTA)
-    {
-      //solar->estimated = TIME_PERCENTAGE_PENALTY *(voltage - MIN_VOLTAGE) * delta_time / ( solar->voltage_changed - voltage) - TIME_GRACE_PERIOD;
-
-      solar->estimated = (TIME_PERCENTAGE_PENALTY *(voltage - MIN_VOLTAGE) * delta_time) / (( solar->voltage_changed - voltage) * 100);
-      if (solar->estimated < MIN_ESTIMATED_TIME)
-      {
-        solar->estimated = MIN_ESTIMATED_TIME;
-      }
-      //if we do not reach our quota
-      solar->remaining = 0;
-
-      if (solar->target_time > absolute_delta_time)
-      {
-        solar->remaining = solar->target_time - absolute_delta_time;
-      }
-
-      if (solar->remaining > 0)
-      {
-        solar->actual_freq = (solar->send_freq * solar->estimated) / (solar->remaining + TIME_EXTRA_REMAINING);
-        //if we change down the speed, then we do not scale linear, so we incure a penalty.
-        if (solar->actual_freq < solar->send_freq)
-        {
-          solar->actual_freq = solar->actual_freq * SPEED_DECREASE_PENALTY / 100;
-        }
-
-        int send_freq = SECONDS_PER_HOUR / ceil(SECONDS_PER_HOUR *1.0f /  solar->actual_freq);
-
-        if (send_freq != solar->send_freq)
-        {
-          solar->time_changed = solar->current_timestamp;
-          solar->voltage_changed = 0;
-          data_changed = 1;
-          solar->send_freq = send_freq;
-        }
-      }
-    }
-
-    if (voltage < MIN_VOLTAGE_COMPUTE)
-    {
-        solar->send_freq = SECONDS_PER_HOUR / ceil(SECONDS_PER_HOUR *2.0f /  solar->actual_freq);
-    }
-  }
-
-  ticks_per_send = SECONDS_PER_HOUR / solar->send_freq;
-
-\end{lstlisting}
-
+The algorithm will recalculate the new deadline every time, so in case the sun will rise sooner or later the
+target time will be automatically adjusted. In order to compensate for the situation in which the
+sun will rise later or for a raining day, the algorithm always tries to keep the node alive for a
+longer time than the given deadline. How much, depends on the deadline.
 
 
