@@ -6,10 +6,10 @@ using newer Arm Cortex-M3 32-bit architecture. The benefits of higher computing 
 \cite{jurdak2011opal}, where a 4.6 throughput can be obtained compared to an 8-bit cpu over the
 same wireless network. Unfortunately, the downside is higher power consumption that can create
 difficulties for power supplies. Even though the same average power consumption can be obtained, due
-to higher power peaks, the power supplies will be depleted more quickly.
+to higher power peaks, the power supply energy will be depleted more quickly.
 
 The current nodes, Sparrow V3.2 and SparrowV4, use an AVR 8-bit architecture and run at a speed of
-16MHz. For our solar powered node, we wanted to use a newer, more powerful and low power
+16MHz. For our solar powered node, we wanted to use a newer, more powerful and lower power
 microcontroller. Based on the previous requirements, we have chosen an Arm Cortex-M0+ 32-bit Atmel SamR21.
 
 
@@ -66,15 +66,15 @@ While(1) Iteration          & 64 nJ & 2.9 nJ \\
 \caption{Energy efficiency comparison}
 \end{table}
 
-Being a 32-bit architecture and a new architecture, even though SAMR21 consumes 5.5mA
+Being a 32-bit architecture, even though SAMR21 consumes 5.5mA
 compared to 4.1mA of Atmega128RFA1, for simple 32-bit integer addition, SAMR21 consumes only 49nJ
 per iteration while the 8-bit micro-controller consumes 274nJ, almost 5 times more. Considering
 performance figures, SAMR21 was 9 times faster with 403950 iterations per second while
 Atmega128RFA1 managed only 44890 iterations.
 
 Testing the performance of branch predictor, revealed that the M0+ is only 12\% better than
-the older 8-bit counterpart when running at the same speed, but thanks to the frequency difference, it ends up being 3,36 times
-faster.
+the older 8-bit counterpart when running at the same speed, but thanks to the frequency difference,
+it ends up being 3.36 times faster.
 
 
 \begin{figure}[ht] \centering
@@ -199,8 +199,7 @@ as a leaf.
 
 \section{Power Consumption}
 
-Because the node was designed with low power in mind, we can obtain a very low deep sleep power
-consumption of 5uW. A small solar panel together with a
+Having a very low power consumption, a small solar panel together with a
 small capacitor can be used as the main power supply.
 
 For example, when a 1F capacitor is used with the voltage ranging from 3v3 to 2v1 the equivalent battery capacity would be
@@ -210,7 +209,7 @@ $$ \frac{F * (Vi - Vf)}{t} = \frac{1F * (3.3V - 2.1V)}{3600s} = 0.333mAh$$
 The node is equipped with a DC/DC converter that can bring substantial power savings, depending on
 the voltage of the power supply. A LDO wastes a lot off energy as the delta between the
 voltages increases, were as DC/DC works best when the delta increases, or putting it simple, if an
-LDO ouputs 1v8 and a chip consumes 5mA, the input current is almost the sam 5mA regardless of the
+LDO ouputs 1v8 and a chip consumes 5mA, the input current is almost the same 5mA regardless of the
 input voltage. So even though the chip consumes 9mW, the total power consumed is actually 25mW. If
 in the same situation, a DC/DC with a 90\% efficiency is used, then the input current would be :
 $$Iin = \frac{Iout * Vout}{Vin*Efficiency} = \frac{5mA * 1.8V*100}{5v*90}= 2mA$$
@@ -250,10 +249,6 @@ $$T_{DC} = \frac{E}{P} = \frac{3.24J}{11mW} =935.91s $$
 $$Advantage = \frac{T_{DC} - T_{LDO}}{T_{LDO}} = \frac{935.91s - 527.27s}{527.27s} = 77.5\%$$
 
 At 3.3V the advantage is not that big, but at 5V we nearly double the battery life. Furthermore, using a LIPO
-battery which does not discharge as linearly as the capacitor will increase the
-advantage of the DC/DC.
+battery which will increase the advantage of the DC/DC.
 
-In real world testing, we charged a 1F capacitor up to 3v3 and let it discharge by transmitting data every second. Even though the software was not
-optimized for low power, the node managed to run for 8 hours before the capacitor was completely
-discharged which translates to an average power consumption for almost 112uW.
 

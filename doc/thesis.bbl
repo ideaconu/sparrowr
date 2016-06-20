@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{18}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -52,6 +52,14 @@ Faycal~Ait Aoudia, Matthieu Gautier, and Olivier Berder.
 \newblock Fuzzy power management for energy harvesting wireless sensor nodes.
 \newblock In \emph{IEEE International Conference on Communications (ICC16)},
   2016.
+
+\bibitem[Benedetti et~al.(2013)Benedetti, Petrioli, and
+  Spenza]{benedetti2013greencastalia}
+David Benedetti, Chiara Petrioli, and Dora Spenza.
+\newblock Greencastalia: an energy-harvesting-enabled framework for the
+  castalia simulator.
+\newblock In \emph{Proceedings of the 1st International Workshop on Energy
+  Neutral Sensing Systems}, page~7. ACM, 2013.
 
 \bibitem[Huang and Neely(2013)]{huang2013utility}
 Longbo Huang and Michael~J Neely.

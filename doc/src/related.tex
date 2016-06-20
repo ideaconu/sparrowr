@@ -3,45 +3,54 @@
 \label{chap:related}
 
 % Truism
-Energy harvesting has been studied for a long time and many tried to find a solution for their
-shortcomings. Solar panels are frequently used in EHWSNs because they can generate a lot of power
-but the power they generate is not consistent and predicting it was on of the challenges to be
+Energy harvesting has been studied for a long time, and in spite of the advantage of free power,
+there are some downsides. Solar panels are frequently used in EHWSNs because they can generate a
+lot of energy but it is not consistent and predicting it was on of the challenges to be
 overcome.
+
+In this chapter we will present the current advances in solar powered EHWSN.
 
 \section {Prediction generated Energy}
 
 Because the solar energy is not constant, in order to predict the generated energy, a history of
 past-days weather conditions or generated energy must be taken into account. The state-of-the-art
-algorithm for this is Weather-Conditioned Moving Average (WCMA) \cite{piorno2009prediction} which
-can keep a history of number of days of generated energy in order to predict the generated energy
-in the next hour. The results of the algorithm are shown to be impressive, with an average error of
+algorithm for this is Weather-Conditioned Moving Average (WCMA) \cite{piorno2009prediction}. IN
+order to predict the generated energy in the next hour, it needs to keep a history of generated
+energy for the past 6 days. The results of the algorithm are shown to be impressive, with an average error of
 9.8\% in 45 days of testing.
 
-Because the algorithm requires the generated power to be measured in order to have a precise
-history of generated solar energy, this algorithm is not feasible in application where the node
-can be very low power and a small solar panel of just 60mW or less can be used, compared to one
-used in the paper, which could generate more than 300mW. A simpler solution for hardware as well as
-software must be found for those applications.
+Unfortunately, the algorithm requires the measurement of the generated energy in order to have an
+exact history of generated solar energy. Because of this, the algorithm is not feasible in
+applications where the node needs to be very low power due to the overhead of estimating the
+generated power. Also the application could be powered by a small solar panel of just
+60mW or less, much smaller compared to the one used in the paper, which could generate more than 300mW.
+A simpler solution for hardware as well as software must be found for those applications.
 
 
 \section {Using stored Energy}
+The other downside of solar powered is the fact that in the night, rain or foggy conditions the
+panel will generate a very small or next to nothing amount of energy. In order to keep to node
+alive, transfer speed scheduling algorithms have been developed.
 
 The common approach to optimal packet scheduling is using a water-filling algorithm
 \cite{yang2012optimal} \cite{huan2013utility}, where the time
 is divided into slots and given a level of energy to be used in that slot. For better power
 optimizations, this approach is modified into backward water-filling, directional water-filling,
-generalized iterative water-filling \cite{want2015iterative} for offline (deterministic) scenarios. In order to simulate
-online (stochastic) scenarios, Gaussian noise is added and the constant water level policy, energy
-adaptive water-filling\cite{ozel2012optimal}, time-energy adaptive water-filling\cite{ozel2011transimision} can be used.
-The problem with their approach, in our opinion, and even simpler ones like fuzzy power management
-\cite{aoudia2016fuzzy} is that the complexity of the algorithm is rather high, at least O(N), a
-constant feedback of consumed energy must be provided. The fact that the results of all the
-algorithms were simulated and not implemented and tested on a real device, indicated that real
-conditions, like capacitor leakage or temperature variations are not taken into consideration.
-Also, every algorithm needs to know how much energy it is using performing different tasks. This is
-not feasible in real world, in time leading to large errors.
-
+generalized iterative water-filling \cite{want2015iterative} for offline (deterministic) scenarios.
+Real world applications are stochastic, so in order to simulate online scenarios, Gaussian noise is
+added. The algorithms that can be used in this case are constant water level policy, energy
+adaptive water-filling\cite{ozel2012optimal}, time-energy adaptive water-filling\cite{ozel2011transimision}.
+Because these are complex algorithms, simpler ones have been attempted, such as fuzzy power
+management\cite{aoudia2016fuzzy} , where a table with predetermined levels is used as main policy.
 What this mean is that the above algorithms will work best in high power scenarios, where leakage
-currents are small enough to be considered inexistent. In a low power scenario, the results are
-very optimal.
+currents are small enough to be considered inexistent. Furthermore, the results of all the
+algorithms were obtained using simulated data with programs such as
+GreenCastalia\cite{benedetti2013greencastalia}. Because the algorithms were never tested on a
+real device can mean that real conditions, like capacitor leakage or temperature variations are not taken into consideration.
+
+All the above algorithms need to measure how much energy the node is using when performing
+different tasks. This is not feasible in real conditions because precise current measurement can only be
+performed at a high sample rate, which in turn consumes a large amount of energy. Considering the
+presented problems, we developed a lightweight and efficient algorithm that needs to know only the
+voltage of the capacitor.
 

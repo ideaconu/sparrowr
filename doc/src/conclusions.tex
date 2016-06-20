@@ -12,16 +12,28 @@ Because the algorithm needs to be able to read the voltage of the capacitor, the
 requirements are very small and it can be easily deployed on existing hardware with little to no
 modification.
 
-
+This research can be continued and for this we propose some directions presented in the next
+section.
 
 \section{Future Work}
 
 Even though the algorithm is functional, there is always room for improvement. We would like our
-work to be continued with an optimization of the algorithm for better time estimation. Also, taking
-into account past weather in order to predict when we can start to generate power could help us to
+work to be continued with an optimization of the algorithm for better time estimation. Taking
+into consideration past weather in order to predict when we can start to generate power could help us to
 better determine the new target time, so that in case of a very cloudy weather, we could adjust the
 deadline and hopefully, keep the node alive until the sun will be able to recharge the
 super-capacitor.
+
+The evaluation of the algorithm revealed at least two more areas in which improvements are needed. First
+is revealed by the test of the blue capacitor, in which at the end the send frequency increased.
+This is not a negative aspect, as the deadline was reached, but a smaller difference between
+consecutive changes in frequency might allow for a more constant energy discharge.
+
+The second one is revealed by the 12 hours discharge test. The algorithm lowered the send frequency
+down to 1 data per hour, but the time interval used to determine the new frequency reach 10 hours.
+The solution would be that if the frequency is not changed in a determined time, that could be
+affected by the type of capacitor done, the recalculations will have to be done for a better
+estimation of the remaining duration.
 
 Another point not covered in this thesis is multi-hop network. We tested the algorithm in a simple
 single-hop scenario, but a multi-hop test is needed to know if the algorithm needs improvements for
