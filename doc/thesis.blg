@@ -3,9 +3,6 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: plainnat.bst
 Database file #1: thesis.bib
-Warning--I didn't find a database entry for "huan2013utility"
-Warning--I didn't find a database entry for "want2015iterative"
-Warning--I didn't find a database entry for "ozel2011transimision"
 Warning--to sort, need author or key in arduino
 Warning--to sort, need author or key in rf233
 Warning--to sort, need author or key in samd21
@@ -22,7 +19,7 @@ Warning--empty year in samr21
 Warning--empty year in ultracap
 You've used 18 entries,
             2773 wiz_defined-function locations,
-            685 strings with 7908 characters,
+            682 strings with 7856 characters,
 and the built_in function-call counts, 7530 in all, are:
 = -- 689
 > -- 366
@@ -61,4 +58,4 @@ warning$ -- 14
 while$ -- 52
 width$ -- 0
 write$ -- 228
-(There were 17 warnings)
+(There were 14 warnings)

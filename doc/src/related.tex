@@ -33,13 +33,14 @@ panel will generate a very small or next to nothing amount of energy. In order t
 alive, transfer speed scheduling algorithms have been developed.
 
 The common approach to optimal packet scheduling is using a water-filling algorithm
-\cite{yang2012optimal} \cite{huan2013utility}, where the time
+\cite{yang2012optimal}\cite{huang2013utility}, where the time
 is divided into slots and given a level of energy to be used in that slot. For better power
 optimizations, this approach is modified into backward water-filling, directional water-filling,
-generalized iterative water-filling \cite{want2015iterative} for offline (deterministic) scenarios.
+generalized iterative water-filling \cite{wang2015iterative} for offline (deterministic) scenarios.
 Real world applications are stochastic, so in order to simulate online scenarios, Gaussian noise is
 added. The algorithms that can be used in this case are constant water level policy, energy
-adaptive water-filling\cite{ozel2012optimal}, time-energy adaptive water-filling\cite{ozel2011transimision}.
+adaptive water-filling\cite{ozel2012optimal}, time-energy adaptive
+water-filling\cite{ozel2011transmission}.
 Because these are complex algorithms, simpler ones have been attempted, such as fuzzy power
 management\cite{aoudia2016fuzzy} , where a table with predetermined levels is used as main policy.
 What this mean is that the above algorithms will work best in high power scenarios, where leakage

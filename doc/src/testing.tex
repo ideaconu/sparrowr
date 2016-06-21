@@ -5,7 +5,8 @@ Our goal was to deliver a solution that could be deployed in an application as f
 instead of running software simulations, we decided to implement and test the algorithm on the new
 node Sparrow R. The algorithm is implemented in C, and compiled with gcc-arm-none-eabi-4.8.3-2014q1 on Arduino 1.6.4.
 
-We selected 2 super-capacitors of 1F and 5V maximum rating. We fully charged the capacitor and then
+We selected 2 super-capacitors of 1F and 5V maximum rating, one using Electrolytic Double
+Layer (EDLC) technology and other using Aerogel technology. We fully charged the capacitor and then
 let the algorithm decide how fast the data should be transmitted in order to reach the time
 deadline.
 
@@ -16,7 +17,7 @@ network is configure as single-hop, and the data sent through RF has the length 
 
 \begin{figure}[ht] \centering
 \includegraphics[width=0.85\textwidth]{img/algtest.png}
-\caption{Two runs of the algorithm}
+\caption{Two runs of the algorithm with EDLC capacitor and 4 hours deadline}
 \end{figure}
 
 When beginning with a deadline of 4 hours, in the first run, the node manages to execute 1593 task and be
@@ -46,19 +47,20 @@ per hours instead of 600, but the total number of sent data dropped to 18 with a
 The 12 hours test meant that 1F capacitor is barely enough for 12 hours with our demo test and that
 a bigger capacitor might be needed. Because we had two types of 1F capacitor, we were curios to
 see if there is a difference between them. What we found was a bit of surprise, especially the
-lowest voltage at which the node stopped working. The blue capacitor had a lower voltage of 1950mV
-compared to the black of 2050mV. However, the black one managed to transmit more data than
-the blue one, even when the algorithm was tweaked to take into consideration the lower working
-voltage of the blue one. The black managed to send 1642, while the blue one manage a 1254.
+lowest voltage at which the node stopped working. The Aerogel capacitor had a lower voltage of 1950mV
+compared to the ELDC of 2050mV. However, the EDLC capacitor managed to transmit more data than
+the Aerogel, even when the algorithm was tweaked to take into consideration the lower working
+voltage of the Aerogel capacitor. The EDLC managed to send data 1642 times, while the Aerogel one manage only
+1254 times.
 
 \begin{figure}[ht] \centering
 \includegraphics[width=0.85\textwidth]{img/capacitors.jpg}
-\caption{1F different capacitors, Left Black - Right Blue}
+\caption{1F different capacitors, Left EDLC - Right Aerogel}
 \end{figure}
 
 \begin{figure}[ht] \centering
 \includegraphics[width=0.85\textwidth]{img/captest1.png}
-\caption{1F different capacitors test, blue vs black}
+\caption{1F different capacitors test, Aerogel vs EDLC}
 \end{figure}
 
 
