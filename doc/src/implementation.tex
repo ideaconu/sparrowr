@@ -32,11 +32,15 @@ Figure~\ref{fig:capdisch} is an example of how the capacitor will discharge.
 \label{fig:capdisch}
 \end{figure}
 
+\lstset{numbers=none, mathescape=true, nolol=false,caption=Transfer speed scheduling algorithm,label=lst:alg}
 \newcommand{\var}[1]{{\ttfamily#1}}% variable
 \begin{algorithm}[t]
-  \caption{Send frequency scheduling Algorithm}\label{euclid}
+
+    \begin{lstlisting}
+    \end{lstlisting}
   \begin{algorithmic}[1]
-    \Procedure{algorithm}{$voltage,time$}\Comment{}
+
+      \Procedure{algorithm}{$voltage,time$}\Comment{}
     \State determine current state Charging/Discharging
     \If{changed from Charging to Discharging}
         \State Calculate the new target time
@@ -59,7 +63,8 @@ Figure~\ref{fig:capdisch} is an example of how the capacitor will discharge.
     \EndIf
     \EndIf
     \EndProcedure
-  \end{algorithmic}
+
+\end{algorithmic}
 \end{algorithm}
 
 
