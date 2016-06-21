@@ -3,33 +3,33 @@
 \label{chap:related}
 
 % Truism
-Energy harvesting has been studied for a long time, and in spite of the advantage of free power,
+Energy harvesting has been studied for a long time, and despite of the advantage of free power,
 there are some downsides. Solar panels are frequently used in EHWSNs because they can generate a
-lot of energy but it is not consistent and predicting it was on of the challenges to be
-overcome.
+lot of energy but it is not consistent and predicting it represents a challenge to overcome.
 
-In this chapter we will present the current advances in solar powered EHWSN.
+In this chapter we will present the current state of the art in solar powered EHWSN.
 
-\section {Prediction generated Energy}
+\section {Prediction generated energy}
 
 Because the solar energy is not constant, in order to predict the generated energy, a history of
 past-days weather conditions or generated energy must be taken into account. The state-of-the-art
-algorithm for this is Weather-Conditioned Moving Average (WCMA) \cite{piorno2009prediction}. IN
+algorithm for this is Weather-Conditioned Moving Average (WCMA) \cite{piorno2009prediction}. In
 order to predict the generated energy in the next hour, it needs to keep a history of generated
 energy for the past 6 days. The results of the algorithm are shown to be impressive, with an average error of
 9.8\% in 45 days of testing.
 
 Unfortunately, the algorithm requires the measurement of the generated energy in order to have an
 exact history of generated solar energy. Because of this, the algorithm is not feasible in
-applications where the node needs to be very low power due to the overhead of estimating the
-generated power. Also the application could be powered by a small solar panel of just
-60mW or less, much smaller compared to the one used in the paper, which could generate more than 300mW.
+applications where the node needs to be very low power, due to the overhead of estimating the
+generated power. An energy measurement chip can consume a few mW which can be almost all the generated
+energy by a small solar panel, for example on that could generate 20mW, much smaller than the one
+used in the paper, which could generate more than 300mW.
 A simpler solution for hardware as well as software must be found for those applications.
 
 
-\section {Using stored Energy}
+\section {Using stored energy}
 The other downside of solar powered is the fact that in the night, rain or foggy conditions the
-panel will generate a very small or next to nothing amount of energy. In order to keep to node
+panel will generate a very small or next to nothing amount of energy. In order to keep the node
 alive, transfer speed scheduling algorithms have been developed.
 
 The common approach to optimal packet scheduling is using a water-filling algorithm
@@ -42,7 +42,7 @@ added. The algorithms that can be used in this case are constant water level pol
 adaptive water-filling\cite{ozel2012optimal}, time-energy adaptive
 water-filling\cite{ozel2011transmission}.
 Because these are complex algorithms, simpler ones have been attempted, such as fuzzy power
-management\cite{aoudia2016fuzzy} , where a table with predetermined levels is used as main policy.
+management\cite{aoudia2016fuzzy} , where a table with predetermined levels is used as the main policy.
 What this mean is that the above algorithms will work best in high power scenarios, where leakage
 currents are small enough to be considered inexistent. Furthermore, the results of all the
 algorithms were obtained using simulated data with programs such as

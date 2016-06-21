@@ -12,7 +12,7 @@ task. This is not very desirable in real world, where a lot of variables can gen
     \item Differences between supposed identical super-capacitors.
 \end{itemize}
 
-In order to simply the algorithms for the user to deploy it faster in a real EHWSN applications,
+In order to simply the algorithms for the user to deploy them faster in a real EHWSN applications,
 we have implemented and tested a simple dynamic scheduling algorithm for transfered data.
 
 The algorithm can be considered to have very basic water-filling policy, with one slot that is
@@ -21,15 +21,16 @@ requirements. It is designed to be run with an energy harvesting module that has
 as energy storage unit. Because of this, we simplified the predictor in order to obtain O(1)
 complexity.
 
-The capacitor does not discharge very linear, but in the tests we have conducted, the error is
-small enough to allow us to estimated de remaining time without the requirement of measuring how
-much energy did the capacitor stored and how much energy is was consumed.
+The capacitor does not discharge very linearly, but in the tests we have conducted, the error is
+small enough to allow us to estimate the remaining time without the requirement of measuring how
+much energy did the capacitor stored and how much energy was consumed.
+Figure~\ref{fig:capdisch} is an example of how the capacitor will discharge.
 
 \begin{figure}[ht] \centering
 \includegraphics[width=0.85\textwidth]{img/capacitor.png}
-\caption{1F EDLC capacitor discharge}
+\caption{1F Electrolytic Double Layer capacitor discharge}
+\label{fig:capdisch}
 \end{figure}
-
 
 \newcommand{\var}[1]{{\ttfamily#1}}% variable
 \begin{algorithm}[t]

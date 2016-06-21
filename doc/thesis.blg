@@ -7,55 +7,53 @@ Warning--to sort, need author or key in arduino
 Warning--to sort, need author or key in rf233
 Warning--to sort, need author or key in samd21
 Warning--to sort, need author or key in samr21
-Warning--to sort, need author or key in nodelist
 Warning--to sort, need author or key in ultracap
 Warning--to sort, need author or key in atmegafa
 Warning--empty year in arduino
 Warning--empty year in atmegafa
-Warning--empty year in nodelist
 Warning--empty year in rf233
 Warning--empty year in samd21
 Warning--empty year in samr21
 Warning--empty year in ultracap
 You've used 18 entries,
             2773 wiz_defined-function locations,
-            682 strings with 7856 characters,
-and the built_in function-call counts, 7530 in all, are:
-= -- 689
-> -- 366
-< -- 5
-+ -- 130
-- -- 111
-* -- 609
-:= -- 1030
+            684 strings with 7974 characters,
+and the built_in function-call counts, 7591 in all, are:
+= -- 691
+> -- 376
+< -- 6
++ -- 133
+- -- 114
+* -- 614
+:= -- 1059
 add.period$ -- 56
 call.type$ -- 18
-change.case$ -- 91
+change.case$ -- 92
 chr.to.int$ -- 17
-cite$ -- 57
-duplicate$ -- 358
-empty$ -- 708
-format.name$ -- 126
-if$ -- 1645
+cite$ -- 54
+duplicate$ -- 362
+empty$ -- 704
+format.name$ -- 130
+if$ -- 1648
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 11
+missing$ -- 12
 newline$ -- 97
-num.names$ -- 44
-pop$ -- 257
+num.names$ -- 48
+pop$ -- 247
 preamble$ -- 1
-purify$ -- 73
+purify$ -- 74
 quote$ -- 0
-skip$ -- 248
+skip$ -- 253
 stack$ -- 0
-substring$ -- 248
+substring$ -- 247
 swap$ -- 37
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 198
-warning$ -- 14
-while$ -- 52
+warning$ -- 12
+while$ -- 55
 width$ -- 0
-write$ -- 228
-(There were 14 warnings)
+write$ -- 230
+(There were 12 warnings)

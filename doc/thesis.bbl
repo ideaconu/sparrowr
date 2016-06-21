@@ -14,11 +14,6 @@ Arduino.
 Atmega128rfa1 datasheet.
 \newblock \url{http://www.atmel.com/Images/doc8266.pdf}.
 
-\bibitem[nod()]{nodelist}
-List of wireless nodes.
-\newblock \url{https://en.wikipedia.org/wiki/List_of_wireless_sensor_nodes}.
-\newblock Accessed: 2016-06-20.
-
 \bibitem[rf2()]{rf233}
 Arduino-at86rf233.
 \newblock \url{https://github.com/msolters/arduino-at86rf233}.
@@ -75,6 +70,13 @@ Raja Jurdak, Kevin Klues, Brano Kusy, Christian Richter, Koen Langendoen, and
   networks.
 \newblock \emph{Embedded Systems Letters, IEEE}, 3\penalty0 (4):\penalty0
   121--124, 2011.
+
+\bibitem[Mridula~Maurya(2013)]{currentnodes}
+Shri R. N.~Shukla Mridula~Maurya.
+\newblock Current wireless sensor nodes (motes): Performance metrics and
+  constraints.
+\newblock \emph{International Journal of Advanced Research in Electronics and
+  Communication Engineering}, 2\penalty0 (1), 2013.
 
 \bibitem[Ozel et~al.(2011)Ozel, Tutuncuoglu, Yang, Ulukus, and
   Yener]{ozel2011transmission}
